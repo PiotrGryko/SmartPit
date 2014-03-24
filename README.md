@@ -1,0 +1,4 @@
+SmartPit
+========
+
+Helper project
