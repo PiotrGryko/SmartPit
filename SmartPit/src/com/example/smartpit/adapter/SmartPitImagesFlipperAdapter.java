@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout.LayoutParams;
 
+import com.example.smartpit.widget.SmartImageView;
 import com.example.smartpit.widget.SmartPitAppHelper;
 
 public class SmartPitImagesFlipperAdapter extends PagerAdapter {
@@ -35,13 +36,14 @@ public class SmartPitImagesFlipperAdapter extends PagerAdapter {
 
 	@Override
 	public boolean isViewFromObject(View view, Object object) {
-		return view == ((ImageView) object);
+		return view == ((SmartImageView) object);
 	}
 
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object) {
-		((ViewPager) container).removeView((ImageView) object);
+		((ViewPager) container).removeView((SmartImageView) object);
 
+		SmartPitAppHelper.stripViewGroup((SmartImageView)object, true);
 	}
 
 	@Override
@@ -60,13 +62,14 @@ public class SmartPitImagesFlipperAdapter extends PagerAdapter {
 		final int newPos = position;
 		pos = newPos;
 
-		ImageView imageView;
+		SmartImageView imageView;
 
-		imageView = new ImageView(context.getApplicationContext());
-		imageView.setScaleType(ScaleType.FIT_CENTER);
+		imageView = new SmartImageView(context);
+		imageView.getImageView().setScaleType(ScaleType.FIT_CENTER);
+		imageView.getImageView().setAdjustViewBounds(true);
 
-		imageView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT));
+		imageView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
+				LayoutParams.FILL_PARENT));
 
 		SmartPitAppHelper.setImage(context, imageView, list.get(position),
 				width, height);

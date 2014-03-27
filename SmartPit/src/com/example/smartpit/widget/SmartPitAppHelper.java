@@ -8,22 +8,27 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.digest.DigestUtils;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.smartpit.SmartPitActivity;
-import com.example.smartpit.bitmaps.SmartPitBitmapsLoader;
 import com.example.smartpit.bitmaps.SmartPitImagesListener;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 
@@ -51,24 +56,16 @@ public class SmartPitAppHelper {
 		return context.getResources();
 	}
 
-	public static void setImage(Context context, ImageView imageView,
+	public static void setImage(Context context, SmartImageView imageView,
 			String url, int width, int height) {
-		SmartPitBitmapsLoader lb = new SmartPitBitmapsLoader(context);
 
-		Bitmap b = lb.loadBitmapFromCache(url, width, height);
-		if (b != null)
-			imageView.setImageBitmap(b);
+		Log.d(TAG, "url:  " + url);
 
-		else {
+		SmartPitImagesListener li = new SmartPitImagesListener(context, url,
+				imageView);
+		imageView.setImageBitmap(SmartPitActivity.getImageLoader()
+				.get(url, li, width, height).getBitmap());
 
-			Log.d(TAG, "url:  " + url);
-
-			SmartPitImagesListener li = new SmartPitImagesListener(context,
-					url, imageView);
-			imageView.setImageBitmap(SmartPitActivity.getImageLoader()
-					.get(url, li).getBitmap());
-
-		}
 	}
 
 	public static boolean isConnected() {
@@ -303,8 +300,8 @@ public class SmartPitAppHelper {
 	public static void resumeFocus(View view,
 			final SmartPitFragmentsInterface listener) {
 
-		Log.d(TAG, "resume focus "+view.toString());
-		
+		Log.d(TAG, "resume focus " + view.toString());
+
 		view.setFocusableInTouchMode(true);
 
 		view.requestFocus();
@@ -331,6 +328,100 @@ public class SmartPitAppHelper {
 				return true;
 			}
 		});
+	}
+
+	public static int getScreenWidth() {
+		return context.getResources().getDisplayMetrics().widthPixels;
+	}
+
+	public static int getScreenHeight() {
+		return context.getResources().getDisplayMetrics().heightPixels;
+	}
+
+	public void saveBitmapToCache(Bitmap bitmap, String filename) {
+
+		filename = new String(Hex.encodeHex(DigestUtils.md5(filename)));
+
+		FileOutputStream fos;
+		File file;
+
+		file = new File(context.getApplicationContext().getCacheDir(), filename);
+		try {
+			fos = new FileOutputStream(file);
+
+			bitmap.compress(CompressFormat.PNG, 50, fos);
+			fos.flush();
+			fos.close();
+
+			Log.d(TAG, filename + " bitmap saved to cache");
+
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+
+			Log.d(TAG, e.toString());
+		}
+
+	}
+
+	public Bitmap loadBitmapFromCache(String filename, int width, int height) {
+
+		filename = new String(Hex.encodeHex(DigestUtils.md5(filename)));
+
+		File file = null;
+		Bitmap b = null;
+		try {
+			file = new File(context.getApplicationContext().getCacheDir(),
+					filename);
+
+			b = SmartPitAppHelper.decodeSampledBitmapFromFile(file, width,
+					height);
+			// listener.setFull(b);
+
+			Log.d(TAG, filename + " bitmap loaded from cache");
+			return b;
+		} catch (Throwable e) {
+			Log.d(TAG,
+					filename + " error while loading bitmap from cache "
+							+ e.getMessage());
+
+			return b;
+		}
+
+	}
+
+	public static void stripView(View view, boolean recycle) {
+
+		if (view != null) {
+
+			if (view instanceof ImageView) {
+				if (((ImageView) view).getDrawable() instanceof BitmapDrawable
+						&& recycle) {
+					((BitmapDrawable) ((ImageView) view).getDrawable())
+							.getBitmap().recycle();
+				}
+				if (((ImageView) view).getDrawable() != null)
+					((ImageView) view).getDrawable().setCallback(null);
+				((ImageView) view).setImageDrawable(null);
+			}
+			view.getResources().flushLayoutCache();
+			view.destroyDrawingCache();
+
+			Log.d(TAG, "clearing view " + view.toString());
+			view = null;
+		}
+	}
+
+	public static void stripViewGroup(View v, boolean recycle) {
+
+		if (v != null) {
+			if (v instanceof ViewGroup) {
+				for (int i = 0; i < ((ViewGroup) v).getChildCount(); i++) {
+					stripViewGroup(((ViewGroup) v).getChildAt(i), recycle);
+				}
+
+			} else
+				stripView(v, recycle);
+		}
 	}
 
 }

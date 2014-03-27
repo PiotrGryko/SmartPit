@@ -961,13 +961,14 @@ containing a value of this type.
         public static int abs__textButton=0x7f050013;
         public static int abs__title=0x7f05001b;
         public static int abs__up=0x7f05000b;
-        public static int action_settings=0x7f050034;
+        public static int action_settings=0x7f050035;
         public static int disableHome=0x7f050009;
         public static int edit_query=0x7f050026;
         public static int fragment_container=0x7f050032;
         public static int fragments_container=0x7f050033;
         public static int homeAsUp=0x7f050006;
         public static int listMode=0x7f050002;
+        public static int map=0x7f050034;
         public static int normal=0x7f050001;
         public static int showCustom=0x7f050008;
         public static int showHome=0x7f050005;
@@ -1005,6 +1006,7 @@ containing a value of this type.
         public static int sherlock_spinner_item=0x7f030016;
         public static int smart_activity=0x7f030017;
         public static int smart_base_fragment=0x7f030018;
+        public static int smart_map_fragment=0x7f030019;
     }
     public static final class menu {
         public static int main=0x7f0c0000;

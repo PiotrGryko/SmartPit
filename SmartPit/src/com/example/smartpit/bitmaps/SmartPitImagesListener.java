@@ -3,23 +3,23 @@ package com.example.smartpit.bitmaps;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
-import android.widget.ImageView;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader.ImageContainer;
 import com.android.volley.toolbox.ImageLoader.ImageListener;
+import com.example.smartpit.widget.SmartImageView;
 
 public class SmartPitImagesListener implements ImageListener {
 
 	private String TAG = "MyImageListener";
 	private String filename;
 
-	private ImageView imageView;
+	private SmartImageView imageView;
 
 	Context context;
 
 	public SmartPitImagesListener(Context context, String filename,
-			ImageView image) {
+			SmartImageView image) {
 
 		this.context = context;
 		this.filename = filename;
@@ -47,13 +47,7 @@ public class SmartPitImagesListener implements ImageListener {
 
 		}
 
-		new Thread() {
-			public void run() {
-
-				new SmartPitBitmapsLoader(context).saveBitmapToCache(b,
-						filename);
-			}
-		}.start();
+		
 
 	}
 }

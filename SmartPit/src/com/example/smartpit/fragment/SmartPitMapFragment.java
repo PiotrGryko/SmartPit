@@ -1,0 +1,55 @@
+package com.example.smartpit.fragment;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.smartpit.R;
+import com.example.smartpit.interfaces.SmartPitChildFragmentInterface;
+import com.example.smartpit.widget.Log;
+import com.example.smartpit.widget.SmartPitAppHelper;
+
+public class SmartPitMapFragment extends SmartPitFragment implements
+		SmartPitChildFragmentInterface {
+
+	private String TAG = SmartPitMapFragment.class.getName();
+
+	// private AppDialog alert;
+	// private GoogleMap map;
+
+	public void initMap() {
+		/*
+		 * if(map==null) map = ((SupportMapFragment) this.getSherlockActivity()
+		 * .getSupportFragmentManager().findFragmentById(R.id.map)) .getMap();
+		 */
+	}
+
+	public void onDestroyView() {
+		super.onDestroyView();
+
+		Fragment fragment = (this.getSherlockActivity()
+				.getSupportFragmentManager().findFragmentById(R.id.map));
+		FragmentTransaction ft = getActivity().getSupportFragmentManager()
+				.beginTransaction();
+		ft.remove(fragment);
+		ft.commitAllowingStateLoss();
+
+	}
+
+	public void stripView() {
+		// TODO Auto-generated method stub
+		if (this.getView() != null) {
+			Log.d("CLEAR", "clearview");
+			SmartPitAppHelper.stripViewGroup(this.getView(), false);
+
+		} else
+			Log.d("CLEAR", "view null");
+
+		System.gc();
+
+	}
+
+}
