@@ -40,6 +40,7 @@ public class SmartPitAppHelper {
 	private static ConnectivityManager cm;
 	private static DecimalFormat df;
 	private static SharedPreferences pref;
+	private static SmartPitAppHelper instance;
 
 	public static void initAppHelper(Context con) {
 		context = con;
@@ -52,11 +53,17 @@ public class SmartPitAppHelper {
 
 	}
 
-	public static Resources getResources() {
+	public static SmartPitAppHelper getInstance() {
+		if (instance == null)
+			instance = new SmartPitAppHelper();
+		return instance;
+	}
+
+	public  Resources getResources() {
 		return context.getResources();
 	}
 
-	public static void setImage(Context context, SmartImageView imageView,
+	public  void setImage(Context context, SmartImageView imageView,
 			String url, int width, int height) {
 
 		Log.d(TAG, "url:  " + url);
@@ -68,7 +75,7 @@ public class SmartPitAppHelper {
 
 	}
 
-	public static boolean isConnected() {
+	public  boolean isConnected() {
 		boolean isConnected = false;
 
 		NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
@@ -83,11 +90,11 @@ public class SmartPitAppHelper {
 		return isConnected;
 	}
 
-	public static SharedPreferences getPreferences() {
+	public  SharedPreferences getPreferences() {
 		return pref;
 	}
 
-	public static String convertDecimalToDMS(double coordinate) {
+	public  String convertDecimalToDMS(double coordinate) {
 		String result;
 
 		BigDecimal bd = new BigDecimal(coordinate);
@@ -108,7 +115,7 @@ public class SmartPitAppHelper {
 
 	}
 
-	public static int calculateInSampleSize(BitmapFactory.Options options,
+	public  int calculateInSampleSize(BitmapFactory.Options options,
 			int reqWidth, int reqHeight) {
 		// Raw height and width of image
 		final int height = options.outHeight;
@@ -132,7 +139,7 @@ public class SmartPitAppHelper {
 		return inSampleSize;
 	}
 
-	public static Bitmap decodeSampledBitmapFromResource(Resources res,
+	public  Bitmap decodeSampledBitmapFromResource(Resources res,
 			int resId, int reqWidth, int reqHeight) {
 
 		InputStream fis = res.openRawResource(resId);
@@ -180,7 +187,7 @@ public class SmartPitAppHelper {
 		}
 	}
 
-	public static Bitmap decodeSampledBitmapFromFile(File child, int reqWidth,
+	public  Bitmap decodeSampledBitmapFromFile(File child, int reqWidth,
 			int reqHeight) throws Throwable {
 
 		FileInputStream fis = null;
@@ -297,7 +304,7 @@ public class SmartPitAppHelper {
 		return (xlarge || large);
 	}
 
-	public static void resumeFocus(View view,
+	public  void resumeFocus(View view,
 			final SmartPitFragmentsInterface listener) {
 
 		Log.d(TAG, "resume focus " + view.toString());
@@ -330,11 +337,11 @@ public class SmartPitAppHelper {
 		});
 	}
 
-	public static int getScreenWidth() {
+	public  int getScreenWidth() {
 		return context.getResources().getDisplayMetrics().widthPixels;
 	}
 
-	public static int getScreenHeight() {
+	public int getScreenHeight() {
 		return context.getResources().getDisplayMetrics().heightPixels;
 	}
 
@@ -373,7 +380,7 @@ public class SmartPitAppHelper {
 			file = new File(context.getApplicationContext().getCacheDir(),
 					filename);
 
-			b = SmartPitAppHelper.decodeSampledBitmapFromFile(file, width,
+			b = decodeSampledBitmapFromFile(file, width,
 					height);
 			// listener.setFull(b);
 
@@ -389,7 +396,7 @@ public class SmartPitAppHelper {
 
 	}
 
-	public static void stripView(View view, boolean recycle) {
+	public  void stripView(View view, boolean recycle) {
 
 		if (view != null) {
 
@@ -411,7 +418,7 @@ public class SmartPitAppHelper {
 		}
 	}
 
-	public static void stripViewGroup(View v, boolean recycle) {
+	public  void stripViewGroup(View v, boolean recycle) {
 
 		if (v != null) {
 			if (v instanceof ViewGroup) {

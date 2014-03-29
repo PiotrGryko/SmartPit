@@ -19,7 +19,7 @@ public class SmartPitBaseChildFragment extends SmartPitFragment {
 	public void onResume() {
 		super.onResume();
 
-		SmartPitAppHelper.resumeFocus(this.getView(),
+		SmartPitAppHelper.getInstance().resumeFocus(this.getView(),
 				this.getFragmentsListener());
 
 	}

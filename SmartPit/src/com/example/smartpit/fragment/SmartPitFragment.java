@@ -26,7 +26,7 @@ public class SmartPitFragment extends SherlockFragment implements
 	@Override
 	public void stripView() {
 		if (this.getView() != null) {
-			SmartPitAppHelper.stripViewGroup(this.getView(), false);
+			SmartPitAppHelper.getInstance().stripViewGroup(this.getView(), false);
 
 			System.gc();
 

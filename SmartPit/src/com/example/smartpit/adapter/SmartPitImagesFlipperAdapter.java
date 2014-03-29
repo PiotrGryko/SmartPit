@@ -43,7 +43,7 @@ public class SmartPitImagesFlipperAdapter extends PagerAdapter {
 	public void destroyItem(ViewGroup container, int position, Object object) {
 		((ViewPager) container).removeView((SmartImageView) object);
 
-		SmartPitAppHelper.stripViewGroup((SmartImageView)object, true);
+		SmartPitAppHelper.getInstance().stripViewGroup((SmartImageView)object, true);
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class SmartPitImagesFlipperAdapter extends PagerAdapter {
 		imageView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
 				LayoutParams.FILL_PARENT));
 
-		SmartPitAppHelper.setImage(context, imageView, list.get(position),
+		SmartPitAppHelper.getInstance().setImage(context, imageView, list.get(position),
 				width, height);
 
 		row = imageView;

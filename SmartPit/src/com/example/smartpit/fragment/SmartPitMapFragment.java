@@ -1,16 +1,14 @@
 package com.example.smartpit.fragment;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.smartpit.R;
 import com.example.smartpit.interfaces.SmartPitChildFragmentInterface;
 import com.example.smartpit.widget.Log;
 import com.example.smartpit.widget.SmartPitAppHelper;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
 
 public class SmartPitMapFragment extends SmartPitFragment implements
 		SmartPitChildFragmentInterface {
@@ -18,13 +16,20 @@ public class SmartPitMapFragment extends SmartPitFragment implements
 	private String TAG = SmartPitMapFragment.class.getName();
 
 	// private AppDialog alert;
-	// private GoogleMap map;
+	private GoogleMap map;
 
+	public GoogleMap getMap()
+	{
+		return map;
+	}
+	
 	public void initMap() {
-		/*
-		 * if(map==null) map = ((SupportMapFragment) this.getSherlockActivity()
-		 * .getSupportFragmentManager().findFragmentById(R.id.map)) .getMap();
-		 */
+
+		if (map == null)
+			map = ((SupportMapFragment) this.getSherlockActivity()
+					.getSupportFragmentManager().findFragmentById(R.id.map))
+					.getMap();
+
 	}
 
 	public void onDestroyView() {
@@ -43,7 +48,7 @@ public class SmartPitMapFragment extends SmartPitFragment implements
 		// TODO Auto-generated method stub
 		if (this.getView() != null) {
 			Log.d("CLEAR", "clearview");
-			SmartPitAppHelper.stripViewGroup(this.getView(), false);
+			SmartPitAppHelper.getInstance().stripViewGroup(this.getView(), false);
 
 		} else
 			Log.d("CLEAR", "view null");
