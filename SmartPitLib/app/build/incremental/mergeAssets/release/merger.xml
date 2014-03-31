@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/assets" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/release/assets" />
+    </dataSet>
+
+</merger>
