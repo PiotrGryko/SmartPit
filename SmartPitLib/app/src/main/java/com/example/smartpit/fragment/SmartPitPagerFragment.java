@@ -9,14 +9,16 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
 
 import com.example.smartpit.adapter.SmartPitPagerAdapter;
+import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.widget.SmartPitViewPager;
 
 public class SmartPitPagerFragment extends SmartPitFragment {
 
 	private SmartPitPagerAdapter pagerAdapter;
 
-	private TabHost host;
-	private SmartPitViewPager viewPager;
+	private static TabHost host;
+	private static SmartPitViewPager viewPager;
+    private ArrayList<SmartPitFragment> fragmentsList;
 
 	public void setPagerAndHost(View v, boolean swapable, int pagerId, int pagesLimit) {
 		viewPager = (SmartPitViewPager) v.findViewById(pagerId);
@@ -28,15 +30,17 @@ public class SmartPitPagerFragment extends SmartPitFragment {
 		host.setup();
 	}
 
-	public TabHost getHost() {
+	public static TabHost getHost() {
 		return host;
 	}
 
-	public SmartPitViewPager getPager() {
+
+	public static SmartPitViewPager getPager() {
 		return viewPager;
 	}
 
 	public void setAdapter(ArrayList<SmartPitFragment> fragmentsList) {
+        this.fragmentsList=fragmentsList;
 		/*
 		 * TabHost.TabSpec spec = null;
 		 * 
@@ -65,6 +69,8 @@ public class SmartPitPagerFragment extends SmartPitFragment {
 		}
 
 	}
+
+
 
 	
 

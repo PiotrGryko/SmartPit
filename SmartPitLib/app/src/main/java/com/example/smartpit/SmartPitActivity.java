@@ -142,4 +142,9 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 		return this;
 	}
 
+    @Override
+    public int getTab() {
+        return 0;
+    }
+
 }

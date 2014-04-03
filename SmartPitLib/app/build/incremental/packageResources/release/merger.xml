@@ -2,59 +2,69 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res" >
+        <source path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res" >
             <file
                 name="slide_in_left"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/anim/slide_in_left.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/slide_in_left.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="wave_list_animation"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/anim/wave_list_animation.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/wave_list_animation.xml"
+                qualifiers=""
+                type="anim" />
+            <file
+                name="menu_out"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/menu_out.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="slide_in_right"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/anim/slide_in_right.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/slide_in_right.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="slide_out_right"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/anim/slide_out_right.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/slide_out_right.xml"
+                qualifiers=""
+                type="anim" />
+            <file
+                name="menu_in"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/menu_in.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="slide_out_left"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/anim/slide_out_left.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/slide_out_left.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="top_to_bottom_list_animation"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/anim/top_to_bottom_list_animation.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/anim/top_to_bottom_list_animation.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="smart_base_fragment"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/layout/smart_base_fragment.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/layout/smart_base_fragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="smart_activity"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/layout/smart_activity.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/layout/smart_activity.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="smart_map_fragment"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/layout/smart_map_fragment.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/layout/smart_map_fragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="ic_launcher"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/drawable-mdpi/ic_launcher.png"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/drawable-mdpi/ic_launcher.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/values/dimens.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/values/dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_horizontal_margin" >16dp
                 </dimen>
@@ -62,7 +72,7 @@
                 </dimen>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/values/strings.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/values/strings.xml"
                 qualifiers="" >
                 <string name="action_settings" >Settings
                 </string>
@@ -72,7 +82,7 @@
                 </string>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/values/styles.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/values/styles.xml"
                 qualifiers="" >
 
                 <style
@@ -95,26 +105,26 @@
             </file>
             <file
                 name="ic_launcher"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/drawable-xhdpi/ic_launcher.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
                 name="main"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/menu/main.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/menu/main.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="ic_launcher"
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/drawable-hdpi/ic_launcher.png"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/drawable-hdpi/ic_launcher.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/values-v14/styles.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/values-v14/styles.xml"
                 qualifiers="v14" >
 
                 <style
@@ -125,7 +135,7 @@
                 </style>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/values-v11/styles.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/values-v11/styles.xml"
                 qualifiers="v11" >
 
                 <style
@@ -136,17 +146,17 @@
                 </style>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/res/values-w820dp/dimens.xml"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/values-w820dp/dimens.xml"
                 qualifiers="w820dp" >
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
         </source>
-        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/build/res/rs/release" />
-        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/build/res/generated/release" />
+        <source path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/build/res/rs/release" />
+        <source path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/build/res/generated/release" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/release/res" />
+        <source path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/release/res" />
     </dataSet>
 
 </merger>

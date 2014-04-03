@@ -11,12 +11,20 @@ import android.view.ViewGroup;
 import android.view.animation.Transformation;
 import android.widget.BaseAdapter;
 
+import com.example.smartpit.adapter.SmartPitCoverFlowAdapter;
+
 import java.util.ArrayList;
 
 /**
  * Created by piotr on 29.03.14.
  */
 public class SmartPitCoverFlow extends ViewGroup {
+
+
+    public static interface OnCoverFlowItemClickListener
+    {
+        public void onItemClick(int position);
+    }
 
     public static enum ORIENTATION {
         VERTICAL, HORIZONTAL
@@ -97,6 +105,7 @@ public class SmartPitCoverFlow extends ViewGroup {
 
 
     private int currentListSize;
+
 
 
 
@@ -239,6 +248,8 @@ public class SmartPitCoverFlow extends ViewGroup {
 
         return true;
     }
+
+
 
     /* Set adapter */
     public void setAdapter(BaseAdapter adapter) {

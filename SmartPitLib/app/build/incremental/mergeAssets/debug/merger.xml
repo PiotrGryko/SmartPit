@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/main/assets" />
+        <source path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/src/debug/assets" />
+        <source path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/debug/assets" />
     </dataSet>
 
 </merger>

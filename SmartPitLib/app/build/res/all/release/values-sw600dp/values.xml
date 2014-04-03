@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/home/piotr/AndroidProjects/eltechbiur1/SmartPitLib/app/build/exploded-bundles/ComActionbarsherlockActionbarsherlock440.aar/res/values-sw600dp/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values-sw600dp/values.xml -->
     <eat-comment />
 
     <bool name="abs__action_bar_expanded_action_views_exclusive">false</bool>

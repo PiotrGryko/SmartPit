@@ -15,13 +15,15 @@ public interface SmartPitFragmentsInterface {
 
 	public void setCurrentFragment(SherlockFragment fragment, boolean removePrevious);
 
-	public Fragment getCurrentFragment();
+	public SherlockFragment getCurrentFragment();
 	
 	public String setActionBarLabel(String label, boolean home, boolean facebook);
 	
 	public FragmentManager getManager();
 	
 	public Activity getSmartActivity();
+
+    public int getTab();
 	
 
 }

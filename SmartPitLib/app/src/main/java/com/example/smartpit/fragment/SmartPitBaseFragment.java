@@ -43,6 +43,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     }
 
+    public void setPosition(int position)
+    {
+        this.position=position;
+    }
+
     public void initBase(SherlockFragment fragment) {
 
         this.setCurrentFragment(fragment, false);

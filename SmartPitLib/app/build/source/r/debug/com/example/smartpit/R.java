@@ -9,12 +9,14 @@ package com.example.smartpit;
 
 public final class R {
     public static final class anim {
-        public static int slide_in_left=0x7f040000;
-        public static int slide_in_right=0x7f040001;
-        public static int slide_out_left=0x7f040002;
-        public static int slide_out_right=0x7f040003;
-        public static int top_to_bottom_list_animation=0x7f040004;
-        public static int wave_list_animation=0x7f040005;
+        public static int menu_in=0x7f040000;
+        public static int menu_out=0x7f040001;
+        public static int slide_in_left=0x7f040002;
+        public static int slide_in_right=0x7f040003;
+        public static int slide_out_left=0x7f040004;
+        public static int slide_out_right=0x7f040005;
+        public static int top_to_bottom_list_animation=0x7f040006;
+        public static int wave_list_animation=0x7f040007;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 

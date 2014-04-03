@@ -59,6 +59,8 @@ public class SmartPitAppHelper {
 		return instance;
 	}
 
+
+
 	public  Resources getResources() {
 		return context.getResources();
 	}
