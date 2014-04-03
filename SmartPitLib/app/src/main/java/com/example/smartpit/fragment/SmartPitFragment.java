@@ -15,9 +15,39 @@ public class SmartPitFragment extends SherlockFragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface)
+
+        if (this.getParentFragment()!=null &&  (this.getParentFragment() instanceof SmartPitFragmentsInterface))
+            listener = (SmartPitFragmentsInterface) this.getParentFragment();
+
+		else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface)
 			listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
 	}
+
+
+    public void onResume()
+    {
+        super.onResume();
+
+        /*
+        If SmartPitPagerFragment and nested fragment are used, resume focus only for currently visible tab
+
+         */
+
+        if(SmartPitPagerFragment.getHost()!=null)
+        {
+
+            if(this.getFragmentsListener().getTab()==SmartPitPagerFragment.getHost().getCurrentTab())
+                resumeFocus();
+        }
+        else
+            resumeFocus();
+    }
+
+    public void resumeFocus()
+    {
+        SmartPitAppHelper.getInstance().resumeFocus(this.getView(),
+                this.getFragmentsListener());
+    }
 
 	public SmartPitFragmentsInterface getFragmentsListener() {
 		return listener;

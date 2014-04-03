@@ -21,11 +21,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     private ArrayList<SherlockFragment> fragmentsList;
 
     private int position;
-    private SmartPitBaseChildFragment initialFragment;
+    private SmartPitFragment initialFragment;
 
     private String TAG = SmartPitBaseFragment.this.getClass().getName();
 
-    public void setInitialFragment(SmartPitBaseChildFragment initialFragment) {
+    public void setInitialFragment(SmartPitFragment initialFragment) {
         this.initialFragment = initialFragment;
     }
 
