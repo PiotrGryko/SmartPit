@@ -3,7 +3,12 @@ package com.example.smartpit.widget;
 import android.content.Context;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 /**
  * Created by piotr on 02.04.14.
@@ -11,29 +16,52 @@ import android.widget.LinearLayout;
 public class SmartPitSlidingContent extends LinearLayout {
 
 
-
-
-
-
     private String TAG = SmartPitSlidingContent.this.getClass().getName();
 
 
+    private SmartPitSlidingMenu parent;
 
-
-    private boolean isShowing = false;
+    private boolean isShowing = true;
     private boolean isAnimating = false;
+
+
+    private boolean isTouching;
+    private boolean rightMove;
+    private float lastMove;
 
 
     private long mStartTime;
     private float mGap;
+    private float mMove;
     private int mViewLeft;
     private int DURATION = 500;
+
+    private float initX = 0;
+    private float initY = 0;
+
+    private int initGap = 10;
+
+
+    private int offset;
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
 
     private SmartPitSlidingMenu.SlideAnimationListener mSlideListener;
 
 
-    public SmartPitSlidingContent(Context context) {
+    public SmartPitSlidingContent(Context context, SmartPitSlidingMenu parent) {
         super(context);
+
+        this.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.FILL_PARENT));
+        this.setGravity(Gravity.CENTER);
+        this.parent = parent;
     }
 
     public SmartPitSlidingContent(Context context, AttributeSet attrs) {
@@ -45,10 +73,77 @@ public class SmartPitSlidingContent extends LinearLayout {
         this.DURATION = duration;
     }
 
-    public void setSlideAnimationListener(SmartPitSlidingMenu.SlideAnimationListener listener)
-    {
-        this.mSlideListener=listener;
+    public void initTouchListener() {
+        this.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                int action = event.getAction();
+
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN: {
+
+
+                        initX = event.getX();
+                        initY = event.getY();
+                        //   break;
+                        return true;
+                    }
+
+                    case MotionEvent.ACTION_MOVE: {
+
+                        mMove = event.getX() - initX;
+
+                        if (!isTouching) {
+                            initX = event.getX();
+                            isTouching = true;
+                            lastMove = mMove;
+                            if (mMove > 0) {
+                                rightMove = true;
+                                Log.d(TAG, "right!");
+                            } else {
+                                rightMove = false;
+
+                                Log.d(TAG, "left!");
+                            }
+
+
+                        } else {
+
+
+                            mMove = event.getX() - initX;
+
+
+                            setPosition(mMove / SmartPitSlidingContent.this.getWidth());
+                            lastMove = mMove;
+
+
+                        }
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL: {
+
+                        if (rightMove)
+                            show();
+                        else
+                            hide();
+                        isTouching = false;
+                        return true;
+                    }
+
+                }
+                return true;
+            }
+        });
     }
+
+    public void setSlideAnimationListener(SmartPitSlidingMenu.SlideAnimationListener listener) {
+        this.mSlideListener = listener;
+    }
+
+
+
 
 
     /* Animation Task */
@@ -59,20 +154,17 @@ public class SmartPitSlidingContent extends LinearLayout {
             long totalTime = mCurTime - mStartTime;
 
             // Animation end
-            if (totalTime > DURATION) {
-
+            if (totalTime > DURATION || !isAnimating) {
 
 
                 removeCallbacks(showAnimationTask);
-                isAnimating=false;
+                isAnimating = false;
 
 
-
-
-                if(mSlideListener!=null)
+                if (mSlideListener != null)
                     mSlideListener.onFinishShowingAnimation();
 
-                mGap=1;
+                mGap = 1;
 
             } else {
                 float perCent = (((float) totalTime) / DURATION);
@@ -96,15 +188,15 @@ public class SmartPitSlidingContent extends LinearLayout {
             long totalTime = mCurTime - mStartTime;
 
             // Animation end
-            if (totalTime > DURATION) {
+            if (totalTime > DURATION || !isAnimating) {
 
 
                 removeCallbacks(hideAnimationTask);
-                isAnimating=false;
-                if(mSlideListener!=null)
+                isAnimating = false;
+                if (mSlideListener != null)
                     mSlideListener.onFinishHidingAnimation();
 
-                mGap=-1;
+                mGap = -1;
 
             } else {
                 float perCent = (((float) totalTime) / DURATION);
@@ -117,6 +209,7 @@ public class SmartPitSlidingContent extends LinearLayout {
 
 
             setPosition(mGap);
+
             invalidate();
 
         }
@@ -124,9 +217,29 @@ public class SmartPitSlidingContent extends LinearLayout {
 
     private void setPosition(float gap) {
 
+        //   Log.d(TAG,"set position "+Float.toString(gap));
+        int move = (int) ((float) (this.getWidth()) * gap);
 
-        int move = (int) ((float) this.getWidth() * gap);
-        this.layout(mViewLeft + move, 0, mViewLeft + this.getWidth() + move, this.getHeight());
+        int finalLeft = mViewLeft + move;
+        int finalRight = mViewLeft + this.getWidth() + move;
+
+        if (finalRight > parent.getRight()) {
+            Log.d(TAG, "right to far");
+            finalLeft = parent.getRight() - this.getWidth();
+            finalRight = parent.getRight();
+            isTouching = false;
+            isAnimating = false;
+        } else if (finalRight < parent.getRight() - this.getWidth() + offset) {
+            Log.d(TAG, "left to far");
+            finalRight = parent.getRight() - this.getWidth() + offset;
+            finalLeft = finalRight - this.getWidth();
+            isTouching = false;
+            isAnimating = false;
+        }
+
+        mViewLeft = finalLeft;
+        this.layout(finalLeft, 0, finalRight, this.getHeight());
+
 
     }
 
@@ -136,6 +249,8 @@ public class SmartPitSlidingContent extends LinearLayout {
     }
 
     public void show() {
+
+        Log.d(TAG, "show");
 
         if (!isAnimating) {
             isShowing = isAnimating = true;
@@ -149,7 +264,9 @@ public class SmartPitSlidingContent extends LinearLayout {
 
     public void hide() {
 
-        if (!isAnimating) {
+        Log.d(TAG, "hide");
+
+        if (!isAnimating ) {
             isShowing = false;
             isAnimating = true;
 

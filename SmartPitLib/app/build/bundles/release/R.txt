@@ -346,7 +346,12 @@ int id abs__submit_area 0x7f070033
 int id abs__textButton 0x7f070017
 int id abs__title 0x7f07001f
 int id abs__up 0x7f070013
-int id action_settings 0x7f070039
+int id action_settings 0x7f070042
+int id button_one 0x7f07003f
+int id button_one_background 0x7f07003e
+int id button_two 0x7f070041
+int id button_two_background 0x7f070040
+int id buttons_background 0x7f07003d
 int id disableHome 0x7f07000c
 int id edit_query 0x7f07002a
 int id fragment_container 0x7f070036
@@ -355,6 +360,8 @@ int id homeAsUp 0x7f070009
 int id hybrid 0x7f070004
 int id listMode 0x7f070005
 int id map 0x7f070038
+int id message 0x7f07003c
+int id message_background 0x7f07003b
 int id none 0x7f070000
 int id normal 0x7f070001
 int id satellite 0x7f070002
@@ -363,6 +370,8 @@ int id showHome 0x7f070008
 int id showTitle 0x7f07000a
 int id tabMode 0x7f070006
 int id terrain 0x7f070003
+int id title 0x7f07003a
+int id title_background 0x7f070039
 int id useLogo 0x7f070007
 int id wrap_content 0x7f07000d
 int integer abs__max_action_buttons 0x7f090000
@@ -393,6 +402,7 @@ int layout sherlock_spinner_item 0x7f030016
 int layout smart_activity 0x7f030017
 int layout smart_base_fragment 0x7f030018
 int layout smart_map_fragment 0x7f030019
+int layout smart_pit_dialog 0x7f03001a
 int menu main 0x7f0c0000
 int string abs__action_bar_home_description 0x7f0a0000
 int string abs__action_bar_up_description 0x7f0a0001

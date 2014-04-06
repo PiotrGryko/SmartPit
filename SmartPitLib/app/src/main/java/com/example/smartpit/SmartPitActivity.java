@@ -3,6 +3,7 @@ package com.example.smartpit;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -13,6 +14,8 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.example.smartpit.bitmaps.SmartPitBitmapCache;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
+import com.example.smartpit.schedule.SmartPitScheduleDataReceiver;
+import com.example.smartpit.schedule.SmartPitScheduledIntentService;
 import com.example.smartpit.widget.SmartPitAppHelper;
 
 public class SmartPitActivity extends SherlockFragmentActivity implements
@@ -141,6 +144,21 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 		// TODO Auto-generated method stub
 		return this;
 	}
+
+    public void initScheduledService(int delay,  SmartPitScheduledIntentService.ScheduleTaskListener listener)
+    {
+
+        SmartPitScheduledIntentService.setTaskListener(listener);
+        SmartPitScheduleDataReceiver.setDelay(delay);
+        this.sendBroadcast(new Intent(this, SmartPitScheduleDataReceiver.class));
+
+    }
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        SmartPitScheduleDataReceiver.stopService();
+    }
 
     @Override
     public int getTab() {

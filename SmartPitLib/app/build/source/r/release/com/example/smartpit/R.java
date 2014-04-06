@@ -1069,7 +1069,12 @@ containing a value of this type.
         public static int abs__textButton=0x7f070017;
         public static int abs__title=0x7f07001f;
         public static int abs__up=0x7f070013;
-        public static int action_settings=0x7f070039;
+        public static int action_settings=0x7f070042;
+        public static int button_one=0x7f07003f;
+        public static int button_one_background=0x7f07003e;
+        public static int button_two=0x7f070041;
+        public static int button_two_background=0x7f070040;
+        public static int buttons_background=0x7f07003d;
         public static int disableHome=0x7f07000c;
         public static int edit_query=0x7f07002a;
         public static int fragment_container=0x7f070036;
@@ -1078,6 +1083,8 @@ containing a value of this type.
         public static int hybrid=0x7f070004;
         public static int listMode=0x7f070005;
         public static int map=0x7f070038;
+        public static int message=0x7f07003c;
+        public static int message_background=0x7f07003b;
         public static int none=0x7f070000;
         public static int normal=0x7f070001;
         public static int satellite=0x7f070002;
@@ -1086,6 +1093,8 @@ containing a value of this type.
         public static int showTitle=0x7f07000a;
         public static int tabMode=0x7f070006;
         public static int terrain=0x7f070003;
+        public static int title=0x7f07003a;
+        public static int title_background=0x7f070039;
         public static int useLogo=0x7f070007;
         public static int wrap_content=0x7f07000d;
     }
@@ -1120,6 +1129,7 @@ containing a value of this type.
         public static int smart_activity=0x7f030017;
         public static int smart_base_fragment=0x7f030018;
         public static int smart_map_fragment=0x7f030019;
+        public static int smart_pit_dialog=0x7f03001a;
     }
     public static final class menu {
         public static int main=0x7f0c0000;

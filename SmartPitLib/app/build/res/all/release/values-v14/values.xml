@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/values-v14/styles.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/src/main/res/values-v14/styles.xml -->
     <eat-comment />
 
     <style name="AppBaseTheme" parent="Theme.Sherlock.Light">
         <!-- API 14 theme customizations can go here. -->
     </style>
-    <!-- From: file:/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values-v14/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values-v14/values.xml -->
     <eat-comment />
 
     <style name="Sherlock.__Theme" parent="android:Theme.Holo" />

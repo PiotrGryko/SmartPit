@@ -16,21 +16,14 @@ import com.example.smartpit.R;
 public class SmartPitSlidingMenu extends RelativeLayout {
 
 
-    public static interface SlideAnimationListener
-    {
+    public static interface SlideAnimationListener {
         public void onFinishShowingAnimation();
+
         public void onFinishHidingAnimation();
     }
 
-
-
-    private int offset;
     private SmartPitSlidingContent content;
 
-    public void setOffset(int offset)
-    {
-        this.offset=offset;
-    }
 
     public SmartPitSlidingContent getContentLayout() {
         return content;
@@ -41,6 +34,7 @@ public class SmartPitSlidingMenu extends RelativeLayout {
         initSlidingLayout(context);
 
         this.addView(content);
+
     }
 
     public SmartPitSlidingMenu(Context context, AttributeSet attrs) {
@@ -50,9 +44,29 @@ public class SmartPitSlidingMenu extends RelativeLayout {
         this.addView(content);
     }
 
+    public void onLayout(boolean flag, int l, int t, int r, int b)
+    {
+        super.onLayout(flag, l, t, r, b);
+
+
+        if(content.isShowing())
+        {content.layout(r-content.getWidth(),t,r,b);
+
+        }
+        else {
+            content.layout(l-content.getWidth()+content.getOffset(), t, l + content.getOffset(), b);
+
+
+        }
+
+
+    }
+
     private void initSlidingLayout(Context context) {
+
+
         RelativeLayout.LayoutParams contentParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
-        content = new SmartPitSlidingContent(context);
+        content = new SmartPitSlidingContent(context, this);
         content.setLayoutParams(contentParams);
 
     }
@@ -60,41 +74,9 @@ public class SmartPitSlidingMenu extends RelativeLayout {
     public void setContent(View c) {
         content.addView(c);
     }
-/*
-
-FIX MEASURMENT WITH OFFSET SETTED
- */
-    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
-    {
-        super.onMeasure(widthMeasureSpec,heightMeasureSpec);
-/*
-        final int specWidthSize = MeasureSpec.getSize(widthMeasureSpec);
-        final int specHeightSize = MeasureSpec.getSize(heightMeasureSpec);
 
 
-        measureChild(content,content.getMeasuredWidth()+offset,content.getMeasuredHeight());
-
-        setMeasuredDimension(specWidthSize,specHeightSize);
-  */
-    }
-
-    public void onLayout(boolean flag, int l, int t, int r, int b) {
-        content.layout(l, t, r, b);
-
-        content.layout(l - content.getWidth() + offset, t, r - content.getWidth() + offset, b);
-    }
-
-
-    public void show() {
-        content.show();
-    }
-
-    public void hide() {
-        content.hide();
-    }
-
-    public void setSlideAnimationListener(SlideAnimationListener listener)
-    {
+    public void setSlideAnimationListener(SlideAnimationListener listener) {
         content.setSlideAnimationListener(listener);
     }
 
