@@ -11419,6 +11419,11 @@ false
                 qualifiers=""
                 type="layout" />
             <file
+                name="smart_pit_dialog"
+                path="/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/src/main/res/layout/smart_pit_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="ic_launcher"
                 path="/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/src/main/res/drawable-mdpi/ic_launcher.png"
                 qualifiers="mdpi"

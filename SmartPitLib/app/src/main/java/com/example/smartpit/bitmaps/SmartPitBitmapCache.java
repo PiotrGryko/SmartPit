@@ -17,11 +17,18 @@ import com.android.volley.toolbox.ImageLoader.ImageCache;
 import com.example.smartpit.widget.Log;
 import com.jakewharton.disklrucache.DiskLruCache;
 
+
+/*
+
+Class responsible for caching/fetching bitmaps.
+
+ */
+
 public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 		ImageCache {
 
 	private static SmartPitBitmapCache mInstance;
-	private static String TAG = "BitmapCache";
+	private static String TAG = SmartPitBitmapCache.class.getName();
 	private DiskLruCache diskLru;
 
 	public static int getDefaultLruCacheSize() {
@@ -47,10 +54,9 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 					new File(context.getFilesDir(), "cache"), 1, 1,
 					(long) (20 * Math.pow(2, 20)));
 
-			Log.d(TAG, "created!! ");
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			Log.d(TAG, "error!! " + e.toString());
 			e.printStackTrace();
 		}
@@ -69,8 +75,12 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 	public void putToDisk(String key, Bitmap object) {
 		DiskLruCache.Editor editor = null;
 		try {
+
+            /*
+            open editor of disk cache object to save file.
+             */
 			editor = diskLru.edit(key);
-			// editor.
+
 			if (editor == null) {
 				return;
 			}
@@ -79,7 +89,7 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 					editor.newOutputStream(0));
 
 			object.compress(Bitmap.CompressFormat.PNG, 90, out);
-			// out.writeObject(object.c);
+
 			out.close();
 			editor.commit();
 		}
@@ -100,7 +110,7 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 			return BitmapFactory.decodeStream(in);
 
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
+
 			Log.d(TAG, "error while loading from disk");
 			return null;
 		}
@@ -113,24 +123,14 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 				.md5(url))));
 		if (b != null) {
 			Log.d(TAG, "loaded bitmap from disk!");
-		} // else {
-			// b = new LoadBitmapsFromUrl(context).loadBitmapFromCache(url, 200,
-			// 200);
-			// }
+		}
 
 		return b;
 	}
 
 	@Override
 	public void putBitmap(final String url, final Bitmap bitmap) {
-		/*
-		 * new Thread() { public void run() {
-		 * 
-		 * new LoadBitmapsFromUrl(context).saveBitmapToCache(bitmap, url); }
-		 * }.start();
-		 */
-		// put(url, bitmap);
-		// /AppHelper.
+
 		this.putToDisk(new String(Hex.encodeHex(DigestUtils.md5(url))), bitmap);
 	}
 }

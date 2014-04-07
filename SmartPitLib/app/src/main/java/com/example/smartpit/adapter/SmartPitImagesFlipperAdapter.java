@@ -14,6 +14,15 @@ import android.widget.RelativeLayout.LayoutParams;
 import com.example.smartpit.widget.SmartImageView;
 import com.example.smartpit.widget.SmartPitAppHelper;
 
+/*
+
+Flipping images gallery. Simple ViewPager adapter witch images.
+Constructor parameters:
+context, list of images urls, required width and height of image.
+Images are loaded asynchronously. While data are feched, default android progressBar is visible.
+
+ */
+
 public class SmartPitImagesFlipperAdapter extends PagerAdapter {
 
 	private String TAG = SmartPitImagesFlipperAdapter.class.getName();

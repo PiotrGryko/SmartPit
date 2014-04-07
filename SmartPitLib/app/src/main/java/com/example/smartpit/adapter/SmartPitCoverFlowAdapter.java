@@ -16,12 +16,20 @@ import org.apache.http.impl.client.RequestWrapper;
 
 import java.util.ArrayList;
 
+/*
+Default cover flow adapter class.
+Constructor parameters: Context, on item click listener object, array of images urls.
+
+
+
+
+ */
+
 public class SmartPitCoverFlowAdapter extends BaseAdapter {
 
 
-    private String TAG = "ImagesAdapter";
-    private int HALF_MAX_VALUE = Integer.MAX_VALUE / 2;
-    private int MIDDLE;
+    private String TAG = SmartPitCoverFlowAdapter.class.getName();
+
     private ArrayList<String> list;
     private Context context;
     private int width;
@@ -44,10 +52,6 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
 
     }
 
-
-    public int getMiddle() {
-        return MIDDLE;
-    }
 
     @Override
     public int getCount() {
@@ -88,13 +92,13 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
             holder.image.setPadding(padding, padding, padding, padding);
             if (d != null)
                 holder.image.setBackgroundDrawable(d);
-                holder.image.setTag(holder);
+            holder.image.setTag(holder);
         } else {
             holder = (ViewHolder) image.getTag();
 
         }
-        SmartPitAppHelper.getInstance().setImage(context, holder.image, list.get(position), 200,
-                200);
+        SmartPitAppHelper.getInstance().setImage(context, holder.image, list.get(position), width,
+                height);
 
         final int p = position;
 

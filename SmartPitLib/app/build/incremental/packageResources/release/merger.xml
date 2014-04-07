@@ -59,6 +59,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="smart_pit_dialog"
+                path="/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/src/main/res/layout/smart_pit_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="ic_launcher"
                 path="/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/src/main/res/drawable-mdpi/ic_launcher.png"
                 qualifiers="mdpi"
@@ -151,11 +156,6 @@
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
-            <file
-                name="smart_pit_dialog"
-                path="/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/src/main/res/layout/smart_pit_dialog.xml"
-                qualifiers=""
-                type="layout" />
         </source>
         <source path="/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/build/res/rs/release" />
         <source path="/home/piotr/AndroidProjects/halinaandroid/SmartPitLib/app/build/res/generated/release" />
