@@ -21,7 +21,7 @@ public class SmartPitSlidingContent extends LinearLayout {
 
     private SmartPitSlidingMenu parent;
 
-    private boolean isShowing = true;
+    private boolean isShowing = false;
     private boolean isAnimating = false;
 
 
@@ -60,7 +60,7 @@ public class SmartPitSlidingContent extends LinearLayout {
         super(context);
 
         this.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.FILL_PARENT));
-        this.setGravity(Gravity.CENTER);
+       // this.setGravity(Gravity.CENTER);
         this.parent = parent;
     }
 

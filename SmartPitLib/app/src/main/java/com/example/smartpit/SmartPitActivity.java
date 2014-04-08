@@ -13,6 +13,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.example.smartpit.bitmaps.SmartPitBitmapCache;
 import com.example.smartpit.cloud.SmartPitGcmIntentService;
+import com.example.smartpit.fragment.SmartPitFragment;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.cloud.SmartPitRegistrationTask;
 import com.example.smartpit.widget.SmartPitAppHelper;
@@ -23,7 +24,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     private String TAG = SmartPitActivity.class.getName();
 
-    private ArrayList<SherlockFragment> fragmentsList;
+    private ArrayList<SmartPitFragment> fragmentsList;
     private FragmentManager fm;
     private static ImageLoader mImageLoader;
     private GoogleCloudMessaging gcm;
@@ -39,7 +40,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         fm = this.getSupportFragmentManager();
 
 
-        fragmentsList = new ArrayList<SherlockFragment>();
+        fragmentsList = new ArrayList<SmartPitFragment>();
 
         mImageLoader = new ImageLoader(Volley.newRequestQueue(this),
                 SmartPitBitmapCache.getInstance(this));
@@ -50,7 +51,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         return mImageLoader;
     }
 
-    public void setFirstFragment(SherlockFragment fragment) {
+    public void setFirstFragment(SmartPitFragment fragment) {
 
         this.setCurrentFragment(fragment, false);
 
@@ -66,7 +67,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     // ///////////this method add fragment to fragments list.
     // ////////// it replaces dupes to avoid fragments arguments issues
     @Override
-    public void setCurrentFragment(SherlockFragment fragment,
+    public void setCurrentFragment(SmartPitFragment fragment,
                                    boolean removePrevious) {
 
         if (removePrevious) {
@@ -86,7 +87,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     // /////return currently added fragment
     @Override
-    public SherlockFragment getCurrentFragment() {
+    public SmartPitFragment getCurrentFragment() {
 
         for (int i = 0; i < fragmentsList.size(); i++) {
             if (fragmentsList.get(i).isAdded()) {
@@ -103,8 +104,8 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     // ////////////////////replace current fragment with argument fragment,
     // /////////////// transition with in/out animations added to backstack
     @Override
-    public void switchFragment(SherlockFragment fragment, boolean removePrevious) {
-        SherlockFragment oldFragment = getCurrentFragment();
+    public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
+        SmartPitFragment oldFragment = getCurrentFragment();
 
         fm.beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right,
@@ -119,9 +120,9 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     // //////////method switch title fragment, transition with in animation not
     // added to backstack
     @Override
-    public void switchTitleFragment(SherlockFragment fragment,
+    public void switchTitleFragment(SmartPitFragment fragment,
                                     boolean removePrevious) {
-        SherlockFragment oldFragment = getCurrentFragment();
+        SmartPitFragment oldFragment = getCurrentFragment();
 
         fm.beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right,
@@ -146,13 +147,12 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         return this;
     }
 
-    public void initGcmService(String senderId, SmartPitGcmIntentService.OnMessageListener listener)
-    {
+    public void initGcmService(String senderId, SmartPitGcmIntentService.OnMessageListener listener) {
         if (SmartPitAppHelper.getInstance().checkPlayServices(this)) {
 
 
-                SmartPitGcmIntentService.setOnMessageListener(listener);
-                new SmartPitRegistrationTask(this,senderId).execute();
+            SmartPitGcmIntentService.setOnMessageListener(listener);
+            new SmartPitRegistrationTask(this, senderId).execute();
 
         } else {
             Log.i(TAG, "No valid Google Play Services APK found.");
@@ -162,7 +162,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     @Override
     public int getTab() {
-        return 0;
+        return -1;
     }
 
 }

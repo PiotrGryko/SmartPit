@@ -18,7 +18,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         SmartPitFragmentsInterface {
 
     private FragmentManager fm;
-    private ArrayList<SherlockFragment> fragmentsList;
+    private ArrayList<SmartPitFragment> fragmentsList;
 
     private int position;
     private SmartPitFragment initialFragment;
@@ -48,7 +48,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         this.position=position;
     }
 
-    public void initBase(SherlockFragment fragment) {
+    public void initBase(SmartPitFragment fragment) {
 
         this.setCurrentFragment(fragment, false);
 
@@ -60,7 +60,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        fragmentsList = new ArrayList<SherlockFragment>();
+        fragmentsList = new ArrayList<SmartPitFragment>();
 
         fm = this.getChildFragmentManager();
     }
@@ -68,7 +68,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     // ///////////this method add fragment to fragments list.
     // ////////// it replaces dupes to avoid fragments arguments issues
     @Override
-    public void setCurrentFragment(SherlockFragment fragment,
+    public void setCurrentFragment(SmartPitFragment fragment,
                                    boolean removePrevious) {
 
         if (removePrevious) {
@@ -88,7 +88,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     // /////return currently added fragment
     @Override
-    public SherlockFragment getCurrentFragment() {
+    public SmartPitFragment getCurrentFragment() {
 
 
 
@@ -107,8 +107,8 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     // ////////////////////replace current fragment with argument fragment,
     // /////////////// transition with in/out animations added to backstack
     @Override
-    public void switchFragment(SherlockFragment fragment, boolean removePrevious) {
-        SherlockFragment oldFragment = getCurrentFragment();
+    public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
+        SmartPitFragment oldFragment = getCurrentFragment();
 
         fm.beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right,
@@ -123,9 +123,9 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     // //////////method switch title fragment, transition with in animation not
     // added to backstack
     @Override
-    public void switchTitleFragment(SherlockFragment fragment,
+    public void switchTitleFragment(SmartPitFragment fragment,
                                     boolean removePrevious) {
-        SherlockFragment oldFragment = getCurrentFragment();
+        SmartPitFragment oldFragment = getCurrentFragment();
 
         fm.beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right,

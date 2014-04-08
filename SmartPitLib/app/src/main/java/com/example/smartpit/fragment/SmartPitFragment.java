@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.example.smartpit.interfaces.SmartPitChildFragmentInterface;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
+import com.example.smartpit.widget.Log;
 import com.example.smartpit.widget.SmartPitAppHelper;
 
 public class SmartPitFragment extends SherlockFragment implements
@@ -17,10 +18,13 @@ public class SmartPitFragment extends SherlockFragment implements
 
 
         if (this.getParentFragment()!=null &&  (this.getParentFragment() instanceof SmartPitFragmentsInterface))
-            listener = (SmartPitFragmentsInterface) this.getParentFragment();
+         listener = (SmartPitFragmentsInterface) this.getParentFragment();
+
 
 		else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface)
-			listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
+        listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
+
+
 	}
 
 
@@ -35,11 +39,14 @@ public class SmartPitFragment extends SherlockFragment implements
 
         if(SmartPitPagerFragment.getHost()!=null)
         {
-
             if(this.getFragmentsListener().getTab()==SmartPitPagerFragment.getHost().getCurrentTab())
+            {
                 resumeFocus();
+
+            }
         }
         else
+
             resumeFocus();
     }
 

@@ -6,16 +6,17 @@ import android.support.v4.app.FragmentManager;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.example.smartpit.SmartPitActivity;
+import com.example.smartpit.fragment.SmartPitFragment;
 
 public interface SmartPitFragmentsInterface {
 
-	public void switchFragment(SherlockFragment fragment, boolean removePrevious);
+	public void switchFragment(SmartPitFragment fragment, boolean removePrevious);
 
-	public void switchTitleFragment(SherlockFragment fragment, boolean removePrevious);
+	public void switchTitleFragment(SmartPitFragment fragment, boolean removePrevious);
 
-	public void setCurrentFragment(SherlockFragment fragment, boolean removePrevious);
+	public void setCurrentFragment(SmartPitFragment fragment, boolean removePrevious);
 
-	public SherlockFragment getCurrentFragment();
+	public SmartPitFragment getCurrentFragment();
 	
 	public String setActionBarLabel(String label, boolean home, boolean facebook);
 	
