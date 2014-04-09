@@ -1,9 +1,11 @@
 package com.example.smartpit.fragment;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,12 +31,37 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         this.initialFragment = initialFragment;
     }
 
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+
+        fragmentsList = new ArrayList<SmartPitFragment>();
+
+        fm = this.getChildFragmentManager();
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup parent,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.smart_base_fragment, parent, false);
 
         initBase(initialFragment);
         return v;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        try {
+            Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
+            childFragmentManager.setAccessible(true);
+            childFragmentManager.set(this, null);
+
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void clearBackstack() {
@@ -57,13 +84,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     }
 
-    public void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-        fragmentsList = new ArrayList<SmartPitFragment>();
-
-        fm = this.getChildFragmentManager();
-    }
 
     // ///////////this method add fragment to fragments list.
     // ////////// it replaces dupes to avoid fragments arguments issues

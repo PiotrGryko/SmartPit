@@ -64,6 +64,11 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         return fm;
     }
 
+    @Override
+    public Activity getSmartActivity() {
+        return this;
+    }
+
     // ///////////this method add fragment to fragments list.
     // ////////// it replaces dupes to avoid fragments arguments issues
     @Override
@@ -141,11 +146,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         return null;
     }
 
-    @Override
-    public Activity getSmartActivity() {
-        // TODO Auto-generated method stub
-        return this;
-    }
+
 
     public void initGcmService(String senderId, SmartPitGcmIntentService.OnMessageListener listener) {
         if (SmartPitAppHelper.getInstance().checkPlayServices(this)) {

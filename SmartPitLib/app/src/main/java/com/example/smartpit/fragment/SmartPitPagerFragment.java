@@ -4,74 +4,93 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TabHost;
-import android.widget.TabHost.TabContentFactory;
 
 import com.example.smartpit.adapter.SmartPitPagerAdapter;
-import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
-import com.example.smartpit.widget.SmartPitViewPager;
 
-public class SmartPitPagerFragment extends SmartPitFragment {
+public abstract class SmartPitPagerFragment extends SmartPitFragment {
 
-	private SmartPitPagerAdapter pagerAdapter;
+    class TabContent implements TabHost.TabContentFactory {
+        private Context context;
 
-	private static TabHost host;
-	private static SmartPitViewPager viewPager;
+        public TabContent(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public View createTabContent(String tag) {
+            return new View(context);
+
+        }
+    }
+
+    private SmartPitPagerAdapter pagerAdapter;
+
+    private static TabHost host;
+    private static ViewPager viewPager;
     private ArrayList<SmartPitFragment> fragmentsList;
 
-	public void setPagerAndHost(View v, boolean swapable, int pagerId, int pagesLimit) {
-		viewPager = (SmartPitViewPager) v.findViewById(pagerId);
-		viewPager.setOffscreenPageLimit(pagesLimit);
-
-		viewPager.setSwap(swapable);
-
-		host = (TabHost) v.findViewById(android.R.id.tabhost);
-		host.setup();
-	}
-
-	public static TabHost getHost() {
-		return host;
-	}
+    public abstract View createTabIndicator(Context context, int index);
 
 
-	public static SmartPitViewPager getPager() {
-		return viewPager;
-	}
+    public void setPagerAndHost(View v,  int pagerId, ArrayList<SmartPitFragment> fragmentsList) {
 
-	public void setAdapter(ArrayList<SmartPitFragment> fragmentsList) {
-        this.fragmentsList=fragmentsList;
-		/*
-		 * TabHost.TabSpec spec = null;
-		 * 
-		 * for (int i = 0; i < fragmentsList.size(); i++) { spec = host
-		 * .newTabSpec(Integer.toString(i)) .setIndicator(
-		 * createTabIndicator(this.getSherlockActivity(), "dg")) .setContent(new
-		 * TabContent(this.getSherlockActivity())); host.addTab(spec); }
-		 */
-		pagerAdapter = new SmartPitPagerAdapter(this.getSherlockActivity()
-				.getSupportFragmentManager(), fragmentsList);
+        this.fragmentsList = fragmentsList;
 
-		new SetAdapterTask().execute();
-	}
+        viewPager = (ViewPager) v.findViewById(pagerId);
+        host = (TabHost) v.findViewById(android.R.id.tabhost);
+        host.setup();
 
-	private class SetAdapterTask extends AsyncTask<Void, Void, Void> {
+        TabHost.TabSpec spec = null;
+        for(int i=0;i<fragmentsList.size();i++)
+        {
+            spec = this
+                    .getHost()
+                    .newTabSpec(Integer.toString(i))
+                    .setIndicator(
+                            createTabIndicator(this.getSherlockActivity(),
+                                    i)
+                    )
+                    .setContent(new TabContent(this.getSherlockActivity()));
+            this.getHost().addTab(spec);
+        }
 
-		@Override
-		protected Void doInBackground(Void... arg0) {
-			// TODO Auto-generated method stub
-			return null;
+        setAdapter();
+    }
 
-		}
-
-		protected void onPostExecute(Void result) {
-			viewPager.setAdapter(pagerAdapter);
-		}
-
-	}
+    public static TabHost getHost() {
+        return host;
+    }
 
 
+    public static ViewPager getPager() {
+        return viewPager;
+    }
 
-	
+    private void setAdapter() {
+
+        pagerAdapter = new SmartPitPagerAdapter(this.getSherlockActivity()
+                .getSupportFragmentManager(), fragmentsList);
+
+        new SetAdapterTask().execute();
+    }
+
+    private class SetAdapterTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            // TODO Auto-generated method stub
+            return null;
+
+        }
+
+        protected void onPostExecute(Void result) {
+            viewPager.setAdapter(pagerAdapter);
+        }
+
+    }
+
 
 }
