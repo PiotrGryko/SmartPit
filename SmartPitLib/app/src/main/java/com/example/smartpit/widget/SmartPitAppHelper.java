@@ -70,7 +70,7 @@ public class SmartPitAppHelper {
     public void setImage(Context context, SmartImageView imageView,
                          String url, int width, int height) {
 
-        Log.d(TAG, "url:  " + url);
+
 
         SmartPitImagesListener li = new SmartPitImagesListener(context, url,
                 imageView);

@@ -7,47 +7,50 @@ import android.util.Log;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader.ImageContainer;
 import com.android.volley.toolbox.ImageLoader.ImageListener;
+import com.example.smartpit.R;
 import com.example.smartpit.widget.SmartImageView;
 
 public class SmartPitImagesListener implements ImageListener {
 
-	private String TAG = "MyImageListener";
-	private String filename;
+    private String TAG = "MyImageListener";
+    private String filename;
 
-	private SmartImageView imageView;
+    private SmartImageView imageView;
 
-	Context context;
+    Context context;
 
-	public SmartPitImagesListener(Context context, String filename,
-			SmartImageView image) {
+    public SmartPitImagesListener(Context context, String filename,
+                                  SmartImageView image) {
 
-		this.context = context;
-		this.filename = filename;
+        this.context = context;
+        this.filename = filename;
 
-		this.imageView = image;
+        this.imageView = image;
 
-	}
+    }
 
-	@Override
-	public void onErrorResponse(VolleyError arg0) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onErrorResponse(VolleyError arg0) {
+        // TODO Auto-generated method stub
 
-	}
+        imageView.showErrorImage();
 
-	@Override
-	public void onResponse(ImageContainer arg0, boolean arg1) {
-		// TODO Auto-generated method stub
 
-		Log.d(TAG, "onResponse");
+    }
 
-		final Bitmap b = arg0.getBitmap();
+    @Override
+    public void onResponse(ImageContainer arg0, boolean arg1) {
+        // TODO Auto-generated method stub
 
-		if (imageView != null) {
-			imageView.setImageBitmap(b);
+        Log.d(TAG, "onResponse");
 
-		}
+        final Bitmap b = arg0.getBitmap();
 
-		
+        if (imageView != null) {
+            imageView.setImageBitmap(b);
 
-	}
+        }
+
+
+    }
 }

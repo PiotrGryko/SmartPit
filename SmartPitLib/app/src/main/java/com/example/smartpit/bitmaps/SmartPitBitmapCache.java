@@ -25,112 +25,115 @@ Class responsible for caching/fetching bitmaps.
  */
 
 public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
-		ImageCache {
+        ImageCache {
 
-	private static SmartPitBitmapCache mInstance;
-	private static String TAG = SmartPitBitmapCache.class.getName();
-	private DiskLruCache diskLru;
+    private static SmartPitBitmapCache mInstance;
+    private static String TAG = SmartPitBitmapCache.class.getName();
+    private DiskLruCache diskLru;
 
-	public static int getDefaultLruCacheSize() {
-		final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-		final int cacheSize = maxMemory / 8;
+    public static int getDefaultLruCacheSize() {
+        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+        final int cacheSize = maxMemory / 8;
 
-		return cacheSize;
-	}
+        return cacheSize;
+    }
 
-	public static SmartPitBitmapCache getInstance(Context ctx) {
-		if (mInstance == null) {
-			mInstance = new SmartPitBitmapCache(ctx);
-		}
-		// context = ctx;
-		return mInstance;
-	}
+    public static SmartPitBitmapCache getInstance(Context ctx) {
+        if (mInstance == null) {
+            mInstance = new SmartPitBitmapCache(ctx);
+        }
+        // context = ctx;
+        return mInstance;
+    }
 
-	public SmartPitBitmapCache(Context context) {
-		this(getDefaultLruCacheSize());
+    public SmartPitBitmapCache(Context context) {
+        this(getDefaultLruCacheSize());
 
-		try {
-			diskLru = DiskLruCache.open(
-					new File(context.getFilesDir(), "cache"), 1, 1,
-					(long) (20 * Math.pow(2, 20)));
+        try {
+            diskLru = DiskLruCache.open(
+                    new File(context.getFilesDir(), "cache"), 1, 1,
+                    (long) (20 * Math.pow(2, 20)));
 
 
-		} catch (IOException e) {
+        } catch (IOException e) {
 
-			Log.d(TAG, "error!! " + e.toString());
-			e.printStackTrace();
-		}
+            Log.d(TAG, "error!! " + e.toString());
+            e.printStackTrace();
+        }
 
-	}
+    }
 
-	public SmartPitBitmapCache(int sizeInKiloBytes) {
-		super(sizeInKiloBytes);
-	}
+    public SmartPitBitmapCache(int sizeInKiloBytes) {
+        super(sizeInKiloBytes);
+    }
 
-	@Override
-	protected int sizeOf(String key, Bitmap value) {
-		return value.getRowBytes() * value.getHeight() / 1024;
-	}
+    @Override
+    protected int sizeOf(String key, Bitmap value) {
+        return value.getRowBytes() * value.getHeight() / 1024;
+    }
 
-	public void putToDisk(String key, Bitmap object) {
-		DiskLruCache.Editor editor = null;
-		try {
+    public void putToDisk(String key, Bitmap object) {
+        DiskLruCache.Editor editor = null;
+        try {
 
             /*
             open editor of disk cache object to save file.
              */
-			editor = diskLru.edit(key);
+            editor = diskLru.edit(key);
 
-			if (editor == null) {
-				return;
-			}
+            if (editor == null) {
+                return;
+            }
 
-			ObjectOutputStream out = new ObjectOutputStream(
-					editor.newOutputStream(0));
+            ObjectOutputStream out = new ObjectOutputStream(
+                    editor.newOutputStream(0));
 
-			object.compress(Bitmap.CompressFormat.PNG, 90, out);
+            object.compress(Bitmap.CompressFormat.PNG, 100, out);
 
-			out.close();
-			editor.commit();
-		}
+            out.close();
+            editor.commit();
+        } catch (Throwable t) {
 
-		catch (Throwable t) {
+            Log.d(TAG, "error wihile putting ! " + t.toString());
+        }
+    }
 
-			Log.d(TAG, "error wihile putting ! " + t.toString());
-		}
-	}
+    public Bitmap getFromDisk(String key) {
+        DiskLruCache.Snapshot snapshot;
 
-	public Bitmap getFromDisk(String key) {
-		DiskLruCache.Snapshot snapshot;
+        try {
+            snapshot = diskLru.get(key);
+            ObjectInputStream in = new ObjectInputStream(
+                    snapshot.getInputStream(0));
+            return BitmapFactory.decodeStream(in);
 
-		try {
-			snapshot = diskLru.get(key);
-			ObjectInputStream in = new ObjectInputStream(
-					snapshot.getInputStream(0));
-			return BitmapFactory.decodeStream(in);
+        } catch (Throwable e) {
 
-		} catch (Throwable e) {
+            Log.d(TAG, "error while loading from disk");
+            return null;
+        }
+    }
 
-			Log.d(TAG, "error while loading from disk");
-			return null;
-		}
-	}
+    @Override
+    public Bitmap getBitmap(String url) {
 
-	@Override
-	public Bitmap getBitmap(String url) {
+        Bitmap b = this.getFromDisk(new String(Hex.encodeHex(DigestUtils
+                .md5(url))));
+        if (b != null) {
+            Log.d(TAG, "loaded bitmap from disk!");
+        }
 
-		Bitmap b = this.getFromDisk(new String(Hex.encodeHex(DigestUtils
-				.md5(url))));
-		if (b != null) {
-			Log.d(TAG, "loaded bitmap from disk!");
-		}
+        return b;
+    }
 
-		return b;
-	}
+    @Override
+    public void putBitmap(final String url, final Bitmap bitmap) {
 
-	@Override
-	public void putBitmap(final String url, final Bitmap bitmap) {
+        new Thread() {
+            public void run() {
+                SmartPitBitmapCache.this.putToDisk(new String(Hex.encodeHex(DigestUtils.md5(url))), bitmap);
 
-		this.putToDisk(new String(Hex.encodeHex(DigestUtils.md5(url))), bitmap);
-	}
+            }
+        }.start();
+    }
 }

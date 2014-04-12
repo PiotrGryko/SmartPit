@@ -11474,6 +11474,11 @@ false
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
+                name="exclamation_mark"
+                path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/drawable-xhdpi/exclamation_mark.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
                 qualifiers="xxhdpi"

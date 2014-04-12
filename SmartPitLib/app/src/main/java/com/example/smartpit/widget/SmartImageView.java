@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,16 @@ import android.widget.ImageView.ScaleType;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.example.smartpit.R;
+
 public class SmartImageView extends ViewGroup {
 
 	private String TAG = SmartImageView.class.getName();
 
 	private ImageView imageView;
 	private ProgressBar progressBar;
+    private Drawable errorImage;
+    private Context context;
 
 	int childWidthSize;
 	int childHeightSize;
@@ -34,10 +39,13 @@ public class SmartImageView extends ViewGroup {
 
 		this.addView(imageView);
 		this.addView(progressBar);
+        this.context = context;
 	}
 
 	public SmartImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+        this.context = context;
+
 
 
 
@@ -113,6 +121,9 @@ public class SmartImageView extends ViewGroup {
 
 	}
 
+
+
+
 	protected void onLayout(boolean flag, int l, int b, int r, int t) {
 
 		int paddingLeft = getPaddingLeft();
@@ -142,6 +153,11 @@ public class SmartImageView extends ViewGroup {
 
 	}
 
+    public void setErrorDrawable(Drawable error)
+    {
+        this.errorImage=error;
+    }
+
 	public void setImageBitmap(Bitmap b) {
 		imageView.setImageBitmap(b);
 
@@ -151,6 +167,20 @@ public class SmartImageView extends ViewGroup {
 		}
 
 	}
+
+    public void showErrorImage() {
+
+        progressBar.setVisibility(View.GONE);
+
+
+        if (errorImage != null) {
+            imageView.setImageDrawable(errorImage);
+
+        }
+        else
+            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.exclamation_mark));
+
+    }
 
 	public ImageView getImageView() {
 		return imageView;

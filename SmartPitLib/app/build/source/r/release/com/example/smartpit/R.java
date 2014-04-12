@@ -1023,11 +1023,12 @@ containing a value of this type.
         public static int common_signin_btn_text_normal_light=0x7f020085;
         public static int common_signin_btn_text_pressed_dark=0x7f020086;
         public static int common_signin_btn_text_pressed_light=0x7f020087;
-        public static int ic_launcher=0x7f020088;
-        public static int ic_plusone_medium_off_client=0x7f020089;
-        public static int ic_plusone_small_off_client=0x7f02008a;
-        public static int ic_plusone_standard_off_client=0x7f02008b;
-        public static int ic_plusone_tall_off_client=0x7f02008c;
+        public static int exclamation_mark=0x7f020088;
+        public static int ic_launcher=0x7f020089;
+        public static int ic_plusone_medium_off_client=0x7f02008a;
+        public static int ic_plusone_small_off_client=0x7f02008b;
+        public static int ic_plusone_standard_off_client=0x7f02008c;
+        public static int ic_plusone_tall_off_client=0x7f02008d;
     }
     public static final class id {
         public static int abs__action_bar=0x7f070024;
