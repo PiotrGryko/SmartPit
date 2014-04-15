@@ -48,7 +48,7 @@ public class SmartPitMapFragment extends SmartPitFragment implements
 		// TODO Auto-generated method stub
 		if (this.getView() != null) {
 			Log.d("CLEAR", "clearview");
-			SmartPitAppHelper.getInstance().stripViewGroup(this.getView(), false);
+			SmartPitAppHelper.getInstance(this.getSherlockActivity()).stripViewGroup(this.getView(), false);
 
 		} else
 			Log.d("CLEAR", "view null");

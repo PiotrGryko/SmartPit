@@ -34,7 +34,6 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.smart_activity);
 
-        SmartPitAppHelper.initAppHelper(this);
 
 
         fm = this.getSupportFragmentManager();
@@ -149,7 +148,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
 
     public void initGcmService(String senderId, SmartPitGcmIntentService.OnMessageListener listener) {
-        if (SmartPitAppHelper.getInstance().checkPlayServices(this)) {
+        if (SmartPitAppHelper.getInstance(this).checkPlayServices(this)) {
 
 
             SmartPitGcmIntentService.setOnMessageListener(listener);

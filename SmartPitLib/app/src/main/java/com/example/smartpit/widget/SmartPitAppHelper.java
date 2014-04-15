@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -48,26 +51,38 @@ public class SmartPitAppHelper {
     private static SharedPreferences pref;
     private static SmartPitAppHelper instance;
 
-    public static void initAppHelper(Context con) {
+    public  SmartPitAppHelper(Context con) {
         context = con;
         cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         df = new DecimalFormat();
-        df.setMaximumFractionDigits(0);
-        df.setMaximumIntegerDigits(2);
+        df.setMaximumFractionDigits(2);
+        df.setMinimumFractionDigits(2);
+
+
+        DecimalFormatSymbols custom=new DecimalFormatSymbols();
+        custom.setDecimalSeparator('.');
+     //   custom.setg
+        df.setDecimalFormatSymbols(custom);
+        df.setGroupingUsed(false);
         pref = PreferenceManager.getDefaultSharedPreferences(context);
 
     }
 
 
-    public static SmartPitAppHelper getInstance() {
+    public static SmartPitAppHelper getInstance(Context c) {
         if (instance == null)
-            instance = new SmartPitAppHelper();
+            instance = new SmartPitAppHelper(c);
         return instance;
     }
 
+    public NumberFormat getDecimalFormat()
+    {
+        return df;
+    }
 
-    public void setImage(Context context, SmartImageView imageView,
+
+    public void setImage(SmartImageView imageView,
                          String url, int width, int height) {
 
 

@@ -136,35 +136,15 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
 
                 }
 
-                Log.d(TAG, out.toString());
-                Log.d(TAG,
-                        "http://maps.googleapis.com/maps/api/geocode/json?address="
-                                + arg0.toString().trim() + "&sensor=false"
-                );
 
                 JSONObject json = new JSONObject(out.toString());
                 if (json.getString("status").equals("OK")) {
-                    Log.d(TAG, "status ok");
 
                     JSONArray array = json.getJSONArray("results");
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject o = array.getJSONObject(i);
 
-                        String address = "";
-                        String lat = "";
-                        String lon = "";
-
-                        address = o.has("formatted_address") ? o
-                                .getString("formatted_address") : "";
-
-                        if (o.has("geometry")) {
-                            JSONObject g = o.getJSONObject("geometry");
-                            JSONObject l = g.getJSONObject("location");
-                            lat = l.getString("lat");
-                            lon = l.getString("lng");
-                        }
-
-                        res.add(new SmartPitGoogleAddress(address, lat, lon));
+                       res.add(SmartPitGoogleAddress.valueOf(o));
 
                     }
                     //

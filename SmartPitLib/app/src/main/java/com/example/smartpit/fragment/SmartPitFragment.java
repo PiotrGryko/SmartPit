@@ -52,7 +52,7 @@ public class SmartPitFragment extends SherlockFragment implements
 
     public void resumeFocus()
     {
-        SmartPitAppHelper.getInstance().resumeFocus(this.getView(),
+        SmartPitAppHelper.getInstance(this.getSherlockActivity()).resumeFocus(this.getView(),
                 this.getFragmentsListener());
     }
 
@@ -63,7 +63,7 @@ public class SmartPitFragment extends SherlockFragment implements
 	@Override
 	public void stripView() {
 		if (this.getView() != null) {
-			SmartPitAppHelper.getInstance().stripViewGroup(this.getView(), false);
+			SmartPitAppHelper.getInstance(this.getSherlockActivity()).stripViewGroup(this.getView(), false);
 
 			System.gc();
 

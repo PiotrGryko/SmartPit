@@ -97,7 +97,7 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
             holder = (ViewHolder) image.getTag();
 
         }
-        SmartPitAppHelper.getInstance().setImage(context, holder.image, list.get(position), width,
+        SmartPitAppHelper.getInstance(context).setImage(holder.image, list.get(position), width,
                 height);
 
         final int p = position;
