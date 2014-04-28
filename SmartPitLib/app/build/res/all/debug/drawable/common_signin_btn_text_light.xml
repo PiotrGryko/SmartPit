@@ -16,4 +16,4 @@
     <item
         android:drawable="@drawable/common_signin_btn_text_normal_light" />
 </selector>
-<!-- From: file:/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/drawable/common_signin_btn_text_light.xml -->
+<!-- From: file:/home/piotr/AndroidProjects/halina_android/halinaandroid/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/drawable/common_signin_btn_text_light.xml -->

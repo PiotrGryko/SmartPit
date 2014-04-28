@@ -1,4 +1,4 @@
-<!-- From: file:/home/piotr/AndroidProjects/eltechbiur/SmartPitLib/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.example.smartpit">
+<!-- From: file:/home/piotr/AndroidProjects/halina_android/halinaandroid/SmartPitLib/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.example.smartpit">
 
     <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19"/>
 

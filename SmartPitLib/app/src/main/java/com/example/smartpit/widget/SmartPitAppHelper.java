@@ -59,12 +59,9 @@ public class SmartPitAppHelper {
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(2);
 
-
         DecimalFormatSymbols custom=new DecimalFormatSymbols();
         custom.setDecimalSeparator('.');
-     //   custom.setg
         df.setDecimalFormatSymbols(custom);
-        df.setGroupingUsed(false);
         pref = PreferenceManager.getDefaultSharedPreferences(context);
 
     }
