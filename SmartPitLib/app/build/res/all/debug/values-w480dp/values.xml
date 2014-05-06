@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halinaandroid/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values-w480dp/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values-w480dp/values.xml -->
     <eat-comment />
 
     <bool name="abs__action_bar_embed_tabs">true</bool>

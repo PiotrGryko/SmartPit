@@ -1,10 +1,13 @@
 package com.example.smartpit.widget;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -303,6 +306,27 @@ public class SmartPitAppHelper {
             return false;
         }
         return true;
+    }
+
+    public String readTextFileFromAssets(String filename)
+    {
+
+        StringBuilder b = new StringBuilder("");
+        InputStream fis;
+        try {
+            fis =context.getAssets().open(filename);
+
+            byte[] buffer = new byte[1024];
+            int n = 0;
+            while ((n = fis.read(buffer)) != -1)
+            {
+               b.append(new String(buffer, 0, n));
+            }
+        } catch (IOException e) {
+            //log the exception
+        }
+
+        return b.toString();
     }
 
 

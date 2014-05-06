@@ -347,12 +347,13 @@ int id abs__submit_area 0x7f070033
 int id abs__textButton 0x7f070017
 int id abs__title 0x7f07001f
 int id abs__up 0x7f070013
-int id action_settings 0x7f070042
+int id action_settings 0x7f070043
 int id button_one 0x7f07003f
 int id button_one_background 0x7f07003e
 int id button_two 0x7f070041
 int id button_two_background 0x7f070040
 int id buttons_background 0x7f07003d
+int id cameraPreview 0x7f070042
 int id disableHome 0x7f07000c
 int id edit_query 0x7f07002a
 int id fragment_container 0x7f070036
@@ -404,6 +405,7 @@ int layout smart_activity 0x7f030017
 int layout smart_base_fragment 0x7f030018
 int layout smart_map_fragment 0x7f030019
 int layout smart_pit_dialog 0x7f03001a
+int layout smart_qr_fragment 0x7f03001b
 int menu main 0x7f0c0000
 int string abs__action_bar_home_description 0x7f0a0000
 int string abs__action_bar_up_description 0x7f0a0001

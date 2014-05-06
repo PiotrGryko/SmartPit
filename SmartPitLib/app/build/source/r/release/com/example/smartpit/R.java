@@ -1070,12 +1070,13 @@ containing a value of this type.
         public static int abs__textButton=0x7f070017;
         public static int abs__title=0x7f07001f;
         public static int abs__up=0x7f070013;
-        public static int action_settings=0x7f070042;
+        public static int action_settings=0x7f070043;
         public static int button_one=0x7f07003f;
         public static int button_one_background=0x7f07003e;
         public static int button_two=0x7f070041;
         public static int button_two_background=0x7f070040;
         public static int buttons_background=0x7f07003d;
+        public static int cameraPreview=0x7f070042;
         public static int disableHome=0x7f07000c;
         public static int edit_query=0x7f07002a;
         public static int fragment_container=0x7f070036;
@@ -1131,6 +1132,7 @@ containing a value of this type.
         public static int smart_base_fragment=0x7f030018;
         public static int smart_map_fragment=0x7f030019;
         public static int smart_pit_dialog=0x7f03001a;
+        public static int smart_qr_fragment=0x7f03001b;
     }
     public static final class menu {
         public static int main=0x7f0c0000;

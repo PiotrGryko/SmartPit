@@ -3,10 +3,14 @@ package com.example.smartpit;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.android.volley.toolbox.ImageLoader;
@@ -29,11 +33,15 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     private static ImageLoader mImageLoader;
     private GoogleCloudMessaging gcm;
 
+    private View customActionbarView;
+    private TextView customActionbarLabel;
+
+    private ActionBar ab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.smart_activity);
-
 
 
         fm = this.getSupportFragmentManager();
@@ -44,6 +52,20 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         mImageLoader = new ImageLoader(Volley.newRequestQueue(this),
                 SmartPitBitmapCache.getInstance(this));
 
+    }
+
+    public void initActionbar(Drawable background, View customView, TextView label) {
+        this.customActionbarView=customView;
+        this.customActionbarLabel=label;
+        ab = this.getSupportActionBar();
+        ab.setDisplayShowCustomEnabled(true);
+        ab.setCustomView(customView, new ActionBar.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.FILL_PARENT));
+        ab.setBackgroundDrawable(background);
+
+    }
+
+    public ActionBar getSmartActionBar() {
+        return ab;
     }
 
     public static ImageLoader getImageLoader() {
@@ -140,11 +162,15 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     }
 
     @Override
-    public String setActionBarLabel(String label, boolean home, boolean facebook) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    public void setActionBarLabel(String text) {
 
+        if(customActionbarView==null)
+            return;
+
+        customActionbarLabel.setText(text);
+
+
+    }
 
 
     public void initGcmService(String senderId, SmartPitGcmIntentService.OnMessageListener listener) {

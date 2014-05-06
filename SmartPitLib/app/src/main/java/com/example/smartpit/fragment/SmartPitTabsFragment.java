@@ -150,9 +150,9 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
     }
 
     @Override
-    public String setActionBarLabel(String label, boolean home, boolean facebook) {
+    public void setActionBarLabel(String label) {
 
-        return null;
+
     }
 
 

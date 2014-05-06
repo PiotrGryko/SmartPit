@@ -8,7 +8,7 @@ import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.widget.Log;
 import com.example.smartpit.widget.SmartPitAppHelper;
 
-public class SmartPitFragment extends SherlockFragment implements
+public abstract class SmartPitFragment extends SherlockFragment implements
 		SmartPitChildFragmentInterface {
 
 	private SmartPitFragmentsInterface listener;
@@ -24,6 +24,8 @@ public class SmartPitFragment extends SherlockFragment implements
 		else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface)
         listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
 
+        listener.setActionBarLabel(getLabel());
+
 
 	}
 
@@ -31,6 +33,10 @@ public class SmartPitFragment extends SherlockFragment implements
     public void onResume()
     {
         super.onResume();
+
+        if(listener!=null)
+            listener.setActionBarLabel(getLabel());
+
 
         /*
         If SmartPitPagerFragment and nested fragment are used, resume focus only for currently visible tab
@@ -70,5 +76,7 @@ public class SmartPitFragment extends SherlockFragment implements
 		}
 
 	}
+
+    public abstract String getLabel();
 
 }

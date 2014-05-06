@@ -57,4 +57,9 @@ public class SmartPitMapFragment extends SmartPitFragment implements
 
 	}
 
+    public String getLabel()
+    {
+        return "";
+    }
+
 }

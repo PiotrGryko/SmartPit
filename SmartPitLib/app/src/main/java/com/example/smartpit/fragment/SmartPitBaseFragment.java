@@ -20,6 +20,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         SmartPitFragmentsInterface {
 
     private FragmentManager fm;
+    private FragmentManager.OnBackStackChangedListener backstackListener;
     private ArrayList<SmartPitFragment> fragmentsList;
 
     private int position;
@@ -31,8 +32,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         this.initialFragment = initialFragment;
     }
 
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void setBackstackListener(FragmentManager.OnBackStackChangedListener listener) {
+        this.backstackListener = listener;
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         fragmentsList = new ArrayList<SmartPitFragment>();
@@ -70,20 +74,21 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     }
 
-    public void setPosition(int position)
-    {
-        this.position=position;
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public void initBase(SmartPitFragment fragment) {
 
         this.setCurrentFragment(fragment, false);
 
+        if (backstackListener != null)
+            fm.addOnBackStackChangedListener(backstackListener);
+
         fm.beginTransaction().add(R.id.fragments_container, fragment)
                 .commitAllowingStateLoss();
 
     }
-
 
 
     // ///////////this method add fragment to fragments list.
@@ -110,7 +115,6 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     // /////return currently added fragment
     @Override
     public SmartPitFragment getCurrentFragment() {
-
 
 
         for (int i = 0; i < fragmentsList.size(); i++) {
@@ -160,15 +164,24 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     }
 
     @Override
-    public String setActionBarLabel(String label, boolean search,
-                                    boolean visible) {
+    public void setActionBarLabel(String label) {
 
-        return null;
+        if (this.getParentFragment() != null) {
+            if (this.getParentFragment() instanceof SmartPitFragmentsInterface) {
+                SmartPitFragmentsInterface listener = (SmartPitFragmentsInterface) this.getParentFragment();
+                listener.setActionBarLabel(label);
+            }
+        } else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface) {
+            SmartPitFragmentsInterface listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
+            listener.setActionBarLabel(label);
+
+        }
+
     }
 
     public FragmentManager getManager() {
 
-        return this.getChildFragmentManager();
+        return fm;
     }
 
     public int getTab() {
@@ -180,6 +193,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     public Activity getSmartActivity() {
         // TODO Auto-generated method stub
         return this.getSherlockActivity();
+    }
+
+    public String getLabel()
+    {
+       return "";
     }
 
 }

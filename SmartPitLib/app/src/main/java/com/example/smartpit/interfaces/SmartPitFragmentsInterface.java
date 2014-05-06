@@ -18,11 +18,13 @@ public interface SmartPitFragmentsInterface {
 
 	public SmartPitFragment getCurrentFragment();
 	
-	public String setActionBarLabel(String label, boolean home, boolean facebook);
+	public void setActionBarLabel(String label);
 	
 	public FragmentManager getManager();
 	
 	public Activity getSmartActivity();
+
+
 
     public int getTab();
 	
