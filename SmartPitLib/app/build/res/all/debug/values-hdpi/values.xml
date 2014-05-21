@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-hdpi/values.xml -->
+    <eat-comment />
+
+    <dimen name="com_facebook_picker_divider_width">1px</dimen>
+
+</resources>

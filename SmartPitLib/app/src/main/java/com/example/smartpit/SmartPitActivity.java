@@ -3,12 +3,15 @@ package com.example.smartpit;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -16,27 +19,80 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.example.smartpit.bitmaps.SmartPitBitmapCache;
+import com.example.smartpit.bitmaps.SmartPitImageLoader;
 import com.example.smartpit.cloud.SmartPitGcmIntentService;
+import com.example.smartpit.facebook.SmartFacebookHelper;
 import com.example.smartpit.fragment.SmartPitFragment;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.cloud.SmartPitRegistrationTask;
 import com.example.smartpit.widget.SmartPitAppHelper;
+import com.facebook.LoggingBehavior;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.Settings;
+import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphUser;
+import com.facebook.widget.FacebookDialog;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 public class SmartPitActivity extends SherlockFragmentActivity implements
         SmartPitFragmentsInterface {
 
+
+    private UiLifecycleHelper uiHelper;
+
     private String TAG = SmartPitActivity.class.getName();
 
     private ArrayList<SmartPitFragment> fragmentsList;
     private FragmentManager fm;
-    private static ImageLoader mImageLoader;
+    private static SmartPitImageLoader mImageLoader;
     private GoogleCloudMessaging gcm;
 
     private View customActionbarView;
     private TextView customActionbarLabel;
 
     private ActionBar ab;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (uiHelper != null)
+            uiHelper.onResume();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (uiHelper != null)
+
+            uiHelper.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (uiHelper != null)
+
+            uiHelper.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (uiHelper != null)
+
+            uiHelper.onDestroy();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (uiHelper != null)
+            uiHelper.onActivityResult(requestCode, resultCode, data);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +105,24 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
         fragmentsList = new ArrayList<SmartPitFragment>();
 
-        mImageLoader = new ImageLoader(Volley.newRequestQueue(this),
+        mImageLoader = new SmartPitImageLoader(Volley.newRequestQueue(this),
                 SmartPitBitmapCache.getInstance(this));
 
     }
 
+
+    public void initFacebook(Bundle savedInstanceState, Session.StatusCallback callback) {
+
+        uiHelper = new UiLifecycleHelper(this, callback);
+        uiHelper.onCreate(savedInstanceState);
+
+        SmartFacebookHelper.init(this, uiHelper);
+
+    }
+
     public void initActionbar(Drawable background, View customView, TextView label) {
-        this.customActionbarView=customView;
-        this.customActionbarLabel=label;
+        this.customActionbarView = customView;
+        this.customActionbarLabel = label;
         ab = this.getSupportActionBar();
         ab.setDisplayShowCustomEnabled(true);
         ab.setCustomView(customView, new ActionBar.LayoutParams(ActionBar.LayoutParams.FILL_PARENT, ActionBar.LayoutParams.FILL_PARENT));
@@ -68,7 +134,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         return ab;
     }
 
-    public static ImageLoader getImageLoader() {
+    public static SmartPitImageLoader getImageLoader() {
         return mImageLoader;
     }
 
@@ -164,7 +230,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     @Override
     public void setActionBarLabel(String text) {
 
-        if(customActionbarView==null)
+        if (customActionbarView == null)
             return;
 
         customActionbarLabel.setText(text);
@@ -184,6 +250,25 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
             Log.i(TAG, "No valid Google Play Services APK found.");
         }
     }
+
+    /*
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+                @Override
+                public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
+                    Log.e("Activity", String.format("Error: %s", error.toString()));
+                }
+
+                @Override
+                public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+                    Log.i("Activity", "Success!");
+                }
+            });
+        }
+    */
 
 
     @Override

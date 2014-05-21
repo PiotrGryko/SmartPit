@@ -81,6 +81,7 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
              */
             editor = diskLru.edit(key);
 
+
             if (editor == null) {
                 return;
             }
@@ -98,11 +99,12 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         }
     }
 
-    public Bitmap getFromDisk(String key) {
-        DiskLruCache.Snapshot snapshot;
+    public Bitmap getFromDisk(String url) {
 
         try {
-            snapshot = diskLru.get(key);
+            //DiskLruCache.
+            DiskLruCache.Snapshot snapshot = diskLru.get(url);
+
             ObjectInputStream in = new ObjectInputStream(
                     snapshot.getInputStream(0));
             return BitmapFactory.decodeStream(in);
@@ -114,11 +116,39 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         }
     }
 
-    @Override
+    public boolean isCached(String url) {
+
+
+        String mdUrl = new String(Hex.encodeHex(DigestUtils
+                .md5(url)));
+
+       // diskLru.
+
+        DiskLruCache.Snapshot snapshot = null;
+        try {
+
+            snapshot = diskLru.get(mdUrl);
+            if (snapshot == null)
+                return false;
+
+            snapshot = null;
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+
+
+    }
+
     public Bitmap getBitmap(String url) {
 
-        Bitmap b = this.getFromDisk(new String(Hex.encodeHex(DigestUtils
-                .md5(url))));
+        url = new String(Hex.encodeHex(DigestUtils
+                .md5(url)));
+
+
+        Bitmap b = this.getFromDisk(url);
+
+
         if (b != null) {
             Log.d(TAG, "loaded bitmap from disk!");
         }

@@ -11,6 +11,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="app_name">SmartPit</string>
+    <string name="dialog_facebook_app">First install facebook app</string>
     <string name="hello_world">Hello world!</string>
     <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/values/styles.xml -->
     <eat-comment />

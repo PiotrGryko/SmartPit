@@ -121,7 +121,7 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
 
                 url = new URL(
                         "http://maps.googleapis.com/maps/api/geocode/json?address="
-                                + arg0.toString().trim() + "&sensor=false"
+                                + arg0.toString().trim() +"&bounds=52.998256,22.900572|53.212612,23.309813&sensor=false"
                 );
                 httpConn = (HttpURLConnection) url.openConnection();
                 httpConn.setRequestMethod("GET");

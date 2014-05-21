@@ -49,6 +49,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="smart_pager_fragment"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="smart_activity"
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/layout/smart_activity.xml"
                 qualifiers=""
@@ -87,6 +92,8 @@
                 <string name="action_settings" >Settings
                 </string>
                 <string name="app_name" >SmartPit
+                </string>
+                <string name="dialog_facebook_app" >First install facebook app
                 </string>
                 <string name="hello_world" >Hello world!
                 </string>

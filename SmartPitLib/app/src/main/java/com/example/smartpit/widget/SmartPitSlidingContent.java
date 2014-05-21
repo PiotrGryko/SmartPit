@@ -21,7 +21,7 @@ public class SmartPitSlidingContent extends LinearLayout {
 
     private SmartPitSlidingMenu parent;
 
-    private boolean isShowing = false;
+    private boolean isShowing = true;
     private boolean isAnimating = false;
 
 

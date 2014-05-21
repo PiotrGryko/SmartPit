@@ -41,6 +41,7 @@ public class SmartPitMapFragment extends SmartPitFragment implements
 				.beginTransaction();
 		ft.remove(fragment);
 		ft.commitAllowingStateLoss();
+        map=null;
 
 	}
 

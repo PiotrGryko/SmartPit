@@ -34,7 +34,7 @@ public class SmartImageView extends ViewGroup {
 	private void initChildrens(Context context) {
 
 		imageView = new ImageView(context);
-		imageView.setAdjustViewBounds(true);
+		//imageView.setAdjustViewBounds(true);
 		progressBar = new ProgressBar(context);
 
 		this.addView(imageView);
@@ -185,6 +185,13 @@ public class SmartImageView extends ViewGroup {
 	public ImageView getImageView() {
 		return imageView;
 	}
+    public void setImageView(ImageView imageView)
+    {
+        this.imageView = imageView;
+        this.removeAllViews();
+        this.addView(imageView);
+        this.addView(progressBar);
+    }
 
 	@Override
 	public LayoutParams generateLayoutParams(AttributeSet attrs) {

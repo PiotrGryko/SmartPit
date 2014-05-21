@@ -29,6 +29,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.KeyEvent;
@@ -37,6 +38,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.smartpit.SmartPitActivity;
+import com.example.smartpit.bitmaps.SmartPitImageLoader;
 import com.example.smartpit.bitmaps.SmartPitImagesListener;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.schedule.SmartPitScheduleDataReceiver;
@@ -83,14 +85,29 @@ public class SmartPitAppHelper {
 
 
     public void setImage(SmartImageView imageView,
-                         String url, int width, int height) {
+                         final String url,final int width,final int height) {
 
 
 
-        SmartPitImagesListener li = new SmartPitImagesListener(context, url,
+       final SmartPitImagesListener li = new SmartPitImagesListener(context, url,
                 imageView);
-        imageView.setImageBitmap(SmartPitActivity.getImageLoader()
-                .get(url, li, width, height).getBitmap());
+
+      /*
+        AsyncTask bitmapLoaderTask = new AsyncTask<Object,Bitmap,Object>()
+        {
+
+
+
+            @Override
+            protected Bitmap doInBackground(Object... params) {
+                return SmartPitActivity.getImageLoader()
+                        .get(url, li, width, height).getBitmap();
+            }
+        };
+       */
+        Log.d(SmartPitImageLoader.class.getName(),"app helper get");
+     SmartPitActivity.getImageLoader()
+                .get(url, li, width, height);
 
     }
 

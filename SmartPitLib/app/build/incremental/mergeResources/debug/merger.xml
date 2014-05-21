@@ -1,6 +1,967 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merger xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" >
 
+    <dataSet config="unspecified" >
+        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res" >
+            <file
+                name="com_facebook_picker_checkbox"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_checkbox.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_picker_title_bar"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_title_bar.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_picker_list_row"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_list_row.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_picker_activity_circle_row"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_activity_circle_row.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_usersettingsfragment"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_usersettingsfragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_placepickerfragment"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_placepickerfragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_friendpickerfragment"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_friendpickerfragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_login_activity_layout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_login_activity_layout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_picker_list_section_header"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_list_section_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_search_bar_layout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_search_bar_layout.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_picker_image"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_image.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_picker_search_box"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_search_box.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_placepickerfragment_list_row"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_placepickerfragment_list_row.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_picker_title_bar_stub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_picker_title_bar_stub.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_tooltip_bubble"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_tooltip_bubble.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="com_facebook_tooltip_blue_topnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_blue_topnub.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_button_blue_focused.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_bottomnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_blue_bottomnub.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_bottomnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_black_bottomnub.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_xout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_blue_xout.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_button_blue_pressed.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_inverse_icon"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_inverse_icon.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_xout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_black_xout.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_black_background.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_topnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_black_topnub.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_picker_magnifier"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_picker_magnifier.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_normal"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_button_blue_normal.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-mdpi/com_facebook_tooltip_blue_background.9.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values/values.xml"
+                qualifiers="" >
+                <string name="com_facebook_internet_permission_error_message" >WebView login requires INTERNET permission
+                </string>
+
+                <dimen name="com_facebook_loginview_padding_right" >16dp
+                </dimen>
+
+                <color name="com_facebook_blue" >#3B5998
+                </color>
+
+                <string name="com_facebook_usersettingsfragment_log_in_button" >Log in…
+                </string>
+
+                <color name="com_facebook_loginview_text_color" >#FFFFFF
+                </color>
+                <color name="com_facebook_picker_search_bar_background" >#f5f5f7
+                </color>
+
+                <string name="com_facebook_logo_content_description" >Facebook Logo
+                </string>
+                <string name="com_facebook_loginview_log_in_button" >Log in with Facebook
+                </string>
+
+                <dimen name="com_facebook_usersettingsfragment_profile_picture_width" >64dp
+                </dimen>
+
+                <string name="com_facebook_requesterror_web_login" >Your Facebook account is locked. Please log into www.facebook.com to continue.
+                </string>
+                <string name="com_facebook_requesterror_permissions" >This app doesn’t have permission to do this. To change permissions, try logging into the app again.
+                </string>
+
+                <dimen name="com_facebook_loginview_compound_drawable_padding" >12dp
+                </dimen>
+
+                <string name="com_facebook_requesterror_relogin" >Please log into this app again to reconnect your Facebook account.
+                </string>
+
+                <declare-styleable name="com_facebook_picker_fragment" >
+                    <attr
+                        name="show_pictures"
+                        format="boolean" />
+                    <attr
+                        name="extra_fields"
+                        format="string" />
+                    <attr
+                        name="show_title_bar"
+                        format="boolean" />
+                    <attr
+                        name="title_text"
+                        format="string" />
+                    <attr
+                        name="done_button_text"
+                        format="string" />
+                    <attr
+                        name="title_bar_background"
+                        format="reference" />
+                    <attr
+                        name="done_button_background"
+                        format="reference" />
+                </declare-styleable>
+
+                <drawable name="com_facebook_picker_default_separator_color" >
+#33464c59
+                </drawable>
+
+                <string name="com_facebook_usersettingsfragment_not_logged_in" >Not logged in
+                </string>
+
+                <dimen name="com_facebook_loginview_padding_top" >12dp
+                </dimen>
+
+                <string name="com_facebook_nearby" >Nearby
+                </string>
+
+                <color name="com_facebook_picker_search_bar_text" >#bcbdc2
+                </color>
+
+                <string name="com_facebook_placepicker_subtitle_catetory_only_format" >%1$s
+                </string>
+
+                <style name="tooltip_bubble_text" >
+                    <item name="android:textColor">
+@android:color/white
+                    </item>
+                    <item name="android:gravity">
+left
+                    </item>
+                    <item name="android:textSize">
+12sp
+                    </item>
+                    <item name="android:shadowDy">
+-1
+                    </item>
+                    <item name="android:shadowRadius">
+0.25
+                    </item>
+                    <item name="android:shadowColor">
+#40000000
+                    </item>
+                </style>
+
+                <declare-styleable name="com_facebook_place_picker_fragment" >
+                    <attr
+                        name="radius_in_meters"
+                        format="integer" />
+                    <attr
+                        name="results_limit"
+                        format="integer" />
+                    <attr
+                        name="search_text"
+                        format="string" />
+                    <attr
+                        name="show_search_box"
+                        format="boolean" />
+                </declare-styleable>
+
+                <string name="com_facebook_loading" >Loading...
+                </string>
+
+                <style
+                    name="com_facebook_loginview_silver_style"
+                    parent="@android:style/Widget.Button" >
+                    <item name="android:width">
+205dp
+                    </item>
+                    <item name="android:height">
+44dp
+                    </item>
+                    <item name="android:background">
+@drawable/com_facebook_loginbutton_silver
+                    </item>
+                    <item name="android:textSize">
+18sp
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                    <item name="android:textColor">
+#4B5164
+                    </item>
+                    <item name="android:gravity">
+center
+                    </item>
+                </style>
+
+                <string name="com_facebook_placepicker_subtitle_format" >%1$s • %2$,d were here
+                </string>
+                <string name="com_facebook_picker_done_button_text" >Done
+                </string>
+                <string name="com_facebook_loginview_log_out_button" >Log out
+                </string>
+                <string name="com_facebook_usersettingsfragment_logged_in" >Logged in
+                </string>
+
+                <declare-styleable name="com_facebook_profile_picture_view" >
+                    <attr name="preset_size" >
+
+                        <!-- Keep in sync with constants in ProfilePictureView -->
+                        <enum
+                            name="small"
+                            value="-2" />
+                        <enum
+                            name="normal"
+                            value="-3" />
+                        <enum
+                            name="large"
+                            value="-4" />
+                    </attr>
+                    <attr
+                        name="is_cropped"
+                        format="boolean" />
+                </declare-styleable>
+
+                <dimen name="com_facebook_loginview_padding_left" >12dip
+                </dimen>
+                <dimen name="com_facebook_profilepictureview_preset_size_normal" >100dp
+                </dimen>
+
+                <declare-styleable name="com_facebook_friend_picker_fragment" >
+                    <attr
+                        name="multi_select"
+                        format="boolean" />
+                </declare-styleable>
+
+                <dimen name="com_facebook_loginview_padding_bottom" >12dp
+                </dimen>
+
+                <string name="com_facebook_placepicker_subtitle_were_here_only_format" >%1$,d were here
+                </string>
+                <string name="com_facebook_requesterror_password_changed" >Your Facebook password has changed. Please log into this app again to reconnect your Facebook account.
+                </string>
+
+                <dimen name="com_facebook_loginview_text_size" >16.0sp
+                </dimen>
+
+                <string name="com_facebook_choose_friends" >Choose Friends
+                </string>
+
+                <dimen name="com_facebook_picker_place_image_size" >64dp
+                </dimen>
+
+                <string name="com_facebook_requesterror_reconnect" >Please log into this app again to reconnect your Facebook account.
+                </string>
+
+                <dimen name="com_facebook_usersettingsfragment_profile_picture_height" >64dp
+                </dimen>
+
+                <color name="com_facebook_usersettingsfragment_connected_text_color" >#FFFFFF
+                </color>
+
+                <string name="com_facebook_loginview_log_out_action" >Log out
+                </string>
+
+                <dimen name="com_facebook_profilepictureview_preset_size_small" >50dp
+                </dimen>
+
+                <string name="com_facebook_dialogloginactivity_ok_button" >OK
+                </string>
+
+                <color name="com_facebook_usersettingsfragment_not_connected_text_color" >#A6AED7
+                </color>
+
+                <string name="com_facebook_tooltip_default" >New! You\'re in control - choose what info you want to share with apps.
+                </string>
+                <string name="com_facebook_loginview_logged_in_as" >Logged in as: %1$s
+                </string>
+
+                <dimen name="com_facebook_profilepictureview_preset_size_large" >180dp
+                </dimen>
+
+                <string name="com_facebook_loginview_cancel_action" >Cancel
+                </string>
+
+                <color name="com_facebook_usersettingsfragment_connected_shadow_color" >#000000
+                </color>
+
+                <dimen name="com_facebook_tooltip_horizontal_padding" >10dp
+                </dimen>
+
+                <string name="com_facebook_loginview_logged_in_using_facebook" >Logged in using Facebook
+                </string>
+
+                <declare-styleable name="com_facebook_login_view" >
+                    <attr
+                        name="confirm_logout"
+                        format="boolean" />
+                    <attr
+                        name="fetch_user_info"
+                        format="boolean" />
+                    <attr
+                        name="login_text"
+                        format="string" />
+                    <attr
+                        name="logout_text"
+                        format="string" />
+                </declare-styleable>
+
+                <style
+                    name="com_facebook_loginview_default_style"
+                    parent="@android:style/Widget.Button" >
+                    <item name="android:layout_width">
+wrap_content
+                    </item>
+                    <item name="android:layout_height">
+wrap_content
+                    </item>
+                    <item name="android:background">
+@drawable/com_facebook_button_blue
+                    </item>
+                    <item name="android:textColor">
+@color/com_facebook_loginview_text_color
+                    </item>
+                    <item name="android:textSize">
+@dimen/com_facebook_loginview_text_size
+                    </item>
+                    <item name="android:textStyle">
+bold
+                    </item>
+                    <item name="android:paddingLeft">
+@dimen/com_facebook_loginview_padding_left
+                    </item>
+                    <item name="android:gravity">
+center
+                    </item>
+                </style>
+
+                <string name="com_facebook_internet_permission_error_title" >AndroidManifest Error
+                </string>
+            </file>
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-he/values.xml"
+                qualifiers="he" >
+                <string name="com_facebook_requesterror_password_changed" >.הסיסמה שלך בפייסבוק השתנתה, אנא חבר מחדש את האפליקציה עם פייסבוק
+                </string>
+                <string name="com_facebook_requesterror_web_login" >.כדי לאפשר מחדש לאפליקציה להתחבר עם פייסבוק https://www.facebook.com או https://m.facebook.com אנא היכנס דרך
+                </string>
+                <string name="com_facebook_usersettingsfragment_logged_in" >מחובר
+                </string>
+                <string name="com_facebook_requesterror_reconnect" >.ארעה שגיאה בעת החיבור עם פייסבוק, חבר בבקשה מחדש את האפליקציה עם פייסבוק
+                </string>
+                <string name="com_facebook_logo_content_description" >פייסבוק לוגו
+                </string>
+                <string name="com_facebook_picker_done_button_text" >בצע
+                </string>
+                <string name="com_facebook_loginview_log_in_button" >התחבר לפייסבוק
+                </string>
+                <string name="com_facebook_loginview_logged_in_as" >מחובר בשם: %1$s
+                </string>
+                <string name="com_facebook_placepicker_subtitle_were_here_only_format" >%1$,d היו פה
+                </string>
+                <string name="com_facebook_requesterror_relogin" >.האפליקציה אינה מחוברת לפייסבוק, אנא היכנס וחבר מחדש את האפליקציה
+                </string>
+                <string name="com_facebook_internet_permission_error_title" >AndroidManifest שגיאת
+                </string>
+                <string name="com_facebook_internet_permission_error_message" >ההתחברות לתצוגת אתר דורשת אישור אינטרנט
+                </string>
+                <string name="com_facebook_usersettingsfragment_log_in_button" >התחבר…
+                </string>
+                <string name="com_facebook_loginview_cancel_action" >בטל
+                </string>
+                <string name="com_facebook_choose_friends" >בחר חברים
+                </string>
+                <string name="com_facebook_loginview_log_out_button" >התנתק
+                </string>
+                <string name="com_facebook_placepicker_subtitle_catetory_only_format" >%1$s
+                </string>
+                <string name="com_facebook_placepicker_subtitle_format" >%1$s • %2$,d היו פה
+                </string>
+                <string name="com_facebook_usersettingsfragment_not_logged_in" >לא מחובר
+                </string>
+                <string name="com_facebook_loading" >..מעלה
+                </string>
+                <string name="com_facebook_nearby" >קרוב אליי
+                </string>
+                <string name="com_facebook_loginview_logged_in_using_facebook" >מחובר באמצעות פייסבוק
+                </string>
+                <string name="com_facebook_dialogloginactivity_ok_button" >אישור
+                </string>
+                <string name="com_facebook_requesterror_permissions" >.חיבור האפליקציה עם פייסבוק נכשל בשל הרשאות לא מספקות, אנא הענק הרשאות לאפליקציה בכדי שהפעולה תוכל להתבצע
+                </string>
+                <string name="com_facebook_loginview_log_out_action" >התנתק
+                </string>
+            </file>
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-es/values.xml"
+                qualifiers="es" >
+                <string name="com_facebook_nearby" >Cercano
+                </string>
+                <string name="com_facebook_requesterror_password_changed" >Su contraseña de Facebook ha cambiado, por favor vuelva a conectar la aplicación con Facebook.
+                </string>
+                <string name="com_facebook_loginview_log_out_action" >Cerrar sesión
+                </string>
+                <string name="com_facebook_requesterror_reconnect" >Se produjo un error al conectar con Facebook, por favor vuelva a conectar la aplicación con Facebook.
+                </string>
+                <string name="com_facebook_requesterror_permissions" >Una conexión de aplicación con Facebook falló debido a permisos insuficientes, por favor, conceda los permisos de aplicaciones para realizar la operación.
+                </string>
+                <string name="com_facebook_usersettingsfragment_logged_in" >Sesión iniciada
+                </string>
+                <string name="com_facebook_internet_permission_error_title" >Error de AndroidManifest
+                </string>
+                <string name="com_facebook_usersettingsfragment_not_logged_in" >No has iniciado sesión
+                </string>
+                <string name="com_facebook_loginview_logged_in_using_facebook" >Sesión iniciada con Facebook
+                </string>
+                <string name="com_facebook_placepicker_subtitle_format" >%1$s • %2$,d estuvieron aquí
+                </string>
+                <string name="com_facebook_requesterror_web_login" >Por favor, iniciar sesión a través https://www.facebook.com o https://m.facebook.com para volver a activar la aplicación para conectar con Facebook.
+                </string>
+                <string name="com_facebook_loading" >Cargando
+                </string>
+                <string name="com_facebook_picker_done_button_text" >Aceptar
+                </string>
+                <string name="com_facebook_placepicker_subtitle_catetory_only_format" >%1$s
+                </string>
+                <string name="com_facebook_loginview_cancel_action" >Cancelar
+                </string>
+                <string name="com_facebook_choose_friends" >Elige Amigos
+                </string>
+                <string name="com_facebook_internet_permission_error_message" >WebView inicio de sesión requiere permiso INTERNET
+                </string>
+                <string name="com_facebook_placepicker_subtitle_were_here_only_format" >es:%1$,d estuvieron aquí
+                </string>
+                <string name="com_facebook_requesterror_relogin" >La aplicación no se conecta con Facebook, inicie sesión y volver a conectar esta aplicación.
+                </string>
+                <string name="com_facebook_dialogloginactivity_ok_button" >Aceptar
+                </string>
+                <string name="com_facebook_usersettingsfragment_log_in_button" >Iniciar sesión…
+                </string>
+                <string name="com_facebook_logo_content_description" >Logo de Facebook
+                </string>
+                <string name="com_facebook_loginview_log_in_button" >Iniciar sesión con Facebook
+                </string>
+                <string name="com_facebook_loginview_log_out_button" >Cerrar sesión
+                </string>
+                <string name="com_facebook_loginview_logged_in_as" >Sesión iniciada como: %1$s
+                </string>
+            </file>
+            <file
+                name="com_facebook_tooltip_blue_topnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_blue_topnub.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_button_grey_pressed.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_button_blue_focused.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_bottomnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_blue_bottomnub.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_logo"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_logo.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_bottomnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_black_bottomnub.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_xout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_blue_xout.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_button_blue_pressed.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_button_grey_focused.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_inverse_icon"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_inverse_icon.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_close"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_close.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_xout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_black_xout.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_black_background.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_topnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_black_topnub.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_normal"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_button_grey_normal.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_picker_magnifier"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_picker_magnifier.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_normal"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_button_blue_normal.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-xhdpi/com_facebook_tooltip_blue_background.9.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_picker_list_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_list_pressed.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_grey_pressed.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_blue_focused.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_logo"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_logo.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_picker_list_longpressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_list_longpressed.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_list_divider"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_list_divider.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_place_default_icon"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_place_default_icon.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_check"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_check.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_picker_item_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_item_background.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_picker_list_selector"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_list_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_check_on"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_check_on.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_check_off"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_check_off.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_blue_pressed.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_top_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_top_background.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_grey_focused.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_inverse_icon"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_inverse_icon.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_profile_picture_blank_square"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_profile_picture_blank_square.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_blue.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_picker_top_button"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_top_button.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_close"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_close.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_usersettingsfragment_background_gradient"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_usersettingsfragment_background_gradient.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_picker_list_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_list_focused.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_loginbutton_silver"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_loginbutton_silver.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_top_button"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_top_button.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_profile_default_icon"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_profile_default_icon.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_list_section_header_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_list_section_header_background.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_normal"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_grey_normal.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_picker_list_selector_background_transition"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_list_selector_background_transition.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_picker_list_selector_disabled"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_picker_list_selector_disabled.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_normal"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_button_blue_normal.9.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="com_facebook_profile_picture_blank_portrait"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable/com_facebook_profile_picture_blank_portrait.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-mdpi/values.xml"
+                qualifiers="mdpi" >
+                <dimen name="com_facebook_picker_divider_width" >1px
+                </dimen>
+            </file>
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-xhdpi/values.xml"
+                qualifiers="xhdpi" >
+                <dimen name="com_facebook_picker_divider_width" >2px
+                </dimen>
+            </file>
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-iw/values.xml"
+                qualifiers="iw" >
+                <string name="com_facebook_usersettingsfragment_log_in_button" >התחבר…
+                </string>
+                <string name="com_facebook_requesterror_password_changed" >.הסיסמה שלך בפייסבוק השתנתה, אנא חבר מחדש את האפליקציה עם פייסבוק
+                </string>
+                <string name="com_facebook_picker_done_button_text" >בצע
+                </string>
+                <string name="com_facebook_internet_permission_error_title" >AndroidManifest שגיאת
+                </string>
+                <string name="com_facebook_loginview_log_out_button" >התנתק
+                </string>
+                <string name="com_facebook_loginview_logged_in_as" >מחובר בשם: %1$s
+                </string>
+                <string name="com_facebook_internet_permission_error_message" >ההתחברות לתצוגת אתר דורשת אישור אינטרנט
+                </string>
+                <string name="com_facebook_loginview_logged_in_using_facebook" >מחובר באמצעות פייסבוק
+                </string>
+                <string name="com_facebook_requesterror_reconnect" >.ארעה שגיאה בעת החיבור עם פייסבוק, חבר בבקשה מחדש את האפליקציה עם פייסבוק
+                </string>
+                <string name="com_facebook_loginview_log_out_action" >התנתק
+                </string>
+                <string name="com_facebook_placepicker_subtitle_catetory_only_format" >%1$s
+                </string>
+                <string name="com_facebook_usersettingsfragment_logged_in" >מחובר
+                </string>
+                <string name="com_facebook_logo_content_description" >פייסבוק לוגו
+                </string>
+                <string name="com_facebook_choose_friends" >בחר חברים
+                </string>
+                <string name="com_facebook_dialogloginactivity_ok_button" >אישור
+                </string>
+                <string name="com_facebook_loading" >..מעלה
+                </string>
+                <string name="com_facebook_nearby" >קרוב אליי
+                </string>
+                <string name="com_facebook_loginview_log_in_button" >התחבר לפייסבוק
+                </string>
+                <string name="com_facebook_placepicker_subtitle_were_here_only_format" >%1$,d היו פה
+                </string>
+                <string name="com_facebook_usersettingsfragment_not_logged_in" >לא מחובר
+                </string>
+                <string name="com_facebook_placepicker_subtitle_format" >%1$s • %2$,d היו פה
+                </string>
+                <string name="com_facebook_requesterror_permissions" >.חיבור האפליקציה עם פייסבוק נכשל בשל הרשאות לא מספקות, אנא הענק הרשאות לאפליקציה בכדי שהפעולה תוכל להתבצע
+                </string>
+                <string name="com_facebook_loginview_cancel_action" >בטל
+                </string>
+                <string name="com_facebook_requesterror_web_login" >.כדי לאפשר מחדש לאפליקציה להתחבר עם פייסבוק https://www.facebook.com או https://m.facebook.com אנא היכנס דרך
+                </string>
+                <string name="com_facebook_requesterror_relogin" >.האפליקציה אינה מחוברת לפייסבוק, אנא היכנס וחבר מחדש את האפליקציה
+                </string>
+            </file>
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-ldpi/values.xml"
+                qualifiers="ldpi" >
+                <dimen name="com_facebook_picker_divider_width" >1px
+                </dimen>
+            </file>
+            <file
+                name="com_facebook_tooltip_blue_topnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_blue_topnub.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_button_grey_pressed.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_button_blue_focused.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_bottomnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_blue_bottomnub.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_logo"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_logo.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_bottomnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_black_bottomnub.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_xout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_blue_xout.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_pressed"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_button_blue_pressed.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_focused"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_button_grey_focused.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_inverse_icon"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_inverse_icon.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_close"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_close.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_xout"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_black_xout.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_black_background.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_black_topnub"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_black_topnub.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_grey_normal"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_button_grey_normal.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_picker_magnifier"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_picker_magnifier.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_button_blue_normal"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_button_blue_normal.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="com_facebook_tooltip_blue_background"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-hdpi/com_facebook_tooltip_blue_background.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-hdpi/values.xml"
+                qualifiers="hdpi" >
+                <dimen name="com_facebook_picker_divider_width" >1px
+                </dimen>
+            </file>
+            <file
+                name="com_facebook_close"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/drawable-ldpi/com_facebook_close.png"
+                qualifiers="ldpi"
+                type="drawable" />
+        </source>
+    </dataSet>
     <dataSet config="4.3.23" >
         <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res" >
             <file
@@ -98,16 +1059,16 @@
                     msgid="2429381841831957106" >"Conectați-vă cu Google"
                 </string>
                 <string
-                    name="auth_client_play_services_err_notification_msg"
-                    msgid="3635065018897986478" >"Eroare Servicii Google Play"
-                </string>
-                <string
                     name="common_google_play_services_network_error_text"
                     msgid="9038847255613537209" >"Este necesară o conexiune de date pentru a vă conecta la serviciile Google Play."
                 </string>
                 <string
                     name="common_google_play_services_network_error_title"
                     msgid="3827284619958211114" >"Eroare de reţea"
+                </string>
+                <string
+                    name="auth_client_play_services_err_notification_msg"
+                    msgid="3635065018897986478" >"Eroare Servicii Google Play"
                 </string>
                 <string
                     name="common_signin_button_text"
@@ -118,6 +1079,10 @@
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-am/strings.xml"
                 qualifiers="am" >
                 <string
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"Google Play አገልግሎቶችን ያዘምኑ"
+                </string>
+                <string
                     name="common_google_play_services_install_text_phone"
                     msgid="8685301130651051380" >"ይህ መተግበሪያ ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ ስልክዎ ላይ የሉም።"
                 </string>
@@ -126,8 +1091,19 @@
                     msgid="6488605506794595966" >"መተግበሪያው Google Play አገልግሎቶች እንዲዘምን ይፈልጋል።"
                 </string>
                 <string
+                    name="auth_client_using_bad_version_title"
+                    msgid="2534454398764507874" >"መተግበሪያው የGoogle Play አገልግሎቶችን መጥፎ ስሪት ለመጠቀም ሞክሯል።"
+                </string>
+                <string
                     name="auth_client_play_services_err_notification_msg"
                     msgid="3635065018897986478" >"የGoogle Play አገልግሎቶች ስህተት"
+                </string>
+                <string
+                    name="auth_client_requested_by_msg"
+                    msgid="6304135633531965756" >"በ
+<ns1:g id="APP_NAME" >
+%1$s
+                    </ns1:g> የተጠየቀ"
                 </string>
                 <string
                     name="common_google_play_services_network_error_text"
@@ -158,6 +1134,10 @@
                     msgid="4983316348021735578" >"የተገለጸው መለያ በዚህ መሣሪያ ላይ የለም። እባክው የተለየ መለያ ይምረጡ።"
                 </string>
                 <string
+                    name="common_google_play_services_unsupported_title"
+                    msgid="6334768798839376943" >"Google Play አገልግሎቶች"
+                </string>
+                <string
                     name="common_google_play_services_install_text_tablet"
                     msgid="1589957570365247855" >"ይህ መተግበሪያ ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ ጡባዊዎ ላይ የሉም።"
                 </string>
@@ -174,39 +1154,16 @@
                     msgid="9071884888741449141" >"ግባ"
                 </string>
                 <string
-                    name="common_google_play_services_update_button"
-                    msgid="8932944190611227642" >"ያዘምኑ"
-                </string>
-                <string
-                    name="common_google_play_services_install_button"
-                    msgid="8515591849428043265" >"Google Play አገልግሎቶችን አግኝ"
-                </string>
-                <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"Google Play አገልግሎቶችን ያዘምኑ"
-                </string>
-                <string
-                    name="auth_client_using_bad_version_title"
-                    msgid="2534454398764507874" >"መተግበሪያው የGoogle Play አገልግሎቶችን መጥፎ ስሪት ለመጠቀም ሞክሯል።"
-                </string>
-                <string
-                    name="auth_client_requested_by_msg"
-                    msgid="6304135633531965756" >"በ
-<ns1:g id="APP_NAME" >
-%1$s
-                    </ns1:g> የተጠየቀ"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_title"
-                    msgid="6334768798839376943" >"Google Play አገልግሎቶች"
-                </string>
-                <string
                     name="common_google_play_services_network_error_title"
                     msgid="3827284619958211114" >"የአውታረ መረብ ስህተት"
                 </string>
                 <string
                     name="auth_client_needs_enabling_title"
                     msgid="3983201110833868073" >"መተግበሪያው Google Play አገልግሎቶች እንዲነቁ ይፈልጋል።"
+                </string>
+                <string
+                    name="common_google_play_services_update_button"
+                    msgid="8932944190611227642" >"ያዘምኑ"
                 </string>
                 <string
                     name="common_google_play_services_unknown_issue"
@@ -223,6 +1180,10 @@
                 <string
                     name="common_google_play_services_unsupported_date_text"
                     msgid="4725396522367789365" >"በመሣሪያው ላይ ያለው ቀን ትክክል አይመስልም። እባክዎ በመሣሪያው ላይ ያለውን ቀን ያረጋግጡ።"
+                </string>
+                <string
+                    name="common_google_play_services_install_button"
+                    msgid="8515591849428043265" >"Google Play አገልግሎቶችን አግኝ"
                 </string>
             </file>
             <file
@@ -784,24 +1745,24 @@
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-zh-rHK/strings.xml"
                 qualifiers="zh-rHK" >
                 <string
-                    name="common_google_play_services_install_title"
-                    msgid="26645092511305524" >"取得 Google Play 服務"
-                </string>
-                <string
                     name="common_google_play_services_update_button"
                     msgid="8932944190611227642" >"更新"
+                </string>
+                <string
+                    name="common_google_play_services_install_title"
+                    msgid="26645092511305524" >"取得 Google Play 服務"
                 </string>
                 <string
                     name="common_google_play_services_update_text"
                     msgid="448354684997260580" >"您必須更新 Google Play 服務，才能執行這個應用程式。"
                 </string>
                 <string
-                    name="common_google_play_services_enable_title"
-                    msgid="529078775174559253" >"啟用 Google Play 服務"
-                </string>
-                <string
                     name="common_google_play_services_unknown_issue"
                     msgid="4762332809710093730" >"Google Play 服務出現不明問題。"
+                </string>
+                <string
+                    name="common_google_play_services_enable_title"
+                    msgid="529078775174559253" >"啟用 Google Play 服務"
                 </string>
                 <string
                     name="auth_client_play_services_err_notification_msg"
@@ -1006,8 +1967,24 @@
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-tr/strings.xml"
                 qualifiers="tr" >
                 <string
+                    name="auth_client_needs_update_title"
+                    msgid="6488605506794595966" >"Bir uygulama, Google Play Hizmetleri için bir güncelleme gerektiriyor."
+                </string>
+                <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"Oturum aç"
+                </string>
+                <string
                     name="common_google_play_services_invalid_account_title"
                     msgid="1066672360770936753" >"Geçersiz Hesap"
+                </string>
+                <string
+                    name="common_google_play_services_install_title"
+                    msgid="26645092511305524" >"Google Play hizmetlerini edinin"
+                </string>
+                <string
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"Google Play hizmetlerini güncelle"
                 </string>
                 <string
                     name="common_google_play_services_unsupported_text"
@@ -1026,50 +2003,6 @@
                     msgid="4762332809710093730" >"Google Play hizmetleriyle ilgili bilinmeyen sorun."
                 </string>
                 <string
-                    name="common_google_play_services_unsupported_date_text"
-                    msgid="4725396522367789365" >"Cihazdaki tarih doğru görünmüyor. Lütfen cihazda ayarlı tarihi kontrol edin."
-                </string>
-                <string
-                    name="auth_client_play_services_err_notification_msg"
-                    msgid="3635065018897986478" >"Google Play hizmetleri hatası"
-                </string>
-                <string
-                    name="common_signin_button_text_long"
-                    msgid="2429381841831957106" >"Google\'da oturum aç"
-                </string>
-                <string
-                    name="common_google_play_services_enable_title"
-                    msgid="529078775174559253" >"Google Play hizmetlerini etkinleştir"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_title"
-                    msgid="6334768798839376943" >"Google Play hizmetleri"
-                </string>
-                <string
-                    name="common_google_play_services_update_text"
-                    msgid="448354684997260580" >"Bu uygulama Google Play Hizmetleri güncellenmeden çalışmaz."
-                </string>
-                <string
-                    name="auth_client_using_bad_version_title"
-                    msgid="2534454398764507874" >"Bir uygulama, Google Play Hizmetleri\'nin bozuk bir sürümünü kullanmayı denedi."
-                </string>
-                <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"Oturum aç"
-                </string>
-                <string
-                    name="auth_client_needs_update_title"
-                    msgid="6488605506794595966" >"Bir uygulama, Google Play Hizmetleri için bir güncelleme gerektiriyor."
-                </string>
-                <string
-                    name="common_google_play_services_install_title"
-                    msgid="26645092511305524" >"Google Play hizmetlerini edinin"
-                </string>
-                <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"Google Play hizmetlerini güncelle"
-                </string>
-                <string
                     name="auth_client_needs_installation_title"
                     msgid="7999585836145154206" >"Bir uygulama, Google Play Hizmetleri\'nin yüklenmesini gerektiriyor."
                 </string>
@@ -1080,6 +2013,14 @@
                 <string
                     name="common_google_play_services_enable_text"
                     msgid="7627896071867667758" >"Bu uygulama, Google Play Hizmetleri etkinleştirilmeden çalışmaz"
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_date_text"
+                    msgid="4725396522367789365" >"Cihazdaki tarih doğru görünmüyor. Lütfen cihazda ayarlı tarihi kontrol edin."
+                </string>
+                <string
+                    name="auth_client_play_services_err_notification_msg"
+                    msgid="3635065018897986478" >"Google Play hizmetleri hatası"
                 </string>
                 <string
                     name="common_google_play_services_install_text_tablet"
@@ -1094,8 +2035,24 @@
                     msgid="9038847255613537209" >"Google Play hizmetlerine bağlanmak için bir veri bağlantısı gerekiyor."
                 </string>
                 <string
+                    name="common_signin_button_text_long"
+                    msgid="2429381841831957106" >"Google\'da oturum aç"
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_title"
+                    msgid="6334768798839376943" >"Google Play hizmetleri"
+                </string>
+                <string
+                    name="common_google_play_services_enable_title"
+                    msgid="529078775174559253" >"Google Play hizmetlerini etkinleştir"
+                </string>
+                <string
                     name="common_google_play_services_enable_button"
                     msgid="4181637455539816337" >"Google Play hizmetlerini etkinleştir"
+                </string>
+                <string
+                    name="common_google_play_services_update_text"
+                    msgid="448354684997260580" >"Bu uygulama Google Play Hizmetleri güncellenmeden çalışmaz."
                 </string>
                 <string
                     name="common_google_play_services_invalid_account_text"
@@ -1111,6 +2068,10 @@
 <ns1:g id="APP_NAME" >
 %1$s
                     </ns1:g>"
+                </string>
+                <string
+                    name="auth_client_using_bad_version_title"
+                    msgid="2534454398764507874" >"Bir uygulama, Google Play Hizmetleri\'nin bozuk bir sürümünü kullanmayı denedi."
                 </string>
             </file>
             <file
@@ -1446,8 +2407,20 @@
                     msgid="448354684997260580" >"Ke spuštění této aplikace je třeba aktualizovat služby Google Play."
                 </string>
                 <string
+                    name="auth_client_play_services_err_notification_msg"
+                    msgid="3635065018897986478" >"Chyba služeb Google Play"
+                </string>
+                <string
+                    name="auth_client_needs_update_title"
+                    msgid="6488605506794595966" >"Aplikace vyžaduje aktualizaci Služeb Google Play."
+                </string>
+                <string
                     name="auth_client_needs_installation_title"
                     msgid="7999585836145154206" >"Aplikace vyžaduje instalaci Služeb Google Play."
+                </string>
+                <string
+                    name="auth_client_using_bad_version_title"
+                    msgid="2534454398764507874" >"Aplikace se pokusila použít nesprávnou verzi Služeb Google Play."
                 </string>
                 <string
                     name="common_google_play_services_enable_text"
@@ -1458,47 +2431,16 @@
                     msgid="4762332809710093730" >"Nastal neznámý problém se službami Google Play."
                 </string>
                 <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"Chyba sítě"
+                    name="common_google_play_services_unsupported_title"
+                    msgid="6334768798839376943" >"Služby Google Play"
                 </string>
                 <string
                     name="common_google_play_services_install_text_tablet"
                     msgid="1589957570365247855" >"Ke spuštění této aplikace jsou potřeba služby Google Play, které v tabletu nemáte."
                 </string>
                 <string
-                    name="auth_client_requested_by_msg"
-                    msgid="6304135633531965756" >"Požadováno aplikací 
-<ns1:g id="APP_NAME" >
-%1$s
-                    </ns1:g>"
-                </string>
-                <string
-                    name="common_google_play_services_install_button"
-                    msgid="8515591849428043265" >"Instalovat služby Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_enable_title"
-                    msgid="529078775174559253" >"Aktivovat služby Google Play"
-                </string>
-                <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"Přihlásit se"
-                </string>
-                <string
-                    name="auth_client_play_services_err_notification_msg"
-                    msgid="3635065018897986478" >"Chyba služeb Google Play"
-                </string>
-                <string
-                    name="auth_client_needs_update_title"
-                    msgid="6488605506794595966" >"Aplikace vyžaduje aktualizaci Služeb Google Play."
-                </string>
-                <string
-                    name="auth_client_using_bad_version_title"
-                    msgid="2534454398764507874" >"Aplikace se pokusila použít nesprávnou verzi Služeb Google Play."
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_title"
-                    msgid="6334768798839376943" >"Služby Google Play"
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"Chyba sítě"
                 </string>
                 <string
                     name="common_google_play_services_install_text_phone"
@@ -1507,6 +2449,13 @@
                 <string
                     name="common_google_play_services_unsupported_date_text"
                     msgid="4725396522367789365" >"Datum v zařízení není správně nastaveno. Zkontrolujte prosím datum."
+                </string>
+                <string
+                    name="auth_client_requested_by_msg"
+                    msgid="6304135633531965756" >"Požadováno aplikací 
+<ns1:g id="APP_NAME" >
+%1$s
+                    </ns1:g>"
                 </string>
                 <string
                     name="common_google_play_services_network_error_text"
@@ -1523,6 +2472,18 @@
                 <string
                     name="common_google_play_services_unsupported_text"
                     msgid="3542578567569488671" >"Některé vaše aplikace vyžadují služby Google Play, které ve vašem zařízení nejsou podporovány. S žádostí o pomoc se prosím obraťte na výrobce."
+                </string>
+                <string
+                    name="common_google_play_services_install_button"
+                    msgid="8515591849428043265" >"Instalovat služby Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_enable_title"
+                    msgid="529078775174559253" >"Aktivovat služby Google Play"
+                </string>
+                <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"Přihlásit se"
                 </string>
                 <string
                     name="common_google_play_services_invalid_account_text"
@@ -2220,56 +3181,36 @@
                     msgid="6334768798839376943" >"ບໍລິການ Google Play"
                 </string>
                 <string
-                    name="common_signin_button_text_long"
-                    msgid="2429381841831957106" >"ເຂົ້າສູ່ລະບົບດ້ວຍ Google"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"ບໍລິການ Google Play ທີ່ບາງແອັບພລິເຄຊັນຂອງທ່ານຕ້ອງອາໄສນັ້ນ ບໍ່ຖືກຮອງຮັບໃນອຸປະກອນຂອງທ່ານ. ກະລຸນາຕິດຕໍ່ຜູ້ຜະລິດສຳລັບການແນະນຳ."
-                </string>
-                <string
-                    name="common_google_play_services_network_error_text"
-                    msgid="9038847255613537209" >"ຕ້ອງໃຊ້ການເຊື່ອມຕໍ່ອິນເຕີເນັດເພື່ອໃຊ້ Google Play Services."
-                </string>
-                <string
-                    name="common_google_play_services_install_text_tablet"
-                    msgid="1589957570365247855" >"ແອັບຯນີ້ຈະບໍ່ສາມາດເຮັດວຽກໄດ້ໂດຍທີ່ບໍ່ມີບໍລິການ Google Play ເຊິ່ງຂາດຫາຍໄປໃນແທັບເລັດຂອງທ່ານ."
-                </string>
-                <string
-                    name="common_google_play_services_install_text_phone"
-                    msgid="8685301130651051380" >"ແອັບຯນີ້ຈະບໍ່ສາມາດເຮັດວຽກໄດ້ໂດຍທີ່ບໍ່ມີບໍລິການ Google Play ເຊິ່ງຂາດຫາຍໄປໃນໂທລະສັບຂອງທ່ານ."
-                </string>
-                <string
-                    name="common_google_play_services_unknown_issue"
-                    msgid="4762332809710093730" >"ມີປັນຫາທີ່ບໍ່ຄາດຄິດໃນບໍລິການ Google Play."
-                </string>
-                <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"ເຂົ້າສູ່ລະບົບ"
-                </string>
-                <string
-                    name="auth_client_needs_enabling_title"
-                    msgid="3983201110833868073" >"ແອັບພລິເຄຊັນຕ້ອງການເປີດນຳໃຊ້ Google Play Services."
-                </string>
-                <string
-                    name="auth_client_using_bad_version_title"
-                    msgid="2534454398764507874" >"ແອັບພລິເຄຊັນໄດ້ພະຍາຍາມໃຊ້ Google Play Services ເວີຊັນທີ່ບໍ່ສາມາດໃຊ້ໄດ້."
-                </string>
-                <string
                     name="common_google_play_services_enable_title"
                     msgid="529078775174559253" >"ເປີດໃຊ້ບໍລິການ Google Play"
+                </string>
+                <string
+                    name="common_signin_button_text_long"
+                    msgid="2429381841831957106" >"ເຂົ້າສູ່ລະບົບດ້ວຍ Google"
                 </string>
                 <string
                     name="common_google_play_services_network_error_title"
                     msgid="3827284619958211114" >"ເຄືອຂ່າຍຜິດພາດ"
                 </string>
                 <string
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"ບໍລິການ Google Play ທີ່ບາງແອັບພລິເຄຊັນຂອງທ່ານຕ້ອງອາໄສນັ້ນ ບໍ່ຖືກຮອງຮັບໃນອຸປະກອນຂອງທ່ານ. ກະລຸນາຕິດຕໍ່ຜູ້ຜະລິດສຳລັບການແນະນຳ."
+                </string>
+                <string
                     name="auth_client_needs_installation_title"
                     msgid="7999585836145154206" >"ແອັບພລິເຄຊັນຕ້ອງການໃຫ້ຕິດຕັ້ງ Google Play Services."
                 </string>
                 <string
+                    name="common_google_play_services_network_error_text"
+                    msgid="9038847255613537209" >"ຕ້ອງໃຊ້ການເຊື່ອມຕໍ່ອິນເຕີເນັດເພື່ອໃຊ້ Google Play Services."
+                </string>
+                <string
                     name="common_google_play_services_invalid_account_title"
                     msgid="1066672360770936753" >"ບັນຊີບໍ່ຖືກຕ້ອງ"
+                </string>
+                <string
+                    name="common_google_play_services_install_text_tablet"
+                    msgid="1589957570365247855" >"ແອັບຯນີ້ຈະບໍ່ສາມາດເຮັດວຽກໄດ້ໂດຍທີ່ບໍ່ມີບໍລິການ Google Play ເຊິ່ງຂາດຫາຍໄປໃນແທັບເລັດຂອງທ່ານ."
                 </string>
                 <string
                     name="common_google_play_services_invalid_account_text"
@@ -2300,6 +3241,14 @@
                     msgid="6006316683626838685" >"ອັບເດດບໍລິການ Google Play"
                 </string>
                 <string
+                    name="common_google_play_services_unknown_issue"
+                    msgid="4762332809710093730" >"ມີປັນຫາທີ່ບໍ່ຄາດຄິດໃນບໍລິການ Google Play."
+                </string>
+                <string
+                    name="common_google_play_services_install_text_phone"
+                    msgid="8685301130651051380" >"ແອັບຯນີ້ຈະບໍ່ສາມາດເຮັດວຽກໄດ້ໂດຍທີ່ບໍ່ມີບໍລິການ Google Play ເຊິ່ງຂາດຫາຍໄປໃນໂທລະສັບຂອງທ່ານ."
+                </string>
+                <string
                     name="auth_client_requested_by_msg"
                     msgid="6304135633531965756" >"ຮ້ອງຂໍໂດຍ 
 <ns1:g id="APP_NAME" >
@@ -2307,8 +3256,20 @@
                     </ns1:g>"
                 </string>
                 <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"ເຂົ້າສູ່ລະບົບ"
+                </string>
+                <string
+                    name="auth_client_needs_enabling_title"
+                    msgid="3983201110833868073" >"ແອັບພລິເຄຊັນຕ້ອງການເປີດນຳໃຊ້ Google Play Services."
+                </string>
+                <string
                     name="common_google_play_services_unsupported_date_text"
                     msgid="4725396522367789365" >"ວັນທີຂອງອຸປະກອນບໍ່ຖືກຕ້ອງ. ກະລຸນາກວດສອບວັນທີຂອງອຸປະກອນຂອງທ່ານ."
+                </string>
+                <string
+                    name="auth_client_using_bad_version_title"
+                    msgid="2534454398764507874" >"ແອັບພລິເຄຊັນໄດ້ພະຍາຍາມໃຊ້ Google Play Services ເວີຊັນທີ່ບໍ່ສາມາດໃຊ້ໄດ້."
                 </string>
                 <string
                     name="common_google_play_services_install_button"
@@ -2753,28 +3714,12 @@
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-km-rKH/strings.xml"
                 qualifiers="km-rKH" >
                 <string
-                    name="common_google_play_services_unsupported_title"
-                    msgid="6334768798839376943" >"សេវាកម្ម​កម្សាន្ត​ Google"
-                </string>
-                <string
                     name="common_google_play_services_unsupported_text"
                     msgid="3542578567569488671" >"សេវាកម្ម​កម្សាន្ត Google អាស្រ័យ​លើ​កម្មវិធី​របស់​អ្នក មិន​ត្រូវ​បាន​គាំទ្រ​ដោយ​ឧបករណ៍​របស់​អ្នក។ សូម​ទាក់ទង​ក្រុមហ៊ុន​ផលិត​សម្រាប់​ជំនួយ។"
                 </string>
                 <string
                     name="common_google_play_services_install_title"
                     msgid="26645092511305524" >"ទទួល​សេវាកម្ម​កម្សាន្ត Google"
-                </string>
-                <string
-                    name="common_google_play_services_install_text_tablet"
-                    msgid="1589957570365247855" >"​​កម្មវិធី​នេះ​នឹង​មិន​ដំណើរការ​​ទេ​បើ​គ្មាន​​សេវាកម្ម​កម្សាន្ត​ Google ដែល​​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​មិន​មាន។"
-                </string>
-                <string
-                    name="common_signin_button_text_long"
-                    msgid="2429381841831957106" >"ចូល​ដោយ​ប្រើ​ Google"
-                </string>
-                <string
-                    name="common_google_play_services_invalid_account_title"
-                    msgid="1066672360770936753" >"គណនី​មិន​ត្រឹមត្រូវ"
                 </string>
                 <string
                     name="common_google_play_services_unsupported_date_text"
@@ -2792,12 +3737,52 @@
                     </ns1:g>"
                 </string>
                 <string
-                    name="auth_client_using_bad_version_title"
-                    msgid="2534454398764507874" >"កម្មវិធី​​​ព្យាយាម​ប្រើ​កំណែ​មិនល្អ​របស់​សេវា​កម្ម​ឃ្លាំ​កម្មវិធី។"
+                    name="common_google_play_services_enable_button"
+                    msgid="4181637455539816337" >"បើក​សេវាកម្ម​កម្សាន្ត Google"
+                </string>
+                <string
+                    name="common_google_play_services_update_button"
+                    msgid="8932944190611227642" >"ធ្វើ​បច្ចុប្បន្នភាព"
+                </string>
+                <string
+                    name="auth_client_play_services_err_notification_msg"
+                    msgid="3635065018897986478" >"កំហុស​សេវា​កម្ម​កម្សាន្ត Google"
+                </string>
+                <string
+                    name="common_google_play_services_enable_text"
+                    msgid="7627896071867667758" >"កម្ម​វិធី​នេះ​នឹង​មិន​ដំណើរការ​ទេ​ លុះត្រាតែ​អ្នក​បើក​សេវាកម្ម​​កម្សាន្ត​ Google ។"
+                </string>
+                <string
+                    name="auth_client_needs_enabling_title"
+                    msgid="3983201110833868073" >"កម្មវិធី​ទាមទារ​​បើក​សេវាកម្ម​ឃ្លាំង​កម្មវិធី។"
+                </string>
+                <string
+                    name="common_google_play_services_install_text_phone"
+                    msgid="8685301130651051380" >"កម្មវិធី​នេះ​នឹង​មិន​ដំណើរការ​​ទេ​បើ​គ្មាន​​សេវាកម្ម​កម្សាន្ត​ Google ដែល​ទូរស័ព្ទ​របស់​​អ្នក​មិន​មាន។"
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_title"
+                    msgid="6334768798839376943" >"សេវាកម្ម​កម្សាន្ត​ Google"
+                </string>
+                <string
+                    name="common_google_play_services_install_text_tablet"
+                    msgid="1589957570365247855" >"​​កម្មវិធី​នេះ​នឹង​មិន​ដំណើរការ​​ទេ​បើ​គ្មាន​​សេវាកម្ម​កម្សាន្ត​ Google ដែល​​កុំព្យូទ័រ​បន្ទះ​របស់​អ្នក​មិន​មាន។"
+                </string>
+                <string
+                    name="common_google_play_services_invalid_account_title"
+                    msgid="1066672360770936753" >"គណនី​មិន​ត្រឹមត្រូវ"
+                </string>
+                <string
+                    name="common_signin_button_text_long"
+                    msgid="2429381841831957106" >"ចូល​ដោយ​ប្រើ​ Google"
                 </string>
                 <string
                     name="common_google_play_services_enable_title"
                     msgid="529078775174559253" >"បើក​សេវាកម្ម​កម្សាន្ត Google"
+                </string>
+                <string
+                    name="auth_client_using_bad_version_title"
+                    msgid="2534454398764507874" >"កម្មវិធី​​​ព្យាយាម​ប្រើ​កំណែ​មិនល្អ​របស់​សេវា​កម្ម​ឃ្លាំ​កម្មវិធី។"
                 </string>
                 <string
                     name="common_google_play_services_network_error_title"
@@ -2820,10 +3805,6 @@
                     msgid="8515591849428043265" >"ទទួល​សេវាកម្ម​កម្សាន្ត Google"
                 </string>
                 <string
-                    name="common_google_play_services_enable_button"
-                    msgid="4181637455539816337" >"បើក​សេវាកម្ម​កម្សាន្ត Google"
-                </string>
-                <string
                     name="auth_client_needs_update_title"
                     msgid="6488605506794595966" >"កម្មវិធី​ទាមទារ​​ធ្វើ​បច្ចុប្បន្នភាព​សេវាកម្ម​ឃ្លាំង​កម្មវិធី។"
                 </string>
@@ -2832,32 +3813,12 @@
                     msgid="6006316683626838685" >"ធ្វើ​បច្ចុប្បន្នភាព​សេវាកម្ម​កម្សាន្ត Google"
                 </string>
                 <string
-                    name="common_google_play_services_update_button"
-                    msgid="8932944190611227642" >"ធ្វើ​បច្ចុប្បន្នភាព"
-                </string>
-                <string
                     name="common_google_play_services_invalid_account_text"
                     msgid="4983316348021735578" >"គណនី​ដែល​បាន​បញ្ជាក់​មិន​មាន​នៅ​លើ​ឧបករណ៍​នេះ​ទេ។ សូម​ជ្រើស​គណនី​ផ្សេង​។"
                 </string>
                 <string
-                    name="auth_client_play_services_err_notification_msg"
-                    msgid="3635065018897986478" >"កំហុស​សេវា​កម្ម​កម្សាន្ត Google"
-                </string>
-                <string
                     name="common_signin_button_text"
                     msgid="9071884888741449141" >"ចូល"
-                </string>
-                <string
-                    name="common_google_play_services_enable_text"
-                    msgid="7627896071867667758" >"កម្ម​វិធី​នេះ​នឹង​មិន​ដំណើរការ​ទេ​ លុះត្រាតែ​អ្នក​បើក​សេវាកម្ម​​កម្សាន្ត​ Google ។"
-                </string>
-                <string
-                    name="auth_client_needs_enabling_title"
-                    msgid="3983201110833868073" >"កម្មវិធី​ទាមទារ​​បើក​សេវាកម្ម​ឃ្លាំង​កម្មវិធី។"
-                </string>
-                <string
-                    name="common_google_play_services_install_text_phone"
-                    msgid="8685301130651051380" >"កម្មវិធី​នេះ​នឹង​មិន​ដំណើរការ​​ទេ​បើ​គ្មាន​​សេវាកម្ម​កម្សាន្ត​ Google ដែល​ទូរស័ព្ទ​របស់​​អ្នក​មិន​មាន។"
                 </string>
             </file>
             <file
@@ -3066,16 +4027,16 @@
                     msgid="4181637455539816337" >"Habilitar servicios de Google Play"
                 </string>
                 <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"Error de red"
-                </string>
-                <string
                     name="common_google_play_services_invalid_account_text"
                     msgid="4983316348021735578" >"La cuenta especificada no existe en este dispositivo. Selecciona otra cuenta."
                 </string>
                 <string
                     name="common_google_play_services_unsupported_title"
                     msgid="6334768798839376943" >"Servicios de Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"Error de red"
                 </string>
                 <string
                     name="common_google_play_services_install_text_tablet"
@@ -3094,6 +4055,10 @@
                     msgid="2534454398764507874" >"‏برنامه‌ای تلاش کرد از نسخه نادرستی از خدمات Google Play استفاده کند."
                 </string>
                 <string
+                    name="common_google_play_services_install_text_phone"
+                    msgid="8685301130651051380" >"‏این برنامه بدون خدمات Google Play اجرا نمی‌شود، این خدمات در تلفن شما وجود ندارد."
+                </string>
+                <string
                     name="common_google_play_services_update_text"
                     msgid="448354684997260580" >"‏تا زمانی‌که خدمات Google Play را به‌روز نکنید این برنامه کار نمی‌کند."
                 </string>
@@ -3106,55 +4071,28 @@
                     msgid="4762332809710093730" >"‏مشکل نامشخص در خدمات Google Play."
                 </string>
                 <string
-                    name="common_google_play_services_invalid_account_text"
-                    msgid="4983316348021735578" >"حسابی که تعیین کردید در این دستگاه وجود ندارد. لطفاً حساب دیگری را انتخاب کنید."
-                </string>
-                <string
-                    name="common_google_play_services_enable_title"
-                    msgid="529078775174559253" >"‏فعال کردن خدمات Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_network_error_text"
-                    msgid="9038847255613537209" >"‏برای اتصال به خدمات Google Play اتصال داده لازم است."
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"‏خدمات Google Play، که برخی از برنامه‌های شما به آن وابسته است، توسط دستگاه شما پشتیبانی نمی‌شود. لطفاً برای دریافت کمک با سازنده تماس بگیرید."
-                </string>
-                <string
-                    name="auth_client_requested_by_msg"
-                    msgid="6304135633531965756" >"درخواست توسط 
-<ns1:g id="APP_NAME" >
-%1$s
-                    </ns1:g>"
-                </string>
-                <string
-                    name="auth_client_needs_installation_title"
-                    msgid="7999585836145154206" >"‏برنامه‌ای به نصب خدمات Google Play نیاز دارد."
-                </string>
-                <string
-                    name="auth_client_play_services_err_notification_msg"
-                    msgid="3635065018897986478" >"‏خطا در خدمات Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_install_text_phone"
-                    msgid="8685301130651051380" >"‏این برنامه بدون خدمات Google Play اجرا نمی‌شود، این خدمات در تلفن شما وجود ندارد."
-                </string>
-                <string
                     name="common_signin_button_text_long"
                     msgid="2429381841831957106" >"‏ورود به سیستم با Google‎"
-                </string>
-                <string
-                    name="common_google_play_services_enable_button"
-                    msgid="4181637455539816337" >"‏فعال کردن خدمات Google Play"
                 </string>
                 <string
                     name="common_signin_button_text"
                     msgid="9071884888741449141" >"ورود به سیستم"
                 </string>
                 <string
+                    name="common_google_play_services_enable_button"
+                    msgid="4181637455539816337" >"‏فعال کردن خدمات Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_invalid_account_text"
+                    msgid="4983316348021735578" >"حسابی که تعیین کردید در این دستگاه وجود ندارد. لطفاً حساب دیگری را انتخاب کنید."
+                </string>
+                <string
                     name="common_google_play_services_install_title"
                     msgid="26645092511305524" >"‏دریافت خدمات Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_enable_title"
+                    msgid="529078775174559253" >"‏فعال کردن خدمات Google Play"
                 </string>
                 <string
                     name="common_google_play_services_update_button"
@@ -3165,8 +4103,23 @@
                     msgid="4725396522367789365" >"تاریخ روی دستگاه ظاهراً اشتباه است. لطفاً تاریخ روی دستگاه را بررسی کنید."
                 </string>
                 <string
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"‏خدمات Google Play، که برخی از برنامه‌های شما به آن وابسته است، توسط دستگاه شما پشتیبانی نمی‌شود. لطفاً برای دریافت کمک با سازنده تماس بگیرید."
+                </string>
+                <string
+                    name="common_google_play_services_network_error_text"
+                    msgid="9038847255613537209" >"‏برای اتصال به خدمات Google Play اتصال داده لازم است."
+                </string>
+                <string
                     name="common_google_play_services_install_button"
                     msgid="8515591849428043265" >"‏دریافت خدمات Google Play"
+                </string>
+                <string
+                    name="auth_client_requested_by_msg"
+                    msgid="6304135633531965756" >"درخواست توسط 
+<ns1:g id="APP_NAME" >
+%1$s
+                    </ns1:g>"
                 </string>
                 <string
                     name="auth_client_needs_enabling_title"
@@ -3189,8 +4142,16 @@
                     msgid="6334768798839376943" >"‏خدمات Google Play"
                 </string>
                 <string
+                    name="auth_client_needs_installation_title"
+                    msgid="7999585836145154206" >"‏برنامه‌ای به نصب خدمات Google Play نیاز دارد."
+                </string>
+                <string
                     name="auth_client_needs_update_title"
                     msgid="6488605506794595966" >"‏برنامه‌ای به به‌روزرسانی خدمات Google Play نیاز دارد."
+                </string>
+                <string
+                    name="auth_client_play_services_err_notification_msg"
+                    msgid="3635065018897986478" >"‏خطا در خدمات Google Play"
                 </string>
             </file>
             <file
@@ -3428,18 +4389,6 @@
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-in/strings.xml"
                 qualifiers="in" >
                 <string
-                    name="common_google_play_services_install_button"
-                    msgid="8515591849428043265" >"Dapatkan layanan Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"Layanan Google Play, yang diandalkan oleh beberapa aplikasi Anda, tidak didukung oleh perangkat Anda. Hubungi pabrikan untuk mendapatkan bantuan."
-                </string>
-                <string
-                    name="auth_client_needs_update_title"
-                    msgid="6488605506794595966" >"Aplikasi membutuhkan pembaruan untuk Layanan Google Play."
-                </string>
-                <string
                     name="common_google_play_services_unsupported_title"
                     msgid="6334768798839376943" >"Layanan Google Play"
                 </string>
@@ -3448,28 +4397,12 @@
                     msgid="529078775174559253" >"Aktifkan layanan Google Play"
                 </string>
                 <string
-                    name="common_google_play_services_install_title"
-                    msgid="26645092511305524" >"Dapatkan layanan Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_install_text_phone"
-                    msgid="8685301130651051380" >"Aplikasi ini tidak akan berjalan tanpa layanan Google Play, yang tidak ada di ponsel Anda."
-                </string>
-                <string
                     name="common_google_play_services_unknown_issue"
                     msgid="4762332809710093730" >"Masalah tidak diketahui pada layanan Google Play."
                 </string>
                 <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"Masuk"
-                </string>
-                <string
                     name="auth_client_needs_installation_title"
                     msgid="7999585836145154206" >"Aplikasi membutuhkan pemasangan Layanan Google Play."
-                </string>
-                <string
-                    name="common_google_play_services_enable_button"
-                    msgid="4181637455539816337" >"Aktifkan layanan Google Play"
                 </string>
                 <string
                     name="auth_client_requested_by_msg"
@@ -3479,32 +4412,16 @@
                     </ns1:g>"
                 </string>
                 <string
-                    name="auth_client_needs_enabling_title"
-                    msgid="3983201110833868073" >"Aplikasi membutuhkan Layanan Google Play untuk dapat diaktifkan."
-                </string>
-                <string
                     name="common_google_play_services_install_text_tablet"
                     msgid="1589957570365247855" >"Aplikasi ini tidak akan berjalan tanpa layanan Google Play, yang tidak ada di tablet Anda."
-                </string>
-                <string
-                    name="common_google_play_services_update_text"
-                    msgid="448354684997260580" >"Aplikasi ini tidak akan berjalan sampai Anda memperbarui layanan Google Play."
                 </string>
                 <string
                     name="common_google_play_services_invalid_account_text"
                     msgid="4983316348021735578" >"Akun yang ditentukan tidak ada di perangkat ini. Pilih akun lain."
                 </string>
                 <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"Kesalahan Jaringan"
-                </string>
-                <string
                     name="common_google_play_services_network_error_text"
                     msgid="9038847255613537209" >"Sambungan data diperlukan untuk tersambung ke layanan Google Play."
-                </string>
-                <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"Perbarui layanan Google Play"
                 </string>
                 <string
                     name="auth_client_using_bad_version_title"
@@ -3521,6 +4438,50 @@
                 <string
                     name="auth_client_play_services_err_notification_msg"
                     msgid="3635065018897986478" >"Kesalahan layanan Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_install_button"
+                    msgid="8515591849428043265" >"Dapatkan layanan Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"Layanan Google Play, yang diandalkan oleh beberapa aplikasi Anda, tidak didukung oleh perangkat Anda. Hubungi pabrikan untuk mendapatkan bantuan."
+                </string>
+                <string
+                    name="auth_client_needs_update_title"
+                    msgid="6488605506794595966" >"Aplikasi membutuhkan pembaruan untuk Layanan Google Play."
+                </string>
+                <string
+                    name="common_google_play_services_install_text_phone"
+                    msgid="8685301130651051380" >"Aplikasi ini tidak akan berjalan tanpa layanan Google Play, yang tidak ada di ponsel Anda."
+                </string>
+                <string
+                    name="common_google_play_services_install_title"
+                    msgid="26645092511305524" >"Dapatkan layanan Google Play"
+                </string>
+                <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"Masuk"
+                </string>
+                <string
+                    name="common_google_play_services_enable_button"
+                    msgid="4181637455539816337" >"Aktifkan layanan Google Play"
+                </string>
+                <string
+                    name="auth_client_needs_enabling_title"
+                    msgid="3983201110833868073" >"Aplikasi membutuhkan Layanan Google Play untuk dapat diaktifkan."
+                </string>
+                <string
+                    name="common_google_play_services_update_text"
+                    msgid="448354684997260580" >"Aplikasi ini tidak akan berjalan sampai Anda memperbarui layanan Google Play."
+                </string>
+                <string
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"Kesalahan Jaringan"
+                </string>
+                <string
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"Perbarui layanan Google Play"
                 </string>
                 <string
                     name="common_signin_button_text_long"
@@ -3659,52 +4620,20 @@
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-sv/strings.xml"
                 qualifiers="sv" >
                 <string
-                    name="common_google_play_services_install_text_tablet"
-                    msgid="1589957570365247855" >"Den här appen kan inte köras utan Google Play Tjänster, som saknas på surfplattan."
-                </string>
-                <string
-                    name="auth_client_needs_enabling_title"
-                    msgid="3983201110833868073" >"Google Play Tjänster måste aktiveras för en att app ska fungera."
-                </string>
-                <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"Uppdatera Google Play Tjänster"
-                </string>
-                <string
-                    name="common_google_play_services_network_error_text"
-                    msgid="9038847255613537209" >"En dataanslutning krävs för att ansluta till Google Plays tjänster."
-                </string>
-                <string
-                    name="common_google_play_services_enable_button"
-                    msgid="4181637455539816337" >"Aktivera Google Play Tjänster"
-                </string>
-                <string
-                    name="common_google_play_services_enable_text"
-                    msgid="7627896071867667758" >"Du måste aktivera Google Play Tjänster för att den här appen ska fungera."
-                </string>
-                <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"Logga in"
-                </string>
-                <string
-                    name="auth_client_using_bad_version_title"
-                    msgid="2534454398764507874" >"En olämplig version av Google Play Tjänster anropades av en app."
-                </string>
-                <string
-                    name="auth_client_play_services_err_notification_msg"
-                    msgid="3635065018897986478" >"Fel på Google Play Tjänster"
-                </string>
-                <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"Nätverksfel"
-                </string>
-                <string
                     name="common_google_play_services_enable_title"
                     msgid="529078775174559253" >"Aktivera Google Play Tjänster"
                 </string>
                 <string
+                    name="common_google_play_services_install_text_tablet"
+                    msgid="1589957570365247855" >"Den här appen kan inte köras utan Google Play Tjänster, som saknas på surfplattan."
+                </string>
+                <string
                     name="common_google_play_services_invalid_account_text"
                     msgid="4983316348021735578" >"Det angivna kontot finns inte på den här enheten. Välj ett annat konto."
+                </string>
+                <string
+                    name="auth_client_needs_enabling_title"
+                    msgid="3983201110833868073" >"Google Play Tjänster måste aktiveras för en att app ska fungera."
                 </string>
                 <string
                     name="common_google_play_services_unsupported_title"
@@ -3718,24 +4647,48 @@
                     </ns1:g>"
                 </string>
                 <string
-                    name="common_google_play_services_update_text"
-                    msgid="448354684997260580" >"Du måste uppdatera Google Play Tjänster innan du kan köra den här appen."
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"Uppdatera Google Play Tjänster"
+                </string>
+                <string
+                    name="common_google_play_services_network_error_text"
+                    msgid="9038847255613537209" >"En dataanslutning krävs för att ansluta till Google Plays tjänster."
                 </string>
                 <string
                     name="common_google_play_services_install_title"
                     msgid="26645092511305524" >"Hämta Google Play Tjänster"
                 </string>
                 <string
+                    name="common_google_play_services_update_text"
+                    msgid="448354684997260580" >"Du måste uppdatera Google Play Tjänster innan du kan köra den här appen."
+                </string>
+                <string
+                    name="common_google_play_services_enable_button"
+                    msgid="4181637455539816337" >"Aktivera Google Play Tjänster"
+                </string>
+                <string
                     name="common_google_play_services_invalid_account_title"
                     msgid="1066672360770936753" >"Ogiltigt konto"
+                </string>
+                <string
+                    name="common_google_play_services_update_button"
+                    msgid="8932944190611227642" >"Uppdatera"
                 </string>
                 <string
                     name="common_google_play_services_unsupported_date_text"
                     msgid="4725396522367789365" >"Datumet på enheten verkar inte vara rätt. Kontrollera datumet på enheten."
                 </string>
                 <string
-                    name="common_google_play_services_update_button"
-                    msgid="8932944190611227642" >"Uppdatera"
+                    name="auth_client_using_bad_version_title"
+                    msgid="2534454398764507874" >"En olämplig version av Google Play Tjänster anropades av en app."
+                </string>
+                <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"Logga in"
+                </string>
+                <string
+                    name="common_google_play_services_enable_text"
+                    msgid="7627896071867667758" >"Du måste aktivera Google Play Tjänster för att den här appen ska fungera."
                 </string>
                 <string
                     name="common_google_play_services_unknown_issue"
@@ -3744,6 +4697,10 @@
                 <string
                     name="common_google_play_services_unsupported_text"
                     msgid="3542578567569488671" >"Några av dina appar använder Google Play-tjänster som inte stöds av din enhet. Kontakta tillverkaren om du vill ha hjälp."
+                </string>
+                <string
+                    name="auth_client_play_services_err_notification_msg"
+                    msgid="3635065018897986478" >"Fel på Google Play Tjänster"
                 </string>
                 <string
                     name="common_google_play_services_install_button"
@@ -3764,6 +4721,10 @@
                 <string
                     name="common_google_play_services_install_text_phone"
                     msgid="8685301130651051380" >"Den här appen kan inte köras utan Google Play Tjänster, som saknas på mobilen."
+                </string>
+                <string
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"Nätverksfel"
                 </string>
             </file>
             <file
@@ -4127,6 +5088,13 @@
                     msgid="8685301130651051380" >"Denne appen kan ikke kjøres uten Google Play Tjenester, som ikke er installert på telefonen din."
                 </string>
                 <string
+                    name="auth_client_requested_by_msg"
+                    msgid="6304135633531965756" >"Forespurt av 
+<ns1:g id="APP_NAME" >
+%1$s
+                    </ns1:g>"
+                </string>
+                <string
                     name="auth_client_needs_update_title"
                     msgid="6488605506794595966" >"En app krever at Google Play Tjenester oppdateres."
                 </string>
@@ -4155,6 +5123,10 @@
                     msgid="4181637455539816337" >"Aktiver Google Play Tjenester"
                 </string>
                 <string
+                    name="common_google_play_services_install_text_tablet"
+                    msgid="1589957570365247855" >"Denne appen kan ikke kjøres uten Google Play Tjenester, som ikke er installert på nettbrettet ditt."
+                </string>
+                <string
                     name="common_google_play_services_update_title"
                     msgid="6006316683626838685" >"Oppdater Google Play Tjenester"
                 </string>
@@ -4171,47 +5143,20 @@
                     msgid="7999585836145154206" >"En app krever at Google Play Tjenester installeres."
                 </string>
                 <string
-                    name="common_google_play_services_unsupported_date_text"
-                    msgid="4725396522367789365" >"Datoen på enheten ser ut til å være feil. Sjekk datoen på enheten."
-                </string>
-                <string
-                    name="common_google_play_services_enable_text"
-                    msgid="7627896071867667758" >"Denne appen fungerer ikke med mindre du aktiverer Google Play Tjenester."
-                </string>
-                <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"Nettverksfeil"
-                </string>
-                <string
-                    name="common_google_play_services_install_title"
-                    msgid="26645092511305524" >"Installer Google Play Tjenester"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"Google Play Tjenester, som noen av appene er avhengige av, støttes ikke av enheten. Ta kontakt med produsenten for å få hjelp."
-                </string>
-                <string
-                    name="auth_client_needs_enabling_title"
-                    msgid="3983201110833868073" >"En app krever Google Play Tjenester for å aktiveres."
-                </string>
-                <string
-                    name="auth_client_requested_by_msg"
-                    msgid="6304135633531965756" >"Forespurt av 
-<ns1:g id="APP_NAME" >
-%1$s
-                    </ns1:g>"
-                </string>
-                <string
-                    name="common_google_play_services_install_text_tablet"
-                    msgid="1589957570365247855" >"Denne appen kan ikke kjøres uten Google Play Tjenester, som ikke er installert på nettbrettet ditt."
-                </string>
-                <string
                     name="common_google_play_services_update_button"
                     msgid="8932944190611227642" >"Oppdater"
                 </string>
                 <string
                     name="auth_client_play_services_err_notification_msg"
                     msgid="3635065018897986478" >"Google Play Tjenester-feil"
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_date_text"
+                    msgid="4725396522367789365" >"Datoen på enheten ser ut til å være feil. Sjekk datoen på enheten."
+                </string>
+                <string
+                    name="common_google_play_services_enable_text"
+                    msgid="7627896071867667758" >"Denne appen fungerer ikke med mindre du aktiverer Google Play Tjenester."
                 </string>
                 <string
                     name="common_google_play_services_enable_title"
@@ -4222,12 +5167,28 @@
                     msgid="4762332809710093730" >"Det oppsto et ukjent problem med Google Play Tjenester."
                 </string>
                 <string
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"Nettverksfeil"
+                </string>
+                <string
                     name="common_google_play_services_update_text"
                     msgid="448354684997260580" >"Denne appen kan ikke kjøres før du oppdaterer Google Play Tjenester."
                 </string>
                 <string
+                    name="common_google_play_services_install_title"
+                    msgid="26645092511305524" >"Installer Google Play Tjenester"
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"Google Play Tjenester, som noen av appene er avhengige av, støttes ikke av enheten. Ta kontakt med produsenten for å få hjelp."
+                </string>
+                <string
                     name="common_google_play_services_install_button"
                     msgid="8515591849428043265" >"Installer Google Play Tjenester"
+                </string>
+                <string
+                    name="auth_client_needs_enabling_title"
+                    msgid="3983201110833868073" >"En app krever Google Play Tjenester for å aktiveres."
                 </string>
             </file>
             <file
@@ -5374,54 +6335,6 @@
                     msgid="8685301130651051380" >"แอปพลิเคชันนี้จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งไม่มีในโทรศัพท์ของคุณ"
                 </string>
                 <string
-                    name="common_google_play_services_install_button"
-                    msgid="8515591849428043265" >"รับบริการ Google Play"
-                </string>
-                <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"ลงชื่อใช้"
-                </string>
-                <string
-                    name="common_google_play_services_update_text"
-                    msgid="448354684997260580" >"แอปพลิเคชันนี้จะไม่ทำงานจนกว่าคุณจะอัปเดตบริการ Google Play"
-                </string>
-                <string
-                    name="auth_client_needs_installation_title"
-                    msgid="7999585836145154206" >"แอปพลิเคชันหนึ่งจำเป็นต้องมีการติดตั้งบริการ Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_invalid_account_text"
-                    msgid="4983316348021735578" >"บัญชีที่ระบุไม่มีอยู่บนอุปกรณ์นี้ โปรดเลือกบัญชีอื่น"
-                </string>
-                <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"อัปเดตบริการ Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_invalid_account_title"
-                    msgid="1066672360770936753" >"บัญชีไม่ถูกต้อง"
-                </string>
-                <string
-                    name="common_google_play_services_enable_title"
-                    msgid="529078775174559253" >"เปิดใช้งานบริการ Google Play"
-                </string>
-                <string
-                    name="auth_client_play_services_err_notification_msg"
-                    msgid="3635065018897986478" >"ข้อผิดพลาดของบริการ Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_install_title"
-                    msgid="26645092511305524" >"รับบริการ Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_unknown_issue"
-                    msgid="4762332809710093730" >"ปัญหาที่ไม่รู้จักของบริการ Google Play"
-                </string>
-                <string
-                    name="auth_client_needs_enabling_title"
-                    msgid="3983201110833868073" >"แอปพลิเคชันหนึ่งจำเป็นต้องมีบริการ Google Play เพื่อเปิดใช้งาน"
-                </string>
-                <string
                     name="common_google_play_services_enable_button"
                     msgid="4181637455539816337" >"เปิดใช้งานบริการ Google Play"
                 </string>
@@ -5434,12 +6347,28 @@
                     msgid="3542578567569488671" >"บริการ Google Play ซึ่งใช้งานในบางแอปพลิเคชัน ไม่ได้รับการสนับสนุนโดยอุปกรณ์ของคุณ โปรดติดต่อผู้ผลิตเพื่อขอรับความช่วยเหลือ"
                 </string>
                 <string
+                    name="common_google_play_services_install_button"
+                    msgid="8515591849428043265" >"รับบริการ Google Play"
+                </string>
+                <string
                     name="common_google_play_services_enable_text"
                     msgid="7627896071867667758" >"แอปพลิเคชันนี้จะไม่ทำงานจนกว่าคุณจะเปิดใช้งานบริการ Google Play"
                 </string>
                 <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"ลงชื่อใช้"
+                </string>
+                <string
                     name="auth_client_using_bad_version_title"
                     msgid="2534454398764507874" >"แอปพลิเคชันหนึ่งพยายามใช้เวอร์ชันที่ไม่เหมาะสมของบริการ Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_update_text"
+                    msgid="448354684997260580" >"แอปพลิเคชันนี้จะไม่ทำงานจนกว่าคุณจะอัปเดตบริการ Google Play"
+                </string>
+                <string
+                    name="auth_client_needs_installation_title"
+                    msgid="7999585836145154206" >"แอปพลิเคชันหนึ่งจำเป็นต้องมีการติดตั้งบริการ Google Play"
                 </string>
                 <string
                     name="common_signin_button_text_long"
@@ -5450,12 +6379,32 @@
                     msgid="6334768798839376943" >"บริการ Google Play"
                 </string>
                 <string
+                    name="common_google_play_services_invalid_account_text"
+                    msgid="4983316348021735578" >"บัญชีที่ระบุไม่มีอยู่บนอุปกรณ์นี้ โปรดเลือกบัญชีอื่น"
+                </string>
+                <string
                     name="common_google_play_services_install_text_tablet"
                     msgid="1589957570365247855" >"แอปพลิเคชันนี้จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งไม่มีในแท็บเล็ตของคุณ"
                 </string>
                 <string
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"อัปเดตบริการ Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_invalid_account_title"
+                    msgid="1066672360770936753" >"บัญชีไม่ถูกต้อง"
+                </string>
+                <string
                     name="common_google_play_services_network_error_title"
                     msgid="3827284619958211114" >"ข้อผิดพลาดของเครือข่าย"
+                </string>
+                <string
+                    name="common_google_play_services_enable_title"
+                    msgid="529078775174559253" >"เปิดใช้งานบริการ Google Play"
+                </string>
+                <string
+                    name="auth_client_play_services_err_notification_msg"
+                    msgid="3635065018897986478" >"ข้อผิดพลาดของบริการ Google Play"
                 </string>
                 <string
                     name="auth_client_needs_update_title"
@@ -5468,6 +6417,18 @@
                 <string
                     name="common_google_play_services_unsupported_date_text"
                     msgid="4725396522367789365" >"วันที่บนอุปกรณ์ไม่ถูกต้อง โปรดตรวจสอบวันที่บนอุปกรณ์"
+                </string>
+                <string
+                    name="common_google_play_services_install_title"
+                    msgid="26645092511305524" >"รับบริการ Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_unknown_issue"
+                    msgid="4762332809710093730" >"ปัญหาที่ไม่รู้จักของบริการ Google Play"
+                </string>
+                <string
+                    name="auth_client_needs_enabling_title"
+                    msgid="3983201110833868073" >"แอปพลิเคชันหนึ่งจำเป็นต้องมีบริการ Google Play เพื่อเปิดใช้งาน"
                 </string>
             </file>
             <file
@@ -5597,8 +6558,20 @@
                     msgid="4725396522367789365" >"A data no dispositivo parece incorreta. Verifique a data no dispositivo."
                 </string>
                 <string
+                    name="common_google_play_services_unsupported_title"
+                    msgid="6334768798839376943" >"Play Services"
+                </string>
+                <string
                     name="common_google_play_services_network_error_text"
                     msgid="9038847255613537209" >"É necessária uma conexão de dados para conectar ao Google Play Services."
+                </string>
+                <string
+                    name="common_google_play_services_invalid_account_text"
+                    msgid="4983316348021735578" >"A conta especificada não existe no dispositivo. Escolha outra conta."
+                </string>
+                <string
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"Atualize o Google Play Services"
                 </string>
                 <string
                     name="common_google_play_services_unknown_issue"
@@ -5613,16 +6586,24 @@
                     msgid="1589957570365247855" >"Este aplicativo não funciona sem o Google Play Services, que não está instalado em seu tablet."
                 </string>
                 <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"Login"
+                </string>
+                <string
                     name="auth_client_play_services_err_notification_msg"
                     msgid="3635065018897986478" >"Ocorreu um erro no Google Play Services"
+                </string>
+                <string
+                    name="common_google_play_services_install_text_phone"
+                    msgid="8685301130651051380" >"Este aplicativo não funciona sem o Google Play Services, que não está instalado em seu telefone."
                 </string>
                 <string
                     name="common_google_play_services_enable_title"
                     msgid="529078775174559253" >"Ative o Google Play Services"
                 </string>
                 <string
-                    name="common_google_play_services_install_text_phone"
-                    msgid="8685301130651051380" >"Este aplicativo não funciona sem o Google Play Services, que não está instalado em seu telefone."
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"O Google Play Services, necessário para alguns dos aplicativos, não é compatível com seu dispositivo. Entre em contato com o fabricante para obter assistência."
                 </string>
                 <string
                     name="auth_client_requested_by_msg"
@@ -5630,10 +6611,6 @@
 <ns1:g id="APP_NAME" >
 %1$s
                     </ns1:g>"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"O Google Play Services, necessário para alguns dos aplicativos, não é compatível com seu dispositivo. Entre em contato com o fabricante para obter assistência."
                 </string>
                 <string
                     name="common_google_play_services_network_error_title"
@@ -5644,6 +6621,10 @@
                     msgid="2534454398764507874" >"Um aplicativo tentou usar uma versão errada do Google Play Services."
                 </string>
                 <string
+                    name="common_google_play_services_update_button"
+                    msgid="8932944190611227642" >"Atualizar"
+                </string>
+                <string
                     name="common_google_play_services_update_text"
                     msgid="448354684997260580" >"Este aplicativo só funciona com uma versão atualizada do Google Play Services."
                 </string>
@@ -5652,40 +6633,20 @@
                     msgid="3983201110833868073" >"Um aplicativo requer a ativação do Google Play Services."
                 </string>
                 <string
-                    name="auth_client_needs_update_title"
-                    msgid="6488605506794595966" >"Um aplicativo requer a atualização do Google Play Services."
-                </string>
-                <string
-                    name="common_google_play_services_install_button"
-                    msgid="8515591849428043265" >"Instalar o Google Play Services"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_title"
-                    msgid="6334768798839376943" >"Play Services"
-                </string>
-                <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"Atualize o Google Play Services"
-                </string>
-                <string
-                    name="common_google_play_services_invalid_account_text"
-                    msgid="4983316348021735578" >"A conta especificada não existe no dispositivo. Escolha outra conta."
-                </string>
-                <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"Login"
-                </string>
-                <string
-                    name="common_google_play_services_update_button"
-                    msgid="8932944190611227642" >"Atualizar"
-                </string>
-                <string
                     name="common_google_play_services_invalid_account_title"
                     msgid="1066672360770936753" >"Conta inválida"
                 </string>
                 <string
+                    name="auth_client_needs_update_title"
+                    msgid="6488605506794595966" >"Um aplicativo requer a atualização do Google Play Services."
+                </string>
+                <string
                     name="common_google_play_services_install_title"
                     msgid="26645092511305524" >"Instale o Google Play Services"
+                </string>
+                <string
+                    name="common_google_play_services_install_button"
+                    msgid="8515591849428043265" >"Instalar o Google Play Services"
                 </string>
                 <string
                     name="auth_client_needs_installation_title"
@@ -6148,12 +7109,12 @@
                     msgid="6006316683626838685" >"Posodobite storitve Google Play"
                 </string>
                 <string
-                    name="common_google_play_services_enable_text"
-                    msgid="7627896071867667758" >"Aplikacija ne bo delovala, če ne omogočite storitev Google Play."
-                </string>
-                <string
                     name="common_google_play_services_update_button"
                     msgid="8932944190611227642" >"Posodobi"
+                </string>
+                <string
+                    name="common_google_play_services_enable_text"
+                    msgid="7627896071867667758" >"Aplikacija ne bo delovala, če ne omogočite storitev Google Play."
                 </string>
                 <string
                     name="auth_client_needs_enabling_title"
@@ -6175,12 +7136,12 @@
                     msgid="3635065018897986478" >"Napaka storitev Google Play"
                 </string>
                 <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"Vaša naprava na podpira storitev Google Play, ki jih potrebujejo nekatere od vaših aplikacij. Za pomoč se obrnite na izdelovalca."
-                </string>
-                <string
                     name="common_google_play_services_unsupported_date_text"
                     msgid="4725396522367789365" >"Videti je, da je datum v napravi napačen. Preverite ga."
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"Vaša naprava na podpira storitev Google Play, ki jih potrebujejo nekatere od vaših aplikacij. Za pomoč se obrnite na izdelovalca."
                 </string>
                 <string
                     name="common_google_play_services_unknown_issue"
@@ -6227,12 +7188,12 @@
                     msgid="1066672360770936753" >"Neveljaven račun"
                 </string>
                 <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"Omrežna napaka"
-                </string>
-                <string
                     name="auth_client_using_bad_version_title"
                     msgid="2534454398764507874" >"Aplikacija je poskusila uporabiti napačno različico Storitev Google Play."
+                </string>
+                <string
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"Omrežna napaka"
                 </string>
                 <string
                     name="common_google_play_services_install_text_tablet"
@@ -6473,12 +7434,23 @@
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values-it/strings.xml"
                 qualifiers="it" >
                 <string
+                    name="common_signin_button_text"
+                    msgid="9071884888741449141" >"Accedi"
+                </string>
+                <string
                     name="auth_client_play_services_err_notification_msg"
                     msgid="3635065018897986478" >"Errore Google Play Services"
                 </string>
                 <string
                     name="common_google_play_services_install_title"
                     msgid="26645092511305524" >"Installa Google Play Services"
+                </string>
+                <string
+                    name="auth_client_requested_by_msg"
+                    msgid="6304135633531965756" >"Richiesta da 
+<ns1:g id="APP_NAME" >
+%1$s
+                    </ns1:g>"
                 </string>
                 <string
                     name="common_google_play_services_enable_button"
@@ -6489,8 +7461,20 @@
                     msgid="4725396522367789365" >"La data sul dispositivo sembra sbagliata. Controllala."
                 </string>
                 <string
+                    name="common_google_play_services_enable_title"
+                    msgid="529078775174559253" >"Attiva Google Play Services"
+                </string>
+                <string
                     name="common_google_play_services_update_text"
                     msgid="448354684997260580" >"L\'app non funzionerà se non aggiorni Google Play Services."
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"La piattaforma Google Play Services, su cui sono basate alcune delle tue applicazioni, non è supportata dal dispositivo in uso. Per assistenza, contatta il produttore."
+                </string>
+                <string
+                    name="common_google_play_services_network_error_text"
+                    msgid="9038847255613537209" >"È necessaria una connessione dati per connettersi a Google Play Services."
                 </string>
                 <string
                     name="common_google_play_services_install_text_phone"
@@ -6505,51 +7489,12 @@
                     msgid="6006316683626838685" >"Aggiorna Google Play Services"
                 </string>
                 <string
-                    name="common_signin_button_text_long"
-                    msgid="2429381841831957106" >"Accedi con Google"
-                </string>
-                <string
-                    name="common_google_play_services_network_error_title"
-                    msgid="3827284619958211114" >"Errore di rete"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_title"
-                    msgid="6334768798839376943" >"Google Play Services"
-                </string>
-                <string
-                    name="common_google_play_services_invalid_account_title"
-                    msgid="1066672360770936753" >"Account non valido"
-                </string>
-                <string
-                    name="auth_client_needs_update_title"
-                    msgid="6488605506794595966" >"Un\'applicazione richiede un aggiornamento di Google Play Services."
-                </string>
-                <string
-                    name="common_signin_button_text"
-                    msgid="9071884888741449141" >"Accedi"
-                </string>
-                <string
-                    name="auth_client_requested_by_msg"
-                    msgid="6304135633531965756" >"Richiesta da 
-<ns1:g id="APP_NAME" >
-%1$s
-                    </ns1:g>"
-                </string>
-                <string
-                    name="common_google_play_services_enable_title"
-                    msgid="529078775174559253" >"Attiva Google Play Services"
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"La piattaforma Google Play Services, su cui sono basate alcune delle tue applicazioni, non è supportata dal dispositivo in uso. Per assistenza, contatta il produttore."
-                </string>
-                <string
-                    name="common_google_play_services_network_error_text"
-                    msgid="9038847255613537209" >"È necessaria una connessione dati per connettersi a Google Play Services."
-                </string>
-                <string
                     name="common_google_play_services_install_text_tablet"
                     msgid="1589957570365247855" >"L\'app non funzionerà senza Google Play Services, non presente sul tuo tablet."
+                </string>
+                <string
+                    name="common_signin_button_text_long"
+                    msgid="2429381841831957106" >"Accedi con Google"
                 </string>
                 <string
                     name="common_google_play_services_install_button"
@@ -6564,6 +7509,10 @@
                     msgid="4983316348021735578" >"L\'account specificato non esiste su questo dispositivo. Scegli un altro account."
                 </string>
                 <string
+                    name="common_google_play_services_network_error_title"
+                    msgid="3827284619958211114" >"Errore di rete"
+                </string>
+                <string
                     name="auth_client_using_bad_version_title"
                     msgid="2534454398764507874" >"Un\'app ha tentato di usare una versione non valida di Play Services."
                 </string>
@@ -6576,8 +7525,20 @@
                     msgid="7627896071867667758" >"L\'app non funzionerà se non attivi Google Play Services."
                 </string>
                 <string
+                    name="common_google_play_services_unsupported_title"
+                    msgid="6334768798839376943" >"Google Play Services"
+                </string>
+                <string
+                    name="common_google_play_services_invalid_account_title"
+                    msgid="1066672360770936753" >"Account non valido"
+                </string>
+                <string
                     name="common_google_play_services_update_button"
                     msgid="8932944190611227642" >"Aggiorna"
+                </string>
+                <string
+                    name="auth_client_needs_update_title"
+                    msgid="6488605506794595966" >"Un\'applicazione richiede un aggiornamento di Google Play Services."
                 </string>
             </file>
             <file
@@ -6703,6 +7664,10 @@
                     msgid="2534454398764507874" >"Aplikacja próbowała skorzystać z nieprawidłowej wersji Usług Google Play."
                 </string>
                 <string
+                    name="common_google_play_services_update_title"
+                    msgid="6006316683626838685" >"Aktualizuj Usługi Google Play"
+                </string>
+                <string
                     name="auth_client_needs_installation_title"
                     msgid="7999585836145154206" >"Aplikacja wymaga zainstalowania Usług Google Play."
                 </string>
@@ -6711,8 +7676,20 @@
                     msgid="9071884888741449141" >"Zaloguj się"
                 </string>
                 <string
+                    name="common_google_play_services_enable_text"
+                    msgid="7627896071867667758" >"Ta aplikacja nie będzie działać, jeśli nie włączysz Usług Google Play."
+                </string>
+                <string
+                    name="common_google_play_services_invalid_account_title"
+                    msgid="1066672360770936753" >"Nieprawidłowe konto"
+                </string>
+                <string
                     name="common_google_play_services_update_button"
                     msgid="8932944190611227642" >"Aktualizuj"
+                </string>
+                <string
+                    name="auth_client_needs_update_title"
+                    msgid="6488605506794595966" >"Aplikacja wymaga aktualizacji Usług Google Play."
                 </string>
                 <string
                     name="common_google_play_services_network_error_text"
@@ -6727,38 +7704,6 @@
                     msgid="2429381841831957106" >"Zaloguj się przez Google"
                 </string>
                 <string
-                    name="common_google_play_services_unsupported_text"
-                    msgid="3542578567569488671" >"Usługi Google Play, od których zależy działanie niektórych aplikacji, nie są obsługiwane na Twoim urządzeniu. Skontaktuj się z producentem, by uzyskać pomoc."
-                </string>
-                <string
-                    name="common_google_play_services_unsupported_date_text"
-                    msgid="4725396522367789365" >"Data ustawiona na urządzeniu wydaje się nieprawidłowa. Sprawdź datę ustawioną na urządzeniu."
-                </string>
-                <string
-                    name="common_google_play_services_install_text_tablet"
-                    msgid="1589957570365247855" >"Ta aplikacja nie będzie działać bez Usług Google Play, których nie masz na tablecie."
-                </string>
-                <string
-                    name="common_google_play_services_unknown_issue"
-                    msgid="4762332809710093730" >"Nieznany problem z Usługami Google Play."
-                </string>
-                <string
-                    name="common_google_play_services_update_title"
-                    msgid="6006316683626838685" >"Aktualizuj Usługi Google Play"
-                </string>
-                <string
-                    name="common_google_play_services_invalid_account_title"
-                    msgid="1066672360770936753" >"Nieprawidłowe konto"
-                </string>
-                <string
-                    name="common_google_play_services_enable_text"
-                    msgid="7627896071867667758" >"Ta aplikacja nie będzie działać, jeśli nie włączysz Usług Google Play."
-                </string>
-                <string
-                    name="auth_client_needs_update_title"
-                    msgid="6488605506794595966" >"Aplikacja wymaga aktualizacji Usług Google Play."
-                </string>
-                <string
                     name="common_google_play_services_install_text_phone"
                     msgid="8685301130651051380" >"Ta aplikacja nie będzie działać bez Usług Google Play, których nie masz na telefonie."
                 </string>
@@ -6767,8 +7712,20 @@
                     msgid="26645092511305524" >"Pobierz Usługi Google Play"
                 </string>
                 <string
+                    name="common_google_play_services_unsupported_date_text"
+                    msgid="4725396522367789365" >"Data ustawiona na urządzeniu wydaje się nieprawidłowa. Sprawdź datę ustawioną na urządzeniu."
+                </string>
+                <string
+                    name="common_google_play_services_unsupported_text"
+                    msgid="3542578567569488671" >"Usługi Google Play, od których zależy działanie niektórych aplikacji, nie są obsługiwane na Twoim urządzeniu. Skontaktuj się z producentem, by uzyskać pomoc."
+                </string>
+                <string
                     name="common_google_play_services_network_error_title"
                     msgid="3827284619958211114" >"Błąd sieci"
+                </string>
+                <string
+                    name="common_google_play_services_install_text_tablet"
+                    msgid="1589957570365247855" >"Ta aplikacja nie będzie działać bez Usług Google Play, których nie masz na tablecie."
                 </string>
                 <string
                     name="auth_client_requested_by_msg"
@@ -6796,6 +7753,10 @@
                 <string
                     name="auth_client_play_services_err_notification_msg"
                     msgid="3635065018897986478" >"Błąd usług Google Play"
+                </string>
+                <string
+                    name="common_google_play_services_unknown_issue"
+                    msgid="4762332809710093730" >"Nieznany problem z Usługami Google Play."
                 </string>
                 <string
                     name="common_google_play_services_update_text"
@@ -11409,6 +12370,11 @@ false
                 qualifiers=""
                 type="layout" />
             <file
+                name="smart_pager_fragment"
+                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="smart_activity"
                 path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/layout/smart_activity.xml"
                 qualifiers=""
@@ -11447,6 +12413,8 @@ false
                 <string name="action_settings" >Settings
                 </string>
                 <string name="app_name" >SmartPit
+                </string>
+                <string name="dialog_facebook_app" >First install facebook app
                 </string>
                 <string name="hello_world" >Hello world!
                 </string>

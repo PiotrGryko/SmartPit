@@ -19,6 +19,12 @@ public class SmartPitScheduleDataReceiver extends BroadcastReceiver {
     private static AlarmManager am;
     private static PendingIntent pending;
 
+    private static Intent customIntent;
+
+    public static void setCustomIntent(Intent intent) {
+        customIntent = intent;
+    }
+
     public static void setDelay(int d) {
         delay = d;
     }
@@ -28,12 +34,16 @@ public class SmartPitScheduleDataReceiver extends BroadcastReceiver {
 
 
         if (am == null) {
-           // am.cancel(pending);
+            // am.cancel(pending);
 
 
             am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-            Intent i = new Intent(context, SmartPitScheduledIntentService.class);
+            Intent i = null;
+            if (customIntent != null)
+                i = customIntent;
+            else
+                i = new Intent(context, SmartPitScheduledIntentService.class);
 
             pending = PendingIntent.getService(context, 0, i,
                     PendingIntent.FLAG_CANCEL_CURRENT);
@@ -42,7 +52,7 @@ public class SmartPitScheduleDataReceiver extends BroadcastReceiver {
             cal.add(Calendar.SECOND, 10);
 
 
-            am.setInexactRepeating(AlarmManager.RTC, cal.getTimeInMillis(), delay,
+            am.setInexactRepeating(AlarmManager.RTC, 0, delay,
                     pending);
             Log.d(TAG, "service started!!");
 
