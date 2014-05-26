@@ -99,6 +99,7 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
             mCamera.setPreviewCallback(null);
             mCamera.release();
             mCamera = null;
+            autoFocusHandler.removeCallbacks(doAutoFocus);
         }
     }
 

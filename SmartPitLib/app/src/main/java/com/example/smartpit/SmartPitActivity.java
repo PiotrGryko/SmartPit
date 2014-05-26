@@ -42,6 +42,8 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
 
     private UiLifecycleHelper uiHelper;
+    private SmartFacebookHelper.OnActivityResultInterface uiHelperListener;
+  //  private Session.StatusCallback sessionCallback;
 
     private String TAG = SmartPitActivity.class.getName();
 
@@ -54,6 +56,28 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     private TextView customActionbarLabel;
 
     private ActionBar ab;
+
+
+
+    public ActionBar getSmartActionBar() {
+        return ab;
+    }
+
+    public static SmartPitImageLoader getImageLoader() {
+        return mImageLoader;
+    }
+
+
+    public FragmentManager getManager() {
+        return fm;
+    }
+
+    @Override
+    public Activity getSmartActivity() {
+        return this;
+    }
+
+
 
     @Override
     protected void onResume() {
@@ -90,7 +114,22 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (uiHelper != null)
-            uiHelper.onActivityResult(requestCode, resultCode, data);
+            uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+                @Override
+                public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
+                    if (uiHelperListener != null)
+                        uiHelperListener.onError(pendingCall, error, data);
+                }
+
+                @Override
+                public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+
+                    if (uiHelperListener != null)
+                        uiHelperListener.onComplete(pendingCall, data);
+
+
+                }
+            });
     }
 
 
@@ -111,9 +150,13 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     }
 
 
-    public void initFacebook(Bundle savedInstanceState, Session.StatusCallback callback) {
+    public void initFacebook(Bundle savedInstanceState, Session.StatusCallback callback, SmartFacebookHelper.OnActivityResultInterface listener) {
 
+
+        this.uiHelperListener = listener;
         uiHelper = new UiLifecycleHelper(this, callback);
+        //sessionCallback = callback;
+
         uiHelper.onCreate(savedInstanceState);
 
         SmartFacebookHelper.init(this, uiHelper);
@@ -130,14 +173,6 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     }
 
-    public ActionBar getSmartActionBar() {
-        return ab;
-    }
-
-    public static SmartPitImageLoader getImageLoader() {
-        return mImageLoader;
-    }
-
     public void setFirstFragment(SmartPitFragment fragment) {
 
         this.setCurrentFragment(fragment, false);
@@ -147,16 +182,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     }
 
-    public FragmentManager getManager() {
-        return fm;
-    }
-
-    @Override
-    public Activity getSmartActivity() {
-        return this;
-    }
-
-    // ///////////this method add fragment to fragments list.
+    // ///////////this method adds fragment to fragments list.
     // ////////// it replaces dupes to avoid fragments arguments issues
     @Override
     public void setCurrentFragment(SmartPitFragment fragment,

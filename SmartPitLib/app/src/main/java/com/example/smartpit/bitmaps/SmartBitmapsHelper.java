@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.Objects;
 
 /**
  * Created by piotr on 06.04.14.
@@ -24,7 +23,7 @@ import java.util.Objects;
  *
  *
  */
-public class BitmapsHelper {
+public class SmartBitmapsHelper {
 
 
 
@@ -34,20 +33,20 @@ public class BitmapsHelper {
 
     private Context context;
 
-    public static BitmapsHelper instance;
+    public static SmartBitmapsHelper instance;
 
-    public BitmapsHelper(Context context) {
+    public SmartBitmapsHelper(Context context) {
         this.context = context;
     }
 
-    public static BitmapsHelper getInstance(Context context) {
+    public static SmartBitmapsHelper getInstance(Context context) {
         if (instance == null)
-            instance = new BitmapsHelper(context);
+            instance = new SmartBitmapsHelper(context);
         return instance;
     }
 
 
-    private String TAG = BitmapsHelper.class.getName();
+    private String TAG = SmartBitmapsHelper.class.getName();
 
 
 
