@@ -45,4 +45,4 @@
                  android:visibility="invisible"
             />
 </RelativeLayout>
-<!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_placepickerfragment.xml --><!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/layout/com_facebook_placepickerfragment.xml -->
+<!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_placepickerfragment.xml --><!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/halina_client_library.SmartPitLib.libraries/facebook/unspecified/res/layout/com_facebook_placepickerfragment.xml -->

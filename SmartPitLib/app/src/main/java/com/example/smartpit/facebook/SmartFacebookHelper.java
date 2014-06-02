@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.smartpit.R;
 import com.example.smartpit.SmartPitActivity;
 import com.example.smartpit.widget.Log;
+
 import com.facebook.FacebookException;
 import com.facebook.Session;
 import com.facebook.SessionState;

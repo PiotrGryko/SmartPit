@@ -2,156 +2,156 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res" >
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res" >
             <file
                 name="com_facebook_picker_checkbox"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_checkbox.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_checkbox.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_title_bar"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_title_bar.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_title_bar.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_list_row"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_list_row.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_list_row.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_activity_circle_row"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_activity_circle_row.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_activity_circle_row.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_usersettingsfragment"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_usersettingsfragment.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_usersettingsfragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_placepickerfragment"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_placepickerfragment.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_placepickerfragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_friendpickerfragment"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_friendpickerfragment.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_friendpickerfragment.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_login_activity_layout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_login_activity_layout.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_login_activity_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_list_section_header"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_list_section_header.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_list_section_header.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_search_bar_layout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_search_bar_layout.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_search_bar_layout.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_image"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_image.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_image.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_search_box"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_search_box.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_search_box.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_placepickerfragment_list_row"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_placepickerfragment_list_row.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_placepickerfragment_list_row.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_picker_title_bar_stub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_picker_title_bar_stub.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_picker_title_bar_stub.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_tooltip_bubble"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/layout/com_facebook_tooltip_bubble.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_tooltip_bubble.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="com_facebook_tooltip_blue_topnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_blue_topnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_blue_topnub.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_button_blue_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_button_blue_focused.9.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_bottomnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_blue_bottomnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_blue_bottomnub.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_bottomnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_black_bottomnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_black_bottomnub.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_xout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_blue_xout.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_blue_xout.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_button_blue_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_button_blue_pressed.9.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_inverse_icon"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_inverse_icon.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_inverse_icon.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_xout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_black_xout.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_black_xout.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_black_background.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_black_background.9.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_topnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_black_topnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_black_topnub.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_picker_magnifier"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_picker_magnifier.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_picker_magnifier.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_normal"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_button_blue_normal.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_button_blue_normal.9.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-mdpi/com_facebook_tooltip_blue_background.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-mdpi/com_facebook_tooltip_blue_background.9.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values/drawables.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values/drawables.xml"
                 qualifiers="" >
                 <drawable name="com_facebook_picker_default_separator_color" >
 #33464c59
                 </drawable>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values/strings.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values/strings.xml"
                 qualifiers="" >
                 <string name="com_facebook_usersettingsfragment_logged_in" >Logged in
                 </string>
@@ -207,7 +207,7 @@
                 </string>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values/attrs.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values/attrs.xml"
                 qualifiers="" >
                 <declare-styleable name="com_facebook_profile_picture_view" >
                     <attr name="preset_size" >
@@ -285,7 +285,7 @@
                 </declare-styleable>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values/styles.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values/styles.xml"
                 qualifiers="" >
                 <color name="com_facebook_usersettingsfragment_connected_text_color" >#FFFFFF
                 </color>
@@ -407,7 +407,7 @@ center
                 </dimen>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values/colors.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values/colors.xml"
                 qualifiers="" >
                 <color name="com_facebook_picker_search_bar_background" >#f5f5f7
                 </color>
@@ -418,7 +418,7 @@ center
                 </dimen>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values-he/strings.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values-he/strings.xml"
                 qualifiers="he" >
                 <string name="com_facebook_requesterror_password_changed" >.הסיסמה שלך בפייסבוק השתנתה, אנא חבר מחדש את האפליקציה עם פייסבוק
                 </string>
@@ -472,7 +472,7 @@ center
                 </string>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values-es/strings.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values-es/strings.xml"
                 qualifiers="es" >
                 <string name="com_facebook_nearby" >Cercano
                 </string>
@@ -527,263 +527,263 @@ center
             </file>
             <file
                 name="com_facebook_tooltip_blue_topnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_blue_topnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_blue_topnub.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_button_grey_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_button_grey_pressed.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_button_blue_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_button_blue_focused.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_bottomnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_blue_bottomnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_blue_bottomnub.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_logo"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_logo.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_logo.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_bottomnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_black_bottomnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_black_bottomnub.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_xout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_blue_xout.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_blue_xout.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_button_blue_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_button_blue_pressed.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_button_grey_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_button_grey_focused.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_inverse_icon"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_inverse_icon.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_inverse_icon.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_close"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_close.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_close.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_xout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_black_xout.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_black_xout.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_black_background.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_black_background.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_topnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_black_topnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_black_topnub.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_normal"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_button_grey_normal.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_button_grey_normal.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_picker_magnifier"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_picker_magnifier.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_picker_magnifier.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_normal"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_button_blue_normal.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_button_blue_normal.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-xhdpi/com_facebook_tooltip_blue_background.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-xhdpi/com_facebook_tooltip_blue_background.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_list_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_list_pressed.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_grey_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_grey_pressed.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_blue_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_blue_focused.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_logo"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_logo.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_logo.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_longpressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_list_longpressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_list_longpressed.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_list_divider"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_list_divider.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_list_divider.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_place_default_icon"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_place_default_icon.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_place_default_icon.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_check"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_check.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_check.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_item_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_item_background.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_item_background.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_selector"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_list_selector.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_list_selector.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_check_on"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_check_on.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_check_on.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_check_off"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_check_off.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_check_off.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_blue_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_blue_pressed.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_top_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_top_background.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_top_background.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_grey_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_grey_focused.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_inverse_icon"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_inverse_icon.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_inverse_icon.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_profile_picture_blank_square"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_profile_picture_blank_square.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_profile_picture_blank_square.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_blue"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_blue.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_blue.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_top_button"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_top_button.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_top_button.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_close"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_close.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_close.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_usersettingsfragment_background_gradient"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_usersettingsfragment_background_gradient.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_usersettingsfragment_background_gradient.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_list_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_list_focused.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_loginbutton_silver"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_loginbutton_silver.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_loginbutton_silver.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_top_button"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_top_button.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_top_button.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_profile_default_icon"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_profile_default_icon.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_profile_default_icon.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_list_section_header_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_list_section_header_background.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_list_section_header_background.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_normal"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_grey_normal.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_grey_normal.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_selector_background_transition"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_list_selector_background_transition.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_list_selector_background_transition.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_picker_list_selector_disabled"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_picker_list_selector_disabled.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_list_selector_disabled.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_normal"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_button_blue_normal.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_button_blue_normal.9.png"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="com_facebook_profile_picture_blank_portrait"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable/com_facebook_profile_picture_blank_portrait.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_profile_picture_blank_portrait.png"
                 qualifiers=""
                 type="drawable" />
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values-mdpi/dimens.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values-mdpi/dimens.xml"
                 qualifiers="mdpi" >
                 <dimen name="com_facebook_picker_divider_width" >1px
                 </dimen>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values-xhdpi/dimens.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values-xhdpi/dimens.xml"
                 qualifiers="xhdpi" >
                 <dimen name="com_facebook_picker_divider_width" >2px
                 </dimen>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values-iw/strings.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values-iw/strings.xml"
                 qualifiers="iw" >
                 <string name="com_facebook_usersettingsfragment_log_in_button" >התחבר…
                 </string>
@@ -837,118 +837,118 @@ center
                 </string>
             </file>
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values-ldpi/dimens.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values-ldpi/dimens.xml"
                 qualifiers="ldpi" >
                 <dimen name="com_facebook_picker_divider_width" >1px
                 </dimen>
             </file>
             <file
                 name="com_facebook_tooltip_blue_topnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_blue_topnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_blue_topnub.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_button_grey_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_button_grey_pressed.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_button_blue_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_button_blue_focused.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_bottomnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_blue_bottomnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_blue_bottomnub.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_logo"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_logo.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_logo.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_bottomnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_black_bottomnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_black_bottomnub.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_xout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_blue_xout.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_blue_xout.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_pressed"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_button_blue_pressed.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_button_blue_pressed.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_focused"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_button_grey_focused.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_button_grey_focused.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_inverse_icon"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_inverse_icon.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_inverse_icon.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_close"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_close.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_close.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_xout"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_black_xout.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_black_xout.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_black_background.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_black_background.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_black_topnub"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_black_topnub.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_black_topnub.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_grey_normal"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_button_grey_normal.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_button_grey_normal.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_picker_magnifier"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_picker_magnifier.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_picker_magnifier.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_button_blue_normal"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_button_blue_normal.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_button_blue_normal.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="com_facebook_tooltip_blue_background"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-hdpi/com_facebook_tooltip_blue_background.9.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-hdpi/com_facebook_tooltip_blue_background.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/values-hdpi/dimens.xml"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/values-hdpi/dimens.xml"
                 qualifiers="hdpi" >
                 <dimen name="com_facebook_picker_divider_width" >1px
                 </dimen>
             </file>
             <file
                 name="com_facebook_close"
-                path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/res/drawable-ldpi/com_facebook_close.png"
+                path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/res/drawable-ldpi/com_facebook_close.png"
                 qualifiers="ldpi"
                 type="drawable" />
         </source>
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/build/res/rs/release" />
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/build/res/generated/release" />
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/build/res/rs/release" />
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/build/res/generated/release" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/src/release/res" />
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/release/res" />
     </dataSet>
 
 </merger>

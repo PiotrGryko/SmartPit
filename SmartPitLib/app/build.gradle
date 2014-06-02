@@ -2,13 +2,12 @@ apply plugin: 'android-library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion '19.0.3'
 
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 19
     }
-
 
 
 }
@@ -26,16 +25,12 @@ tasks.withType(Compile) {
 }
 
 dependencies {
-
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'com.android.support:support-v4:+'
-    compile 'com.google.android.gms:play-services:+'
-    compile: "com.google.android.gms:play-services:3.1.+"
+    compile 'com.android.support:support-v13:19.0.+'
+    compile 'com.google.android.gms:play-services:4.4.+'
     compile group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.1.3'
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile fileTree(dir: "$buildDir/native-libs", include: 'native-libs.jar')
-
-    compile project(':facebook')
+    compile project(':SmartPitLib:libraries:facebook')
 }
 
 

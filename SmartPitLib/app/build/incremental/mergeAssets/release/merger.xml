@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/assets" />
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/src/main/assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/release/assets" />
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/src/release/assets" />
     </dataSet>
 
 </merger>

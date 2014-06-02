@@ -11,55 +11,57 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 
 public class SmartPitMapFragment extends SmartPitFragment implements
-		SmartPitChildFragmentInterface {
+        SmartPitChildFragmentInterface {
 
-	private String TAG = SmartPitMapFragment.class.getName();
+    private String TAG = SmartPitMapFragment.class.getName();
 
-	// private AppDialog alert;
-	private GoogleMap map;
+    // private AppDialog alert;
+    private GoogleMap map;
 
-	public GoogleMap getMap()
-	{
-		return map;
-	}
-	
-	public void initMap() {
+    public GoogleMap getMap() {
+        return map;
+    }
 
-		if (map == null)
-			map = ((SupportMapFragment) this.getSherlockActivity()
-					.getSupportFragmentManager().findFragmentById(R.id.map))
-					.getMap();
+    public void initMap() {
 
-	}
+        if (map == null)
+            map = ((SupportMapFragment) this.getSherlockActivity()
+                    .getSupportFragmentManager().findFragmentById(R.id.map))
+                    .getMap();
 
-	public void onDestroyView() {
-		super.onDestroyView();
+    }
 
-		Fragment fragment = (this.getSherlockActivity()
-				.getSupportFragmentManager().findFragmentById(R.id.map));
-		FragmentTransaction ft = getActivity().getSupportFragmentManager()
-				.beginTransaction();
-		ft.remove(fragment);
-		ft.commitAllowingStateLoss();
-        map=null;
+    public void onDestroyView() {
+        super.onDestroyView();
 
-	}
+        try {
+            Fragment fragment = (this.getSherlockActivity()
+                    .getSupportFragmentManager().findFragmentById(R.id.map));
+            FragmentTransaction ft = getActivity().getSupportFragmentManager()
+                    .beginTransaction();
+            ft.remove(fragment);
+            ft.commitAllowingStateLoss();
+        } catch (Throwable t) {
+            Log.d(TAG, t.toString());
+        }
+        map = null;
 
-	public void stripView() {
-		// TODO Auto-generated method stub
-		if (this.getView() != null) {
-			Log.d("CLEAR", "clearview");
-			SmartPitAppHelper.getInstance(this.getSherlockActivity()).stripViewGroup(this.getView(), false);
+    }
 
-		} else
-			Log.d("CLEAR", "view null");
+    public void stripView() {
+        // TODO Auto-generated method stub
+        if (this.getView() != null) {
+            Log.d("CLEAR", "clearview");
+            SmartPitAppHelper.getInstance(this.getSherlockActivity()).stripViewGroup(this.getView(), false);
 
-		System.gc();
+        } else
+            Log.d("CLEAR", "view null");
 
-	}
+        System.gc();
 
-    public String getLabel()
-    {
+    }
+
+    public String getLabel() {
         return "";
     }
 

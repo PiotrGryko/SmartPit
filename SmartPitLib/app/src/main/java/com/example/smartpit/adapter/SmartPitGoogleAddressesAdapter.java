@@ -45,8 +45,8 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
         }
     };
 
-    public SmartPitGoogleAddressesAdapter(Context context) {
-        super(context, android.R.layout.simple_expandable_list_item_1);
+    public SmartPitGoogleAddressesAdapter(Context context, int res) {
+        super(context, res);
         // TODO Auto-generated constructor stub
 
     }

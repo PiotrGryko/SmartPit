@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/src/main/assets" />
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/main/assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/home/piotr/AndroidProjects/AIP/SmartPitLib/libraries/facebook/src/release/assets" />
+        <source path="/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/libraries/facebook/src/release/assets" />
     </dataSet>
 
 </merger>

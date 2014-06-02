@@ -35,6 +35,7 @@ import com.facebook.Settings;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.FacebookDialog;
+
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 public class SmartPitActivity extends SherlockFragmentActivity implements
@@ -43,7 +44,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     private UiLifecycleHelper uiHelper;
     private SmartFacebookHelper.OnActivityResultInterface uiHelperListener;
-  //  private Session.StatusCallback sessionCallback;
+    private Session.StatusCallback sessionCallback;
 
     private String TAG = SmartPitActivity.class.getName();
 

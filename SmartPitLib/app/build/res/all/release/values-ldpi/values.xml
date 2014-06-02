@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values-ldpi/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/halina_client_library.SmartPitLib.libraries/facebook/unspecified/res/values-ldpi/values.xml -->
     <eat-comment />
 
     <dimen name="com_facebook_picker_divider_width">1px</dimen>

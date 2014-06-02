@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
     <attr name="background" format="reference|color" />
@@ -24,7 +24,7 @@
     <color name="abs__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
     <color name="abs__bright_foreground_holo_dark">@color/abs__background_holo_light</color>
     <color name="abs__bright_foreground_holo_light">@color/abs__background_holo_dark</color>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/halina_client_library.SmartPitLib.libraries/facebook/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <color name="com_facebook_blue">#3B5998</color>
@@ -34,7 +34,7 @@
     <color name="com_facebook_usersettingsfragment_connected_shadow_color">#000000</color>
     <color name="com_facebook_usersettingsfragment_connected_text_color">#FFFFFF</color>
     <color name="com_facebook_usersettingsfragment_not_connected_text_color">#A6AED7</color>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/colors.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/common_colors.xml -->
     <eat-comment />
 
     <color name="common_action_bar_splitter">#d2d2d2</color>
@@ -47,7 +47,23 @@
     <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
     <color name="common_signin_btn_light_text_focused">#FF737373</color>
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/ads_attrs.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/wallet_colors.xml -->
+    <eat-comment />
+
+    <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="wallet_bright_foreground_holo_dark">#fff3f3f3</color>
+    <color name="wallet_bright_foreground_holo_light">#ff000000</color>
+    <color name="wallet_dim_foreground_disabled_holo_dark">#80bebebe</color>
+    <color name="wallet_dim_foreground_holo_dark">#bebebe</color>
+    <color name="wallet_dim_foreground_inverse_disabled_holo_dark">#80323232</color>
+    <color name="wallet_dim_foreground_inverse_holo_dark">#323232</color>
+    <color name="wallet_highlighted_text_holo_dark">#6633b5e5</color>
+    <color name="wallet_highlighted_text_holo_light">#6633b5e5</color>
+    <color name="wallet_hint_foreground_holo_dark">#808080</color>
+    <color name="wallet_hint_foreground_holo_light">#808080</color>
+    <color name="wallet_holo_blue_light">#ff33b5e5</color>
+    <color name="wallet_link_text_light">#0000ee</color>
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/admob_ads_attrs.xml -->
     <eat-comment />
 
     <declare-styleable name="AdsAttrs">
@@ -69,7 +85,7 @@
         <!-- The ad unit ID. -->
         <attr name="adUnitId" format="string" />
     </declare-styleable>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/maps_attrs.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/maps_attrs.xml -->
     <eat-comment />
 
     <declare-styleable name="MapAttrs">
@@ -94,7 +110,7 @@
         <attr name="useViewLifecycle" format="boolean" />
         <attr name="zOrderOnTop" format="boolean" />
     </declare-styleable>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
     <declare-styleable name="SherlockActionBar">
@@ -541,7 +557,81 @@
     <declare-styleable name="SherlockView">
         <attr name="android:focusable" />
     </declare-styleable>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/wallet_attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="WalletFragmentOptions">
+
+        <!-- Theme to be used for the Wallet selector -->
+        <attr name="theme" format="enum">
+            <enum name="holo_dark" value="0" />
+            <enum name="holo_light" value="1" />
+        </attr>
+        <!-- Google Wallet environment to use -->
+        <attr name="environment" format="enum">
+            <enum name="production" value="1" />
+            <enum name="sandbox" value="0" />
+            <enum name="strict_sandbox" value="2" />
+        </attr>
+        <!-- A style resource specifing attributes to customize the look and feel of WalletFragment -->
+        <attr name="fragmentStyle" format="reference" />
+        <!-- Fragment mode -->
+        <attr name="fragmentMode" format="enum">
+            <enum name="buyButton" value="1" />
+            <enum name="selectionDetails" value="2" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="WalletFragmentStyle">
+
+        <!--
+             Height of the buy button. This includes an 8dp padding (4dp on each side) used for
+             pressed and focused states of the button. The value can be a specific height, e.g.
+             "48dp", or special values "match_parent" and "wrap_content".
+        -->
+        <attr name="buyButtonHeight" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <!--
+             Width of the buy button. This includes an 8dp padding (4dp on each side) used for
+             pressed and focused states of the button. The value can be a specific width, e.g.
+             "300dp", or special values "match_parent" and "wrap_content".
+        -->
+        <attr name="buyButtonWidth" format="dimension">
+            <enum name="match_parent" value="-1" />
+            <enum name="wrap_content" value="-2" />
+        </attr>
+        <!-- Text on the buy button. Must be one of "buy_with_google", "buy_now" and "book_now" -->
+        <attr name="buyButtonText" format="enum">
+            <enum name="buy_with_google" value="1" />
+            <enum name="buy_now" value="2" />
+            <enum name="book_now" value="3" />
+        </attr>
+        <!-- Appearance of the buy button. Must be one of "classic", "grayscale" and "monochrome" -->
+        <attr name="buyButtonAppearance" format="enum">
+            <enum name="classic" value="1" />
+            <enum name="grayscale" value="2" />
+            <enum name="monochrome" value="3" />
+        </attr>
+        <!-- TextAppearance for masked wallet details -->
+        <attr name="maskedWalletDetailsTextAppearance" format="reference" />
+        <!-- TextAppearance for headers describing masked wallet details -->
+        <attr name="maskedWalletDetailsHeaderTextAppearance" format="reference" />
+        <!-- Masked wallet details background -->
+        <attr name="maskedWalletDetailsBackground" format="reference|color" />
+        <!-- TextAppearance for the "Change" button in masked wallet details view -->
+        <attr name="maskedWalletDetailsButtonTextAppearance" format="reference" />
+        <!-- "Change" button background in masked wallet details view -->
+        <attr name="maskedWalletDetailsButtonBackground" format="reference|color" />
+        <!-- Color of the Google Wallet logo text in masked wallet details view -->
+        <attr name="maskedWalletDetailsLogoTextColor" format="color" />
+        <!-- Type of the wallet logo image in masked wallet details view -->
+        <attr name="maskedWalletDetailsLogoImageType" format="enum">
+            <enum name="classic" value="1" />
+            <enum name="monochrome" value="2" />
+        </attr>
+    </declare-styleable>
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/halina_client_library.SmartPitLib.libraries/facebook/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <declare-styleable name="com_facebook_friend_picker_fragment">
@@ -578,7 +668,7 @@
         </attr>
         <attr name="is_cropped" format="boolean" />
     </declare-styleable>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
     <dimen name="abs__action_bar_default_height">48dip</dimen>
@@ -594,12 +684,12 @@
     <dimen name="abs__dropdownitem_text_padding_right">8dip</dimen>
     <dimen name="abs__search_view_preferred_width">320dip</dimen>
     <dimen name="abs__search_view_text_min_width">160dip</dimen>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/halina_client_library.SmartPitLib.libraries/facebook/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <dimen name="com_facebook_loginview_compound_drawable_padding">12dp</dimen>
@@ -617,7 +707,7 @@
     <dimen name="com_facebook_usersettingsfragment_profile_picture_width">64dp</dimen>
 
     <drawable name="com_facebook_picker_default_separator_color">#33464c59</drawable>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
     <item name="abs__action_menu_divider" type="id"/>
@@ -628,11 +718,11 @@
     <item name="abs__up" type="id"/>
 
     <integer name="abs__max_action_buttons">2</integer>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/version.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/version.xml -->
     <eat-comment />
 
-    <integer name="google_play_services_version">4323000</integer>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <integer name="google_play_services_version">4452000</integer>
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
     <string name="abs__action_bar_home_description">Navigate home</string>
@@ -648,21 +738,12 @@
     <string name="abs__searchview_description_voice">Voice search</string>
     <string name="abs__shareactionprovider_share_with">Share with</string>
     <string name="abs__shareactionprovider_share_with_application">Share with <ns1:g id="application_name" example="Bluetooth">%s</ns1:g></string>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
     <string name="action_settings">Settings</string>
     <string name="app_name">SmartPit</string>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/strings.xml -->
-    <eat-comment />
-
-    <string name="auth_client_needs_enabling_title">      An application requires Google Play Services to be enabled.</string>
-    <string name="auth_client_needs_installation_title">      An application requires installation of Google Play Services.</string>
-    <string name="auth_client_needs_update_title">      An application requires an update for Google Play Services.</string>
-    <string name="auth_client_play_services_err_notification_msg">Google Play services error</string>
-    <string name="auth_client_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
-    <string name="auth_client_using_bad_version_title">      An application attempted to use a bad version of Google Play Services.</string>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/halina_client_library.SmartPitLib.libraries/facebook/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <string name="com_facebook_choose_friends">Choose Friends</string>
@@ -691,20 +772,25 @@
     <string name="com_facebook_usersettingsfragment_log_in_button">Log in…</string>
     <string name="com_facebook_usersettingsfragment_logged_in">Logged in</string>
     <string name="com_facebook_usersettingsfragment_not_logged_in">Not logged in</string>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/strings.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/common_strings.xml -->
     <eat-comment />
 
     <string name="common_google_play_services_enable_button" msgid="2523291102206661146">Enable Google Play services</string>
     <string name="common_google_play_services_enable_text" msgid="227660514972886228">This app won\'t work unless you enable Google Play services.</string>
     <string name="common_google_play_services_enable_title" msgid="5122002158466380389">Enable Google Play services</string>
+    <string name="common_google_play_services_error_notification_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
     <string name="common_google_play_services_install_button" msgid="7153882981874058840">Get Google Play services</string>
     <string name="common_google_play_services_install_text_phone" msgid="2122112764540849864">This app won\'t run without Google Play services, which are missing from your phone.</string>
     <string name="common_google_play_services_install_text_tablet" msgid="7351599665250191022">This app won\'t run without Google Play services, which are missing from your tablet.</string>
     <string name="common_google_play_services_install_title" msgid="7215213145546190223">Get Google Play services</string>
     <string name="common_google_play_services_invalid_account_text">The specified account does not exist on this device. Please choose a different account.</string>
     <string name="common_google_play_services_invalid_account_title">Invalid Account</string>
+    <string name="common_google_play_services_needs_enabling_title">An application requires Google Play services to be enabled.</string>
     <string name="common_google_play_services_network_error_text">A data connection is required to connect to Google Play services.</string>
     <string name="common_google_play_services_network_error_title">Network Error</string>
+    <string name="common_google_play_services_notification_needs_installation_title">An application requires installation of Google Play services.</string>
+    <string name="common_google_play_services_notification_needs_update_title">An application requires an update for Google Play services.</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
     <string name="common_google_play_services_unknown_issue">Unknown issue with Google Play services.</string>
     <string name="common_google_play_services_unsupported_date_text">The date on the device appears to be incorrect. Please check the date on the device.</string>
     <string name="common_google_play_services_unsupported_text">Google Play services, which some of your applications rely on, is not supported by your device. Please contact the manufacturer for assistance.</string>
@@ -714,16 +800,16 @@
     <string name="common_google_play_services_update_title" msgid="1788179980625863495">Update Google Play services</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
     <string name="dialog_facebook_app">First install facebook app</string>
     <string name="hello_world">Hello world!</string>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.3.23/res/values/strings.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/wallet_strings.xml -->
     <eat-comment />
 
-    <string name="location_client_powered_by_google">Powered by Google</string>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/src/main/res/values/styles.xml -->
+    <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/src/main/res/values/styles.xml -->
     <eat-comment />
 
     <style name="AppBaseTheme" parent="Theme.Sherlock.Light">
@@ -737,7 +823,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
     <eat-comment />
 
     <style name="Sherlock.__TextAppearance.Small" parent="Widget">
@@ -1107,6 +1193,46 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.google.android.gms/play-services/4.4.52/res/values/wallet_styles.xml -->
+    <eat-comment />
+
+    <style name="WalletFragmentDefaultButtonTextAppearance">
+        <item name="android:textColor">@color/wallet_primary_text_holo_light</item>
+        <item name="android:textColorHighlight">@color/wallet_highlighted_text_holo_light</item>
+        <item name="android:textColorHint">@color/wallet_hint_foreground_holo_light</item>
+        <item name="android:textColorLink">@color/wallet_link_text_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="WalletFragmentDefaultDetailsHeaderTextAppearance" parent="WalletFragmentDefaultDetailsTextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WalletFragmentDefaultDetailsTextAppearance">
+        <item name="android:textColor">@color/wallet_secondary_text_holo_dark</item>
+        <item name="android:textColorHighlight">@color/wallet_highlighted_text_holo_dark</item>
+        <item name="android:textColorHint">@color/wallet_hint_foreground_holo_dark</item>
+        <item name="android:textColorLink">@color/wallet_holo_blue_light</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="WalletFragmentDefaultStyle">
+        <item name="buyButtonHeight">48dp</item>
+        <item name="buyButtonWidth">match_parent</item>
+        <item name="buyButtonText">buy_with_google</item>
+        <item name="buyButtonAppearance">classic</item>
+        <item name="maskedWalletDetailsTextAppearance">@style/WalletFragmentDefaultDetailsTextAppearance</item>
+        <item name="maskedWalletDetailsHeaderTextAppearance">@style/WalletFragmentDefaultDetailsHeaderTextAppearance</item>
+        <item name="maskedWalletDetailsBackground">@color/wallet_bright_foreground_holo_light</item>
+        <item name="maskedWalletDetailsButtonBackground">@android:drawable/btn_default</item>
+        <item name="maskedWalletDetailsButtonTextAppearance">@style/WalletFragmentDefaultButtonTextAppearance</item>
+        <item name="maskedWalletDetailsLogoTextColor">@color/wallet_bright_foreground_holo_dark</item>
+        <item name="maskedWalletDetailsLogoImageType">classic</item>
+    </style>
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/res/values/values.xml -->
+    <eat-comment />
 
     <style name="Widget" />
 
@@ -1355,7 +1481,7 @@
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
     </style>
-    <!-- From: file:/home/piotr/AndroidProjects/AIP/SmartPitLib/app/build/exploded-aar/AIP/facebook/unspecified/res/values/values.xml -->
+    <!-- From: file:/home/piotr/AndroidProjects/halina_android/halina_client_library/SmartPitLib/app/build/exploded-aar/halina_client_library.SmartPitLib.libraries/facebook/unspecified/res/values/values.xml -->
     <eat-comment />
 
     <style name="com_facebook_loginview_default_style" parent="@android:style/Widget.Button">
