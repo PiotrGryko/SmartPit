@@ -13,6 +13,7 @@ import com.example.smartpit.widget.Log;
 
 public class SmartPitScheduleDataReceiver extends BroadcastReceiver {
 
+
     private static String TAG = SmartPitScheduleDataReceiver.class.getName();
     private static int delay = 1000 * 30;
 
@@ -52,6 +53,7 @@ public class SmartPitScheduleDataReceiver extends BroadcastReceiver {
             cal.add(Calendar.SECOND, 10);
 
 
+           // am.set
             am.setInexactRepeating(AlarmManager.RTC, 0, delay,
                     pending);
             Log.d(TAG, "service started!!");
@@ -64,6 +66,7 @@ public class SmartPitScheduleDataReceiver extends BroadcastReceiver {
         //  Log.d(TAG,"service stopped!");
         if (am != null) {
             am.cancel(pending);
+            am=null;
             Log.d(TAG, "service stopped!");
         }
     }

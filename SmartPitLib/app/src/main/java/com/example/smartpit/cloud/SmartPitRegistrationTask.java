@@ -13,15 +13,24 @@ import java.io.IOException;
  */
 public class SmartPitRegistrationTask extends AsyncTask<Object, String, String> {
 
+    public interface OnRegistrationListener {
+        public void onRegistered(String regID);
+
+        public void onRegistrationFailed(String regID);
+
+    }
+
     private GoogleCloudMessaging gcm;
     private Context context;
     private String senderId;
     private String regId;
     private String TAG = SmartPitRegistrationTask.class.getName();
+    private OnRegistrationListener listener;
 
-    public SmartPitRegistrationTask(Context context,String senderId) {
+    public SmartPitRegistrationTask(Context context, String senderId, OnRegistrationListener listener) {
         this.context = context;
         this.senderId = senderId;
+        this.listener = listener;
     }
 
     @Override
@@ -31,13 +40,13 @@ public class SmartPitRegistrationTask extends AsyncTask<Object, String, String> 
         try {
             regId = gcm.register(senderId);
 
-           // gcm.se
-
+            // gcm.se
+            listener.onRegistered(regId);
             Log.d(TAG, "successfully registered " + regId);
         } catch (IOException e) {
 
-            Log.d(TAG, "registration failed " + regId);
-
+            Log.d(TAG, "registration failed "+e.toString()+" "  + regId);
+            listener.onRegistrationFailed(regId);
             e.printStackTrace();
         }
 

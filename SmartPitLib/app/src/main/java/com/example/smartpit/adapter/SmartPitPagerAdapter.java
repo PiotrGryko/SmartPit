@@ -8,14 +8,15 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 
 import com.actionbarsherlock.app.SherlockFragment;
+import com.example.smartpit.fragment.SmartPitBaseFragment;
 import com.example.smartpit.fragment.SmartPitFragment;
 
 public class SmartPitPagerAdapter extends FragmentStatePagerAdapter {
 
 	private String TAG = "PageSlideAdapter";
-	private ArrayList<SmartPitFragment> list;
+	private ArrayList<SmartPitBaseFragment> list;
 
-	public SmartPitPagerAdapter(FragmentManager fm, ArrayList<SmartPitFragment> list) {
+	public SmartPitPagerAdapter(FragmentManager fm, ArrayList<SmartPitBaseFragment> list) {
 		super(fm);
 
 		this.list = list;

@@ -100,17 +100,18 @@ public class SmartPitImageLoader {
             return mBitmap;
         }
 
- public String getRequestUrl() {
+        public String getRequestUrl() {
             return mRequestUrl;
         }
     }
 
 
-    private class CacheTask extends AsyncTask<Object, Bitmap, Bitmap> {
+    private class CacheTask {
 
         private ArrayList<SmartImageContainer> containers;
         private String key;
         private Bitmap mResponseBitmap;
+        private SmartImageContainer container;
 
         public CacheTask(String key, SmartImageContainer container) {
             this.key = key;
@@ -120,19 +121,19 @@ public class SmartPitImageLoader {
         }
 
 
-        @Override
-        protected Bitmap doInBackground(Object... params) {
-            return mCache.getBitmap(key);
+        public void execute() {
+            new Runnable() {
+                public void run() {
 
-        }
 
-        public void onPostExecute(Bitmap b) {
+                    Bitmap b = mCache.getBitmap(key);
+                    mResponseBitmap = b;
 
-            mResponseBitmap = b;
 
-            mInFlightCacheRequests.remove(key);
+                    batchCacheResponse(key, CacheTask.this);
 
-          batchCacheResponse(key, this);
+                }
+            }.run();
 
 
         }
@@ -162,17 +163,18 @@ public class SmartPitImageLoader {
 
             request = mInFlightCacheRequests.get(cacheKey);
             if (request != null) {
-               request.containers.add(container);
+                Log.d(SmartPitImageLoader.class.getName(), "cache reguest inflight!");
+                request.containers.add(container);
                 return container;
 
-            } else {
-
-
-                request = new CacheTask(cacheKey, container);
-                mInFlightCacheRequests.put(cacheKey, request);
-                request.execute();
-
             }
+
+
+            request = new CacheTask(cacheKey, container);
+            mInFlightCacheRequests.put(cacheKey, request);
+            request.execute();
+
+
             return container;
 
         }
@@ -276,28 +278,34 @@ public class SmartPitImageLoader {
     }
 
 
-    private void batchCacheResponse(String cacheKey, CacheTask request) {
+    private void batchCacheResponse(String cacheKey, final CacheTask task) {
 
-        mBatchedCacheResponses.put(cacheKey, request);
-      if (mCacheRunnable == null) {
+
+        mBatchedCacheResponses.put(cacheKey, task);
+
+        if (mCacheRunnable == null) {
             mCacheRunnable = new Runnable() {
                 @Override
                 public void run() {
                     for (CacheTask task : mBatchedCacheResponses.values()) {
-                        for(SmartImageContainer container : task.containers){
+                        for (SmartImageContainer container : task.containers) {
 
-                        if (container.mListener == null) {
-                            continue;
+                            if (container.mListener == null) {
+                                continue;
+                            }
+                            //if (bir.getError() == null) {
+                            container.mBitmap = task.mResponseBitmap;
+                            container.mListener.onResponse(container, false);
+
+                            //   } else {
+                            //      task.container.mListener.onErrorResponse(bir.getError());
+                            // }
+
                         }
-                        //if (bir.getError() == null) {
-                        container.mBitmap = task.mResponseBitmap;
-                        container.mListener.onResponse(container, false);
-                        //   } else {
-                        //      task.container.mListener.onErrorResponse(bir.getError());
-                        // }
+                        mInFlightCacheRequests.remove(task.key);
 
                     }
-                    }
+
                     mBatchedCacheResponses.clear();
                     mCacheRunnable = null;
                 }
@@ -310,7 +318,8 @@ public class SmartPitImageLoader {
 
     private void batchResponse(String cacheKey, BatchedImageRequest request) {
         mBatchedResponses.put(cacheKey, request);
-       if (mHttpRunnable == null) {
+
+        if (mHttpRunnable == null) {
             mHttpRunnable = new Runnable() {
                 @Override
                 public void run() {

@@ -16,7 +16,7 @@ public class SmartPitGcmSender {
 	private static String API = "https://android.googleapis.com/gcm/send";
 
 
-	public static void sendMessage(Context context,
+	public static void senMessage(Context context,
 			Response.Listener successListener,
 			Response.ErrorListener errorListener) {
 

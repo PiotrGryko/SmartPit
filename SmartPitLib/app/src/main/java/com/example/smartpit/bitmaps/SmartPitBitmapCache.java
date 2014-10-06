@@ -31,6 +31,8 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
     private static String TAG = SmartPitBitmapCache.class.getName();
     private DiskLruCache diskLru;
 
+
+
     public static int getDefaultLruCacheSize() {
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
         final int cacheSize = maxMemory / 8;
@@ -138,6 +140,18 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         }
 
 
+    }
+
+    public void removeKey(String key)
+    {
+        key = new String(Hex.encodeHex(DigestUtils
+                .md5(key)));
+
+        try {
+            diskLru.remove(key);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Bitmap getBitmap(String url) {

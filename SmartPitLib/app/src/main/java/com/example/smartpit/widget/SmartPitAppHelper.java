@@ -13,8 +13,10 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.binary.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import android.app.Activity;
@@ -29,6 +31,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.text.Html;
@@ -37,14 +41,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import android.util.Base64;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.example.smartpit.SmartPitActivity;
 import com.example.smartpit.bitmaps.SmartPitImageLoader;
 import com.example.smartpit.bitmaps.SmartPitImagesListener;
+import com.example.smartpit.fragment.SmartPitBaseFragment;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.schedule.SmartPitScheduleDataReceiver;
 import com.example.smartpit.schedule.SmartPitScheduledIntentService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 public class SmartPitAppHelper {
 
@@ -56,7 +69,7 @@ public class SmartPitAppHelper {
     private static SharedPreferences pref;
     private static SmartPitAppHelper instance;
 
-    public  SmartPitAppHelper(Context con) {
+    public SmartPitAppHelper(Context con) {
         context = con;
         cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -64,7 +77,7 @@ public class SmartPitAppHelper {
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(2);
 
-        DecimalFormatSymbols custom=new DecimalFormatSymbols();
+        DecimalFormatSymbols custom = new DecimalFormatSymbols();
         custom.setDecimalSeparator('.');
         df.setDecimalFormatSymbols(custom);
         pref = PreferenceManager.getDefaultSharedPreferences(context);
@@ -78,18 +91,21 @@ public class SmartPitAppHelper {
         return instance;
     }
 
-    public NumberFormat getDecimalFormat()
-    {
+    public boolean validateEmail(String email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+
+    }
+
+    public NumberFormat getDecimalFormat() {
         return df;
     }
 
 
     public void setImage(SmartImageView imageView,
-                         final String url,final int width,final int height) {
+                         final String url, final int width, final int height) {
 
 
-
-       final SmartPitImagesListener li = new SmartPitImagesListener(context, url,
+        final SmartPitImagesListener li = new SmartPitImagesListener(context, url,
                 imageView);
 
       /*
@@ -105,8 +121,8 @@ public class SmartPitAppHelper {
             }
         };
        */
-        Log.d(SmartPitImageLoader.class.getName(),"app helper get");
-     SmartPitActivity.getImageLoader()
+        Log.d(SmartPitImageLoader.class.getName(), "app helper get");
+        SmartPitActivity.getImageLoader()
                 .get(url, li, width, height);
 
     }
@@ -217,14 +233,30 @@ public class SmartPitAppHelper {
         return (xlarge || large);
     }
 
-    public void resumeFocus(View view,
+    public void resumeFocus(final View view,
                             final SmartPitFragmentsInterface listener) {
 
+        if(view==null)
+            return;
+
+
         Log.d(TAG, "resume focus " + view.toString());
+
+        view.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Log.d(TAG, "focus changed! " + Boolean.toString(hasFocus));
+//                if(!hasFocus)
+                //                  view.requestFocus();
+                // view.re
+            }
+        });
+
 
         view.setFocusableInTouchMode(true);
 
         view.requestFocus();
+        view.requestFocusFromTouch();
         view.setOnLongClickListener(new View.OnLongClickListener() {
 
             @Override
@@ -239,8 +271,15 @@ public class SmartPitAppHelper {
                 if (keyCode != KeyEvent.KEYCODE_BACK)
                     return false;
 
-                Log.d("FragmentBase", "back pressed");
                 if (event.getAction() == KeyEvent.ACTION_UP) {
+                    Log.d(TAG, "back pressed");
+                    if(listener==null)
+                        return true;
+
+                    if(!(listener.getCurrentFragment()instanceof SmartPitBaseFragment))
+                    if(listener.getCurrentFragment().onBackPressed())
+                        return true;
+
                     listener.getManager().popBackStack();
                     if (listener.getManager().getBackStackEntryCount() == 0)
                         listener.getSmartActivity().onBackPressed();
@@ -279,7 +318,7 @@ public class SmartPitAppHelper {
             } catch (Throwable t) {
                 Log.d(TAG, "strip view error catched");
             }
-            Log.d(TAG, "clearing view " + view.toString());
+           // Log.d(TAG, "clearing view " + view.toString());
             view = null;
         }
     }
@@ -325,19 +364,17 @@ public class SmartPitAppHelper {
         return true;
     }
 
-    public String readTextFileFromAssets(String filename)
-    {
+    public String readTextFileFromAssets(String filename) {
 
         StringBuilder b = new StringBuilder("");
         InputStream fis;
         try {
-            fis =context.getAssets().open(filename);
+            fis = context.getAssets().open(filename);
 
             byte[] buffer = new byte[1024];
             int n = 0;
-            while ((n = fis.read(buffer)) != -1)
-            {
-               b.append(new String(buffer, 0, n));
+            while ((n = fis.read(buffer)) != -1) {
+                b.append(new String(buffer, 0, n));
             }
         } catch (IOException e) {
             //log the exception
@@ -345,6 +382,35 @@ public class SmartPitAppHelper {
 
         return b.toString();
     }
+
+
+    public String deserialize(String tokenString) {
+        String[] pieces = splitTokenString(tokenString);
+        String jwtPayloadSegment = pieces[1];
+        JsonParser parser = new JsonParser();
+        JsonElement payload = parser.parse(StringUtils.newStringUtf8(Base64.decode(jwtPayloadSegment, Base64.DEFAULT)));
+        return payload.toString();
+    }
+
+    private String[] splitTokenString(String tokenString) {
+        String[] pieces = tokenString.split(Pattern.quote("."));
+        if (pieces.length != 3) {
+            throw new IllegalStateException("Expected JWT to have 3 segments separated by '"
+                    + "." + "', but it has " + pieces.length + " segments");
+        }
+        return pieces;
+    }
+
+    public String getCurrentIpAddress() {
+        WifiManager wifiMan = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInf = wifiMan.getConnectionInfo();
+        int ipAddress = wifiInf.getIpAddress();
+        String ip = String.format("%d.%d.%d.%d", (ipAddress & 0xff), (ipAddress >> 8 & 0xff), (ipAddress >> 16 & 0xff), (ipAddress >> 24 & 0xff));
+
+        return ip;
+    }
+
+
 
 
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="2" >
+
+    <dataSet config="5.0.89" >
+        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/5.0.89/assets" />
+    </dataSet>
+    <dataSet config="unspecified" >
+        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/intermediates/exploded-aar/aip-android.SmartPitLib.libraries/facebook/unspecified/assets" />
+    </dataSet>
+    <dataSet config="4.4.0" >
+        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/intermediates/exploded-aar/com.actionbarsherlock/actionbarsherlock/4.4.0/assets" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/intermediates/bundles/debug/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/androidTest/assets" />
+    </dataSet>
+
+</merger>

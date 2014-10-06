@@ -22,6 +22,9 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
  */
 public class SmartPitGcmIntentService extends IntentService {
 
+
+
+
     /*
     OnMessageListener allaws to set custom action invoked when message arrives.
      */
@@ -29,6 +32,8 @@ public class SmartPitGcmIntentService extends IntentService {
     {
         public void onReceiveGcm(Intent intent);
     }
+
+
 
     private String TAG = SmartPitGcmIntentService.class.getName();
     private static OnMessageListener listener;
@@ -46,6 +51,8 @@ public class SmartPitGcmIntentService extends IntentService {
 
 
         Log.d(TAG, "on handle intent!");
+
+
 
         if(listener!=null)
             listener.onReceiveGcm(intent);

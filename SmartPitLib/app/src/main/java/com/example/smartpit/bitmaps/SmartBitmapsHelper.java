@@ -180,6 +180,59 @@ public class SmartBitmapsHelper {
 
         }
     }
+
+
+
+    public Bitmap decodeSampledBitmapFromStream(InputStream stream, int reqWidth,
+                                              int reqHeight) throws Throwable {
+
+     //   FileInputStream fis = null;
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+
+        try {
+           // fis = new FileInputStream(child);
+            byte[] byteArr = new byte[0];
+            byte[] buffer = new byte[1024];
+            int len;
+            int count = 0;
+
+            while ((len = stream.read(buffer)) > -1) {
+                if (len != 0) {
+                    if (count + len > byteArr.length) {
+                        byte[] newbuf = new byte[(count + len) * 2];
+                        System.arraycopy(byteArr, 0, newbuf, 0, count);
+                        byteArr = newbuf;
+                    }
+
+                    System.arraycopy(buffer, 0, byteArr, count, len);
+                    count += len;
+                }
+            }
+            stream.close();
+
+            options.inJustDecodeBounds = true;
+
+            BitmapFactory.decodeByteArray(byteArr, 0, count, options);
+            // Calculate inSampleSize
+            options.inSampleSize = calculateInSampleSize(options, reqWidth,
+                    reqHeight);
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            options.inDither = true;
+            // Decode bitmap with inSampleSize set
+            options.inJustDecodeBounds = false;
+
+            return BitmapFactory.decodeByteArray(byteArr, 0, count, options);
+
+        } catch (Throwable e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            // Log.d(TAG, "error" +e.toString());
+            throw new Throwable();
+
+        }
+    }
 /*
 Save bitmap to cache.
 

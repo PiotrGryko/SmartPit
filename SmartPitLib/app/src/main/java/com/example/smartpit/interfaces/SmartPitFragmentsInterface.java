@@ -21,6 +21,8 @@ public interface SmartPitFragmentsInterface {
 	public void setActionBarLabel(String label);
 	
 	public FragmentManager getManager();
+
+    public void clearBackstack();
 	
 	public Activity getSmartActivity();
 

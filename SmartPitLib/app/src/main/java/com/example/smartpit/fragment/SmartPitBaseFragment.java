@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -44,6 +45,19 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         fm = this.getChildFragmentManager();
     }
 
+
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "on activity result base fragment");
+
+        for (int i = 0; i < fragmentsList.size(); i++) {
+            fragmentsList.get(i).onActivityResult(requestCode, resultCode, data);
+        }
+
+    }
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup parent,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.smart_base_fragment, parent, false);
@@ -51,6 +65,18 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         initBase(initialFragment);
         return v;
     }
+
+
+    public void resumeFocus() {
+        super.resumeFocus();
+        Log.d(TAG, "resume focus base fragment");
+
+        if (fragmentsList != null && this.getCurrentFragment() != null)
+            this.getCurrentFragment().resumeFocus();
+        else if (initialFragment != null)
+            initialFragment.resumeFocus();
+    }
+
 
     @Override
     public void onDetach() {
@@ -74,11 +100,32 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     }
 
+    public boolean onBackPressed() {
+        boolean consumed = false;
+
+
+
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
+            consumed = true;
+            Log.d(TAG, "event consumed!");
+        } else
+            Log.d(TAG, "event not consumed!");
+
+        return consumed;
+    }
+
     public void setPosition(int position) {
         this.position = position;
     }
 
     public void initBase(SmartPitFragment fragment) {
+
+        if (fragment == null || fm == null)
+            return;
+        if (fragment.isAdded())
+            return;
+
 
         this.setCurrentFragment(fragment, false);
 
@@ -134,33 +181,39 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     @Override
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
         SmartPitFragment oldFragment = getCurrentFragment();
+        if (oldFragment != null  && fragment != null) {
 
-        fm.beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_right,
-                        R.anim.slide_out_left, android.R.anim.slide_in_left,
-                        android.R.anim.slide_out_right).remove(oldFragment)
-                .add(R.id.fragments_container, fragment).addToBackStack(null)
-                .commitAllowingStateLoss();
+            fm.beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right,
+                            R.anim.slide_out_left, android.R.anim.slide_in_left,
+                            android.R.anim.slide_out_right).remove(oldFragment)
+                    .add(R.id.fragments_container, fragment).addToBackStack(null)
+                    .commitAllowingStateLoss();
 
-        setCurrentFragment(fragment, removePrevious);
+            setCurrentFragment(fragment, removePrevious);
+
+        }
     }
-
     // //////////method switch title fragment, transition with in animation not
     // added to backstack
     @Override
     public void switchTitleFragment(SmartPitFragment fragment,
                                     boolean removePrevious) {
+
+        clearBackstack();
+
         SmartPitFragment oldFragment = getCurrentFragment();
+        if(oldFragment!=null  && fragment!=null) {
 
-        fm.beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_right,
-                        R.anim.slide_out_left, android.R.anim.slide_in_left,
-                        android.R.anim.slide_out_right).remove(oldFragment)
-                .add(R.id.fragments_container, fragment)
-                .commitAllowingStateLoss();
+            fm.beginTransaction()
+                    .setCustomAnimations(R.anim.slide_in_right,
+                            R.anim.slide_out_left, android.R.anim.slide_in_left,
+                            android.R.anim.slide_out_right).remove(oldFragment)
+                    .add(R.id.fragments_container, fragment)
+                    .commitAllowingStateLoss();
 
-        setCurrentFragment(fragment, removePrevious);
-
+            setCurrentFragment(fragment, removePrevious);
+        }
     }
 
     @Override
@@ -195,9 +248,8 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         return this.getSherlockActivity();
     }
 
-    public String getLabel()
-    {
-       return "";
+    public String getLabel() {
+        return "";
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.smartpit.cloud;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -20,8 +21,14 @@ public class SmartPitGcmReceiver extends WakefulBroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
 
+
+
         ComponentName comp = new ComponentName(context.getPackageName(),
                 SmartPitGcmIntentService.class.getName());
+
+
          startWakefulService(context, (intent.setComponent(comp)));
+         setResultCode(Activity.RESULT_OK);
+
     }
 }

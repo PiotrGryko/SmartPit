@@ -22,12 +22,14 @@ import java.util.ArrayList;
 /**
  * Created by piotr on 08.04.14.
  */
-public abstract class SmartPitTabsFragment extends SmartPitFragment implements SmartPitFragmentsInterface, TabHost.OnTabChangeListener{
+public abstract class SmartPitTabsFragment extends SmartPitFragment implements SmartPitFragmentsInterface, TabHost.OnTabChangeListener {
 
     public String TAG = SmartPitTabsFragment.class.getName();
 
     private TabHost host;
     private ArrayList<SmartPitFragment> fragmentsList;
+    private ArrayList<SmartPitFragment> backstackFragmentsList;
+
 
     private FragmentManager fm;
     private int fragmentsContainer;
@@ -48,26 +50,25 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
     }
 
 
-    public void initHost(View v,int fragmentsContainerId, ArrayList<SmartPitFragment> list) {
-        this.fragmentsContainer=fragmentsContainerId;
+    public void initHost(View v, int fragmentsContainerId, ArrayList<SmartPitFragment> list) {
+        this.fragmentsContainer = fragmentsContainerId;
         host = (TabHost) v.findViewById(android.R.id.tabhost);
         host.setup();
 
 
-
         fragmentsList = list;
-        fm  = this.getChildFragmentManager();
+        backstackFragmentsList = new ArrayList<SmartPitFragment>();
+        fm = this.getChildFragmentManager();
 
 
         TabHost.TabSpec spec = null;
-        for(int i=0;i<fragmentsList.size();i++)
-        {
+        for (int i = 0; i < fragmentsList.size(); i++) {
             spec = this
                     .getHost()
                     .newTabSpec(Integer.toString(i))
                     .setIndicator(
                             createTabIndicator(this.getSherlockActivity(),
-                                   i)
+                                    i)
                     )
                     .setContent(new TabContent(this.getSherlockActivity()));
             this.getHost().addTab(spec);
@@ -80,12 +81,9 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
                 .commitAllowingStateLoss();
 
 
-
     }
 
     public abstract View createTabIndicator(Context context, int index);
-    public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {}
-
 
 
     public TabHost getHost() {
@@ -111,6 +109,16 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
                 }
 
             }
+
+            for (int i = 0; i < backstackFragmentsList.size(); i++) {
+                if (fragment.getClass() == backstackFragmentsList.get(i).getClass()) {
+                    backstackFragmentsList.remove(i);
+                    backstackFragmentsList.add(fragment);
+
+                    return;
+                }
+
+            }
         }
         com.example.smartpit.widget.Log.d(TAG, "new Fragment added to list");
         fragmentsList.add(fragment);
@@ -128,10 +136,16 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
 
         }
 
+        for (int i = 0; i < backstackFragmentsList.size(); i++) {
+            if (backstackFragmentsList.get(i).isAdded()) {
+                // Log.d(TAG, "setted currentFragment");
+                return backstackFragmentsList.get(i);
+            }
+
+        }
+
         return null;
     }
-
-
 
 
     // //////////method switch title fragment, transition with in animation not
@@ -146,6 +160,24 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
                 .add(fragmentsContainer, fragment)
                 .commitAllowingStateLoss();
 
+      //  setCurrentFragment(fragment,removePrevious);
+
+
+    }
+
+    public void switchFragment(SmartPitFragment fragment,
+                               boolean removePrevious) {
+        SmartPitFragment oldFragment = getCurrentFragment();
+
+        fm.beginTransaction().setCustomAnimations(R.anim.slide_in_right,
+                R.anim.slide_out_left, android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right)
+                .remove(oldFragment)
+                .add(fragmentsContainer, fragment).addToBackStack(null)
+                .commitAllowingStateLoss();
+
+        setCurrentFragment(fragment,removePrevious);
+
 
     }
 
@@ -155,28 +187,35 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
 
     }
 
-
-    public FragmentManager getManager()
-    {
-
-        return this.getFragmentsListener().getManager();
+    public SmartPitFragmentsInterface getFragmentsListener() {
+        return this;
     }
 
-    public Activity getSmartActivity()
-    {
-       return this.getSherlockActivity();
+
+    public FragmentManager getManager() {
+
+        return fm;
+    }
+
+    public Activity getSmartActivity() {
+        return this.getSherlockActivity();
     }
 
 
     @Override
     public int getTab() {
-        return -1;
+        return host.getCurrentTab();
     }
 
     @Override
     public void onTabChanged(String tabId) {
 
-        this.switchTitleFragment(fragmentsList.get(Integer.parseInt(tabId)),true);
+        this.switchTitleFragment(fragmentsList.get(Integer.parseInt(tabId)), true);
 
+    }
+
+    public boolean onBackPressed()
+    {
+        return fragmentsList.get(host.getCurrentTab()).onBackPressed();
     }
 }
