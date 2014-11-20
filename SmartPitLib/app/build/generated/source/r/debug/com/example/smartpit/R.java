@@ -1456,17 +1456,17 @@ containing a value of this type.
         public static int abs__textButton=0x7f070027;
         public static int abs__title=0x7f07002f;
         public static int abs__up=0x7f070023;
-        public static int action_settings=0x7f070070;
+        public static int action_settings=0x7f070073;
         public static int book_now=0x7f070018;
-        public static int button_one=0x7f07006c;
-        public static int button_one_background=0x7f07006b;
-        public static int button_two=0x7f07006e;
-        public static int button_two_background=0x7f07006d;
-        public static int buttons_background=0x7f07006a;
+        public static int button_one=0x7f07006d;
+        public static int button_one_background=0x7f07006c;
+        public static int button_two=0x7f07006f;
+        public static int button_two_background=0x7f07006e;
+        public static int buttons_background=0x7f07006b;
         public static int buyButton=0x7f070013;
         public static int buy_now=0x7f070017;
         public static int buy_with_google=0x7f070016;
-        public static int cameraPreview=0x7f07006f;
+        public static int cameraPreview=0x7f070072;
         public static int classic=0x7f070019;
         public static int com_facebook_body_frame=0x7f070058;
         public static int com_facebook_button_xout=0x7f07005a;
@@ -1503,17 +1503,19 @@ containing a value of this type.
         public static int homeAsUp=0x7f070009;
         public static int hybrid=0x7f070004;
         public static int large=0x7f07001d;
+        public static int layout_content=0x7f070071;
+        public static int layout_drawer=0x7f070070;
         public static int listMode=0x7f070005;
         public static int map=0x7f070062;
         public static int match_parent=0x7f070015;
         public static int menu=0x7f070064;
         public static int menu_base=0x7f070063;
-        public static int message=0x7f070069;
-        public static int message_background=0x7f070068;
+        public static int message=0x7f07006a;
+        public static int message_background=0x7f070069;
         public static int monochrome=0x7f07001b;
         public static int none=0x7f070000;
         public static int normal=0x7f070001;
-        public static int pager=0x7f070065;
+        public static int pager=0x7f070066;
         public static int picker_subtitle=0x7f070055;
         public static int production=0x7f070010;
         public static int sandbox=0x7f070011;
@@ -1523,11 +1525,12 @@ containing a value of this type.
         public static int showHome=0x7f070008;
         public static int showTitle=0x7f07000a;
         public static int small=0x7f07001c;
+        public static int smart_indicator=0x7f070065;
         public static int strict_sandbox=0x7f070012;
         public static int tabMode=0x7f070006;
         public static int terrain=0x7f070003;
-        public static int title=0x7f070067;
-        public static int title_background=0x7f070066;
+        public static int title=0x7f070068;
+        public static int title_background=0x7f070067;
         public static int useLogo=0x7f070007;
         public static int wrap_content=0x7f07000d;
     }
@@ -1579,13 +1582,15 @@ containing a value of this type.
         public static int smart_map_fragment=0x7f030028;
         public static int smart_menu_activity=0x7f030029;
         public static int smart_pager_fragment=0x7f03002a;
-        public static int smart_pit_dialog=0x7f03002b;
-        public static int smart_pit_loading_dialog=0x7f03002c;
-        public static int smart_pit_pager_activity=0x7f03002d;
-        public static int smart_pit_tabs_fragment=0x7f03002e;
-        public static int smart_qr_fragment=0x7f03002f;
-        public static int smart_tab_activity=0x7f030030;
-        public static int smart_tab_menu_activity=0x7f030031;
+        public static int smart_pager_menu_activity=0x7f03002b;
+        public static int smart_pit_dialog=0x7f03002c;
+        public static int smart_pit_drawer_activity=0x7f03002d;
+        public static int smart_pit_loading_dialog=0x7f03002e;
+        public static int smart_pit_pager_activity=0x7f03002f;
+        public static int smart_pit_tabs_fragment=0x7f030030;
+        public static int smart_qr_fragment=0x7f030031;
+        public static int smart_tab_activity=0x7f030032;
+        public static int smart_tab_menu_activity=0x7f030033;
     }
     public static final class menu {
         public static int main=0x7f0c0000;
@@ -1662,12 +1667,7 @@ containing a value of this type.
         public static int wallet_buy_button_place_holder=0x7f0a0044;
     }
     public static final class style {
-        /** 
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
- API 11 theme customizations can go here. 
+        /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
          */
         public static int AppBaseTheme=0x7f0b0000;

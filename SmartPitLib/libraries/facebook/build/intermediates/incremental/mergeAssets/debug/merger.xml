@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/libraries/facebook/src/main/assets" />
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/libraries/facebook/src/main/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/libraries/facebook/src/debug/assets" />
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/libraries/facebook/src/debug/assets" />
     </dataSet>
 
 </merger>

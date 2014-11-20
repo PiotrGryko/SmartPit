@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/assets" />
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/release/assets" />
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/release/assets" />
     </dataSet>
 
 </merger>

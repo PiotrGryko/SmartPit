@@ -18,6 +18,7 @@ import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.widget.SmartPitAppHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by piotr on 08.04.14.
@@ -28,11 +29,12 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
 
     private TabHost host;
     private ArrayList<SmartPitFragment> fragmentsList;
-    private ArrayList<SmartPitFragment> backstackFragmentsList;
+    private HashMap<String, SmartPitFragment> fragmentsMap;
 
 
     private FragmentManager fm;
     private int fragmentsContainer;
+    private String currentFragment="";
 
 
     class TabContent implements TabHost.TabContentFactory {
@@ -50,18 +52,19 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
     }
 
 
-    public void initHost(View v, int fragmentsContainerId, ArrayList<SmartPitFragment> list) {
-        this.fragmentsContainer = fragmentsContainerId;
-        host = (TabHost) v.findViewById(android.R.id.tabhost);
-        host.setup();
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "on save instance state");
+    }
 
+    public void onActivityCreated(Bundle savedState) {
+        super.onActivityCreated(savedState);
+        Log.d(TAG, "on restore instance state");
+    }
 
-        fragmentsList = list;
-        backstackFragmentsList = new ArrayList<SmartPitFragment>();
-        fm = this.getChildFragmentManager();
-
-
+    private void populateIndicators() {
         TabHost.TabSpec spec = null;
+
         for (int i = 0; i < fragmentsList.size(); i++) {
             spec = this
                     .getHost()
@@ -73,12 +76,58 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
                     .setContent(new TabContent(this.getSherlockActivity()));
             this.getHost().addTab(spec);
 
+
+
+
         }
 
-        host.setOnTabChangedListener(this);
+        for(int i=0;i<fragmentsList.size();i++)
+        {
+            if(currentFragment.equals(fragmentsList.get(i).getFragmentTAG())) {
+                this.getHost().setCurrentTab(i);
+                break;
+            }
+        }
+
+        this.getHost().setOnTabChangedListener(this);
+
+
+
+
+    }
+
+    public void initHost(View v, int fragmentsContainerId, ArrayList<SmartPitFragment> list) {
+
+        this.fragmentsContainer = fragmentsContainerId;
+        host = (TabHost) v.findViewById(android.R.id.tabhost);
+        host.setup();
+
+
+        if (fragmentsList != null && fragmentsMap != null) {
+            populateIndicators();
+            return;
+        }
+
+
+
+        fragmentsList = list;
+        fragmentsMap = new HashMap<String, SmartPitFragment>();
+        for (int i = 0; i < fragmentsList.size(); i++) {
+            fragmentsMap.put(fragmentsList.get(i).getFragmentTAG(), fragmentsList.get(i));
+            Log.d(TAG, "added fragment to map " + fragmentsList.get(i).getFragmentTAG());
+        }
+        fm = this.getChildFragmentManager();
+
+
+        populateIndicators();
+
 
         fm.beginTransaction().add(fragmentsContainerId, fragmentsList.get(0))
                 .commitAllowingStateLoss();
+
+
+        Log.d(TAG, "initial view " + fragmentsList.get(0).getFragmentTAG());
+        setCurrentFragment(fragmentsList.get(0), true);
 
 
     }
@@ -91,6 +140,8 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
     }
 
 
+
+
     /*
     this method allaws to add new childrens to fragmentsList.  Second param = true required
 
@@ -99,52 +150,17 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
     public void setCurrentFragment(SmartPitFragment fragment,
                                    boolean removePrevious) {
 
-        if (removePrevious) {
-            for (int i = 0; i < fragmentsList.size(); i++) {
-                if (fragment.getClass() == fragmentsList.get(i).getClass()) {
-                    fragmentsList.remove(i);
-                    fragmentsList.add(fragment);
-
-                    return;
-                }
-
-            }
-
-            for (int i = 0; i < backstackFragmentsList.size(); i++) {
-                if (fragment.getClass() == backstackFragmentsList.get(i).getClass()) {
-                    backstackFragmentsList.remove(i);
-                    backstackFragmentsList.add(fragment);
-
-                    return;
-                }
-
-            }
-        }
-        com.example.smartpit.widget.Log.d(TAG, "new Fragment added to list");
-        fragmentsList.add(fragment);
+        currentFragment = fragment.getFragmentTAG();
     }
 
     // /////return currently added fragment
     @Override
     public SmartPitFragment getCurrentFragment() {
 
-        for (int i = 0; i < fragmentsList.size(); i++) {
-            if (fragmentsList.get(i).isAdded()) {
-                // Log.d(TAG, "setted currentFragment");
-                return fragmentsList.get(i);
-            }
+        Log.d(TAG, "get current fragment " + currentFragment);
+        Log.d(TAG, "fragments map  " + fragmentsMap.get(currentFragment).getFragmentTAG());
 
-        }
-
-        for (int i = 0; i < backstackFragmentsList.size(); i++) {
-            if (backstackFragmentsList.get(i).isAdded()) {
-                // Log.d(TAG, "setted currentFragment");
-                return backstackFragmentsList.get(i);
-            }
-
-        }
-
-        return null;
+        return fragmentsMap.get(currentFragment);
     }
 
 
@@ -160,25 +176,13 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
                 .add(fragmentsContainer, fragment)
                 .commitAllowingStateLoss();
 
-      //  setCurrentFragment(fragment,removePrevious);
+        setCurrentFragment(fragment, removePrevious);
 
 
     }
 
     public void switchFragment(SmartPitFragment fragment,
                                boolean removePrevious) {
-        SmartPitFragment oldFragment = getCurrentFragment();
-
-        fm.beginTransaction().setCustomAnimations(R.anim.slide_in_right,
-                R.anim.slide_out_left, android.R.anim.slide_in_left,
-                android.R.anim.slide_out_right)
-                .remove(oldFragment)
-                .add(fragmentsContainer, fragment).addToBackStack(null)
-                .commitAllowingStateLoss();
-
-        setCurrentFragment(fragment,removePrevious);
-
-
     }
 
     @Override
@@ -214,8 +218,7 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
 
     }
 
-    public boolean onBackPressed()
-    {
+    public boolean onBackPressed() {
         return fragmentsList.get(host.getCurrentTab()).onBackPressed();
     }
 }

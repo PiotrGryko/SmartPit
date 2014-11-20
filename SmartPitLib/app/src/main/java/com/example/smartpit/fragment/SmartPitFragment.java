@@ -10,43 +10,56 @@ import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.widget.Log;
 import com.example.smartpit.widget.SmartPitAppHelper;
 
+import java.util.Random;
+
 public abstract class SmartPitFragment extends SherlockFragment implements
-		SmartPitChildFragmentInterface {
+        SmartPitChildFragmentInterface {
 
     private String TAG = SmartPitFragment.class.getName();
 
-	private SmartPitFragmentsInterface listener;
+    private SmartPitFragmentsInterface listener;
 
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    private String fragmentTAG;
 
-
-        if (this.getParentFragment()!=null &&  (this.getParentFragment() instanceof SmartPitFragmentsInterface))
-         listener = (SmartPitFragmentsInterface) this.getParentFragment();
-
-
-		else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface)
-        listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
-
-     //   listener.setActionBarLabel(getLabel());
-
-
-	}
-
-    public boolean onBackPressed()
+    public SmartPitFragment()
     {
+        Log.d(TAG,"constructor called");
+        fragmentTAG =this.toString();
+    }
 
-        Log.d(TAG,"Smart pit fragment on back pressed");
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+
+
+        if (this.getParentFragment() != null && (this.getParentFragment() instanceof SmartPitFragmentsInterface))
+            listener = (SmartPitFragmentsInterface) this.getParentFragment();
+
+
+        else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface)
+            listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
+
+        //   listener.setActionBarLabel(getLabel());
+
+
+    }
+
+    public boolean onBackPressed() {
+
+        Log.d(TAG, "Smart pit fragment on back pressed");
         return false;
     }
 
+    public String getFragmentTAG() {
+        return fragmentTAG;
+    }
 
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
 
-     //   if(listener!=null)
-     //      listener.setActionBarLabel(getLabel());
+        //   if(listener!=null)
+        //      listener.setActionBarLabel(getLabel());
 
 
         /*
@@ -55,46 +68,41 @@ public abstract class SmartPitFragment extends SherlockFragment implements
          */
 
 
-
-
-            resumeFocus();
+        resumeFocus();
     }
 
-    public void resumeFocus()
-    {
-        Log.d(TAG,"resume focus fragment");
+    public void resumeFocus() {
+        Log.d(TAG, "resume focus fragment");
 
         SmartPitAppHelper.getInstance(this.getSherlockActivity()).resumeFocus(this.getView(),
                 this.getFragmentsListener());
     }
 
-	public SmartPitFragmentsInterface getFragmentsListener() {
-		return listener;
-	}
+    public SmartPitFragmentsInterface getFragmentsListener() {
+        return listener;
+    }
 
-	@Override
-	public void stripView() {
-        Log.d(TAG,"striping view ...");
-		if (this.getView() != null) {
-			SmartPitAppHelper.getInstance(this.getSherlockActivity()).stripViewGroup(this.getView(), false);
+    @Override
+    public void stripView() {
+        Log.d(TAG, "striping view ...");
+        if (this.getView() != null) {
+            SmartPitAppHelper.getInstance(this.getSherlockActivity()).stripViewGroup(this.getView(), false);
 
-			System.gc();
+            System.gc();
 
-		}
+        }
 
-	}
+    }
 
-    public void onDestroyView()
-    {
+    public void onDestroyView() {
         stripView();
         super.onDestroyView();
     }
 
     public abstract String getLabel();
 
-    public void onConfigurationChanged(Configuration newConfig)
-    {
-        Log.d(TAG,"configuration changed!");
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.d(TAG, "configuration changed!");
     }
 /*
     @Override

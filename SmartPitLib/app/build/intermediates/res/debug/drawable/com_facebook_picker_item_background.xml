@@ -24,4 +24,4 @@
     <item android:state_focused="true"                                                             android:drawable="@drawable/com_facebook_picker_list_focused" />
     <item                                                                                          android:drawable="@android:color/transparent" />
 </selector>
-<!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_item_background.xml --><!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/intermediates/exploded-aar/aip-android.SmartPitLib.libraries/facebook/unspecified/res/drawable/com_facebook_picker_item_background.xml -->
+<!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/libraries/facebook/src/main/res/drawable/com_facebook_picker_item_background.xml --><!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/build/intermediates/exploded-aar/appmaker.SmartPitLib.libraries/facebook/unspecified/res/drawable/com_facebook_picker_item_background.xml -->

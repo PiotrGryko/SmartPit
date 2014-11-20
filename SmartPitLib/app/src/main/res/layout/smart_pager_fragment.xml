@@ -31,6 +31,11 @@
                 android:layout_height="0dip"
                 android:layout_weight="0"></FrameLayout>
 
+            <com.example.smartpit.widget.SmartPitTabHostIndicator
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:id="@+id/smart_indicator"></com.example.smartpit.widget.SmartPitTabHostIndicator>
+
             <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="fill_parent"

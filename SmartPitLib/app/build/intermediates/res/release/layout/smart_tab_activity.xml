@@ -39,4 +39,4 @@
                 android:layout_weight="1" />
         </LinearLayout>
     </TabHost>
-</LinearLayout><!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_tab_activity.xml -->
+</LinearLayout><!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_tab_activity.xml -->

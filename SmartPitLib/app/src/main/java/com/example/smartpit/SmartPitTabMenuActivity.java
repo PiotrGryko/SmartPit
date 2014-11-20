@@ -75,7 +75,7 @@ public abstract class SmartPitTabMenuActivity  extends SmartPitActivity implemen
         // menu.getContentLayout().setDuration(500);
 
 
-        menuBase.setMenu(menu);
+        menuBase.setMenu(menu, SmartPitMenuActivity.MenuType.LEFT);
         menuBase.setVisibility(View.GONE);
 
 

@@ -52,4 +52,4 @@
       android:src="@drawable/com_facebook_tooltip_blue_bottomnub"
       />
 </RelativeLayout>
-<!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_tooltip_bubble.xml --><!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/intermediates/exploded-aar/aip-android.SmartPitLib.libraries/facebook/unspecified/res/layout/com_facebook_tooltip_bubble.xml -->
+<!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_tooltip_bubble.xml --><!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/build/intermediates/exploded-aar/appmaker.SmartPitLib.libraries/facebook/unspecified/res/layout/com_facebook_tooltip_bubble.xml -->

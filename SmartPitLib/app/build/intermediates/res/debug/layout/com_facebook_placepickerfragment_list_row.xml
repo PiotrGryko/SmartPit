@@ -88,4 +88,4 @@
             android:background="@drawable/com_facebook_picker_default_separator_color"
             />
 </RelativeLayout>
-<!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_placepickerfragment_list_row.xml --><!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/intermediates/exploded-aar/aip-android.SmartPitLib.libraries/facebook/unspecified/res/layout/com_facebook_placepickerfragment_list_row.xml -->
+<!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/libraries/facebook/src/main/res/layout/com_facebook_placepickerfragment_list_row.xml --><!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/build/intermediates/exploded-aar/appmaker.SmartPitLib.libraries/facebook/unspecified/res/layout/com_facebook_placepickerfragment_list_row.xml -->

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.smartpit.R;
+import com.example.smartpit.SmartPitMenuActivity;
 
 public class SmartPitSlidingMenu extends RelativeLayout {
 
@@ -23,6 +24,7 @@ public class SmartPitSlidingMenu extends RelativeLayout {
     }
 
     private SmartPitSlidingContent content;
+    private SmartPitMenuActivity.MenuType type;
 
 
     public SmartPitSlidingContent getContentLayout() {
@@ -33,9 +35,16 @@ public class SmartPitSlidingMenu extends RelativeLayout {
         super(context);
         initSlidingLayout(context);
 
+
         this.addView(content);
 
     }
+
+    public void setMenuType(SmartPitMenuActivity.MenuType type) {
+        this.type = type;
+        content.setMenuType(type);
+    }
+
 
     public SmartPitSlidingMenu(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -44,17 +53,21 @@ public class SmartPitSlidingMenu extends RelativeLayout {
         this.addView(content);
     }
 
-    public void onLayout(boolean flag, int l, int t, int r, int b)
-    {
+    public void onLayout(boolean flag, int l, int t, int r, int b) {
         super.onLayout(flag, l, t, r, b);
 
 
-        if(content.isShowing())
-        {content.layout(r-content.getWidth(),t,r,b);
+        if (content.isShowing()) {
 
-        }
-        else {
-            content.layout(l-content.getWidth()+content.getOffset(), t, l + content.getOffset(), b);
+            content.layout(r - content.getWidth(), t, r, b);
+
+
+        } else {
+
+            if(type== SmartPitMenuActivity.MenuType.LEFT)
+           content.layout(l - content.getWidth() + content.getOffset(), t, l + content.getOffset(), b);
+            else
+                content.layout(l, t, l + content.getWidth(), b);
 
 
         }
@@ -68,6 +81,7 @@ public class SmartPitSlidingMenu extends RelativeLayout {
         RelativeLayout.LayoutParams contentParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.FILL_PARENT);
         content = new SmartPitSlidingContent(context, this);
         content.setLayoutParams(contentParams);
+        content.setBackgroundColor(Color.BLUE);
 
     }
 

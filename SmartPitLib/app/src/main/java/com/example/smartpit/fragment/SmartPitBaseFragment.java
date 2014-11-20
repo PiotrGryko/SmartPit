@@ -104,7 +104,6 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         boolean consumed = false;
 
 
-
         if (fm.getBackStackEntryCount() > 0) {
             fm.popBackStack();
             consumed = true;
@@ -181,7 +180,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     @Override
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
         SmartPitFragment oldFragment = getCurrentFragment();
-        if (oldFragment != null  && fragment != null) {
+        if (oldFragment != null && fragment != null) {
 
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right,
@@ -194,6 +193,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
         }
     }
+
     // //////////method switch title fragment, transition with in animation not
     // added to backstack
     @Override
@@ -203,7 +203,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         clearBackstack();
 
         SmartPitFragment oldFragment = getCurrentFragment();
-        if(oldFragment!=null  && fragment!=null) {
+        if (oldFragment != null && fragment != null) {
 
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right,
@@ -249,7 +249,12 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     }
 
     public String getLabel() {
-        return "";
+
+
+        if (initialFragment != null)
+            return initialFragment.getLabel();
+        else return this.toString();
+
     }
 
 }

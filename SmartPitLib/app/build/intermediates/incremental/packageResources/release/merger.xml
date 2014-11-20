@@ -2,175 +2,65 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res" >
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res" >
             <file
-                name="ic_launcher"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/drawable-xhdpi/ic_launcher.png"
-                qualifiers="xhdpi-v4"
-                type="drawable" />
-            <file
-                name="exclamation_mark"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/drawable-xhdpi/exclamation_mark.png"
-                qualifiers="xhdpi-v4"
-                type="drawable" />
-            <file
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/values-v14/styles.xml"
-                qualifiers="v14" >
-
-                <style
-                    name="AppBaseTheme"
-                    parent="Theme.Sherlock.Light" >
-
-                    <!-- API 14 theme customizations can go here. -->
-                </style>
-            </file>
-            <file
-                name="smart_activity"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_activity.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_pit_tabs_fragment"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_pit_tabs_fragment.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_pit_loading_dialog"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_pit_loading_dialog.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_qr_fragment"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_qr_fragment.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_pager_fragment"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_menu_activity"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_menu_activity.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_tab_menu_activity"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_tab_menu_activity.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_pit_pager_activity"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_pit_pager_activity.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_tab_activity"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_tab_activity.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_base_fragment"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_base_fragment.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_pit_dialog"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_pit_dialog.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="smart_map_fragment"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_map_fragment.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="ic_launcher"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
-                qualifiers="xxhdpi-v4"
-                type="drawable" />
-            <file
-                name="ic_launcher"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/drawable-hdpi/ic_launcher.png"
-                qualifiers="hdpi-v4"
-                type="drawable" />
-            <file
-                name="top_to_bottom_list_animation"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/top_to_bottom_list_animation.xml"
-                qualifiers=""
-                type="anim" />
-            <file
-                name="slide_out_right"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/slide_out_right.xml"
-                qualifiers=""
-                type="anim" />
-            <file
-                name="slide_out_left"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/slide_out_left.xml"
+                name="slide_in_right"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/slide_in_right.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="menu_out"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/menu_out.xml"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/menu_out.xml"
                 qualifiers=""
                 type="anim" />
             <file
-                name="wave_list_animation"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/wave_list_animation.xml"
+                name="slide_out_left"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/slide_out_left.xml"
                 qualifiers=""
                 type="anim" />
             <file
-                name="slide_in_right"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/slide_in_right.xml"
+                name="top_to_bottom_list_animation"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/top_to_bottom_list_animation.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="slide_in_left"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/slide_in_left.xml"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/slide_in_left.xml"
+                qualifiers=""
+                type="anim" />
+            <file
+                name="wave_list_animation"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/wave_list_animation.xml"
                 qualifiers=""
                 type="anim" />
             <file
                 name="menu_in"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/anim/menu_in.xml"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/menu_in.xml"
                 qualifiers=""
                 type="anim" />
             <file
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/values-v11/styles.xml"
-                qualifiers="v11" >
-
-                <style
-                    name="AppBaseTheme"
-                    parent="Theme.Sherlock.Light" >
-
-                    <!-- API 11 theme customizations can go here. -->
-                </style>
-            </file>
+                name="slide_out_right"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/anim/slide_out_right.xml"
+                qualifiers=""
+                type="anim" />
             <file
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/values-w820dp/dimens.xml"
+                name="ic_launcher"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/drawable-hdpi/ic_launcher.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="main"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/menu/main.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/values-w820dp/dimens.xml"
                 qualifiers="w820dp-v13" >
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
             <file
-                name="ic_launcher"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/drawable-mdpi/ic_launcher.png"
-                qualifiers="mdpi-v4"
-                type="drawable" />
-            <file
-                name="main"
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/menu/main.xml"
-                qualifiers=""
-                type="menu" />
-            <file
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/values/dimens.xml"
-                qualifiers="" >
-                <dimen name="activity_horizontal_margin" >16dp
-                </dimen>
-                <dimen name="activity_vertical_margin" >16dp
-                </dimen>
-            </file>
-            <file
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/values/strings.xml"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/values/strings.xml"
                 qualifiers="" >
                 <string name="action_settings" >Settings
                 </string>
@@ -182,7 +72,15 @@
                 </string>
             </file>
             <file
-                path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/values/styles.xml"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/values/dimens.xml"
+                qualifiers="" >
+                <dimen name="activity_horizontal_margin" >16dp
+                </dimen>
+                <dimen name="activity_vertical_margin" >16dp
+                </dimen>
+            </file>
+            <file
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/values/styles.xml"
                 qualifiers="" >
 
                 <style
@@ -194,7 +92,12 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
                     -->
-
+                    <item name="windowContentOverlay">
+@null
+                    </item>
+                    <item name="android:windowContentOverlay">
+@null
+                    </item>
                 </style>
 
                 <style
@@ -208,12 +111,129 @@
                     </item>
                 </style>
             </file>
+            <file
+                name="exclamation_mark"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/drawable-xhdpi/exclamation_mark.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="smart_pager_fragment"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_pit_tabs_fragment"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pit_tabs_fragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_pager_menu_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pager_menu_activity.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_activity.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_menu_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_menu_activity.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_map_fragment"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_map_fragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_base_fragment"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_base_fragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_qr_fragment"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_qr_fragment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_pit_dialog"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pit_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_pit_drawer_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pit_drawer_activity.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_pit_loading_dialog"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pit_loading_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_tab_menu_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_tab_menu_activity.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_tab_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_tab_activity.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="smart_pit_pager_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pit_pager_activity.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/values-v11/styles.xml"
+                qualifiers="v11" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="Theme.Sherlock.Light" >
+
+                    <!-- API 11 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                name="ic_launcher"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/drawable-mdpi/ic_launcher.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/values-v14/styles.xml"
+                qualifiers="v14" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="Theme.Sherlock.Light" >
+
+                    <!-- API 14 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                name="ic_launcher"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="smart_pit_sliding_pane_activity"
+                path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_pit_sliding_pane_activity.xml"
+                qualifiers=""
+                type="layout" />
         </source>
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/generated/res/rs/release" />
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/build/generated/res/generated/release" />
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/build/generated/res/rs/release" />
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/build/generated/res/generated/release" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/release/res" />
+        <source path="/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/release/res" />
     </dataSet>
 
 </merger>

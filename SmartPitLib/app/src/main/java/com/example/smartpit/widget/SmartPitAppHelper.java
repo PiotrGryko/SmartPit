@@ -39,6 +39,8 @@ import android.text.Html;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import android.util.Base64;
@@ -85,6 +87,8 @@ public class SmartPitAppHelper {
     }
 
 
+
+
     public static SmartPitAppHelper getInstance(Context c) {
         if (instance == null)
             instance = new SmartPitAppHelper(c);
@@ -94,6 +98,15 @@ public class SmartPitAppHelper {
     public boolean validateEmail(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
 
+    }
+
+    public void showViewWithAnimation(View v)
+    {
+        v.setVisibility(View.VISIBLE);
+        Animation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setDuration(300* 1);
+        animation.setFillAfter(true);
+        v.startAnimation(animation);
     }
 
     public NumberFormat getDecimalFormat() {
@@ -272,7 +285,7 @@ public class SmartPitAppHelper {
                     return false;
 
                 if (event.getAction() == KeyEvent.ACTION_UP) {
-                    Log.d(TAG, "back pressed");
+                    Log.d(TAG, "back pressed "+listener.toString());
                     if(listener==null)
                         return true;
 

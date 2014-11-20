@@ -92,9 +92,8 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     private static boolean fragmentAnimation;
 
-    public static void setFragmentAnimationFlag(boolean flag)
-    {
-        fragmentAnimation=flag;
+    public static void setFragmentAnimationFlag(boolean flag) {
+        fragmentAnimation = flag;
     }
 
 
@@ -102,9 +101,8 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         return mImageLoader;
     }
 
-    public static CookieStore getCookieStore()
-    {
-        return  cookieStore;
+    public static CookieStore getCookieStore() {
+        return cookieStore;
     }
 
     public FragmentManager getManager() {
@@ -184,7 +182,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         ClientConnectionManager cm = new ThreadSafeClientConnManager(params, schemeRegistry);
         DefaultHttpClient httpclient = new DefaultHttpClient(cm, params);
 
-    cookieStore = new BasicCookieStore();
+        cookieStore = new BasicCookieStore();
         httpclient.setCookieStore(cookieStore);
 
         HttpStack httpStack = new HttpClientStack(httpclient);
@@ -289,8 +287,14 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     public void onBackPressed() {
 
 
-        if (fragmentsList != null && this.getCurrentFragment() != null && !this.getCurrentFragment().onBackPressed())
-            onExit();
+        if (fragmentsList != null && this.getCurrentFragment() != null && !this.getCurrentFragment().onBackPressed()) {
+            if (this.getManager().getBackStackEntryCount() == 0)
+                onExit();
+            else
+                super.onBackPressed();
+        }
+        // else
+        //     super.onBackPressed();
     }
 
     // /////return currently added fragment
@@ -315,16 +319,17 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
         SmartPitFragment oldFragment = getCurrentFragment();
 
-            fm.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_right,
-                            R.anim.slide_out_left, android.R.anim.slide_in_left,
-                            android.R.anim.slide_out_right).remove(oldFragment)
-                    .add(R.id.fragment_container, fragment).addToBackStack(null)
-                    .commitAllowingStateLoss();
+        fm.beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right,
+                        R.anim.slide_out_left, android.R.anim.slide_in_left,
+                        android.R.anim.slide_out_right).remove(oldFragment)
+                .add(R.id.fragment_container, fragment).addToBackStack(null)
+                .commitAllowingStateLoss();
 
-            setCurrentFragment(fragment, removePrevious);
+        setCurrentFragment(fragment, removePrevious);
 
     }
+
     // //////////method switch title fragment, transition with in animation not
     // added to backstack
     @Override
@@ -336,21 +341,21 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
         SmartPitFragment oldFragment = getCurrentFragment();
 
-            fm.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_right,
-                            R.anim.slide_out_left, android.R.anim.slide_in_left,
-                            android.R.anim.slide_out_right).remove(oldFragment)
-                    .add(R.id.fragment_container, fragment)
-                    .commitAllowingStateLoss();
+        fm.beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right,
+                        R.anim.slide_out_left, android.R.anim.slide_in_left,
+                        android.R.anim.slide_out_right).remove(oldFragment)
+                .add(R.id.fragment_container, fragment)
+                .commitAllowingStateLoss();
 
-            setCurrentFragment(fragment, removePrevious);
+        setCurrentFragment(fragment, removePrevious);
 
     }
 
     @Override
     public void setActionBarLabel(String text) {
 
-        if (customActionbarView == null||text ==null)
+        if (customActionbarView == null || text == null)
             return;
 
         customActionbarLabel.setText(text);
@@ -382,7 +387,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     }
 
-    public Bitmap scaleImage( Uri photoUri, int MAX_IMAGE_DIMENSION) throws IOException {
+    public Bitmap scaleImage(Uri photoUri, int MAX_IMAGE_DIMENSION) throws IOException {
         InputStream is = getContentResolver().openInputStream(photoUri);
         BitmapFactory.Options dbo = new BitmapFactory.Options();
         dbo.inJustDecodeBounds = true;
@@ -444,7 +449,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     public int getOrientation(Uri photoUri) {
         /* it's on the external media. */
         Cursor cursor = getContentResolver().query(photoUri,
-                new String[] { MediaStore.Images.ImageColumns.ORIENTATION }, null, null, null);
+                new String[]{MediaStore.Images.ImageColumns.ORIENTATION}, null, null, null);
 
         if (cursor.getCount() != 1) {
             return -1;
@@ -500,7 +505,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
                         input = getContentResolver().openInputStream(selectedImage);
 
 
-                      //  Bitmap b = BitmapFactory.decodeStream(input);
+                        //  Bitmap b = BitmapFactory.decodeStream(input);
                         onImagePicked(selectedImage);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();

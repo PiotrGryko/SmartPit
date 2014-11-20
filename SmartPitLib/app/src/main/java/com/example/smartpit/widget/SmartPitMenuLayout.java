@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 
+import com.example.smartpit.SmartPitMenuActivity;
 import com.example.smartpit.widget.SmartPitSlidingMenu;
 
 public class SmartPitMenuLayout extends RelativeLayout implements AnimationListener {
@@ -22,12 +23,27 @@ public class SmartPitMenuLayout extends RelativeLayout implements AnimationListe
 
     private SmartPitSlidingMenu menu;
 
+
     private int visibility;
 
     private Context context;
 
-    public void setMenu(final SmartPitSlidingMenu menu) {
+    public void setMenu(final SmartPitSlidingMenu menu, SmartPitMenuActivity.MenuType type) {
         this.menu = menu;
+        menu.setMenuType(type);
+
+        if(type== SmartPitMenuActivity.MenuType.RIGHT)
+        {
+            LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.FILL_PARENT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            menu.setLayoutParams(layoutParams);
+        }
+        else if(type==SmartPitMenuActivity.MenuType.LEFT)
+        {
+            LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.FILL_PARENT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            menu.setLayoutParams(layoutParams);
+        }
 
         menu.setSlideAnimationListener(new SmartPitSlidingMenu.SlideAnimationListener() {
             @Override

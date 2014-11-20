@@ -3,6 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+
     android:orientation="vertical" >
 
     <LinearLayout
@@ -30,4 +31,4 @@
         </com.example.smartpit.widget.SmartPitSlidingMenu>
     </com.example.smartpit.widget.SmartPitMenuLayout>
 
-</RelativeLayout><!-- From: file:/home/piotr/AndroidStudioProjects/aip-android/SmartPitLib/app/src/main/res/layout/smart_menu_activity.xml -->
+</RelativeLayout><!-- From: file:/home/piotr/AndroidStudio/AndroidStudioProjects/appmaker/SmartPitLib/app/src/main/res/layout/smart_menu_activity.xml -->
