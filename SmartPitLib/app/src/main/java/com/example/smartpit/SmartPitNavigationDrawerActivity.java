@@ -6,6 +6,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 
+import com.example.smartpit.fragment.SmartPitFragment;
+
 /**
  * Created by piotr on 03.11.14.
  */
@@ -22,6 +24,27 @@ public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
 
         drawerLayout = (DrawerLayout) this.findViewById(R.id.layout_drawer);
         drawerContent = (LinearLayout) this.findViewById(R.id.layout_content);
+    }
+
+    public void setDrawerFragment(SmartPitFragment fragment) {
+        this.getSupportFragmentManager().beginTransaction().add(R.id.layout_content, fragment)
+                .commitAllowingStateLoss();
+
+    }
+
+    public void switchDrawerFragment(SmartPitFragment fragment) {
+        if (!fragment.isAdded())
+            this.getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.anim.alpha_in,
+                            R.anim.alpha_out, R.anim.alpha_in,
+                            R.anim.alpha_out).remove(getCurrentDrawerFragment()).add(R.id.layout_content, fragment)
+                    .commitAllowingStateLoss();
+
+    }
+
+    public SmartPitFragment getCurrentDrawerFragment() {
+        SmartPitFragment f = (SmartPitFragment) this.getSupportFragmentManager().findFragmentById(R.id.layout_content);
+        return f;
     }
 
     public void setDrawerGravity(int gravity) {
@@ -48,6 +71,7 @@ public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
     }
 
     public void showMenu() {
+
         if (drawerLayout.isDrawerOpen(drawerGravity))
             drawerLayout.closeDrawer(drawerGravity);
         else

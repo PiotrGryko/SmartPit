@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.actionbarsherlock.app.SherlockFragment;
+
 import com.example.smartpit.SmartPitActivity;
 import com.example.smartpit.fragment.SmartPitFragment;
 

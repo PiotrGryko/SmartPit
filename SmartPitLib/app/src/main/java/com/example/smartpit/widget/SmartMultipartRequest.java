@@ -22,16 +22,15 @@ public class SmartMultipartRequest extends Request<String> {
 
     private MultipartEntity entity = new MultipartEntity();
 
-    private static final String FILE_PART_NAME = "image";
+    private static final String FILE_PART_NAME = "file";
     private static final String STRING_PART_NAME = "text";
 
     private final Response.Listener<String> mListener;
     private final File mFilePart;
     private final String mStringPart;
 
-    public SmartMultipartRequest(String url, Response.ErrorListener errorListener, Response.Listener<String> listener, File file, String stringPart)
-    {
-        super(Method.POST, url, errorListener);
+    public SmartMultipartRequest(String url, Response.ErrorListener errorListener, Response.Listener<String> listener, File file, String stringPart) {
+        super(Method.PUT, url, errorListener);
 
         mListener = listener;
         mFilePart = file;
@@ -39,49 +38,38 @@ public class SmartMultipartRequest extends Request<String> {
         buildMultipartEntity();
     }
 
-    private void buildMultipartEntity()
-    {
+    private void buildMultipartEntity() {
         entity.addPart(FILE_PART_NAME, new FileBody(mFilePart));
-        try
-        {
-            entity.addPart(STRING_PART_NAME, new StringBody(mStringPart));
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            VolleyLog.e("UnsupportedEncodingException");
-        }
+       // try {
+       //     entity.addPart(STRING_PART_NAME, new StringBody(mStringPart));
+       // } catch (UnsupportedEncodingException e) {
+        //    VolleyLog.e("UnsupportedEncodingException");
+        //}
     }
 
     @Override
-    public String getBodyContentType()
-    {
+    public String getBodyContentType() {
         return entity.getContentType().getValue();
     }
 
     @Override
-    public byte[] getBody() throws AuthFailureError
-    {
+    public byte[] getBody() throws AuthFailureError {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        try
-        {
+        try {
             entity.writeTo(bos);
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             VolleyLog.e("IOException writing to ByteArrayOutputStream");
         }
         return bos.toByteArray();
     }
 
     @Override
-    protected Response<String> parseNetworkResponse(NetworkResponse response)
-    {
+    protected Response<String> parseNetworkResponse(NetworkResponse response) {
         return Response.success("Uploaded", getCacheEntry());
     }
 
     @Override
-    protected void deliverResponse(String response)
-    {
+    protected void deliverResponse(String response) {
         mListener.onResponse(response);
     }
 }

@@ -25,73 +25,92 @@ Images are loaded asynchronously. While data are feched, default android progres
 
 public class SmartPitImagesFlipperAdapter extends PagerAdapter {
 
-	private String TAG = SmartPitImagesFlipperAdapter.class.getName();
-	private ArrayList<String> list;
-	private Context context;
-	private int width;
-	private int height;
+    public interface OnElementClickedListener {
+        public void onClick(int position);
+    }
 
-	int pos;
+    private String TAG = SmartPitImagesFlipperAdapter.class.getName();
+    private ArrayList<String> list;
+    private Context context;
+    private int width;
+    private int height;
 
-	public SmartPitImagesFlipperAdapter(Context context,
-			ArrayList<String> list, int reqWidth, int reqHeight) {
+    int pos;
+    private OnElementClickedListener listener;
 
-		this.context = context;
-		this.list = list;
-		this.width = reqWidth;
-		this.height = reqHeight;
+    public SmartPitImagesFlipperAdapter(Context context,
+                                        ArrayList<String> list, int reqWidth, int reqHeight) {
 
-	}
+        this.context = context;
+        this.list = list;
+        this.width = reqWidth;
+        this.height = reqHeight;
 
-	@Override
-	public boolean isViewFromObject(View view, Object object) {
-		return view == ((SmartImageView) object);
-	}
+    }
 
-	@Override
-	public void destroyItem(ViewGroup container, int position, Object object) {
-		((ViewPager) container).removeView((SmartImageView) object);
+    public void setOnelementClickListener(OnElementClickedListener listener) {
+        this.listener = listener;
+    }
 
-		SmartPitAppHelper.getInstance(context).stripViewGroup((SmartImageView)object, true);
-	}
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return view == ((SmartImageView) object);
+    }
 
-	@Override
-	public int getCount() {
-		return list.size();
-	}
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        ((ViewPager) container).removeView((SmartImageView) object);
 
-	@Override
-	public Object instantiateItem(ViewGroup container, int position) {
+        SmartPitAppHelper.getInstance(context).stripViewGroup((SmartImageView) object, false);
+    }
 
-		View row = null;
+    @Override
+    public int getCount() {
+        return list.size();
+    }
 
-		if (position != 0)
-			position = position % list.size();
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
 
-		final int newPos = position;
-		pos = newPos;
+        View row = null;
 
-		SmartImageView imageView;
+        if (position != 0)
+            position = position % list.size();
 
-		imageView = new SmartImageView(context);
-		imageView.getImageView().setScaleType(ScaleType.FIT_CENTER);
-		imageView.getImageView().setAdjustViewBounds(true);
+        final int newPos = position;
+        pos = newPos;
 
-		imageView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
-				LayoutParams.FILL_PARENT));
+        SmartImageView imageView;
 
-		SmartPitAppHelper.getInstance(context).setImage(imageView, list.get(position),
-				width, height);
+        imageView = new SmartImageView(context);
+        imageView.setMode(SmartImageView.Mode.NORMAL.ordinal());
+        imageView.getImageView().setScaleType(ScaleType.CENTER_CROP);
+        imageView.getImageView().setAdjustViewBounds(true);
 
-		row = imageView;
+        imageView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
+                LayoutParams.FILL_PARENT));
 
-		((ViewPager) container).addView(row);
+        SmartPitAppHelper.getInstance(context).setImage(imageView, list.get(position),
+                width, height);
 
-		row.setClickable(false);
-		row.setFocusableInTouchMode(false);
+        row = imageView;
 
-		return row;
+        ((ViewPager) container).addView(row);
 
-	}
+        row.setClickable(false);
+        row.setFocusableInTouchMode(false);
+        final int pos = position;
+        if (this.listener != null) {
+            row.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onClick(pos);
+                }
+            });
+        }
+
+        return row;
+
+    }
 
 }

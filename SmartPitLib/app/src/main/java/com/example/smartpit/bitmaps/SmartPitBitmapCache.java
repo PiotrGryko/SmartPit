@@ -24,6 +24,7 @@ Class responsible for caching/fetching bitmaps.
 
  */
 
+
 public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         ImageCache {
 
@@ -32,10 +33,9 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
     private DiskLruCache diskLru;
 
 
-
     public static int getDefaultLruCacheSize() {
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        final int cacheSize = maxMemory / 8;
+        final int cacheSize = maxMemory / 2;
 
         return cacheSize;
     }
@@ -49,7 +49,7 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
     }
 
     public SmartPitBitmapCache(Context context) {
-        this(getDefaultLruCacheSize());
+        super(getDefaultLruCacheSize());
 
         try {
             diskLru = DiskLruCache.open(
@@ -65,9 +65,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
     }
 
-    public SmartPitBitmapCache(int sizeInKiloBytes) {
-        super(sizeInKiloBytes);
-    }
 
     @Override
     protected int sizeOf(String key, Bitmap value) {
@@ -109,7 +106,13 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
             ObjectInputStream in = new ObjectInputStream(
                     snapshot.getInputStream(0));
-            return BitmapFactory.decodeStream(in);
+
+            Bitmap b = BitmapFactory.decodeStream(in);
+
+            this.put(url, b);
+
+
+            return b;
 
         } catch (Throwable e) {
 
@@ -118,36 +121,54 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         }
     }
 
-    public boolean isCached(String url) {
-
-
-        String mdUrl = new String(Hex.encodeHex(DigestUtils
+    public Bitmap isLocalCached(String url) {
+        url = new String(Hex.encodeHex(DigestUtils
                 .md5(url)));
 
-       // diskLru.
+        Bitmap tmp = get(url);
+        Log.d(TAG, "checking local cache " + url +" "+tmp);
 
-        DiskLruCache.Snapshot snapshot = null;
+        if (tmp != null)
+            Log.d(TAG, "bitmap cached in local memory " + url);
+        return tmp;
+    }
+
+    public boolean isDiskCached(String url) {
+
+        url = new String(Hex.encodeHex(DigestUtils
+                .md5(url)));
+
+        Log.d(TAG,"check disck caching "+url);
+
         try {
 
-            snapshot = diskLru.get(mdUrl);
+
+            DiskLruCache.Snapshot snapshot = null;
+
+
+            snapshot = diskLru.get(url);
             if (snapshot == null)
                 return false;
 
             snapshot = null;
+            Log.d(TAG, "Bitmap is disc cached " + url);
+
             return true;
-        } catch (IOException e) {
+
+        } catch (Throwable e) {
+            Log.d(TAG,e.toString());
             return false;
         }
 
 
     }
 
-    public void removeKey(String key)
-    {
+    public void removeKey(String key) {
         key = new String(Hex.encodeHex(DigestUtils
                 .md5(key)));
 
         try {
+            this.remove(key);
             diskLru.remove(key);
         } catch (IOException e) {
             e.printStackTrace();
@@ -155,29 +176,52 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
     }
 
     public Bitmap getBitmap(String url) {
+        if (url == null)
+            return null;
 
         url = new String(Hex.encodeHex(DigestUtils
                 .md5(url)));
+        Bitmap memoryBitmap = this.get(url);
+
+        if (memoryBitmap != null) {
+
+            Log.d(TAG, "bitmap loaded from local memory");
+            return memoryBitmap;
+
+        } else {
+
+            Bitmap b = getFromDisk(url);
 
 
-        Bitmap b = this.getFromDisk(url);
+            if (b != null && url != null) {
+                Log.d(TAG, "loaded bitmap from disk!");
+                this.put(url, b);
+            }
 
+            return b;
 
-        if (b != null) {
-            Log.d(TAG, "loaded bitmap from disk!");
         }
 
-        return b;
     }
 
     @Override
     public void putBitmap(final String url, final Bitmap bitmap) {
 
+        if (bitmap == null || url == null)
+            return;
+        final String hash = new String(Hex.encodeHex(DigestUtils.md5(url)));
+
+        put(hash, bitmap);
+
+
         new Thread() {
             public void run() {
-                SmartPitBitmapCache.this.putToDisk(new String(Hex.encodeHex(DigestUtils.md5(url))), bitmap);
+
+
+                SmartPitBitmapCache.this.putToDisk(hash, bitmap);
 
             }
         }.start();
+
     }
 }

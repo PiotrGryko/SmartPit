@@ -3,12 +3,12 @@ package com.example.smartpit;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -17,41 +17,28 @@ import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.HttpClientStack;
 import com.android.volley.toolbox.HttpStack;
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.example.smartpit.bitmaps.SmartBitmapsHelper;
 import com.example.smartpit.bitmaps.SmartPitBitmapCache;
 import com.example.smartpit.bitmaps.SmartPitImageLoader;
 import com.example.smartpit.cloud.SmartPitGcmIntentService;
-import com.example.smartpit.facebook.SmartFacebookHelper;
 import com.example.smartpit.fragment.SmartPitBaseFragment;
 import com.example.smartpit.fragment.SmartPitFragment;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.cloud.SmartPitRegistrationTask;
 import com.example.smartpit.widget.SmartPitAppHelper;
-import com.facebook.LoggingBehavior;
-import com.facebook.Request;
-import com.facebook.Response;
-import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.Settings;
-import com.facebook.UiLifecycleHelper;
-import com.facebook.model.GraphUser;
-import com.facebook.widget.FacebookDialog;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
@@ -66,14 +53,12 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 
-public class SmartPitActivity extends SherlockFragmentActivity implements
+public class SmartPitActivity extends ActionBarActivity implements
         SmartPitFragmentsInterface {
 
     private final int SELECT_PHOTO = 909;
+    private final int CAMERA_REQUEST = 911;
 
-    private UiLifecycleHelper uiHelper;
-    private SmartFacebookHelper.OnActivityResultInterface uiHelperListener;
-    private Session.StatusCallback sessionCallback;
 
     private String TAG = SmartPitActivity.class.getName();
 
@@ -111,7 +96,11 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
     @Override
     public void clearBackstack() {
-        fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        try {
+            fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
 
     }
 
@@ -124,9 +113,6 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-        if (uiHelper != null)
-            uiHelper.onResume();
-
 
         if (fragmentsList != null && this.getCurrentFragment() != null)
             this.getCurrentFragment().resumeFocus();
@@ -137,25 +123,16 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (uiHelper != null)
-
-            uiHelper.onSaveInstanceState(outState);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (uiHelper != null)
-
-            uiHelper.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (uiHelper != null)
-
-            uiHelper.onDestroy();
     }
 
 
@@ -187,6 +164,7 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
         HttpStack httpStack = new HttpClientStack(httpclient);
 
+
         rq = Volley.newRequestQueue(this, httpStack);
 
 
@@ -197,19 +175,6 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         return rq;
     }
 
-
-    public void initFacebook(Bundle savedInstanceState, Session.StatusCallback callback, SmartFacebookHelper.OnActivityResultInterface listener) {
-
-
-        this.uiHelperListener = listener;
-        uiHelper = new UiLifecycleHelper(this, callback);
-        //sessionCallback = callback;
-
-        uiHelper.onCreate(savedInstanceState);
-
-        SmartFacebookHelper.init(this, uiHelper);
-
-    }
 
     public void initActionbar(Drawable background, View customView, TextView label) {
         this.customActionbarView = customView;
@@ -317,17 +282,20 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     // /////////////// transition with in/out animations added to backstack
     @Override
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
-        SmartPitFragment oldFragment = getCurrentFragment();
+        try {
+            SmartPitFragment oldFragment = getCurrentFragment();
 
-        fm.beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_right,
-                        R.anim.slide_out_left, android.R.anim.slide_in_left,
-                        android.R.anim.slide_out_right).remove(oldFragment)
-                .add(R.id.fragment_container, fragment).addToBackStack(null)
-                .commitAllowingStateLoss();
+            fm.beginTransaction()
+                    .setCustomAnimations(R.anim.slide_down,
+                            R.anim.abc_fade_out,R.anim.slide_up,
+                            R.anim.abc_fade_out).remove(oldFragment)
+                    .add(R.id.fragment_container, fragment).addToBackStack(null)
+                    .commitAllowingStateLoss();
 
-        setCurrentFragment(fragment, removePrevious);
-
+            setCurrentFragment(fragment, removePrevious);
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
     }
 
     // //////////method switch title fragment, transition with in animation not
@@ -336,19 +304,22 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
     public void switchTitleFragment(SmartPitFragment fragment,
                                     boolean removePrevious) {
 
-        clearBackstack();
+        try {
+            clearBackstack();
 
 
-        SmartPitFragment oldFragment = getCurrentFragment();
+            SmartPitFragment oldFragment = getCurrentFragment();
 
-        fm.beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_right,
-                        R.anim.slide_out_left, android.R.anim.slide_in_left,
-                        android.R.anim.slide_out_right).remove(oldFragment)
-                .add(R.id.fragment_container, fragment)
-                .commitAllowingStateLoss();
+            fm.beginTransaction()
+                    .setCustomAnimations(R.anim.slide_down,
+                            R.anim.abc_fade_out).remove(oldFragment)
+                    .add(R.id.fragment_container, fragment)
+                    .commitAllowingStateLoss();
 
-        setCurrentFragment(fragment, removePrevious);
+            setCurrentFragment(fragment, removePrevious);
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
 
     }
 
@@ -376,16 +347,44 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
         }
     }
 
-    public void pickImage() {
+    public void pickImageFromGallery() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, SELECT_PHOTO);
 
     }
 
-    public void onImagePicked(Uri uri) {
+    public void pickImageFromCamera() {
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(cameraIntent, CAMERA_REQUEST);
 
     }
+
+    public void onGalleryImagePicked(Uri uri) {
+
+    }
+
+    public void onGalleryImagePicked(File file) {
+
+    }
+
+    public void onGalleryImagePicked(Bitmap bitmap) {
+
+    }
+
+
+    public void onCameraImagePicked(Uri uri) {
+
+    }
+
+    public void onCameraImagePicked(File file) {
+
+    }
+
+    public void onCameraImagePicked(Bitmap bitmap) {
+
+    }
+
 
     public Bitmap scaleImage(Uri photoUri, int MAX_IMAGE_DIMENSION) throws IOException {
         InputStream is = getContentResolver().openInputStream(photoUri);
@@ -463,30 +462,13 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
                                  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (uiHelper != null)
-            uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
-                @Override
-                public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
-                    if (uiHelperListener != null)
-                        uiHelperListener.onError(pendingCall, error, data);
-                }
-
-                @Override
-                public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
-
-                    if (uiHelperListener != null)
-                        uiHelperListener.onComplete(pendingCall, data);
-
-
-                }
-            });
-
         switch (requestCode) {
             case SELECT_PHOTO:
-                Log.d(TAG, "case 1");
+                Log.d(TAG, "case 1 " + resultCode);
                 if (resultCode == RESULT_OK) {
+                    Log.d(TAG,"result ok");
                     Uri selectedImage = data.getData();
-                 /*   String[] filePathColumn = {MediaStore.Images.Media.DATA};
+                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
                     Cursor cursor = getContentResolver().query(
                             selectedImage, filePathColumn, null, null, null);
@@ -498,16 +480,48 @@ public class SmartPitActivity extends SherlockFragmentActivity implements
 
 
                     File file = new File(filePath);
-                    onImagePicked(file);
-*/
+                    onGalleryImagePicked(file);
+
                     InputStream input = null;
                     try {
                         input = getContentResolver().openInputStream(selectedImage);
 
 
-                        //  Bitmap b = BitmapFactory.decodeStream(input);
-                        onImagePicked(selectedImage);
+                        Bitmap b = BitmapFactory.decodeStream(input);
+                        onGalleryImagePicked(b);
+
+                        onGalleryImagePicked(selectedImage);
                     } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
+                break;
+            case CAMERA_REQUEST:
+                Log.d(TAG, "case 2 " + requestCode);
+                if (resultCode == RESULT_OK) {
+
+
+                    Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                    onCameraImagePicked(thumbnail);
+                    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                    thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+
+                    File destination = new File(Environment.getExternalStorageDirectory(),
+                            System.currentTimeMillis() + ".jpg");
+
+                    FileOutputStream fo;
+                    try {
+                        destination.createNewFile();
+                        fo = new FileOutputStream(destination);
+                        fo.write(bytes.toByteArray());
+                        fo.close();
+
+                        onCameraImagePicked(destination);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
 

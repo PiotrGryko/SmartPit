@@ -1,10 +1,14 @@
 package com.example.smartpit.fragment;
 
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.example.smartpit.interfaces.SmartPitChildFragmentInterface;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.widget.Log;
@@ -12,7 +16,7 @@ import com.example.smartpit.widget.SmartPitAppHelper;
 
 import java.util.Random;
 
-public abstract class SmartPitFragment extends SherlockFragment implements
+public abstract class SmartPitFragment extends Fragment implements
         SmartPitChildFragmentInterface {
 
     private String TAG = SmartPitFragment.class.getName();
@@ -21,24 +25,31 @@ public abstract class SmartPitFragment extends SherlockFragment implements
 
     private String fragmentTAG;
 
-    public SmartPitFragment()
-    {
-        Log.d(TAG,"constructor called");
-        fragmentTAG =this.toString();
+    public SmartPitFragment() {
+        Log.d(TAG, "constructor called");
+        fragmentTAG = this.toString();
     }
+
+    public void setActionbarLabel() {
+        if (listener != null)
+            listener.setActionBarLabel(getLabel());
+    }
+
+
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
 
 
         if (this.getParentFragment() != null && (this.getParentFragment() instanceof SmartPitFragmentsInterface))
             listener = (SmartPitFragmentsInterface) this.getParentFragment();
 
 
-        else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface)
-            listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
+        else if (this.getActivity() instanceof SmartPitFragmentsInterface)
+            listener = (SmartPitFragmentsInterface) this.getActivity();
+
+        setActionbarLabel();
 
         //   listener.setActionBarLabel(getLabel());
 
@@ -74,7 +85,7 @@ public abstract class SmartPitFragment extends SherlockFragment implements
     public void resumeFocus() {
         Log.d(TAG, "resume focus fragment");
 
-        SmartPitAppHelper.getInstance(this.getSherlockActivity()).resumeFocus(this.getView(),
+        SmartPitAppHelper.getInstance(this.getActivity()).resumeFocus(this.getView(),
                 this.getFragmentsListener());
     }
 
@@ -86,7 +97,7 @@ public abstract class SmartPitFragment extends SherlockFragment implements
     public void stripView() {
         Log.d(TAG, "striping view ...");
         if (this.getView() != null) {
-            SmartPitAppHelper.getInstance(this.getSherlockActivity()).stripViewGroup(this.getView(), false);
+            SmartPitAppHelper.getInstance(this.getActivity()).stripViewGroup(this.getView(), false);
 
             System.gc();
 

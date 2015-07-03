@@ -3,7 +3,6 @@ package com.example.smartpit.adapter;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -21,13 +20,12 @@ import java.util.ArrayList;
 
 /**
  * Created by piotr on 06.04.14.
- *
+ * <p/>
  * Addapter with google addresses api support.
  * getItem(int index) method can be used inside AdapterView.OnItemClickListener class
  * to get name and location of selected address.
- *
  */
-public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implements
+public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> implements
         Filterable {
 
     private String TAG = "AdapterDeliveryAddress";
@@ -59,11 +57,9 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
         return list.get(index).getName();
     }
 
-    public SmartPitGoogleAddress getPoint(int index)
-    {
+    public SmartPitGoogleAddress getPoint(int index) {
         return list.get(index);
     }
-
 
 
     @Override
@@ -101,15 +97,14 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
         private URL url;
         private HttpURLConnection httpConn;
         private BufferedReader br;
-       ;
+        ;
         private String arg0;
         private Handler handler;
 
-        public FilterAddresses( String arg0, Handler handler) {
+        public FilterAddresses(String arg0, Handler handler) {
             this.arg0 = arg0;
             this.handler = handler;
         }
-
 
 
         @Override
@@ -121,7 +116,7 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
 
                 url = new URL(
                         "http://maps.googleapis.com/maps/api/geocode/json?address="
-                                + arg0.toString().trim() +"&bounds=52.998256,22.900572|53.212612,23.309813&sensor=false"
+                                + arg0.toString().trim() + "&bounds=52.998256,22.900572|53.212612,23.309813&sensor=false"
                 );
                 httpConn = (HttpURLConnection) url.openConnection();
                 httpConn.setRequestMethod("GET");
@@ -144,7 +139,8 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject o = array.getJSONObject(i);
 
-                       res.add(SmartPitGoogleAddress.valueOf(o));
+                        //res.add(SmartPitGoogleAddress.valueOfGoogleJson(o));
+                        populateResult(SmartPitGoogleAddress.valueOfGoogleJson(o),res);
 
                     }
                     //
@@ -158,5 +154,10 @@ public class SmartPitGoogleAddressesAdapter  extends ArrayAdapter<String> implem
             }
 
         }
+    }
+
+    public void populateResult(SmartPitGoogleAddress element, ArrayList<SmartPitGoogleAddress> list) {
+        list.add(element);
+
     }
 }

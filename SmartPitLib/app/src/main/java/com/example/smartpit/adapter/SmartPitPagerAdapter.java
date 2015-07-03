@@ -3,11 +3,11 @@ package com.example.smartpit.adapter;
 import java.util.ArrayList;
 
 import android.os.Parcelable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.example.smartpit.fragment.SmartPitBaseFragment;
 import com.example.smartpit.fragment.SmartPitFragment;
 
@@ -24,7 +24,7 @@ public class SmartPitPagerAdapter extends FragmentStatePagerAdapter {
 	}
 
 	@Override
-	public SherlockFragment getItem(int arg0) {
+	public Fragment getItem(int arg0) {
 
 		return list.get(arg0);
 	}

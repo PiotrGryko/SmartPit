@@ -1,5 +1,6 @@
 package com.example.smartpit.widget;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
@@ -9,6 +10,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.net.URL;
+import java.net.URLConnection;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
@@ -23,11 +28,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -44,6 +53,9 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import android.util.Base64;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -82,11 +94,10 @@ public class SmartPitAppHelper {
         DecimalFormatSymbols custom = new DecimalFormatSymbols();
         custom.setDecimalSeparator('.');
         df.setDecimalFormatSymbols(custom);
+
         pref = PreferenceManager.getDefaultSharedPreferences(context);
 
     }
-
-
 
 
     public static SmartPitAppHelper getInstance(Context c) {
@@ -100,17 +111,91 @@ public class SmartPitAppHelper {
 
     }
 
-    public void showViewWithAnimation(View v)
-    {
+    public boolean showViewWithAnimation(View v) {
+        if (v.getVisibility() == View.VISIBLE) {
+            Log.d(TAG, "view is already visible");
+            return false;
+        }
+
+        Log.d(TAG, "show view with animation");
         v.setVisibility(View.VISIBLE);
         Animation animation = new AlphaAnimation(0.0f, 1.0f);
-        animation.setDuration(300* 1);
+        animation.setDuration(300 * 1);
+        //animation.setFillAfter(true);
+        v.startAnimation(animation);
+        return true;
+    }
+
+    public Typeface loadTypeFaceFromAssets(String filename) {
+        Typeface face = Typeface.createFromAsset(context.getAssets(), filename);
+        return face;
+    }
+
+    public boolean toogleViewWithAnimation(View v) {
+        if (v.getVisibility() == View.VISIBLE) {
+            hideViewWithAnimation(v);
+            return false;
+        } else {
+            showViewWithAnimation(v);
+            return true;
+        }
+    }
+
+    public boolean hideViewWithAnimation(final View v) {
+
+
+        if (v.getVisibility() == View.GONE) {
+            Log.d(TAG, "view is already gone");
+            return false;
+        }
+        Log.d(TAG, "hide view with animation");
+        Animation animation = new AlphaAnimation(1.0f, 0.0f);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                v.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        animation.setDuration(300 * 1);
         animation.setFillAfter(true);
         v.startAnimation(animation);
+
+        return true;
+
     }
 
     public NumberFormat getDecimalFormat() {
         return df;
+    }
+
+    public void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = 2 * totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        Log.d(TAG, "setting list view height " + params.height);
+        listView.setLayoutParams(params);
     }
 
 
@@ -121,19 +206,6 @@ public class SmartPitAppHelper {
         final SmartPitImagesListener li = new SmartPitImagesListener(context, url,
                 imageView);
 
-      /*
-        AsyncTask bitmapLoaderTask = new AsyncTask<Object,Bitmap,Object>()
-        {
-
-
-
-            @Override
-            protected Bitmap doInBackground(Object... params) {
-                return SmartPitActivity.getImageLoader()
-                        .get(url, li, width, height).getBitmap();
-            }
-        };
-       */
         Log.d(SmartPitImageLoader.class.getName(), "app helper get");
         SmartPitActivity.getImageLoader()
                 .get(url, li, width, height);
@@ -249,7 +321,7 @@ public class SmartPitAppHelper {
     public void resumeFocus(final View view,
                             final SmartPitFragmentsInterface listener) {
 
-        if(view==null)
+        if (view == null)
             return;
 
 
@@ -285,13 +357,13 @@ public class SmartPitAppHelper {
                     return false;
 
                 if (event.getAction() == KeyEvent.ACTION_UP) {
-                    Log.d(TAG, "back pressed "+listener.toString());
-                    if(listener==null)
+                    Log.d(TAG, "back pressed " + listener.toString());
+                    if (listener == null)
                         return true;
 
-                    if(!(listener.getCurrentFragment()instanceof SmartPitBaseFragment))
-                    if(listener.getCurrentFragment().onBackPressed())
-                        return true;
+                    if (!(listener.getCurrentFragment() instanceof SmartPitBaseFragment))
+                        if (listener.getCurrentFragment().onBackPressed())
+                            return true;
 
                     listener.getManager().popBackStack();
                     if (listener.getManager().getBackStackEntryCount() == 0)
@@ -331,7 +403,7 @@ public class SmartPitAppHelper {
             } catch (Throwable t) {
                 Log.d(TAG, "strip view error catched");
             }
-           // Log.d(TAG, "clearing view " + view.toString());
+            // Log.d(TAG, "clearing view " + view.toString());
             view = null;
         }
     }
@@ -377,25 +449,6 @@ public class SmartPitAppHelper {
         return true;
     }
 
-    public String readTextFileFromAssets(String filename) {
-
-        StringBuilder b = new StringBuilder("");
-        InputStream fis;
-        try {
-            fis = context.getAssets().open(filename);
-
-            byte[] buffer = new byte[1024];
-            int n = 0;
-            while ((n = fis.read(buffer)) != -1) {
-                b.append(new String(buffer, 0, n));
-            }
-        } catch (IOException e) {
-            //log the exception
-        }
-
-        return b.toString();
-    }
-
 
     public String deserialize(String tokenString) {
         String[] pieces = splitTokenString(tokenString);
@@ -423,7 +476,25 @@ public class SmartPitAppHelper {
         return ip;
     }
 
+    public static void printFacebookHashKey(Context context) {
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String sign = Base64.encodeToString(md.digest(), Base64.DEFAULT);
+                Log.e("MY KEY HASH:", sign);
+                Toast.makeText(context.getApplicationContext(), sign, Toast.LENGTH_LONG).show();
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            Toast.makeText(context.getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
 
+        } catch (NoSuchAlgorithmException e) {
+
+            Toast.makeText(context.getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+
+        }
+    }
 
 
 }

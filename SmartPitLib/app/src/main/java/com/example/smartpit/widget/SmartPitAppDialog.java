@@ -1,6 +1,7 @@
 package com.example.smartpit.widget;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -41,7 +42,7 @@ public class SmartPitAppDialog {
 
     }
 
-    public static AlertDialog getInfoDialog(int theme, Context context, String message) {
+    public static AlertDialog getInfoDialog(int theme,final Context context, String message) {
         final AlertDialog alert = getAlertDialog(theme, context);
         alert.setMessage(message);
         alert.setButton("ok", new DialogInterface.OnClickListener() {
@@ -51,6 +52,28 @@ public class SmartPitAppDialog {
             }
         });
         return alert;
+    }
+
+    public static void showExitDialog(int theme,final Activity context, String message, String confirm, String cancel) {
+        final AlertDialog alert = getAlertDialog(theme, context);
+
+        alert.setMessage(message);
+        alert.setButton(confirm, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                context.finish();
+                alert.dismiss();
+            }
+        });
+
+        alert.setButton2(cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                alert.dismiss();
+            }
+        });
+        alert.show();
     }
 
     public static AlertDialog getLoadingDialog(int theme, Context context, String message) {

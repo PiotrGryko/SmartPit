@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/pane"
+   >
+    <!-- Left side pane. (Master) -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/fragment_container"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left" />
+
+    <!-- Right side page. (Slave)  -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/layout_content"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_weight="1" />
+
+</android.support.v4.widget.SlidingPaneLayout>
+<!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/src/main/res/layout/smart_pit_sliding_pane_activity.xml -->

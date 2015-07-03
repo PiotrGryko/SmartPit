@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.example.smartpit.R;
 import com.example.smartpit.interfaces.SmartPitFragmentsInterface;
 import com.example.smartpit.widget.Log;
@@ -162,6 +161,9 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     @Override
     public SmartPitFragment getCurrentFragment() {
 
+        if(initialFragment.isAdded())
+            return initialFragment;
+
 
         for (int i = 0; i < fragmentsList.size(); i++) {
             if (fragmentsList.get(i).isAdded()) {
@@ -179,13 +181,19 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     // /////////////// transition with in/out animations added to backstack
     @Override
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
+
+        if (this.getActivity() == null)
+            return;
+        if (fragment.isAdded())
+            return;
+
         SmartPitFragment oldFragment = getCurrentFragment();
         if (oldFragment != null && fragment != null) {
 
             fm.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_right,
-                            R.anim.slide_out_left, android.R.anim.slide_in_left,
-                            android.R.anim.slide_out_right).remove(oldFragment)
+                    .setCustomAnimations(R.anim.alpha_in,
+                            R.anim.alpha_out, R.anim.alpha_in,
+                            R.anim.alpha_out).remove(oldFragment)
                     .add(R.id.fragments_container, fragment).addToBackStack(null)
                     .commitAllowingStateLoss();
 
@@ -199,6 +207,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     @Override
     public void switchTitleFragment(SmartPitFragment fragment,
                                     boolean removePrevious) {
+        if (this.getActivity() == null)
+            return;
+        if (fragment.isAdded())
+            return;
+
 
         clearBackstack();
 
@@ -206,9 +219,9 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         if (oldFragment != null && fragment != null) {
 
             fm.beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_right,
-                            R.anim.slide_out_left, android.R.anim.slide_in_left,
-                            android.R.anim.slide_out_right).remove(oldFragment)
+                    .setCustomAnimations(R.anim.alpha_in,
+                            R.anim.alpha_out, R.anim.alpha_in,
+                            R.anim.alpha_out).remove(oldFragment)
                     .add(R.id.fragments_container, fragment)
                     .commitAllowingStateLoss();
 
@@ -224,8 +237,8 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
                 SmartPitFragmentsInterface listener = (SmartPitFragmentsInterface) this.getParentFragment();
                 listener.setActionBarLabel(label);
             }
-        } else if (this.getSherlockActivity() instanceof SmartPitFragmentsInterface) {
-            SmartPitFragmentsInterface listener = (SmartPitFragmentsInterface) this.getSherlockActivity();
+        } else if (this.getActivity() instanceof SmartPitFragmentsInterface) {
+            SmartPitFragmentsInterface listener = (SmartPitFragmentsInterface) this.getActivity();
             listener.setActionBarLabel(label);
 
         }
@@ -245,7 +258,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     @Override
     public Activity getSmartActivity() {
         // TODO Auto-generated method stub
-        return this.getSherlockActivity();
+        return this.getActivity();
     }
 
     public String getLabel() {

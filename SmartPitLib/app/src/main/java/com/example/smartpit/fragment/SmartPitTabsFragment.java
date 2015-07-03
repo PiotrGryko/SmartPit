@@ -70,10 +70,10 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
                     .getHost()
                     .newTabSpec(Integer.toString(i))
                     .setIndicator(
-                            createTabIndicator(this.getSherlockActivity(),
+                            createTabIndicator(this.getActivity(),
                                     i)
                     )
-                    .setContent(new TabContent(this.getSherlockActivity()));
+                    .setContent(new TabContent(this.getActivity()));
             this.getHost().addTab(spec);
 
 
@@ -202,7 +202,7 @@ public abstract class SmartPitTabsFragment extends SmartPitFragment implements S
     }
 
     public Activity getSmartActivity() {
-        return this.getSherlockActivity();
+        return this.getActivity();
     }
 
 

@@ -49,14 +49,14 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
     public void initView()
     {
 
-        this.getSherlockActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        this.getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         autoFocusHandler = new Handler();
         mCamera = getCameraInstance();
 
         scanner = new ImageScanner();
         scanner.setConfig(0, Config.X_DENSITY, 3);
         scanner.setConfig(0, Config.Y_DENSITY, 3);
-        mPreview = new SmartPitCameraPreview(this.getSherlockActivity(), mCamera, previewCb, autoFocusCB);
+        mPreview = new SmartPitCameraPreview(this.getActivity(), mCamera, previewCb, autoFocusCB);
 
     }
 

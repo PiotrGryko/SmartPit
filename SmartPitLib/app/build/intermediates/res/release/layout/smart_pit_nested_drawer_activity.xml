@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_drawer_master"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- The main content view -->
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- The main content view -->
+        <LinearLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"></LinearLayout>
+        <!-- The navigation drawer -->
+        <LinearLayout
+            android:id="@+id/layout_content"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.DrawerLayout>
+    <!-- The navigation drawer -->
+    <LinearLayout
+
+        android:id="@+id/layout_master_content"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" />
+</android.support.v4.widget.DrawerLayout>
+
+<!-- From: file:/home/piotr/prawy/AndroidStudioProjects/Pugilares/SmartPitLib/app/src/main/res/layout/smart_pit_nested_drawer_activity.xml -->

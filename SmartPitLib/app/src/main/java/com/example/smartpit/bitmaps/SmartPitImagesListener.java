@@ -3,12 +3,14 @@ package com.example.smartpit.bitmaps;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader.ImageContainer;
 import com.android.volley.toolbox.ImageLoader.ImageListener;
 import com.example.smartpit.R;
 import com.example.smartpit.widget.SmartImageView;
+import com.example.smartpit.widget.SmartPitAppHelper;
 
 public class SmartPitImagesListener implements SmartPitImageLoader.SmartImagesListener {
 
@@ -33,6 +35,7 @@ public class SmartPitImagesListener implements SmartPitImageLoader.SmartImagesLi
     public void onErrorResponse(VolleyError arg0) {
         // TODO Auto-generated method stub
 
+        if(imageView!=null)
         imageView.showErrorImage();
 
 
@@ -47,7 +50,9 @@ public class SmartPitImagesListener implements SmartPitImageLoader.SmartImagesLi
         final Bitmap b = arg0.getBitmap();
 
         if (imageView != null) {
+            imageView.setVisibility(View.GONE);
             imageView.setImageBitmap(b);
+            SmartPitAppHelper.getInstance(context).showViewWithAnimation(imageView);
 
         }
 

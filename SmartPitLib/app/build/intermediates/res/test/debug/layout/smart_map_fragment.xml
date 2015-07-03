@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:id="@+id/map"
+    android:orientation="vertical"
+    android:layout_height="fill_parent">
+
+
+</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/src/main/res/layout/smart_map_fragment.xml --><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/build/intermediates/bundles/debug/res/layout/smart_map_fragment.xml -->

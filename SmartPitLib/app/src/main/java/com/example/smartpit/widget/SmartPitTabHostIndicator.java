@@ -15,9 +15,10 @@ import android.widget.TabWidget;
 public class SmartPitTabHostIndicator extends LinearLayout {
 
 
-    public static interface OnSwipeListener{
+    public static interface OnSwipeListener {
 
         public void onSwipeRight(double movement, int position);
+
         public void onSwipeLeft(double movement, int position);
 
     }
@@ -25,6 +26,7 @@ public class SmartPitTabHostIndicator extends LinearLayout {
     private String TAG = SmartPitTabHostIndicator.class.getName();
     private int[] tabs;
     private View indicatorView;
+    private Context context;
 
     private boolean isMovingLeft;
     private boolean isMovingRight;
@@ -46,6 +48,8 @@ public class SmartPitTabHostIndicator extends LinearLayout {
 
     private int getTabsOffset(int current) {
         int sum = 0;
+        if (tabs == null)
+            return sum;
         for (int i = 0; i < current; i++) {
 
 
@@ -54,20 +58,22 @@ public class SmartPitTabHostIndicator extends LinearLayout {
         return sum;
     }
 
-    public void setSwipeListener(OnSwipeListener listener)
-    {
-        this.listener=listener;
+    public void setSwipeListener(OnSwipeListener listener) {
+        this.listener = listener;
     }
+
     public SmartPitTabHostIndicator(Context context) {
         super(context);
+        this.context = context;
     }
 
     public SmartPitTabHostIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
     }
 
-    public void initView(final TabHost tabHost, final View indicatorView) {
-
+    public void initView(final TabHost tabHost, final View indicatorView, final boolean wrapChildrens) {
+        Log.d(TAG,"init tabhost view");
         //    ((LayoutParams) tabWidget.getLayoutParams()).weight = 0;
         this.tabHost = tabHost;
         this.tabWidget = tabHost.getTabWidget();
@@ -75,8 +81,17 @@ public class SmartPitTabHostIndicator extends LinearLayout {
         //  tabWidget.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         for (int i = 0; i < tabWidget.getChildCount(); i++) {
             LinearLayout.LayoutParams childParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            tabWidget.getChildTabViewAt(i).setLayoutParams(childParams);
+            ///tabWidget.getChildTabViewAt(i).setLayoutParams(childParams);
+            if (wrapChildrens)
+                tabWidget.getChildTabViewAt(i).getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            else
+                tabWidget.getChildTabViewAt(i).getLayoutParams().width = ViewGroup.LayoutParams.FILL_PARENT;
+
+            tabWidget.getChildTabViewAt(i).getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+
         }
+
+        Log.d(TAG,"start adding layout observer");
 
 
         tabWidget.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -94,13 +109,20 @@ public class SmartPitTabHostIndicator extends LinearLayout {
                 }
                 LinearLayout.LayoutParams widgetParams = new LayoutParams(sum, ViewGroup.LayoutParams.WRAP_CONTENT);
                 tabWidget.setLayoutParams(widgetParams);
+                //tabWidget.getLayoutParams().width = sum;
+                //tabWidget.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
 
                 SmartPitTabHostIndicator.this.indicatorView = indicatorView;
 
-                LayoutParams childrenParams = new LayoutParams(tabs[0], ViewGroup.LayoutParams.FILL_PARENT);
-                SmartPitTabHostIndicator.this.indicatorView.setLayoutParams(childrenParams);
+                if (tabs != null && tabs.length > 0) {
+                    LayoutParams childrenParams = new LayoutParams(tabs[0], ViewGroup.LayoutParams.FILL_PARENT);
+                    SmartPitTabHostIndicator.this.indicatorView.setLayoutParams(childrenParams);
+                    //    SmartPitTabHostIndicator.this.indicatorView.getLayoutParams().width=tabs[0];
+                    //   SmartPitTabHostIndicator.this.indicatorView.getLayoutParams().height= ViewGroup.LayoutParams.FILL_PARENT;
 
+                }
+                SmartPitTabHostIndicator.this.removeAllViews();
                 SmartPitTabHostIndicator.this.addView(SmartPitTabHostIndicator.this.indicatorView);
 
                 tabWidget.getViewTreeObserver().removeGlobalOnLayoutListener(this);
@@ -122,8 +144,8 @@ public class SmartPitTabHostIndicator extends LinearLayout {
         } else if (movement > 0 && !isMovingLeft && !isMovingRight) {
             isMovingLeft = true;
             isMovingRight = false;
-            currentMargins = tabs[position+1] - tabs[position];
-           // currentMargins = -currentMargins;
+            currentMargins = tabs[position + 1] - tabs[position];
+            // currentMargins = -currentMargins;
 
 
         } else if (movement == 0) {
@@ -131,13 +153,13 @@ public class SmartPitTabHostIndicator extends LinearLayout {
             isMovingRight = false;
         }
 
-        if(isMovingRight&&listener!=null)
-            listener.onSwipeRight(movement,position);
-        else if(isMovingLeft && listener!=null)
-                listener.onSwipeLeft(movement,position);
+        if (isMovingRight && listener != null)
+            listener.onSwipeRight(movement, position);
+        else if (isMovingLeft && listener != null)
+            listener.onSwipeLeft(movement, position);
 
 
-        if (tabs == null)
+        if (tabs == null || tabs.length == 0)
             return;
 
         double move = getTabsOffset(position) + movement * tabs[position];

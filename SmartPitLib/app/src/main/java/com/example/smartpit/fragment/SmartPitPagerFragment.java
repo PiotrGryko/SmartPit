@@ -6,10 +6,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.TabHost;
 
 import com.example.smartpit.adapter.SmartPitPagerAdapter;
+import com.example.smartpit.adapter.SmartPitViewPagerAdapter;
 import com.example.smartpit.widget.Log;
 import com.example.smartpit.widget.SmartPitAppHelper;
 import com.example.smartpit.widget.SmartPitTabHostIndicator;
@@ -34,14 +34,14 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         }
     }
 
-    public SmartPitTabHostIndicator initMovingIndicator(final View parent, int indicatorId,final  View indicatorView) {
+    public SmartPitTabHostIndicator initMovingIndicator(final View parent, int indicatorId, final View indicatorView, boolean wrapChildrens) {
+       // if(movingIndicator!=null)
+       //     return movingIndicator;
+
         movingIndicator = (SmartPitTabHostIndicator) parent.findViewById(indicatorId);
 
 
-                movingIndicator.initView(SmartPitPagerFragment.this.getHost(), indicatorView);
-
-
-
+        movingIndicator.initView(SmartPitPagerFragment.this.getHost(), indicatorView, wrapChildrens);
 
 
         return movingIndicator;
@@ -50,9 +50,13 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     private SmartPitPagerAdapter pagerAdapter;
 
+    private SmartPitViewPagerAdapter viewsAdapter;
+
     private TabHost host;
     private ViewPager viewPager;
     private ArrayList<SmartPitBaseFragment> fragmentsList;
+
+    private ArrayList<View> viewsList;
 
     public abstract View createTabIndicator(Context context, int index);
 
@@ -61,7 +65,7 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         return fragmentsList;
     }
 
-    public void setPagerAndHost(View v, int pagerId, ArrayList<SmartPitFragment> list) {
+    public void setFragmentsPager(View v, int pagerId, ArrayList<SmartPitFragment> list) {
 
         fragmentsList = new ArrayList<SmartPitBaseFragment>();
         for (int i = 0; i < list.size(); i++) {
@@ -79,14 +83,41 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
                     .getHost()
                     .newTabSpec(Integer.toString(i))
                     .setIndicator(
-                            createTabIndicator(this.getSherlockActivity(),
+                            createTabIndicator(this.getActivity(),
                                     i)
                     )
-                    .setContent(new TabContent(this.getSherlockActivity()));
+                    .setContent(new TabContent(this.getActivity()));
             this.getHost().addTab(spec);
         }
 
-        setAdapter();
+        setFragmentsAdapter();
+
+
+    }
+
+
+    public void setViewsPager(View v, int pagerId, ArrayList<View> list) {
+
+        viewsList = list;
+        viewPager = (ViewPager) v.findViewById(pagerId);
+        host = (TabHost) v.findViewById(android.R.id.tabhost);
+        host.setup();
+        host.getTabWidget().removeAllViews();
+
+        TabHost.TabSpec spec = null;
+        for (int i = 0; i < viewsList.size(); i++) {
+            spec = this
+                    .getHost()
+                    .newTabSpec(Integer.toString(i))
+                    .setIndicator(
+                            createTabIndicator(this.getActivity(),
+                                    i)
+                    )
+                    .setContent(new TabContent(this.getActivity()));
+            this.getHost().addTab(spec);
+        }
+
+        setViewsAdapter();
 
 
     }
@@ -100,12 +131,27 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         return viewPager;
     }
 
-    private void setAdapter() {
+    private void setViewsAdapter() {
+        viewsAdapter = new SmartPitViewPagerAdapter(this.getActivity(), viewsList);
+        viewPager.setAdapter(viewsAdapter);
 
-        pagerAdapter = new SmartPitPagerAdapter(this.getSherlockActivity()
+        SmartPitPagerFragment.this.getPager().setOnPageChangeListener(SmartPitPagerFragment.this);
+        SmartPitPagerFragment.this.getHost().setOnTabChangedListener(SmartPitPagerFragment.this);
+
+        onAdapterSetted();
+
+    }
+
+
+    private void setFragmentsAdapter() {
+
+        pagerAdapter = new SmartPitPagerAdapter(this.getActivity()
                 .getSupportFragmentManager(), fragmentsList);
 
         new SetAdapterTask().execute();
+    }
+
+    public void onAdapterSetted() {
     }
 
     private class SetAdapterTask extends AsyncTask<Void, Void, Void> {
@@ -121,12 +167,13 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
             viewPager.setAdapter(pagerAdapter);
 
             SmartPitPagerFragment.this.getHost().setCurrentTab(SmartPitPagerFragment.this.getPager().getCurrentItem());
-            if(movingIndicator!=null)
+            if (movingIndicator != null)
                 movingIndicator.setCurrentTab(SmartPitPagerFragment.this.getPager().getCurrentItem());
 
             SmartPitPagerFragment.this.getPager().setOnPageChangeListener(SmartPitPagerFragment.this);
             SmartPitPagerFragment.this.getHost().setOnTabChangedListener(SmartPitPagerFragment.this);
 
+            onAdapterSetted();
         }
 
     }
@@ -134,7 +181,7 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
     public void resumeFocus() {
         if (getHost() != null) {
             if (this.getFragmentsListener().getTab() == getHost().getCurrentTab()) {
-                SmartPitAppHelper.getInstance(this.getSherlockActivity()).resumeFocus(this.getView(),
+                SmartPitAppHelper.getInstance(this.getActivity()).resumeFocus(this.getView(),
                         this.getFragmentsListener());
 
             }
@@ -145,16 +192,15 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         Log.d(TAG, "on page scrolled position " + position + "  " + positionOffset + "  " + positionOffsetPixels);
-       // customOnPageScrolled(position, positionOffset, positionOffsetPixels);
+        // customOnPageScrolled(position, positionOffset, positionOffsetPixels);
 
         if (movingIndicator != null) {
-            movingIndicator.updateChildren(position,positionOffset);
+            movingIndicator.updateChildren(position, positionOffset);
         }
     }
 
     @Override
     public void onPageSelected(int position) {
-
 
 
         if (!flag) {
@@ -186,9 +232,11 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         /// pageSelected=false;
     }
 
-    public boolean onBackPressed()
-    {
-        return fragmentsList.get(this.getPager().getCurrentItem()).onBackPressed();
+    public boolean onBackPressed() {
+        if (fragmentsList != null)
+            return fragmentsList.get(this.getPager().getCurrentItem()).onBackPressed();
+        else
+            return false;
     }
 
 }

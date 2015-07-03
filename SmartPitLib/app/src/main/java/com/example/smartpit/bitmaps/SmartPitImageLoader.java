@@ -106,7 +106,7 @@ public class SmartPitImageLoader {
     }
 
 
-    private class CacheTask {
+    private class CacheTask extends AsyncTask {
 
         private ArrayList<SmartImageContainer> containers;
         private String key;
@@ -121,20 +121,18 @@ public class SmartPitImageLoader {
         }
 
 
-        public void execute() {
-            new Runnable() {
-                public void run() {
+        @Override
+        protected Object doInBackground(Object[] params) {
 
 
-                    Bitmap b = mCache.getBitmap(key);
-                    mResponseBitmap = b;
+            Bitmap b = mCache.getBitmap(key);
+            mResponseBitmap = b;
 
+            return null;
+        }
 
-                    batchCacheResponse(key, CacheTask.this);
-
-                }
-            }.run();
-
+        protected void onPostExecute(Object result) {
+            batchCacheResponse(key, CacheTask.this);
 
         }
     }
@@ -150,12 +148,23 @@ public class SmartPitImageLoader {
                                    int maxWidth, int maxHeight) {
 
 
+        Log.d(TAG, "get method for " + requestUrl);
         throwIfNotOnMainThread();
-        final String cacheKey = getCacheKey(requestUrl, maxWidth, maxHeight);
+        // final String cacheKey = getCacheKey(requestUrl, maxWidth, maxHeight);
+        final String cacheKey = requestUrl;
         // Try to look up the request in the cache of remote images.
 
-        if (mCache.isCached(cacheKey)) {
-            Log.d(TAG, "is cached!");
+        Bitmap tmp = mCache.isLocalCached(cacheKey);
+        if (tmp != null) {
+            Log.d(TAG,"bitmap is cached in local Memory");
+            SmartImageContainer imageContainer =
+                    new SmartImageContainer(tmp, requestUrl, cacheKey, imageListener);
+            imageContainer.mListener.onResponse(imageContainer, true);
+            return imageContainer;
+
+        } else
+
+        if (mCache.isDiskCached(cacheKey)) {
 
             CacheTask request = null;
             SmartImageContainer container = new SmartImageContainer(null, requestUrl, cacheKey, imageListener);
@@ -179,12 +188,13 @@ public class SmartPitImageLoader {
 
         }
 
+        Log.d(TAG, "bitmap not cached!");
 
         // The bitmap did not exist in the cache, fetch it!
         SmartImageContainer imageContainer =
                 new SmartImageContainer(null, requestUrl, cacheKey, imageListener);
         // Update the caller to let them know that they should use the default bitmap.
-        imageListener.onResponse(imageContainer, true);
+        //imageListener.onResponse(imageContainer, true);
         // Check to see if a request is already in-flight.
         BatchedImageRequest request = mInFlightRequests.get(cacheKey);
         if (request != null) {
@@ -280,7 +290,6 @@ public class SmartPitImageLoader {
 
     private void batchCacheResponse(String cacheKey, final CacheTask task) {
 
-
         mBatchedCacheResponses.put(cacheKey, task);
 
         if (mCacheRunnable == null) {
@@ -354,10 +363,10 @@ public class SmartPitImageLoader {
         }
     }
 
-
+/*
     private static String getCacheKey(String url, int maxWidth, int maxHeight) {
         return new StringBuilder(url.length() + 12).append("#W").append(maxWidth)
                 .append("#H").append(maxHeight).append(url).toString();
     }
-
+*/
 }

@@ -3,6 +3,7 @@ package com.example.smartpit.widget;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -25,7 +26,8 @@ public class SmartImageView extends ViewGroup {
     private String TAG = SmartImageView.class.getName();
 
     private ImageView imageView;
-     private SmartCircleImageView circleImageView;
+    private ImageView errorView;
+    private SmartCircleImageView circleImageView;
     private ProgressBar progressBar;
     private Drawable errorImage;
     private Context context;
@@ -36,15 +38,24 @@ public class SmartImageView extends ViewGroup {
 
     private void initChildrens(Context context) {
 
-        errorImage =context.getResources().getDrawable(R.drawable.exclamation_mark);
+        errorImage = context.getResources().getDrawable(R.drawable.exclamation_mark);
 
-        if (mode == Mode.CIRLCE.ordinal())
+        if (mode == Mode.CIRLCE.ordinal()) {
+            errorView = new SmartCircleImageView(context);
             imageView = new SmartCircleImageView(context);
-        else
-            imageView = new ImageView(context);
+        } else {
+            {
+                imageView = new ImageView(context);
+                errorView = new SmartCircleImageView(context);
+
+            }
+        }
         imageView.setAdjustViewBounds(true);
         progressBar = new ProgressBar(context);
+        progressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#F9933F"), PorterDuff.Mode.MULTIPLY);
 
+
+        this.addView(errorView);
         this.addView(imageView);
         this.addView(progressBar);
         this.context = context;
@@ -62,8 +73,6 @@ public class SmartImageView extends ViewGroup {
     }
 
 
-
-
     public SmartImageView(Context context) {
         super(context);
 
@@ -72,25 +81,40 @@ public class SmartImageView extends ViewGroup {
         initChildrens(context);
     }
 
-    public void setErrorImage(Drawable error)
-    {
+    public void setErrorImage(Drawable error) {
         errorImage = error;
     }
-     public void setCustomImageView(ImageView imageView)
-     {
-         this.removeView(imageView);
-         this.imageView = imageView;
-         this.addView(imageView);
-     }
+
+    public void setCustomImageView(ImageView imageView) {
+        this.removeView(imageView);
+        this.imageView = imageView;
+        this.addView(imageView);
+    }
+
+    public void setCustomErrorImageView(ImageView imageView) {
+        this.errorView = imageView;
+        this.removeAllViews();
+        this.addView(errorView);
+
+        this.addView(this.imageView);
+        this.addView(progressBar);
+    }
 
     public void setMode(int mode) {
         this.mode = mode;
         this.removeView(imageView);
+        this.removeView(errorView);
 
-        if (mode == Mode.CIRLCE.ordinal())
+
+        if (mode == Mode.CIRLCE.ordinal()) {
+            errorView = new SmartCircleImageView(context);
             imageView = new SmartCircleImageView(context);
-        else
+        } else {
+            errorView = new ImageView(context);
             imageView = new ImageView(context);
+        }
+
+        this.addView(errorView);
 
         this.addView(imageView);
     }
@@ -143,6 +167,8 @@ public class SmartImageView extends ViewGroup {
         width = Math.max(width, getSuggestedMinimumWidth());
         height = Math.max(height, getSuggestedMinimumHeight());
 
+        errorView.measure(width, height);
+
         imageView.measure(width, height);
         progressBar.measure(progressBar.getLayoutParams().width,
                 progressBar.getLayoutParams().height);
@@ -160,6 +186,12 @@ public class SmartImageView extends ViewGroup {
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
         int paddingRight = getPaddingRight();
+
+
+        errorView.layout(0 + paddingLeft, 0 + paddingTop, childWidthSize
+                - paddingRight, childHeightSize - paddingBottom);
+        errorView.invalidate();
+
         imageView.layout(0 + paddingLeft, 0 + paddingTop, childWidthSize
                 - paddingRight, childHeightSize - paddingBottom);
         imageView.invalidate();
@@ -188,10 +220,15 @@ public class SmartImageView extends ViewGroup {
     }
 
     public void setImageBitmap(Bitmap b) {
+
+        Log.d(TAG,"set image bitmap ");
+
         imageView.setImageBitmap(b);
 
         if (b != null) {
+            imageView.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
+            //  errorView.setVisibility(View.GONE);
 
         }
 
@@ -200,12 +237,23 @@ public class SmartImageView extends ViewGroup {
 
     public void showErrorImage() {
 
+        Log.d(TAG,"show error image");
         progressBar.setVisibility(View.GONE);
 
 
-            imageView.setImageDrawable(errorImage);
+        errorView.setVisibility(View.VISIBLE);
+        // imageView.setVisibility(View.GONE);
+        errorView.setImageDrawable(errorImage);
+        imageView.setImageDrawable(errorImage);
+
+        imageView.setVisibility(View.GONE);
 
 
+    }
+
+    public ImageView getErrorView()
+    {
+        return errorView;
     }
 
     public ImageView getImageView() {
@@ -215,12 +263,15 @@ public class SmartImageView extends ViewGroup {
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
         this.removeAllViews();
-        this.addView(imageView);
+        this.addView(errorView);
+
+        this.addView(this.imageView);
         this.addView(progressBar);
     }
 
-    public ProgressBar getProgressBar()
-    {
+
+
+    public ProgressBar getProgressBar() {
         return progressBar;
     }
 
