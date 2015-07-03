@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.0/res/values-he/values.xml -->
+    <!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.0.0/res/values-he/values.xml -->
     <eat-comment/>
     <string name="com_facebook_image_download_unknown_error">שגיאה בעת הורדת תמונה</string>
     <string name="com_facebook_internet_permission_error_message">ההתחברות לתצוגת אתר דורשת אישור אינטרנט</string>

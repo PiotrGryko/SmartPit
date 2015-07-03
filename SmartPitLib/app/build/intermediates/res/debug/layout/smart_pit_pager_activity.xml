@@ -38,4 +38,4 @@
                 android:layout_weight="1" />
         </LinearLayout>
     </TabHost>
-</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/src/main/res/layout/smart_pit_pager_activity.xml -->
+</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/layout/smart_pit_pager_activity.xml -->

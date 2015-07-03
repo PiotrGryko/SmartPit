@@ -11,4 +11,4 @@
         android:fromAlpha="0.0"
         android:toAlpha="1.0" />
 
-</set><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/src/main/res/anim/slide_in_left.xml -->
+</set><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/anim/slide_in_left.xml -->

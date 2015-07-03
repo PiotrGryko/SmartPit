@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pl.gryko</groupId>
+    <artifactId>gs-maven-android</artifactId>
+    <version>0.1.0</version>
+    <packaging>apk</packaging>
+
+
+    <properties>
+        <!-- use UTF-8 for everything -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>android-support</id>
+            <url>file://${env.ANDROID_HOME}/extras/android/m2repository</url>
+        </repository>
+
+
+    </repositories>
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>appcompat-v7</artifactId>
+            <version>22.0.0</version>
+            <type>aar</type>
+            <scope>compile</scope>
+
+        </dependency>
+
+        <dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>support-v4</artifactId>
+            <version>22.0.0</version>
+            <type>aar</type>
+            <scope>compile</scope>
+
+        </dependency>
+
+
+
+
+
+        <dependency>
+            <groupId>com.google.android.gms</groupId>
+            <artifactId>play-services</artifactId>
+            <version>6.5.87</version>
+
+
+        </dependency>
+
+
+        <dependency>
+            <groupId>pl.gryko.volley</groupId>
+            <artifactId>library</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/volley.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>pl.gryko.zbar</groupId>
+            <artifactId>library</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/zbar.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>pl.gryko.gson</groupId>
+            <artifactId>library</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/gson-2.2.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>pl.gryko.gcm</groupId>
+            <artifactId>library</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/gcm-server.jar</systemPath>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient-android</artifactId>
+            <version>4.3.5</version>
+
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.3.3</version>
+
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
+
+        </dependency>
+        <dependency>
+            <groupId>com.jakewharton</groupId>
+            <artifactId>disklrucache</artifactId>
+            <version>2.0.2</version>
+
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.simpligility.maven.plugins</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>4.1.1</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <sdk>
+                        <platform>22</platform>
+                    </sdk>
+                    <nativeLibrariesDirectory>${basedir}/libs</nativeLibrariesDirectory>
+                </configuration>
+
+                <!-- tell build process to use filtered manifest -->
+
+
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
