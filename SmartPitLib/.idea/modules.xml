@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SmartPitLib.iml" filepath="$PROJECT_DIR$/SmartPitLib.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+>>>>>>> 645d89cf0d4e653698e2b336f65b33144d117e53
     </modules>
   </component>
 </project>

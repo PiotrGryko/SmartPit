@@ -56,4 +56,4 @@
                 android:layout_weight="1" />
         </LinearLayout>
     </TabHost>
-</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/Pugilares/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml -->
+</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml -->

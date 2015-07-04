@@ -5,4 +5,4 @@
         android:fromXDelta="0%" android:toXDelta="0%"
         android:fromYDelta="-100%" android:toYDelta="0%"
         android:duration="400" />
-</set><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/src/main/res/anim/down_from_top.xml -->
+</set><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/anim/down_from_top.xml -->

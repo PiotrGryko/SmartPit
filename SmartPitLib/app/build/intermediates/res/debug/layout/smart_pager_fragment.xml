@@ -14,15 +14,33 @@
             android:layout_height="fill_parent"
             android:orientation="vertical">
 
-            <TabWidget
-                android:padding="0dp"
-                android:dividerPadding="10dp"
-                android:id="@android:id/tabs"
+            <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal"></TabWidget>
+                android:layout_height="wrap_content">
 
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:id="@+id/tab_base"
+                    android:layout_height="wrap_content">
+
+                    <TabWidget
+                        android:padding="0dp"
+                        android:dividerPadding="10dp"
+                        android:id="@android:id/tabs"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal"></TabWidget>
+                </LinearLayout>
+
+
+                <com.example.smartpit.widget.SmartPitTabHostIndicator
+                    android:layout_alignBottom="@id/tab_base"
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="8dp"
+                    android:id="@+id/smart_indicator"></com.example.smartpit.widget.SmartPitTabHostIndicator>
+            </RelativeLayout>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
@@ -30,10 +48,6 @@
                 android:layout_height="0dip"
                 android:layout_weight="0"></FrameLayout>
 
-            <com.example.smartpit.widget.SmartPitTabHostIndicator
-                android:layout_width="fill_parent"
-                android:layout_height="3dp"
-                android:id="@+id/smart_indicator"></com.example.smartpit.widget.SmartPitTabHostIndicator>
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
@@ -42,4 +56,4 @@
                 android:layout_weight="1" />
         </LinearLayout>
     </TabHost>
-</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/MotivRestaurantClient/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml -->
+</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml -->

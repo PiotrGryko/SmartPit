@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
@@ -104,6 +105,14 @@
       <Port>5050</Port>
     </configuration>
   </component>
+=======
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+>>>>>>> 645d89cf0d4e653698e2b336f65b33144d117e53
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">

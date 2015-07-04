@@ -21,4 +21,4 @@
         android:propertyName="alpha"
         android:startOffset="@integer/card_flip_time_half"
         android:duration="1" />
-    </set><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/Pugilares/SmartPitLib/app/src/main/res/anim/card_flip_right_in.xml -->
+    </set><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/anim/card_flip_right_in.xml -->

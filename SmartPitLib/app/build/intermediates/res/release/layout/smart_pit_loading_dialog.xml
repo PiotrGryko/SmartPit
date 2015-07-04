@@ -9,4 +9,4 @@
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/Pugilares/SmartPitLib/app/src/main/res/layout/smart_pit_loading_dialog.xml -->
+</LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/layout/smart_pit_loading_dialog.xml -->
