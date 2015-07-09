@@ -53,10 +53,15 @@ public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
 
         DrawerLayout.LayoutParams params = new DrawerLayout.LayoutParams(DrawerLayout.LayoutParams.WRAP_CONTENT, DrawerLayout.LayoutParams.FILL_PARENT);
         params.gravity = gravity;
-        if (gravity == Gravity.RIGHT)
-            drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_RTL);
-        else if (gravity == Gravity.LEFT)
-            drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_LTR);
+
+
+
+
+        //if (gravity == Gravity.RIGHT)
+        //    drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_RTL);
+       // else if (gravity == Gravity.LEFT)
+       //     drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_LTR);
+
 
         drawerContent.setLayoutParams(params);
 

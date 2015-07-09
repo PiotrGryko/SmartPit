@@ -19,13 +19,7 @@ import java.util.ArrayList;
 
 import pl.gryko.smartpitlib.model.SmartPitGoogleAddress;
 
-/**
- * Created by piotr on 06.04.14.
- * <p/>
- * Addapter with google addresses api support.
- * getItem(int index) method can be used inside AdapterView.OnItemClickListener class
- * to get name and location of selected address.
- */
+
 public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> implements
         Filterable {
 

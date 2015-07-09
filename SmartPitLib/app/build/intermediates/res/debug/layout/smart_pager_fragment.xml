@@ -34,12 +34,12 @@
                 </LinearLayout>
 
 
-                <com.example.smartpit.widget.SmartPitTabHostIndicator
+                <pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator
                     android:layout_alignBottom="@id/tab_base"
 
                     android:layout_width="fill_parent"
                     android:layout_height="8dp"
-                    android:id="@+id/smart_indicator"></com.example.smartpit.widget.SmartPitTabHostIndicator>
+                    android:id="@+id/smart_indicator"></pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator>
             </RelativeLayout>
 
             <FrameLayout
@@ -49,11 +49,17 @@
                 android:layout_weight="0"></FrameLayout>
 
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/pager"
+            <RelativeLayout
+                android:id="@+id/pager_base"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+            </RelativeLayout>
         </LinearLayout>
     </TabHost>
 </LinearLayout><!-- From: file:/home/piotr/prawy/AndroidStudioProjects/SmartPit/SmartPitLib/app/src/main/res/layout/smart_pager_fragment.xml -->

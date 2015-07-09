@@ -13,16 +13,7 @@ import pl.gryko.smartpitlib.fragment.SmartPitBaseFragment;
 import pl.gryko.smartpitlib.widget.SmartPitMenuLayout;
 import pl.gryko.smartpitlib.widget.SmartPitSlidingMenu;
 
-/**
- * Created by piotr on 07.07.14.
- * <p/>
- * Child activity can add child views by getMenu().addView(View v).
- * <p/>
- * menuChildView.onClick(View v){
- * FragmentExample.getFragmentsListener().switchFragment(NextFragment fragment, boolean removePrevious)
- * <p/>
- * }
- */
+
 public abstract class SmartPitMenuActivity extends SmartPitActivity {
 
     private SmartPitMenuLayout menuBase;

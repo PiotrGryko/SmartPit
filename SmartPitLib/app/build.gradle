@@ -1,6 +1,8 @@
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
+
     compileSdkVersion 22
     buildToolsVersion "22.0.0"
 
@@ -10,7 +12,6 @@ android {
     }
 
     defaultConfig {
-
         minSdkVersion 9
         targetSdkVersion 22
         versionCode 1
@@ -22,66 +23,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-apply plugin: 'maven'
-apply plugin: 'signing'
-
-version = "1.0.0"
-group = "pl.gryko"
-
-configurations {
-    archives {
-        extendsFrom configurations.default
+    lintOptions {
+        abortOnError false
     }
 }
 
-signing {
-    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
-    sign configurations.archives
+
+
+publish {
+    userOrg = 'mjonson66'
+    groupId = 'pl.gryko'
+    artifactId = 'SmartPitLib'
+    publishVersion = '1.0.2'
+    desc = 'Oh hi, this is a nice description for a project, right?'
+    website = 'https://github.com/PiotrGryko/SmartPit'
 }
 
-uploadArchives {
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-        repository(url: "https://github.com/PiotrGryko/SmartPit") {
-            authentication(userName: "PiotrGryko",
-                    password: "Lodzik11")
-        }
-
-        pom.project {
-            name 'SmartPit'
-            packaging 'aar'
-            description 'Helper library'
-            url 'https://github.com/PiotrGryko/SmartPit'
-            scm {
-                url 'scm:git@github.com:PiotrGryko/SmartPit.git'
-                connection 'scm:git@github.com:PiotrGryko/SmartPit.git'
-                developerConnection 'scm:git@github.com:PiotrGryko/SmartPit.git'
-            }
-
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-
-            developers {
-                developer {
-                    id 'jle'
-                    name 'Piotr Gryko'
-                    email 'mjonson66@gmail.com'
-                }
-            }
-        }
-    }
-}
+//
 
 dependencies {
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.facebook.android:facebook-android-sdk:4.0.0'
     compile 'com.android.support:support-v4:22.0.0'
@@ -94,4 +56,6 @@ dependencies {
     compile 'com.google.android.gms:play-services:6.5.87'
     compile files('libs/joda-time-2.4.jar')
     compile files('libs/PdfViewer.jar')
+
+
 }

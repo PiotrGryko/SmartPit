@@ -43,7 +43,7 @@
     </TabHost>
 
 
-    <com.example.smartpit.widget.SmartPitMenuLayout
+    <pl.gryko.smartpitlib.widget.SmartPitMenuLayout
         android:id="@+id/menu_base"
         android:layout_width="fill_parent"
         android:clickable="true"
@@ -51,14 +51,14 @@
         android:background="#803B3B3B"
         android:orientation="vertical">
 
-        <com.example.smartpit.widget.SmartPitSlidingMenu
+        <pl.gryko.smartpitlib.widget.SmartPitSlidingMenu
             android:id="@+id/menu"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:background="@android:color/transparent"
             android:orientation="vertical">
 
-        </com.example.smartpit.widget.SmartPitSlidingMenu>
-    </com.example.smartpit.widget.SmartPitMenuLayout>
+        </pl.gryko.smartpitlib.widget.SmartPitSlidingMenu>
+    </pl.gryko.smartpitlib.widget.SmartPitMenuLayout>
 
 </RelativeLayout>
