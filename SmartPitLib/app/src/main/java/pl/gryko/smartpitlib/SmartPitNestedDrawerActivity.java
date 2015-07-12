@@ -97,13 +97,13 @@ public class SmartPitNestedDrawerActivity extends SmartPitActivity {
         params.gravity = gravity;
         if (gravity == Gravity.RIGHT) {
             masterDrawerGravity = Gravity.LEFT;
-            drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_RTL);
-            masterDrawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_LTR);
+           // drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_RTL);
+           // masterDrawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_LTR);
         } else if (gravity == Gravity.LEFT) {
             masterDrawerGravity = Gravity.RIGHT;
 
-            drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_LTR);
-            masterDrawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_RTL);
+           // drawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_LTR);
+           // masterDrawerLayout.setLayoutDirection(DrawerLayout.LAYOUT_DIRECTION_RTL);
         }
         masterParams.gravity = masterDrawerGravity;
 
