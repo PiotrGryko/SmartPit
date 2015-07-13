@@ -42,6 +42,14 @@
     <application
         android:allowBackup="true"
         android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <receiver android:name="pl.gryko.smartpitlib.schedule.SmartPitScheduleDataReceiver" />
+
+        <service android:name="pl.gryko.smartpitlib.schedule.SmartPitScheduledIntentService" />
+        <service android:name="pl.gryko.smartpitlib.cloud.SmartPitGcmIntentService" />
     </application>
 
 </manifest>
