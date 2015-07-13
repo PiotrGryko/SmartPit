@@ -35,7 +35,7 @@ publish {
     userOrg = 'mjonson66'
     groupId = 'pl.gryko'
     artifactId = 'SmartPitLib'
-    publishVersion = '1.0.7'
+    publishVersion = '1.1.1'
     desc = 'Oh hi, this is a nice description for a project, right?'
     website = 'https://github.com/PiotrGryko/SmartPit'
 }
