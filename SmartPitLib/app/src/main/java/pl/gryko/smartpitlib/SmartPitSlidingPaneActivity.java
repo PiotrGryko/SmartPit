@@ -14,6 +14,26 @@ import pl.gryko.smartpitlib.fragment.SmartPitFragment;
 
 /**
  * Created by piotr on 15.11.14.
+ *
+ * SmartPitActivity  with build in SlidingPaneLayout navigation
+ *
+ *  public class MainActivity extends SmartPitSlidingPaneActivity
+ * {
+ *
+ *     public void onCreate(Bundle savedInstanceState)
+ *     {
+ *
+ *         super.onCreate(savedInstanceState)
+ *         setContentView(R.id.layout)
+ *
+ *         setFirstFragment(new SmartPitFragment())
+ *         setPaneFragment(new SmartPitFragment())
+ *
+ *
+ *     }
+ *
+ * }
+ *
  */
 public class SmartPitSlidingPaneActivity extends SmartPitActivity {
 
@@ -64,11 +84,18 @@ public class SmartPitSlidingPaneActivity extends SmartPitActivity {
     }
 
 
-
+    /**
+     *
+     * @return LinearLayout that holds pane fragment or pane ViewContent
+     */
     public LinearLayout getPaneContent() {
         return paneContent;
     }
 
+    /**
+     * set SmartPitFragment for SlidingPaneLayout
+     * @param fragment SmartPitFragment to be setted as SlidingPane content
+     */
     public void setPaneFragment(SmartPitFragment fragment) {
         fm.beginTransaction().add(R.id.layout_content, fragment)
                 .commitAllowingStateLoss();

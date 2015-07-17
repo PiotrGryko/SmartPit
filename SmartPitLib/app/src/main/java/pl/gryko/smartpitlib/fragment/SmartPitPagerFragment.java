@@ -15,11 +15,24 @@ import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 import pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator;
 
 
+
 public abstract class SmartPitPagerFragment extends SmartPitFragment implements ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener {
+
+    public static interface OnSwipeListener {
+
+        public void onSwipeRight(double movement, int position);
+
+        public void onSwipeLeft(double movement, int position);
+
+    }
 
     private boolean flag = false;
     private String TAG = SmartPitPagerFragment.class.getName();
     private SmartPitTabHostIndicator movingIndicator;
+
+    private boolean isMovingRight;
+    private boolean isMovingLeft;
+    private OnSwipeListener onSwipeListener;
 
     class TabContent implements TabHost.TabContentFactory {
         private Context context;
@@ -47,6 +60,11 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
         return movingIndicator;
 
+    }
+
+    public void setOnSwipeListener(OnSwipeListener listener)
+    {
+        this.onSwipeListener = listener;
     }
 
     private SmartPitPagerAdapter pagerAdapter;
@@ -191,12 +209,36 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        Log.d(TAG, "on page scrolled position " + position + "  " + positionOffset + "  " + positionOffsetPixels);
+    public void onPageScrolled(int position, float movement, int positionOffsetPixels) {
+        Log.d(TAG, "on page scrolled position " + position + "  " + movement + "  " + positionOffsetPixels);
         // customOnPageScrolled(position, positionOffset, positionOffsetPixels);
 
         if (movingIndicator != null) {
-            movingIndicator.updateChildren(position, positionOffset);
+            movingIndicator.updateChildren(position, movement);
+        }
+
+
+        if (onSwipeListener != null) {
+            if (position == this.getHost().getCurrentTab() && movement > 0 && !isMovingLeft && !isMovingRight) {
+                isMovingRight = true;
+                isMovingLeft = false;
+
+
+            } else if (movement > 0 && !isMovingLeft && !isMovingRight) {
+                isMovingLeft = true;
+                isMovingRight = false;
+                // currentMargins = -currentMargins;
+
+
+            } else if (movement == 0) {
+                isMovingLeft = false;
+                isMovingRight = false;
+            }
+
+            if (isMovingRight)
+                onSwipeListener.onSwipeRight(movement, position);
+            else if (isMovingLeft)
+                onSwipeListener.onSwipeLeft(movement, position);
         }
     }
 

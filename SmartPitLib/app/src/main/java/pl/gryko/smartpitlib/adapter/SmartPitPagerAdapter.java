@@ -10,6 +10,10 @@ import android.util.Log;
 
 import pl.gryko.smartpitlib.fragment.SmartPitBaseFragment;
 
+/**
+ * Adapter that is used by ViewPager navigation, in example in SmartPitPagerFragment.
+ * Adapter extends FragmentStatePagerAdapter and use SmartPitBaseFragment instead of Fragment.
+ */
 
 public class SmartPitPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -23,23 +27,41 @@ public class SmartPitPagerAdapter extends FragmentStatePagerAdapter {
 
 	}
 
+	/**
+	 * return Fragment at giver position
+	 * @param arg0 index of item to return;
+	 * @return Fragment at given index
+	 */
 	@Override
 	public Fragment getItem(int arg0) {
 
 		return list.get(arg0);
 	}
 
+	/**
+	 * return count of adapter elements
+	 * @return int count of elements
+	 */
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
 		return list.size();
 	}
 
+	/**
+	 * returns class name of element at giver index
+	 * @param index of element
+	 * @return name of element class at given position
+	 */
 	public String getPageTitle(int index) {
 		return list.get(index).getClass().getName();
 
 	}
 
+	/**
+	 * custom save state method
+	 * @return
+	 */
 	public Parcelable saveState() {
 		// super.saveState();
 
@@ -47,6 +69,10 @@ public class SmartPitPagerAdapter extends FragmentStatePagerAdapter {
 		return null;
 	}
 
+	/**
+	 * custom restore state method
+	 * @return
+	 */
 	public void restoreState(Parcelable a, ClassLoader b) {
 		// super.restoreState(a, b);
 		Log.d(TAG, "restore state");

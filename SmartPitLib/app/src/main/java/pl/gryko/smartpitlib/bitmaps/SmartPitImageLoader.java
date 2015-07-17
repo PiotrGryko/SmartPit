@@ -19,6 +19,11 @@ import pl.gryko.smartpitlib.widget.Log;
 
 /**
  * Created by piotr on 19.05.14.
+ *
+ * Main images loading class. It feches images from http and saves them in memory. Serves them from local or disk memory if available.
+ *
+ *
+ *
  */
 public class SmartPitImageLoader {
 
@@ -47,6 +52,7 @@ public class SmartPitImageLoader {
 
     private Runnable mHttpRunnable;
     private Runnable mCacheRunnable;
+
 
     public SmartPitImageLoader(RequestQueue queue, SmartPitBitmapCache imageCache) {
 

@@ -22,6 +22,8 @@ import pl.gryko.smartpitlib.widget.SmartPitSlidingMenu;
 
 /**
  * Created by piotr on 17.10.14.
+ * DEPRECATED use SmartPitNavigationDrawerActivity with SmartPitPagerFragment instead
+
  */
 public abstract class SmartPitPagerMenuActivity extends SmartPitActivity implements TabHost.OnTabChangeListener {
 

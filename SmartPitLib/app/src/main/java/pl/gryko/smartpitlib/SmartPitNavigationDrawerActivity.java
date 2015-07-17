@@ -11,7 +11,31 @@ import pl.gryko.smartpitlib.fragment.SmartPitFragment;
 
 /**
  * Created by piotr on 03.11.14.
+ *
+ * SmartPitActivity with included NavigationDrawer
+ *
+ * minimal sample:
+ *
+ * public class MainActivity extends SmartPitNavigationDrawerActivity
+ * {
+ *
+ *     public void onCreate(Bundle savedInstanceState)
+ *     {
+ *
+ *         super.onCreate(savedInstanceState);
+ *         setContentView(R.id.layout);
+ *
+ *         setDrawerGravity(Gravity.right)
+ *
+ *         setFirstFragment(new SmartPitFragment());
+ *         setDrawerFragment(new SmartPitFragment());
+ *
+ *     }
+ *
+ * }
  */
+
+
 public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
 
     private DrawerLayout drawerLayout;
@@ -27,12 +51,20 @@ public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
         drawerContent = (LinearLayout) this.findViewById(R.id.layout_content);
     }
 
+    /**
+     * sets fragment for NavigationDrawer
+     * @param fragment SmartPitFragment to be setted as NavigatonDrawer
+     */
     public void setDrawerFragment(SmartPitFragment fragment) {
         this.getSupportFragmentManager().beginTransaction().add(R.id.layout_content, fragment)
                 .commitAllowingStateLoss();
 
     }
 
+    /**
+     * Invoke to change fragment at NavigationDrawer
+     * @param fragment SmartPitFragment to replace
+     */
     public void switchDrawerFragment(SmartPitFragment fragment) {
         if (!fragment.isAdded())
             this.getSupportFragmentManager().beginTransaction()
@@ -43,11 +75,19 @@ public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
 
     }
 
+    /**
+     * Returns currently added NavgiationDrawer SmartPitFragment
+     * @return SmartPitFragment
+     */
     public SmartPitFragment getCurrentDrawerFragment() {
         SmartPitFragment f = (SmartPitFragment) this.getSupportFragmentManager().findFragmentById(R.id.layout_content);
         return f;
     }
 
+    /**
+     * Sets gravity for NavigationDrawer Gravity.right and Gravity.left are supported
+     * @param gravity Gravity for sliding content
+     */
     public void setDrawerGravity(int gravity) {
         this.drawerGravity = gravity;
 
@@ -68,14 +108,25 @@ public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
 
     }
 
+    /**
+     * return current DrawerLayout
+     * @return DrawerLayout
+     */
     public DrawerLayout getDrawerLayout() {
         return drawerLayout;
     }
 
+    /**
+     * return LinearLayout that holds NavigationDrawer SmartPitFragment or content View
+     * @return  LinearLayout
+     */
     public LinearLayout getDrawerContent() {
         return drawerContent;
     }
 
+    /**
+     * close/open navigation drawer
+     */
     public void showMenu() {
 
         if (drawerLayout.isDrawerOpen(drawerGravity))

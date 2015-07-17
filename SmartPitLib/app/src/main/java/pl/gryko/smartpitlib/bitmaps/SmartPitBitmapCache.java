@@ -19,10 +19,11 @@ import com.jakewharton.disklrucache.DiskLruCache;
 
 import pl.gryko.smartpitlib.widget.Log;
 
-/*
 
-Class responsible for caching/fetching bitmaps.
-
+/**
+ * Main images cache class. It wraps in memory LruCache and DiskLruCache.
+ * Bitmaps are saved on disk and if possible to inMemory LruCache.
+ * If possible bitmaps are feched from inMemory LruCache, if not they are feched from disk
  */
 
 
@@ -34,13 +35,19 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
     private DiskLruCache diskLru;
 
 
-    public static int getDefaultLruCacheSize() {
+
+    private static int getDefaultLruCacheSize() {
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
         final int cacheSize = maxMemory / 2;
 
         return cacheSize;
     }
 
+    /**
+     * Singleton structure. Returns fresh instance
+     * @param ctx Context
+     * @return SmartPitBitmapCache instance
+     */
     public static SmartPitBitmapCache getInstance(Context ctx) {
         if (mInstance == null) {
             mInstance = new SmartPitBitmapCache(ctx);
@@ -49,6 +56,10 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         return mInstance;
     }
 
+    /**
+     * SmartPitBitmapCache constructor
+     * @param context Context to be used inside class
+     */
     public SmartPitBitmapCache(Context context) {
         super(getDefaultLruCacheSize());
 
@@ -72,6 +83,11 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         return value.getRowBytes() * value.getHeight() / 1024;
     }
 
+    /**
+     * Puts bitmap to DiskLruCache.
+     * @param key String key
+     * @param object Bitmap value
+     */
     public void putToDisk(String key, Bitmap object) {
         DiskLruCache.Editor editor = null;
         try {
@@ -99,6 +115,11 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         }
     }
 
+    /**
+     * Feches Bitmap from DiskLruCache, if not accessible returns null
+     * @param url String key of saved bitmap
+     * @return Bitmap or null
+     */
     public Bitmap getFromDisk(String url) {
 
         try {
@@ -122,6 +143,11 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         }
     }
 
+    /**
+     * Checks if bitmap is availabile in inMemory LruCache
+     * @param url String key of saved bitmap
+     * @return true or false
+     */
     public Bitmap isLocalCached(String url) {
         url = new String(Hex.encodeHex(DigestUtils
                 .md5(url)));
@@ -134,6 +160,11 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         return tmp;
     }
 
+    /**
+     * Checks if bitmap is available in diskLruCache.
+     * @param url String key of saved bitmap
+     * @return true or false
+     */
     public boolean isDiskCached(String url) {
 
         url = new String(Hex.encodeHex(DigestUtils
@@ -164,6 +195,10 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
     }
 
+    /**
+     * method that removes Bitmap with given key from LruCache and DiskLruCache
+     * @param key
+     */
     public void removeKey(String key) {
         key = new String(Hex.encodeHex(DigestUtils
                 .md5(key)));
@@ -176,6 +211,11 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         }
     }
 
+    /**
+     * Main bitmap feching bitmap. Loads it from memory or if not availalble from disk
+     * @param url String key of saved Bitmap
+     * @return Bitmap or null
+     */
     public Bitmap getBitmap(String url) {
         if (url == null)
             return null;
@@ -205,6 +245,11 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
     }
 
+    /**
+     * main saving method. Puts bitmap to local and disk memory
+     * @param url String key to save Bitmap
+     * @param bitmap Bitmap to be saved with given key
+     */
     @Override
     public void putBitmap(final String url, final Bitmap bitmap) {
 

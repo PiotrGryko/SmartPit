@@ -20,14 +20,16 @@ import pl.gryko.smartpitlib.widget.Log;
 /**
  * Created by piotr on 06.04.14.
  *
- * Class with helpfull methods connected with Bitmaps managing.
- *
+ * Class with helpfull methods connected with Bitmaps.
+ * Class has singleton structure. Use SmartBitmapsHelper.getInstance(Context) to get correct instance
  *
  */
 public class SmartBitmapsHelper {
 
 
-
+    /**
+     * Listener that will receive bitmap after successfull bitmap loading
+     */
     public static interface BitmapLoadingListener {
         public void onBitmapLoaded(Bitmap bitmap);
     }
@@ -40,6 +42,11 @@ public class SmartBitmapsHelper {
         this.context = context;
     }
 
+    /**
+     * returns fresh instance
+     * @param context Context
+     * @return SmartBitmapsHelper
+     */
     public static SmartBitmapsHelper getInstance(Context context) {
         if (instance == null)
             instance = new SmartBitmapsHelper(context);
@@ -50,7 +57,13 @@ public class SmartBitmapsHelper {
     private String TAG = SmartBitmapsHelper.class.getName();
 
 
-
+    /**
+     * calculate insample size based on given BitmapFactory.options and requested width and height
+     * @param options BitmapFactory.Options with bitmap
+     * @param reqWidth int requested width
+     * @param reqHeight int request height
+     * @return int calculated inSampleSize
+     */
 
     public int calculateInSampleSize(BitmapFactory.Options options,
                                      int reqWidth, int reqHeight) {
@@ -79,6 +92,14 @@ public class SmartBitmapsHelper {
 
      */
 
+    /**
+     * Decodes bitmap from resource. Method invokes inSampleSize method and loads bitmap in memory effecient way
+     * @param res Resources
+     * @param resId int id of resource cointaing bitmap
+     * @param reqWidth int requeted width
+     * @param reqHeight int requested height
+     * @return Bitmap decoded from resource
+     */
     public Bitmap decodeSampledBitmapFromResource(Resources res,
                                                   int resId, int reqWidth, int reqHeight) {
 
@@ -130,7 +151,14 @@ public class SmartBitmapsHelper {
     Decode small sized bitmap from file with given size. Should be run in background thread.
 
      */
+    /**
+     * Decodes bitmap from file. Method invokes inSampleSize method and loads bitmap in memory effecient way
 
+     * @param child File to load bitmap from
+     * @param reqWidth int requeted width
+     * @param reqHeight int requested height
+     * @return Bitmap decoded from resource
+     */
     public Bitmap decodeSampledBitmapFromFile(File child, int reqWidth,
                                               int reqHeight) throws Throwable {
 
@@ -183,7 +211,14 @@ public class SmartBitmapsHelper {
     }
 
 
+    /**
+     * Decodes bitmap from InputStream. Method invokes inSampleSize method and loads bitmap in memory effecient way
 
+     * @param stream InputStream to load bitmap from
+     * @param reqWidth int requeted width
+     * @param reqHeight int requested height
+     * @return Bitmap decoded from resource
+     */
     public Bitmap decodeSampledBitmapFromStream(InputStream stream, int reqWidth,
                                               int reqHeight) throws Throwable {
 
@@ -234,11 +269,13 @@ public class SmartBitmapsHelper {
 
         }
     }
-/*
-Save bitmap to cache.
 
- */
 
+    /**
+     * method manualy saves Bitmap to disk. Saved files names are hashed md5 input names. This method can be used if necessery, rather use SmartPitBitmapCache
+     * @param bitmap Bitmap to be saved on disk
+     * @param file String filename that be hashed
+     */
     public void saveBitmapToCache(final Bitmap bitmap, final String file) {
 
         new Thread() {
@@ -269,14 +306,18 @@ Save bitmap to cache.
         }.start();
 
     }
-/*
 
-Load bitmap from cache with given size. BitmapLoadingListener method returns loaded bitmap
-
- */
+    /**
+     * loads bitmap from disk if it was saved using saveBitmapToCache method.
+     * @param file String filename
+     * @param width int requested width to scale output bitmap
+     * @param height int requested height to scale output bitmap
+     * @param listener BitmapLoadingListener that will receive loaded bitmap
+     */
     public void loadBitmapFromCache(final String file, final int width, final int height, final BitmapLoadingListener listener) {
 
         new AsyncTask() {
+
 
             private Bitmap b = null;
 

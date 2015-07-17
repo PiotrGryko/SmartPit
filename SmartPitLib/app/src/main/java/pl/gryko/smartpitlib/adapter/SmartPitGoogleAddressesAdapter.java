@@ -19,6 +19,39 @@ import java.util.ArrayList;
 
 import pl.gryko.smartpitlib.model.SmartPitGoogleAddress;
 
+/**
+ *
+ * Adapter that can be set to AutoCompleteTextView or be used inside EditText TextWacher. Class wraps google geocode api and provide
+ * google address autocomplete filtering.
+ *
+ * minimal sample inside SmartPitFragment:
+ *
+ * public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState)
+ * {
+ *     SmartPitGoogleAdressesAdapter adapter=  new SmartPitGoogleAddressesAdapter(this.getActivity(),android.R.layout.simple_list_item1);
+ *
+ *     View v = inflater.inflater(R.layout.sample)
+ *
+ *     AutoCompleteTextView  actv = (AutoCompleteTextView)v.findViewById(R.id.autocomplete)
+ *
+ *     actv.setAdapter(adapter)
+ *
+ *     EditText et = (EditText)v.findViewById(R.id.et);
+ *
+ *     et.setOnTextChangedListener(
+ *     new TextWacher()
+ *     {
+ *         afterTextChanged(char arg0)
+ *         {
+ *             if(!arg.trim().equals(""))
+ *             adapter.getFilter().performFiltering(arg0);
+ *         }
+ *     }
+ *     );
+ * }
+ *
+ */
+
 
 public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> implements
         Filterable {
@@ -38,25 +71,48 @@ public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> impleme
         }
     };
 
+    /**
+     * Constructor
+     * @param context Context
+     * @param res row layout
+     */
     public SmartPitGoogleAddressesAdapter(Context context, int res) {
         super(context, res);
         // TODO Auto-generated constructor stub
 
     }
 
+    /**
+     * return count of adapter elements
+     * @return int cout of adapter elements
+     */
     public int getCount() {
         return list.size();
     }
 
+    /**
+     * returns item name at given position
+     * @param index
+     * @return String returns google formatted_address
+     */
     public String getItem(int index) {
         return list.get(index).getName();
     }
 
+    /**
+     * return SmartPitGoogleAddress model object at given position
+     * @param index int index of element to return
+     * @return
+     */
     public SmartPitGoogleAddress getPoint(int index) {
         return list.get(index);
     }
 
 
+    /**
+     * returns filter
+     * @return Filter
+     */
     @Override
     public Filter getFilter() {
         // TODO Auto-generated method stub
@@ -85,7 +141,8 @@ public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> impleme
     }
 
 
-    class FilterAddresses extends Thread {
+
+    private class FilterAddresses extends Thread {
 
         private String TAG = FilterAddresses.class.getName();
 
@@ -95,6 +152,7 @@ public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> impleme
         ;
         private String arg0;
         private Handler handler;
+
 
         public FilterAddresses(String arg0, Handler handler) {
             this.arg0 = arg0;
@@ -151,7 +209,8 @@ public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> impleme
         }
     }
 
-    public void populateResult(SmartPitGoogleAddress element, ArrayList<SmartPitGoogleAddress> list) {
+
+    private void populateResult(SmartPitGoogleAddress element, ArrayList<SmartPitGoogleAddress> list) {
         list.add(element);
 
     }

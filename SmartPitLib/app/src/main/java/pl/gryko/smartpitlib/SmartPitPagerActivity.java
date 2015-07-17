@@ -17,6 +17,8 @@ import pl.gryko.smartpitlib.fragment.SmartPitFragment;
 
 /**
  * Created by piotr on 29.09.14.
+ *
+ * DEPRECATED use SmartPitActivity with SmartPitPagerFragment instead
  */
 public abstract class SmartPitPagerActivity  extends SmartPitActivity {
 

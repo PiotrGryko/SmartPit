@@ -9,19 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
+import pl.gryko.smartpitlib.fragment.SmartPitPagerFragment;
+
 /**
  * Created by piotr on 05.11.14.
  */
 public class SmartPitTabHostIndicator extends LinearLayout {
 
 
-    public static interface OnSwipeListener {
 
-        public void onSwipeRight(double movement, int position);
-
-        public void onSwipeLeft(double movement, int position);
-
-    }
 
     private String TAG = SmartPitTabHostIndicator.class.getName();
     private int[] tabs;
@@ -38,7 +34,7 @@ public class SmartPitTabHostIndicator extends LinearLayout {
 
     private int offset;
 
-    private OnSwipeListener listener;
+    private SmartPitPagerFragment.OnSwipeListener listener;
 
 
     public void setCurrentTab(int tab) {
@@ -58,7 +54,7 @@ public class SmartPitTabHostIndicator extends LinearLayout {
         return sum;
     }
 
-    public void setSwipeListener(OnSwipeListener listener) {
+    public void setSwipeListener(SmartPitPagerFragment.OnSwipeListener listener) {
         this.listener = listener;
     }
 

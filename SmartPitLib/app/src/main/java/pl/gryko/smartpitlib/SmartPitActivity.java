@@ -54,14 +54,40 @@ import pl.gryko.smartpitlib.fragment.SmartPitFragment;
 import pl.gryko.smartpitlib.interfaces.SmartPitFragmentsInterface;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 
+/**
+ * Main Library class. Each library activity extends this class. Custom activity have to be extended by this class.
+ * SmartPitActivity has build in simple SmartPitFragment navigation system. SetFirstFragment ,switchFragment and switchTitleFragment
+ * methods allaws to easy navigte through app pages that covers whole screen. Each page schould extend SmartPitFragment class.
+ *
+ * minimum sample:
+ *
+ * public class MainActivity extends SmartPitActivity
+ * {
+ *
+ *     public void onCreate(Bundle savedInstanceState)
+ *     {
+ *
+ *         super.onCreate(savedInstanceState)
+ *         setContentView(R.id.layout)
+ *
+ *         setFirstFragment(new SmartPitFragment())
+ *
+ *
+ *     }
+ *
+ * }
+ *
+ *
+ */
 public class SmartPitActivity extends ActionBarActivity implements
         SmartPitFragmentsInterface {
+
+    private String TAG = SmartPitActivity.class.getName();
 
     private final int SELECT_PHOTO = 909;
     private final int CAMERA_REQUEST = 911;
 
 
-    private String TAG = SmartPitActivity.class.getName();
 
     private ArrayList<SmartPitFragment> fragmentsList;
     private FragmentManager fm;
@@ -76,67 +102,13 @@ public class SmartPitActivity extends ActionBarActivity implements
     private static CookieStore cookieStore;
     private static SmartPitImageLoader mImageLoader;
 
-    private static boolean fragmentAnimation;
 
-    public static void setFragmentAnimationFlag(boolean flag) {
-        fragmentAnimation = flag;
-    }
-
-
-    public static SmartPitImageLoader getImageLoader() {
-        return mImageLoader;
-    }
-
-    public static CookieStore getCookieStore() {
-        return cookieStore;
-    }
-
-    public FragmentManager getManager() {
-        return fm;
-    }
-
-    @Override
-    public void clearBackstack() {
-        try {
-            fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public Activity getSmartActivity() {
-        return this;
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (fragmentsList != null && this.getCurrentFragment() != null)
-            this.getCurrentFragment().resumeFocus();
-
-        Log.d(TAG, "on resume");
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-
+    /**
+     * @param savedInstanceState activity savedInstanceState.
+     *
+     * OnCreate method initialize fragmentsList, global mImageLoader and volley request queue with
+     * configured cookie store
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,12 +143,82 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     }
 
+    /**
+     *
+     * @return globalImageLoader
+     */
+    public static SmartPitImageLoader getImageLoader() {
+        return mImageLoader;
+    }
 
+    /**
+     *
+     * @return configured volley CookieStore
+     */
+
+    public static CookieStore getCookieStore() {
+        return cookieStore;
+    }
+
+    /**
+     *
+     * @returns fragmentManager used to basic navigation
+     */
+    public FragmentManager getManager() {
+        return fm;
+    }
+
+
+    /**
+     * this method clears fragmentsBackstacks and back to first fragment
+     */
+    @Override
+    public void clearBackstack() {
+        try {
+            fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+
+    }
+
+    /**
+     *
+     * @return Activity
+     */
+    @Override
+    public Activity getSmartActivity() {
+        return this;
+    }
+
+
+    /**
+     * activity on resume invokes resumeFocus at currenty added fragment. Resolves the issue with disabled fragments after screen blank.
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (fragmentsList != null && this.getCurrentFragment() != null)
+            this.getCurrentFragment().resumeFocus();
+
+        Log.d(TAG, "on resume");
+    }
+
+    /**
+     *
+     * @return global volley request queue with configured cookie store
+     */
     public static RequestQueue getRequestQueue() {
         return rq;
     }
 
-
+    /**
+     * THIS METHOD WILL BE REWRITTEN!
+     * @param background
+     * @param customView
+     * @param label
+     */
     public void initActionbar(Drawable background, View customView, TextView label) {
         this.customActionbarView = customView;
         this.customActionbarLabel = label;
@@ -187,6 +229,13 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     }
 
+    /**
+     * THIS METHOD WILL BE REWRITEEN
+     * @param background
+     * @param icon
+     * @param backIcon
+     * @param arrow
+     */
     public void initBackstackActionbar(Drawable background, final Drawable icon, final Drawable backIcon, boolean arrow) {
         ab = this.getSupportActionBar();
         ab.setDisplayUseLogoEnabled(true);
@@ -216,6 +265,10 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     }
 
+    /**
+     * Initialize navigation system and sets first fragment. Should be invoked inside activity onCreate.
+     * @param fragment to be set as initial fragment.
+     */
     public void setFirstFragment(SmartPitFragment fragment) {
 
         this.setCurrentFragment(fragment, false);
@@ -227,6 +280,12 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     // ///////////this method adds fragment to fragments list.
     // ////////// it replaces dupes to avoid fragments arguments issues
+
+    /**
+     * Activity keeps track of currently added fragment. This method is invoked after each fragment transition.
+     * @param fragment
+     * @param removePrevious
+     */
     @Override
     public void setCurrentFragment(SmartPitFragment fragment,
                                    boolean removePrevious) {
@@ -246,10 +305,18 @@ public class SmartPitActivity extends ActionBarActivity implements
         fragmentsList.add(fragment);
     }
 
+    /**
+     * Method wrapped around defaul onBackPressed. Its invoked only when user is exiting activity. Allaws to easly show confirm popup at app kill.
+     */
+
     public void onExit() {
         this.finish();
     }
 
+    /**
+     * Modified default onBackPressed. First it invokes currently added fragment onBackPressed() and check that it consumes event. It allaws to easy
+     * create custom onBackPressed actions for different pages.
+     */
     public void onBackPressed() {
 
 
@@ -263,7 +330,11 @@ public class SmartPitActivity extends ActionBarActivity implements
         //     super.onBackPressed();
     }
 
-    // /////return currently added fragment
+    /**
+     * return currently added fragment
+     * @return
+     */
+
     @Override
     public SmartPitFragment getCurrentFragment() {
 
@@ -278,9 +349,11 @@ public class SmartPitActivity extends ActionBarActivity implements
         return null;
     }
 
-    //
-    // ////////////////////replace current fragment with argument fragment,
-    // /////////////// transition with in/out animations added to backstack
+    /**
+     * Switch fragments inside activity. Each fragmentTransaction will be added to backstack.
+     * @param fragment
+     * @param removePrevious
+     */
     @Override
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
         try {
@@ -299,8 +372,11 @@ public class SmartPitActivity extends ActionBarActivity implements
         }
     }
 
-    // //////////method switch title fragment, transition with in animation not
-    // added to backstack
+    /**
+     * Switch fragments, fragments won`t be added to backstack
+     * @param fragment
+     * @param removePrevious
+     */
     @Override
     public void switchTitleFragment(SmartPitFragment fragment,
                                     boolean removePrevious) {
@@ -324,6 +400,13 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     }
 
+    /**
+     * this method allaws to easly interact in example with activity actionbar based on data from different bages.
+     * Each SmartPitFragment contains getLabel() method. When fragment is added, setActionBar method is invoked with
+     * fragments getLabel() as argument.
+     * @param text comes from currentlyAdded getLabel() method.
+     */
+
     @Override
     public void setActionBarLabel(String text) {
 
@@ -335,7 +418,12 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     }
 
-
+    /**
+     * NEED TO BE TESTED, RELOCATED. This method wrapps google push-notifictaions.
+     * @param senderId push senderId
+     * @param listener message received listener
+     * @param l registration task listener
+     */
     public void initGcmService(String senderId, SmartPitGcmIntentService.OnMessageListener listener, SmartPitRegistrationTask.OnRegistrationListener l) {
         if (SmartPitAppHelper.getInstance(this).checkPlayServices(this)) {
 
@@ -348,12 +436,19 @@ public class SmartPitActivity extends ActionBarActivity implements
         }
     }
 
+    /**
+     * This method invokes gallery image picker. Result will be available at on of onGallerImagePicked method.
+     */
+
     public void pickImageFromGallery() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, SELECT_PHOTO);
 
     }
+    /**
+     * This method invokes Camera image. Result will be available at on of onCameraImagePicked method.
+     */
 
     public void pickImageFromCamera() {
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -361,32 +456,57 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     }
 
+    /**
+     * Inoked after picking image from gallery
+     * @param uri
+     */
     public void onGalleryImagePicked(Uri uri) {
 
     }
-
+    /**
+     * Inoked after picking image from gallery
+     * @param file
+     */
     public void onGalleryImagePicked(File file) {
 
     }
-
+    /**
+     * Inoked after picking image from gallery
+     * @param bitmap
+     */
     public void onGalleryImagePicked(Bitmap bitmap) {
 
     }
 
-
+    /**
+     * Inoked after picking image from camera
+     * @param uri
+     */
     public void onCameraImagePicked(Uri uri) {
 
     }
-
+    /**
+     * Inoked after picking image from camera
+     * @param file
+     */
     public void onCameraImagePicked(File file) {
 
     }
-
+    /**
+     * Inoked after picking image from camera
+     * @param bitmap
+     */
     public void onCameraImagePicked(Bitmap bitmap) {
 
     }
 
-
+    /**
+     * Helper method. Retunrs scalled - orientated photo from gallery URI.
+     * @param photoUri
+     * @param MAX_IMAGE_DIMENSION
+     * @return
+     * @throws IOException
+     */
     public Bitmap scaleImage(Uri photoUri, int MAX_IMAGE_DIMENSION) throws IOException {
         InputStream is = getContentResolver().openInputStream(photoUri);
         BitmapFactory.Options dbo = new BitmapFactory.Options();
@@ -445,7 +565,11 @@ public class SmartPitActivity extends ActionBarActivity implements
         return BitmapFactory.decodeByteArray(bMapArray, 0, bMapArray.length);
     }
 
-
+    /**
+     * returns orientation of image in photoUri
+     * @param photoUri
+     * @return
+     */
     public int getOrientation(Uri photoUri) {
         /* it's on the external media. */
         Cursor cursor = getContentResolver().query(photoUri,
@@ -459,6 +583,12 @@ public class SmartPitActivity extends ActionBarActivity implements
         return cursor.getInt(0);
     }
 
+    /**
+     * invoked after picking image from gallery/camera
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

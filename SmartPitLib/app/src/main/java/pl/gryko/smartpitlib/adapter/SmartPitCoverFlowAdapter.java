@@ -17,13 +17,11 @@ import pl.gryko.smartpitlib.widget.SmartImageView;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 import pl.gryko.smartpitlib.widget.SmartPitCoverFlow;
 
-/*
-Default cover flow adapter class.
-Constructor parameters: Context, on item click listener object, array of images urls.
-
-
-
-
+/**
+ *
+ * Adapter that can be setted to SmartPitCoverFlow view. Views are fullscreen images loaded from given urls.
+ * Can be used as cover flow gallery.
+ *
  */
 
 public class SmartPitCoverFlowAdapter extends BaseAdapter {
@@ -43,10 +41,18 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
     private SmartPitCoverFlow.OnCoverFlowItemClickListener listener;
 
 
-    public SmartPitCoverFlowAdapter(Context context, SmartPitCoverFlow.OnCoverFlowItemClickListener listener, ArrayList<String> list, int width, int height) {
+    /**
+     * Constructor
+     * @param context Context
+     * @param listener SmartPitCoverFlow.OnCoverFlowItemClickListener listener that will be invoked on cover flow element click
+     * @param urls ArrayList<String> list of urls to load in gallery
+     * @param width int max width to scale loaded image, 0 if image shouldn`t be scaled
+     * @param height int max height to scale loaded image, 0 if image shouldn`t be scaled
+     */
+    public SmartPitCoverFlowAdapter(Context context, SmartPitCoverFlow.OnCoverFlowItemClickListener listener, ArrayList<String> urls, int width, int height) {
 
         this.context = context;
-        this.list = list;
+        this.list = urls;
         this.width = width;
         this.height = height;
         this.listener = listener;
@@ -54,15 +60,25 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
     }
 
 
+    /**
+     *
+     * @return adapter items count
+     */
     @Override
     public int getCount() {
         return list.size();
     }
 
+    /**
+     * Returns element at giver position
+     * @param position int index to return positon at
+     * @return object at given position
+     */
     @Override
     public Object getItem(int position) {
         return list.get(position % list.size());
     }
+
 
     @Override
     public long getItemId(int position) {
@@ -74,13 +90,22 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
         public SmartImageView image;
     }
 
+    /**
+     * sets drawable as image background
+     * @param d Drawable to be setted as background
+     */
     public void setImageBackground(Drawable d) {
         this.d = d;
     }
 
+    /**
+     * sets padding to gallery image
+     * @param padding int padding to be set
+     */
     public void setPadding(int padding) {
         this.padding = padding;
     }
+
 
     @Override
     public View getView(final int position, View image, ViewGroup parent) {
