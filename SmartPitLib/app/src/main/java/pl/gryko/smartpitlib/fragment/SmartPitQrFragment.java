@@ -27,6 +27,24 @@ import pl.gryko.smartpitlib.widget.SmartPitCameraPreview;
 
 /**
  * Created by piotr on 06.05.14.
+ *
+ * SmartPitFragment with wrapped QR reader. Default implementation shows camera preview on layout. When qr code is visible,
+ * camera caches focus, reads qr code and returns String data on parseData(String data) method.
+ *
+ * minimal sample:
+ *
+ * public class QrFragment extends SmartPitQrFragment
+ * {
+ *
+ *     public View onCreateView(LayoutInfalter inflater, ViewGroup parent, Bundle savedInstanceState)
+ *     {
+ *         View v = inflater.inflate(R.layout.smart_qr_fragment, parent, false);
+ *         initView();
+ *
+ *         return v;
+ *     }
+ * }
+ *
  */
 public abstract class SmartPitQrFragment extends SmartPitFragment{
 
@@ -41,11 +59,16 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
 
     public abstract void parseData(String data);
 
-
+    /**
+     * this line loads native QR libary
+     */
     static {
         System.loadLibrary("iconv");
     }
 
+    /**
+     * inits SmartPitCameraPreview
+     */
     public void initView()
     {
 
@@ -60,11 +83,18 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
 
     }
 
+    /**
+     * returns SmartPitCameraPreview instance
+     * @return SmartPitCameraPreview instance
+     */
     public SmartPitCameraPreview getPreviewInstance()
     {
         return mPreview;
     }
 
+    /**
+     * use this method to restart camera after qrcode read.
+     */
     public void startCamera()
     {
         if (barcodeScanned) {
@@ -83,7 +113,9 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
         releaseCamera();
     }
 
-    /** A safe way to get an instance of the Camera object. */
+    /**
+     * A safe way to get an instance of the Camera object.
+     */
     public static Camera getCameraInstance(){
         Camera c = null;
         try {

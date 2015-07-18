@@ -20,7 +20,7 @@ import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 
 /**
  * class that adapts android.Fragment for SmartPit fragments managment. Each frament should extend this class.
- * Use getFragmentsListener().switchFragment(new SmartPitFragent(),true) for swich to next page.
+ * Use getFragmentsListener().switchFragment(new SmartPitFragent(),true) for switch to next page.
  */
 
 public abstract class SmartPitFragment extends Fragment implements
@@ -131,6 +131,11 @@ public abstract class SmartPitFragment extends Fragment implements
         super.onDestroyView();
     }
 
+    /**
+     * return fragment label. This string will be returned in setActionbarLabel(String label).
+     * Can be used for display custom text for each fragment on actionbar.
+     * @return String label
+     */
     public abstract String getLabel();
 
     public void onConfigurationChanged(Configuration newConfig) {

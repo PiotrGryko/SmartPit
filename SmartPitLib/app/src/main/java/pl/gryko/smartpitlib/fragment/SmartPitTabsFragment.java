@@ -18,6 +18,8 @@ import pl.gryko.smartpitlib.interfaces.SmartPitFragmentsInterface;
 
 /**
  * Created by piotr on 08.04.14.
+ *
+ * DEPRECATED consider using SmartPitPagerFragment instead.
  */
 public abstract class SmartPitTabsFragment extends SmartPitFragment implements SmartPitFragmentsInterface, TabHost.OnTabChangeListener {
 

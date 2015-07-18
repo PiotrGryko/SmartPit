@@ -17,14 +17,59 @@ import pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator;
 
 /**
  *
+ * SmartPitFragment with wrapped ViewPager and TabHost. Custom implementation have to implement abstract method createTabIndicator(int position)
+ * and return view to display it on TabWidget. Class have also wrapped SmartPitTabHostIndicator. This class provides smooth moving TabWidget indicator that
+ * moves smoothly with ViewPager pages.
+ *
+ * minimal sample:
+ *
+ * public class MyFragment extends SmartPitPagerFragment
+ * {
+ *
+ *     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanecState)
+ *     {
+ *         View v = inflater.inflate(R.layout.smart_pager_fragment, parent, false)
+ *
+ *         ArrayList<SmartPitFragment> fragments_list = new ArrayList<SmartPitFragment>();
+ *         fragments_list.add(new SmartPitFragment);
+ *         fragments_list.add(new SmartPitFragment);
+ *
+ *         //method setFragmentsPager() will set SmartPitPagerAdapter for ViewPager. SmartPitFragments from the list will
+ *         //be wrapped inside SmartPitBaseFragment. Because of that, each page of default implementation have own backstack.
+ *         this.setFragmentsPager(v, R.id.pager,fragments_list)
+ *
+ *         //instead of setting FragmentsAdapter you can set ViewsAdapter that holds only views and works much faster
+ *         ArrayList<View> views_list = new ArrayList<View>();
+ *         viewsList.addView(new LinearLayout(this.getActivity());
+ *         viewsList.addView(new LinearLayout(this.getActivity());
+ *         this.setViewsPager(v,R.id.pager,views_list);
  *
  *
+ *         return v;
+ *     }
+ *     public View createTabIndicator(Context context, int position)
+ *     {
+ *         TextView tv = new TextView(context);
+ *         tv.setText(Integer.toString(position));
+ *         tv.setGravity(Gravity.CENTER)
+ *         return tv;
+ *     }
+ *
+ * }
  */
 
 
 
 public abstract class SmartPitPagerFragment extends SmartPitFragment implements ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener {
 
+
+    /**
+     *
+     * Custom swipe listener that can be setted for SmartPitPagerFragment by invoking setOnSwipleListener(OnSwipeListener listener).
+     * Listener will receive callbacks on onSwipeRight(double movement, int position) and onSwipeLeft(double movement, int position) based on
+     * ViewPager swipe direction.
+     *
+     */
     public static interface OnSwipeListener {
 
         public void onSwipeRight(double movement, int position);
@@ -55,6 +100,16 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         }
     }
 
+    /**
+     *
+     * this method inits SmartPitTabHost indicator that moves smoothly with ViewPager swipes.
+     *
+     * @param parent View returned from onCreateView() method
+     * @param indicatorId id of SmartPitTabHostIndicator in layout. In default implementation it is R.id.smart_indicator
+     * @param indicatorView View of indicator. It can be empty layout with setted background color. Indicator will measure this view to fit needs.
+     * @param wrapChildrens boolean. true if TabWidget elements width have to be WRAP_CONTENT. False if TabWidget elements should be scalled normallly
+     * @return SmartPitTabHostIndicator implemenetation.
+     */
     public SmartPitTabHostIndicator initMovingIndicator(final View parent, int indicatorId, final View indicatorView, boolean wrapChildrens) {
        // if(movingIndicator!=null)
        //     return movingIndicator;
@@ -69,6 +124,10 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     }
 
+    /**
+     * Sets OnSwipeListener for ViewPager.
+     * @param listener
+     */
     public void setOnSwipeListener(OnSwipeListener listener)
     {
         this.onSwipeListener = listener;
@@ -84,13 +143,30 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     private ArrayList<View> viewsList;
 
+    /**
+     * Each child class has to implement this method for correct ViewPager and TabHost initialization.
+     * @param context Context
+     * @param index index of tab
+     * @return View to be displayed on TabWidget
+     */
     public abstract View createTabIndicator(Context context, int index);
 
 
+    /**
+     * returns given ArrayList<SmartPitFragment> list given in setFragmentsPager() method. But wrapped inside SmartPitBaseFragment
+     * @return ArrayList<SmartPitBaseFragment> list of pager SmartPitFragments wrapped inside SmartPitBaseFragment
+     */
     public ArrayList<SmartPitBaseFragment> getBaseFragmentsList() {
         return fragmentsList;
     }
 
+    /**
+     * Method that initialize ViewPager and TabHost with given SmartPitFragment list.
+     * Each fragment will be wrapped inside SmartPitBaseFragment and have own backstack
+     * @param v View return in onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState)
+     * @param pagerId ViewPager id from layout. R.id.pager in default layout implementation
+     * @param list ArrayList<SmartPitFragment> of fragments that will be display on ViewPager pages.
+     */
     public void setFragmentsPager(View v, int pagerId, ArrayList<SmartPitFragment> list) {
 
         fragmentsList = new ArrayList<SmartPitBaseFragment>();
@@ -121,7 +197,13 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     }
 
-
+    /**
+     * Method that initialize ViewPager and TabHost with given View list.
+     * Each fragment will be wrapped inside SmartPitBaseFragment and have own backstack
+     * @param v View return in onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState)
+     * @param pagerId ViewPager id from layout. R.id.pager in default layout implementation
+     * @param list ArrayList<View> of views that will be displayed on ViewPager pages.
+     */
     public void setViewsPager(View v, int pagerId, ArrayList<View> list) {
 
         viewsList = list;
@@ -148,14 +230,22 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     }
 
+    /**
+     * return initialized TabHost
+     * @return TabHost
+     */
     public TabHost getHost() {
         return host;
     }
 
-
+    /**
+     * return initialized ViewPager
+     * @return ViewPAger
+     */
     public ViewPager getPager() {
         return viewPager;
     }
+
 
     private void setViewsAdapter() {
         viewsAdapter = new SmartPitViewPagerAdapter(this.getActivity(), viewsList);
@@ -177,6 +267,9 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         new SetAdapterTask().execute();
     }
 
+    /**
+     * Can be overriden for perform custom action after setting ViewPager adapter.
+     */
     public void onAdapterSetted() {
     }
 
@@ -204,6 +297,9 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     }
 
+    /**
+     * resumes focus on currently visible ViewPager pager. It provides losing focus and interactivity on pager after screen dim.
+     */
     public void resumeFocus() {
         if (getHost() != null) {
             if (this.getFragmentsListener().getTab() == getHost().getCurrentTab()) {
@@ -215,6 +311,12 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
     }
 
 
+    /**
+     * implementation of ViewPager.OnPageChangeListener
+     * @param position int position of  flipped page
+     * @param movement float movement in range 0.0 - 1.0. Indicates percent of page swipe.
+     * @param positionOffsetPixels Swipe offset in pixels
+     */
     @Override
     public void onPageScrolled(int position, float movement, int positionOffsetPixels) {
         Log.d(TAG, "on page scrolled position " + position + "  " + movement + "  " + positionOffsetPixels);
@@ -249,6 +351,11 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         }
     }
 
+    /**
+     * custom implementation of ViewPager.OnPageChangeListener method. Cooperates with onTabChanged. As result changing TabHost tab flips ViewPager page
+     * and changing ViewPager page changes TabHost tab.
+     * @param position int position of selectedPage
+     */
     @Override
     public void onPageSelected(int position) {
 
@@ -267,6 +374,11 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     }
 
+    /**
+     * custom implementation of TabHost.OnTabChangeListener. Cooperates with onPageSelected. As result changing TabHost tab flipps ViewPager page
+     * and changing ViewPager page changes TabHost tab.
+     * @param tabId String indicated tabId
+     */
     @Override
     public void onTabChanged(String tabId) {
 
@@ -282,6 +394,10 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         /// pageSelected=false;
     }
 
+    /**
+     * back pressed implementation. Returns onBackPressed of current page
+     * @return omBackPressed on SmartPitFragment page or false if views adapter is setted.
+     */
     public boolean onBackPressed() {
         if (fragmentsList != null)
             return fragmentsList.get(this.getPager().getCurrentItem()).onBackPressed();

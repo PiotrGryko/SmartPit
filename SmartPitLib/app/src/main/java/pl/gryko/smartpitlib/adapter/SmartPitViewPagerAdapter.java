@@ -17,7 +17,8 @@ import pl.gryko.smartpitlib.widget.Log;
 /**
  * Created by piotr on 14.04.15.
  * 
- *
+ * Adapter for ViewPager. Can be used in SmartPitPagerFragment instead of SmartPitPagerAdapter.
+ * I prefer to hold views instead of fragments in view pager because it works much faster.
  *
  */
 public class SmartPitViewPagerAdapter extends PagerAdapter {
@@ -32,6 +33,12 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
 
     private OnElementClickedListener listener;
 
+    /**
+     * Constructor takes Context and ArrayList of views to be display in ViewPager
+     * @param context Context
+     * @param list ArrayList<View> on views
+     *
+     */
     public SmartPitViewPagerAdapter(Context context,
                                     ArrayList<View> list) {
 
@@ -42,11 +49,18 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
     }
 
 
+
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == ((View) object);
     }
 
+    /**
+     * removes view from ViewPager container.
+     * @param container ViewGroup container
+     * @param position position of element in ViewPager
+     * @param object Object from position
+     */
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView(list.get(position));
@@ -58,9 +72,19 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
         return list.size();
     }
 
+    /**
+     * Method that can be overriden by custom implementation. In example it allaws to init widgets and logic of given layout
+     * @param v View from position
+     */
     public void initView(View v) {
     }
 
+    /**
+     * method to init view. Adds initialized element to container ViewPager
+     * @param container ViewGroup container
+     * @param position position of current element
+     * @return View to be displayed
+     */
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
