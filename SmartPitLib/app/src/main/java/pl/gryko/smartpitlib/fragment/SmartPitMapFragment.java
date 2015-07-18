@@ -15,6 +15,12 @@ import pl.gryko.smartpitlib.interfaces.SmartPitChildFragmentInterface;
 import pl.gryko.smartpitlib.widget.Log;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 
+/**
+ *
+ * SmartPitFargment that have build in GoogleMap v2. NEED TO BE REWRITEN !!!!!!
+ *
+ */
+
 public class SmartPitMapFragment extends SmartPitFragment implements
         SmartPitChildFragmentInterface {
 

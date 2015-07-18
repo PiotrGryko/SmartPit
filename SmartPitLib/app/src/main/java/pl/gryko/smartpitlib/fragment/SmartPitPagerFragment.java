@@ -15,6 +15,13 @@ import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 import pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator;
 
 
+/**
+ *
+ *
+ *
+ */
+
+
 
 public abstract class SmartPitPagerFragment extends SmartPitFragment implements ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener {
 

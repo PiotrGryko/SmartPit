@@ -9,6 +9,10 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+/**
+ * class for testings gcm
+ */
+
 public class SmartPitGcmSender {
 
 	private static String TAG = SmartPitGcmSender.class.getName();

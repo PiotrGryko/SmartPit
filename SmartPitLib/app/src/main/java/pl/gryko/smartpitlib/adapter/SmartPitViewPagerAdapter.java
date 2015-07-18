@@ -16,6 +16,9 @@ import pl.gryko.smartpitlib.widget.Log;
 
 /**
  * Created by piotr on 14.04.15.
+ * 
+ *
+ *
  */
 public class SmartPitViewPagerAdapter extends PagerAdapter {
 

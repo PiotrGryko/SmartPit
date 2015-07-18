@@ -12,7 +12,10 @@ import com.android.volley.toolbox.ImageLoader.ImageListener;
 import pl.gryko.smartpitlib.widget.SmartImageView;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 
-
+/**
+ * Default implementation of SmartPitImageLoader.SmartImagesListener. It shows error image at
+ * loading error. If loading is successful it sets bitmap to ImageView, and shows result on screen with fading animation.
+ */
 public class SmartPitImagesListener implements SmartPitImageLoader.SmartImagesListener {
 
     private String TAG = "MyImageListener";

@@ -54,12 +54,20 @@ public class SmartPitImageLoader {
     private Runnable mCacheRunnable;
 
 
+    /**
+     * Constructor, takes RequestQueue to manage http images feching, and SmartPitBitmapCache for memory managing
+     * @param queue RequestQueue for http feching
+     * @param imageCache SmartPitBitmapCache for memory managing
+     */
     public SmartPitImageLoader(RequestQueue queue, SmartPitBitmapCache imageCache) {
 
         mRequestQueue = queue;
         mCache = imageCache;
     }
 
+    /**
+     * Conainer class that wraps bitmap, download listener, url and cache key together.
+     */
     public class SmartImageContainer {
 
         private Bitmap mBitmap;
@@ -69,7 +77,13 @@ public class SmartPitImageLoader {
 
         private final String mRequestUrl;
 
-
+        /**
+         * Construktor
+         * @param bitmap Loaded Bitmap
+         * @param requestUrl String url
+         * @param cacheKey String cache key
+         * @param listener SmartImagesListener
+         */
         public SmartImageContainer(Bitmap bitmap, String requestUrl,
                                    String cacheKey, SmartImagesListener listener) {
 
@@ -80,6 +94,9 @@ public class SmartPitImageLoader {
         }
 
 
+        /**
+         * cacncels current downloading request
+         */
         public void cancelRequest() {
             if (mListener == null) {
                 return;
@@ -113,6 +130,9 @@ public class SmartPitImageLoader {
     }
 
 
+    /**
+     *  Cache feching async task
+     */
     private class CacheTask extends AsyncTask {
 
         private ArrayList<SmartImageContainer> containers;
@@ -145,12 +165,30 @@ public class SmartPitImageLoader {
     }
 
 
+    /**
+     * Listener  for feching images
+     */
     public interface SmartImagesListener {
         public void onResponse(SmartImageContainer container, boolean flag);
 
         public void onErrorResponse(VolleyError error);
     }
 
+    /**
+     * main images feching method. Takes requestUrl, feching listener, max width and height for scaling image as argumentss.
+     * Firstly it checks if image with given url is available in local cache. If yes, returns
+     * SmartImageContainer with already loaded image. If not available in local cache, it checks if image is
+     * available in disk cache. If image is saved, method checks if cache download task with image key is currently running, if yes
+     * currently running task is populated with fresh container. If image is not currenlty loading new cache task is created.
+     * Disk cache feching result is returned in SmartImagesListener. If bitmap is nota available in cache, it is feched from
+     * http using volley ImageRequest. The same like async cache loading, method first check if ImageRequest with current
+     * url is already running, if yes it populates request with fresh container, if not new request is started.
+     * @param requestUrl String url to image
+     * @param imageListener ImageListener that will receive loading result
+     * @param maxWidth max image width for image scailing
+     * @param maxHeight max image height for image scaling
+     * @return
+     */
     public SmartImageContainer get(String requestUrl, SmartImagesListener imageListener,
                                    int maxWidth, int maxHeight) {
 

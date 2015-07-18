@@ -18,6 +18,11 @@ import pl.gryko.smartpitlib.interfaces.SmartPitFragmentsInterface;
 import pl.gryko.smartpitlib.widget.Log;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 
+/**
+ * class that adapts android.Fragment for SmartPit fragments managment. Each frament should extend this class.
+ * Use getFragmentsListener().switchFragment(new SmartPitFragent(),true) for swich to next page.
+ */
+
 public abstract class SmartPitFragment extends Fragment implements
         SmartPitChildFragmentInterface {
 
@@ -32,14 +37,19 @@ public abstract class SmartPitFragment extends Fragment implements
         fragmentTAG = this.toString();
     }
 
+    /**
+    invokes setActionbarLabel on listener (SmartPitActivity or SmartPitBaseFragment)
+     */
     public void setActionbarLabel() {
         if (listener != null)
             listener.setActionBarLabel(getLabel());
     }
 
 
-
-
+    /**
+     * custom onCreate for basic initialization. Inits SmartPitFragmentsInterface and invokes setActionbarLabel.
+     * @param savedInstanceState
+     */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -58,12 +68,19 @@ public abstract class SmartPitFragment extends Fragment implements
 
     }
 
+    /**
+     * Custom onBackPressed. Can be overriden to implement some custom logic. Return true if you want to consume back press event.
+     * @return
+     */
     public boolean onBackPressed() {
 
-        Log.d(TAG, "Smart pit fragment on back pressed");
         return false;
     }
 
+    /**
+     * return custom fragment tag
+     * @return String custom fragment tag
+     */
     public String getFragmentTAG() {
         return fragmentTAG;
     }
@@ -71,19 +88,13 @@ public abstract class SmartPitFragment extends Fragment implements
     public void onResume() {
         super.onResume();
 
-        //   if(listener!=null)
-        //      listener.setActionBarLabel(getLabel());
-
-
-        /*
-        If SmartPitPagerFragment and nested fragment are used, resume focus only for currently visible tab
-
-         */
-
-
         resumeFocus();
     }
 
+    /**
+     * method that resumes focus on current fragment after screen dimm. Is incoked on fragments onResume() method.
+     * It prevents nested fragments from losing focus and stop being interactive after turning of the screen.
+     */
     public void resumeFocus() {
         Log.d(TAG, "resume focus fragment");
 
@@ -91,10 +102,18 @@ public abstract class SmartPitFragment extends Fragment implements
                 this.getFragmentsListener());
     }
 
+    /**
+     * returns current SmartPitFragmentsInterface (SmartPitActivity or SmartPitBaseFragment)
+     * @return
+     */
     public SmartPitFragmentsInterface getFragmentsListener() {
         return listener;
     }
 
+    /**
+     * strip view method for stripping all layout. By default is invoked inside onDestroyView().
+     * Method clears all views from layout and removes bitmap for better memory managment.
+     */
     @Override
     public void stripView() {
         Log.d(TAG, "striping view ...");

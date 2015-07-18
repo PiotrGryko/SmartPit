@@ -56,8 +56,10 @@ import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 
 /**
  * Main Library class. Each library activity extends this class. Custom activity have to be extended by this class.
- * SmartPitActivity has build in simple SmartPitFragment navigation system. SetFirstFragment ,switchFragment and switchTitleFragment
- * methods allaws to easy navigte through app pages that covers whole screen. Each page schould extend SmartPitFragment class.
+ * SmartPitActivity implements SmartPitFragmentsInterface that force implementation of fragments managments methods.
+ * SetFirstFragment ,switchFragment and switchTitleFragment methods allaws to easy navigte
+ * through app pages that covers whole screen. Each page schould extend SmartPitFragment class.
+ *
  *
  * minimum sample:
  *

@@ -16,6 +16,16 @@ import pl.gryko.smartpitlib.R;
 import pl.gryko.smartpitlib.interfaces.SmartPitFragmentsInterface;
 import pl.gryko.smartpitlib.widget.Log;
 
+/**
+ *
+ * SmartPitFragment that that is host for childs fragments. Contains own FragmentManager.
+ * Implements SmartPitFragmentsInterface the same like SmartPitActivity. Interface forces
+ * implementation of fragments managment methods. Each SmartPitBaseFragment has its own fragments backstack
+ * so it can be used in example in ViewPager where each page has its own deep navigation.
+ *
+ *
+ */
+
 
 public class SmartPitBaseFragment extends SmartPitFragment implements
         SmartPitFragmentsInterface {
@@ -29,14 +39,26 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     private String TAG = SmartPitBaseFragment.this.getClass().getName();
 
+    /**
+     * sets initial fragment. Have to be invoked at initialization.
+     * @param initialFragment SmartPitFragment to be set as firstFragment
+     */
     public void setInitialFragment(SmartPitFragment initialFragment) {
         this.initialFragment = initialFragment;
     }
 
+    /**
+     * sets backstack listener for childFragmentManager
+     * @param listener
+     */
     public void setBackstackListener(FragmentManager.OnBackStackChangedListener listener) {
         this.backstackListener = listener;
     }
 
+    /**
+     * Fragment onCreate method. Initializing fragments list and childfragmentmaneger.
+     * @param savedInstanceState
+     */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -46,6 +68,12 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     }
 
 
+    /**
+     * Wrapped on onActivityResult to pass result to child fragments.
+     * @param requestCode int startActivity request code
+     * @param resultCode int result code
+     * @param data Intent that holds return data
+     */
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -58,6 +86,13 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     }
 
 
+    /**
+     * onCreateView method that sets initial fragment. Have to be invoked by .super(inflater,parent,savedInstanceState) inside overriden method.
+     * @param inflater
+     * @param parent
+     * @param savedInstanceState
+     * @return
+     */
     public View onCreateView(LayoutInflater inflater, ViewGroup parent,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.smart_base_fragment, parent, false);
@@ -65,6 +100,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         initBase(initialFragment);
         return v;
     }
+
 
 
     public void resumeFocus() {
@@ -94,12 +130,18 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         }
     }
 
+    /**
+     * clears backstack to initial fragment.
+     */
     public void clearBackstack() {
 
         fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
     }
 
+    /**
+    custom onBackPresssed implementation.  Returns true if local backstack is not empty.
+     */
     public boolean onBackPressed() {
         boolean consumed = false;
 
@@ -118,6 +160,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         this.position = position;
     }
 
+    /**
+     * method invoked in onCreateView method. Sets fragments as initial fragment and current fragment for pages tracking.
+     * @param fragment SmartPitFragment to be setted as initial fragment. By default incoked with initialFragment
+     *                 setted by setInitialFragment(SmartPitFragment) method.
+     */
     public void initBase(SmartPitFragment fragment) {
 
         if (fragment == null || fm == null)
@@ -137,8 +184,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     }
 
 
-    // ///////////this method add fragment to fragments list.
-    // ////////// it replaces dupes to avoid fragments arguments issues
+    /**
+     * sets current fragment for fragments tracking/
+     * @param fragment fragment to be setted
+     * @param removePrevious boolean false if you show fev the same fragments in a row.
+     */
     @Override
     public void setCurrentFragment(SmartPitFragment fragment,
                                    boolean removePrevious) {
@@ -158,7 +208,10 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         fragmentsList.add(fragment);
     }
 
-    // /////return currently added fragment
+    /**
+     * return currently added fragment
+     * @return SmartPitFragment currently added fragment
+     */
     @Override
     public SmartPitFragment getCurrentFragment() {
 
@@ -177,9 +230,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         return null;
     }
 
-    //
-    // ////////////////////replace current fragment with argument fragment,
-    // /////////////// transition with in/out animations added to backstack
+    /**
+     * switch fragment and add transiction to backstack.
+     * @param fragment SmartPitFragment to be set.
+     * @param removePrevious false if  you show few the same fragments in a row
+     */
     @Override
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
 
@@ -203,8 +258,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         }
     }
 
-    // //////////method switch title fragment, transition with in animation not
-    // added to backstack
+    /**
+     * switch fragment without adding transiction to backstack.
+     * @param fragment SmartPitFragment to be set.
+     * @param removePrevious false if  you show few the same fragments in a row
+     */
     @Override
     public void switchTitleFragment(SmartPitFragment fragment,
                                     boolean removePrevious) {
@@ -230,6 +288,10 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         }
     }
 
+    /**
+     * Inkoes setActionbarLabel in parent SmartPitFragmentsInterface. In example SmartPitActivity or parent SmartPitBaseFragment
+     * @param label String to be passed to activity
+     */
     @Override
     public void setActionBarLabel(String label) {
 
@@ -246,6 +308,11 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     }
 
+
+    /**
+     * return currently used FragmentManager
+     * @return FragmentManager
+     */
     public FragmentManager getManager() {
 
         return fm;
@@ -256,12 +323,20 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         return position;
     }
 
+    /**
+     * return parent activity
+     * @return SmartPitActivity parent activity
+     */
     @Override
     public Activity getSmartActivity() {
         // TODO Auto-generated method stub
         return this.getActivity();
     }
 
+    /**
+     * return fragent label
+     * @return
+     */
     public String getLabel() {
 
 
