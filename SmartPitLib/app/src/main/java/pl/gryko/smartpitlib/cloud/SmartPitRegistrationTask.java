@@ -11,6 +11,9 @@ import pl.gryko.smartpitlib.widget.Log;
 
 /**
  * Created by piotr on 06.04.14.
+ *
+ * GCM registaration task class that performs rgistratation in background.
+ *
  */
 public class SmartPitRegistrationTask extends AsyncTask<Object, String, String> {
 

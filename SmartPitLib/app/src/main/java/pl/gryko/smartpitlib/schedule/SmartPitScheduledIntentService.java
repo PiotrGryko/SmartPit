@@ -21,6 +21,13 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+
+/**
+ * Implementation of intent service that can perform custom operations inside ScheduleTaskListener.
+ * IntentService can be easy started by invoking SmartPitAppHelper.initScheduledService with passed ScheduledTaskListener.
+ * In example can be used for easy setup feching new API orders each 60 seconds.
+ */
+
 public class SmartPitScheduledIntentService extends IntentService {
 
     private String TAG = SmartPitScheduledIntentService.class.getName();

@@ -17,8 +17,19 @@ import android.widget.RelativeLayout;
 import pl.gryko.smartpitlib.R;
 
 
+/**
+ * Use this class instead ImageView to set source from url using SmartPitAppHelper().getInstance(context).setImage(SmartImageView, url, width, height);
+ * Image is feched from web, saved on local and disk memory. If its available in memory its served from local LruCache or DiskLruCache.
+ *
+ * Class is ViewGroup with wrapped ImageView and ProgressBar inside. In default implementation while feching image progress bar is visible. After
+ * successfull  loading, image shows with fading animation. User can set ErrorDrawable that is display  when image cant be load.
+ */
+
 public class SmartImageView extends ViewGroup {
 
+    /**
+     * Enum mode. invoke SmartImageView object.setMode(Mode) for circle or normal shaped image.
+     */
     public static enum Mode {
         CIRLCE, NORMAL;
     }
@@ -81,16 +92,31 @@ public class SmartImageView extends ViewGroup {
         initChildrens(context);
     }
 
+    /**
+     * sets Drawable that is displayed at image loading failure
+     * @param error
+     */
     public void setErrorImage(Drawable error) {
         errorImage = error;
     }
 
+    /**
+     * allows setting deifferent ImageView than default
+     * @param imageView ImageView that will holds image source.
+     */
     public void setCustomImageView(ImageView imageView) {
-        this.removeView(imageView);
         this.imageView = imageView;
-        this.addView(imageView);
+        this.removeAllViews();
+        this.addView(errorView);
+
+        this.addView(this.imageView);
+        this.addView(progressBar);
     }
 
+    /**
+     * Allows setting custom imageView for showing error drawable.
+     * @param imageView
+     */
     public void setCustomErrorImageView(ImageView imageView) {
         this.errorView = imageView;
         this.removeAllViews();
@@ -100,6 +126,10 @@ public class SmartImageView extends ViewGroup {
         this.addView(progressBar);
     }
 
+    /**
+     * sets image mode. Mode.CIRCLE.oridinal() or Mode.NORMAL.oridinal()
+     * @param mode Mode.CIRCLE.oridinal() or Mode.NORMAL.oridinal()
+     */
     public void setMode(int mode) {
         this.mode = mode;
         this.removeView(imageView);
@@ -118,6 +148,7 @@ public class SmartImageView extends ViewGroup {
 
         this.addView(imageView);
     }
+
 
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -215,13 +246,14 @@ public class SmartImageView extends ViewGroup {
 
     }
 
-    public void setErrorDrawable(Drawable error) {
-        this.errorImage = error;
-    }
 
+    /**
+     * sets bitmap to image view, shows result and hide progressbar
+     * @param b
+     */
     public void setImageBitmap(Bitmap b) {
 
-        Log.d(TAG,"set image bitmap ");
+        Log.d(TAG, "set image bitmap ");
 
         imageView.setImageBitmap(b);
 
@@ -235,6 +267,9 @@ public class SmartImageView extends ViewGroup {
     }
 
 
+    /**
+     * hides progressbar and shows error drawable
+     */
     public void showErrorImage() {
 
         Log.d(TAG,"show error image");
@@ -251,29 +286,32 @@ public class SmartImageView extends ViewGroup {
 
     }
 
+    /**
+     * returns error image view
+     * @return ImageView that holds error drawable
+     */
     public ImageView getErrorView()
     {
         return errorView;
     }
 
+    /**
+     * returns image IamgeView
+     * @return ImageView that holds result image
+     */
     public ImageView getImageView() {
         return imageView;
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
-        this.removeAllViews();
-        this.addView(errorView);
 
-        this.addView(this.imageView);
-        this.addView(progressBar);
-    }
-
-
-
+    /**
+     * return ProgressBar
+     * @return ProgressBar displayed while image loading
+     */
     public ProgressBar getProgressBar() {
         return progressBar;
     }
+
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {

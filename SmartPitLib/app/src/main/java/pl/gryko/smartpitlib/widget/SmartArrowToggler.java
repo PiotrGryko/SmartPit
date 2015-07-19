@@ -9,6 +9,12 @@ import android.view.View;
 
 /**
  * Created by piotr on 06.06.15.
+ *
+ * Arrow toggler for action bar that works like Gmail arrow. With animation flot three stipes
+ * connects creating arrow with 360 degree rotation. Invoke update(int move) with argument in range 0.0f - 1.0f
+ * that indicates percent of animation completion. In example this can be used in cooperation with NavigationDrawerListener
+ * that returns percent of drawer slide, or ViewPagerListener that return percent of page flip.
+ *
  */
 public class SmartArrowToggler extends View {
 
@@ -39,12 +45,29 @@ public class SmartArrowToggler extends View {
 
     }
 
+    /**
+     * returns paint used to draw arrow
+     * @return Paint
+     */
+    public Paint getPaint()
+    {
+        return paint;
+    }
+
+    /**
+     * invoke that method inside some sliding event listener. Pass argument in ragne 0.0f - 1.0.f that indicates animation progress
+     * @param move float move from 0 to 1 that indicates animation progerss
+     */
     public void update(float move) {
         this.MOVE = move;
         this.invalidate();
     }
 
 
+    /**
+     * custom draw method that draws arrow on canvas
+     * @param canvas Canvas to draw
+     */
     public void onDraw(Canvas canvas) {
 
 

@@ -24,12 +24,19 @@ import pl.gryko.smartpitlib.widget.Log;
 
 /**
  * Created by piotr on 20.03.15.
+ *
+ * Class that wraps google direction api. Allaws ask google for route between two points and later draw in on map.
  */
 public class SmartMapRouteManager {
 
     private String TAG = pl.gryko.smartpitlib.route.SmartMapRouteManager.class.getName();
 
 
+    /**
+     * Google direction api returns json with structure routes->legs->steps. Each step response contains encoded polyline data, html instructions, dirsance and ruration.
+     * These implementation allows easly interact with each step line drawed on map. In example show different instructions for different step.
+     *
+     */
     public class Step {
         public String distance;
         public String duration;
@@ -37,11 +44,21 @@ public class SmartMapRouteManager {
         public PolylineOptions polylineOptions;
         public Polyline polyline;
 
+        /**
+         * draws line on google map, sets local variable and return value;
+         * @param map GoogleMap to draw line
+         * @return Polyline drawed on map
+         */
         public Polyline drawLine(GoogleMap map) {
             polyline = map.addPolyline(polylineOptions);
             return polyline;
         }
 
+        /**
+         * parse json data into Step object
+         * @param data JSONObject data
+         * @return Step object.
+         */
         public Step init(JSONObject data) {
             JSONObject dist = null;
             try {
@@ -66,6 +83,9 @@ public class SmartMapRouteManager {
         }
     }
 
+    /**
+     * higher part of google response. Each leg contains own steps, duration, start and end adres, distance.
+     */
     public class Leg {
         public String distance;
         public String duration;
@@ -101,7 +121,14 @@ public class SmartMapRouteManager {
     }
 
 
+    /**
+     * Interface to be invoked after successful data feching
+     */
     public interface RouteListener {
+        /**
+         *
+         * @param routes ArrayList of Legs to be draw on map
+         */
         public void success(ArrayList<Leg> routes);
 
         public void failure();
@@ -183,6 +210,13 @@ public class SmartMapRouteManager {
     }
 
 
+    /**
+     * main method. Hets start and end point coords, google api_key and route listener.
+     * @param start LatLng startpoint
+     * @param end LatLng endpoint
+     * @param api_key String google api key
+     * @param listener listener
+     */
     public void showRoute(LatLng start, LatLng end, String api_key, final RouteListener listener) {
 
         getRoad(new Response.Listener() {

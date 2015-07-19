@@ -9,6 +9,9 @@ import org.json.JSONObject;
 
 /**
  * Created by piotr on 06.04.14.
+ *
+ * Wrapped google geocode response into model class.
+ * By default its used in SmartPitGoogleAddressesAdapter.
  */
 public class SmartPitGoogleAddress {
 
@@ -113,6 +116,11 @@ public class SmartPitGoogleAddress {
         return (SmartPitGoogleAddress) new Gson().fromJson(data, SmartPitGoogleAddress.class);
     }
 
+    /**
+     * parse json object and return class object
+     * @param o JSONObject containing google geocode responsse data
+     * @return Initlialized SmartPitGoogleAddress objec.
+     */
 
     public static SmartPitGoogleAddress valueOfGoogleJson(JSONObject o) {
 

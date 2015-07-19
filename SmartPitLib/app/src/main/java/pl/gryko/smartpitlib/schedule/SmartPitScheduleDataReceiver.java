@@ -10,6 +10,10 @@ import android.content.Intent;
 
 import pl.gryko.smartpitlib.widget.Log;
 
+/**
+ * Implementation of BroadcasrReceiver that invokes SmartPitScheduledIntentService using ALARM_SERVICE
+ */
+
 
 public class SmartPitScheduleDataReceiver extends BroadcastReceiver {
 

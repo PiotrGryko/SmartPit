@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentManager;
 
 import pl.gryko.smartpitlib.fragment.SmartPitFragment;
 
+/**
+ * main fragment managment interface. SmartPitActivity or SmartPitBaseFragment impleents these methods.
+ */
 
 public interface SmartPitFragmentsInterface {
 

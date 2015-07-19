@@ -15,6 +15,9 @@ import android.widget.ImageView;
 
 /**
  * Created by piotr on 13.05.14.
+ *
+ * Implementation of ImageView that draw image into circle.
+ *
  */
 public class SmartCircleImageView extends ImageView {
 
@@ -27,6 +30,11 @@ public class SmartCircleImageView extends ImageView {
         super(context);
     }
 
+    /**
+     * onDraw implementation. Gets bitmap from ImageView by Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+     * next transform bitmap into cropped one and redraw in on canvas.
+     * @param canvas
+     */
     @Override
     protected void onDraw(Canvas canvas) {
 
@@ -63,6 +71,12 @@ public class SmartCircleImageView extends ImageView {
 
     }
 
+    /**
+     * Draws  bitmap into circle and return transformed bitmap
+     * @param bmp bitmap to draw into circle
+     * @param radius radius of circle
+     * @return circle shaped Bitmap
+     */
     public Bitmap getCroppedBitmap(Bitmap bmp, int radius) {
         Bitmap sbmp;
         if (bmp.getWidth() != radius || bmp.getHeight() != radius)

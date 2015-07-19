@@ -76,14 +76,7 @@ public class SmartPitRowedLayout extends ViewGroup {
                 height = ypos + line_height;
             }
         }
-        // if(heightMeasureSpec == 0){
-        // heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST);
-        //  setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec), getDefaultSize(this.getSuggestedMinimumHeight(), heightMeasureSpec));
 
-        //}
-        //  Log.d(TAG," height measure spec"+Integer.toString(heightMeasureSpec));
-
-        Log.d(TAG, "widht: " + Integer.toString(width) + " height " + Integer.toString(height));
         setMeasuredDimension(width, height);
     }
 
@@ -115,7 +108,6 @@ public class SmartPitRowedLayout extends ViewGroup {
                     ypos += line_height;
                 }
                 child.layout(xpos, ypos, xpos + childw, ypos + childh);
-                Log.d(TAG,"child layout");
                 xpos += childw + lp.width;
             }
         }

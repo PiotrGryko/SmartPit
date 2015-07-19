@@ -1,8 +1,13 @@
 package pl.gryko.smartpitlib.widget;
 
+/**
+ * Implementation of Log that can me easy turned-off.
+ * Use this Log instead android.Log and before production set Log.flag=false; at app start to disable logs.
+ */
+
 public class Log {
 
-	private static boolean flag = true;
+	public static boolean flag = true;
 
 	public static void d(String tag, String msg) {
 		if (flag)

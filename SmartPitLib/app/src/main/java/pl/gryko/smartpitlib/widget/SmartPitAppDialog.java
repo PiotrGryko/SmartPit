@@ -23,12 +23,21 @@ import pl.gryko.smartpitlib.R;
 
 /**
  * Created by piotr on 02.04.14.
+ *
+ * Helper class with wrapped AlertDialog initializations
+ *
  */
 
 
 public class SmartPitAppDialog {
 
 
+    /**
+     * returns AlertDialog based on devise SDK
+     * @param theme AlertDialog.THEME
+     * @param context Context
+     * @return AlertDialog
+     */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static AlertDialog getAlertDialog(int theme, Context context) {
         AlertDialog alert = null;
@@ -43,6 +52,13 @@ public class SmartPitAppDialog {
 
     }
 
+    /**
+     * returns info dialog with message and dissmis button.
+     * @param theme AlertDialog.THEME
+     * @param context context
+     * @param message String message to display
+     * @return AlertDialog
+     */
     public static AlertDialog getInfoDialog(int theme,final Context context, String message) {
         final AlertDialog alert = getAlertDialog(theme, context);
         alert.setMessage(message);
@@ -55,6 +71,14 @@ public class SmartPitAppDialog {
         return alert;
     }
 
+    /**
+     * shows exit dialog with message and two buttons. Dismiss and finis activity.
+     * @param theme
+     * @param context
+     * @param message
+     * @param confirm
+     * @param cancel
+     */
     public static void showExitDialog(int theme,final Activity context, String message, String confirm, String cancel) {
         final AlertDialog alert = getAlertDialog(theme, context);
 

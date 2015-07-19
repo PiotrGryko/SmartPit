@@ -17,24 +17,36 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * Created by piotr on 14.05.14.
+ *
+ * Implementation of MultipartFormData. Can be used for send files on server
+ *
  */
 public class SmartMultipartRequest extends Request<String> {
 
     private MultipartEntity entity = new MultipartEntity();
 
-    private static final String FILE_PART_NAME = "file";
-    private static final String STRING_PART_NAME = "text";
+    private static  String FILE_PART_NAME = "file";
+    private static  String STRING_PART_NAME = "text";
 
     private final Response.Listener<String> mListener;
     private final File mFilePart;
     private final String mStringPart;
 
-    public SmartMultipartRequest(String url, Response.ErrorListener errorListener, Response.Listener<String> listener, File file, String stringPart) {
+    /**
+     * Constructor
+     * @param url String url to perform request
+     * @param errorListener ErrorListener for error response
+     * @param listener SuccessListener for success response
+     * @param file File to send
+     * @param fileMame String name to name file argument.
+     */
+    public SmartMultipartRequest(String url, Response.ErrorListener errorListener, Response.Listener<String> listener, File file, String fileMame) {
         super(Method.PUT, url, errorListener);
 
         mListener = listener;
         mFilePart = file;
-        mStringPart = stringPart;
+        mStringPart = fileMame;
+        FILE_PART_NAME = fileMame;
         buildMultipartEntity();
     }
 
