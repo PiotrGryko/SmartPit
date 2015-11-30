@@ -71,7 +71,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
         } catch (IOException e) {
 
-            Log.d(TAG, "error!! " + e.toString());
             e.printStackTrace();
         }
 
@@ -111,7 +110,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
             editor.commit();
         } catch (Throwable t) {
 
-            Log.d(TAG, "error wihile putting ! " + t.toString());
         }
     }
 
@@ -138,7 +136,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
         } catch (Throwable e) {
 
-            Log.d(TAG, "error while loading from disk");
             return null;
         }
     }
@@ -153,10 +150,8 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
                 .md5(url)));
 
         Bitmap tmp = get(url);
-        Log.d(TAG, "checking local cache " + url +" "+tmp);
 
-        if (tmp != null)
-            Log.d(TAG, "bitmap cached in local memory " + url);
+
         return tmp;
     }
 
@@ -170,7 +165,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
         url = new String(Hex.encodeHex(DigestUtils
                 .md5(url)));
 
-        Log.d(TAG,"check disck caching "+url);
 
         try {
 
@@ -183,7 +177,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
                 return false;
 
             snapshot = null;
-            Log.d(TAG, "Bitmap is disc cached " + url);
 
             return true;
 
@@ -197,7 +190,7 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
     /**
      * method that removes Bitmap with given key from LruCache and DiskLruCache
-     * @param key
+     * @param key String key of bitmap to remove
      */
     public void removeKey(String key) {
         key = new String(Hex.encodeHex(DigestUtils
@@ -226,7 +219,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
         if (memoryBitmap != null) {
 
-            Log.d(TAG, "bitmap loaded from local memory");
             return memoryBitmap;
 
         } else {
@@ -235,7 +227,6 @@ public class SmartPitBitmapCache extends LruCache<String, Bitmap> implements
 
 
             if (b != null && url != null) {
-                Log.d(TAG, "loaded bitmap from disk!");
                 this.put(url, b);
             }
 

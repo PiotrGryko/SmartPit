@@ -14,13 +14,13 @@ import android.widget.ImageView.ScaleType;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import pl.gryko.smartpitlib.R;
 
 
 /**
  * Use this class instead ImageView to set source from url using SmartPitAppHelper().getInstance(context).setImage(SmartImageView, url, width, height);
  * Image is feched from web, saved on local and disk memory. If its available in memory its served from local LruCache or DiskLruCache.
- *
  * Class is ViewGroup with wrapped ImageView and ProgressBar inside. In default implementation while feching image progress bar is visible. After
  * successfull  loading, image shows with fading animation. User can set ErrorDrawable that is display  when image cant be load.
  */
@@ -38,7 +38,7 @@ public class SmartImageView extends ViewGroup {
 
     private ImageView imageView;
     private ImageView errorView;
-    private SmartCircleImageView circleImageView;
+    private CircleImageView circleImageView;
     private ProgressBar progressBar;
     private Drawable errorImage;
     private Context context;
@@ -52,18 +52,18 @@ public class SmartImageView extends ViewGroup {
         errorImage = context.getResources().getDrawable(R.drawable.exclamation_mark);
 
         if (mode == Mode.CIRLCE.ordinal()) {
-            errorView = new SmartCircleImageView(context);
-            imageView = new SmartCircleImageView(context);
+            errorView = new CircleImageView(context);
+            imageView = new CircleImageView(context);
         } else {
-            {
-                imageView = new ImageView(context);
-                errorView = new SmartCircleImageView(context);
 
-            }
+            imageView = new ImageView(context);
+            errorView = new ImageView(context);
+            imageView.setAdjustViewBounds(true);
+
+
+
         }
-        imageView.setAdjustViewBounds(true);
         progressBar = new ProgressBar(context);
-        progressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#F9933F"), PorterDuff.Mode.MULTIPLY);
 
 
         this.addView(errorView);
@@ -94,7 +94,8 @@ public class SmartImageView extends ViewGroup {
 
     /**
      * sets Drawable that is displayed at image loading failure
-     * @param error
+     *
+     * @param error Drawable error
      */
     public void setErrorImage(Drawable error) {
         errorImage = error;
@@ -102,6 +103,7 @@ public class SmartImageView extends ViewGroup {
 
     /**
      * allows setting deifferent ImageView than default
+     *
      * @param imageView ImageView that will holds image source.
      */
     public void setCustomImageView(ImageView imageView) {
@@ -115,7 +117,8 @@ public class SmartImageView extends ViewGroup {
 
     /**
      * Allows setting custom imageView for showing error drawable.
-     * @param imageView
+     *
+     * @param imageView ImageView to hold error drawable
      */
     public void setCustomErrorImageView(ImageView imageView) {
         this.errorView = imageView;
@@ -128,6 +131,7 @@ public class SmartImageView extends ViewGroup {
 
     /**
      * sets image mode. Mode.CIRCLE.oridinal() or Mode.NORMAL.oridinal()
+     *
      * @param mode Mode.CIRCLE.oridinal() or Mode.NORMAL.oridinal()
      */
     public void setMode(int mode) {
@@ -137,8 +141,8 @@ public class SmartImageView extends ViewGroup {
 
 
         if (mode == Mode.CIRLCE.ordinal()) {
-            errorView = new SmartCircleImageView(context);
-            imageView = new SmartCircleImageView(context);
+            errorView = new CircleImageView(context);
+            imageView = new CircleImageView(context);
         } else {
             errorView = new ImageView(context);
             imageView = new ImageView(context);
@@ -249,7 +253,8 @@ public class SmartImageView extends ViewGroup {
 
     /**
      * sets bitmap to image view, shows result and hide progressbar
-     * @param b
+     *
+     * @param b Bitmap to set as image
      */
     public void setImageBitmap(Bitmap b) {
 
@@ -272,7 +277,7 @@ public class SmartImageView extends ViewGroup {
      */
     public void showErrorImage() {
 
-        Log.d(TAG,"show error image");
+        Log.d(TAG, "show error image");
         progressBar.setVisibility(View.GONE);
 
 
@@ -288,15 +293,16 @@ public class SmartImageView extends ViewGroup {
 
     /**
      * returns error image view
+     *
      * @return ImageView that holds error drawable
      */
-    public ImageView getErrorView()
-    {
+    public ImageView getErrorView() {
         return errorView;
     }
 
     /**
      * returns image IamgeView
+     *
      * @return ImageView that holds result image
      */
     public ImageView getImageView() {
@@ -306,6 +312,7 @@ public class SmartImageView extends ViewGroup {
 
     /**
      * return ProgressBar
+     *
      * @return ProgressBar displayed while image loading
      */
     public ProgressBar getProgressBar() {

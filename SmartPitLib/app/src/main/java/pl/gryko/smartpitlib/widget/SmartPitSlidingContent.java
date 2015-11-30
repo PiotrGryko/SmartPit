@@ -15,6 +15,8 @@ import pl.gryko.smartpitlib.SmartPitMenuActivity;
 
 /**
  * Created by piotr on 02.04.14.
+ *
+ * Deprecated. Use NavigationDrawer instead
  */
 public class SmartPitSlidingContent extends LinearLayout {
 

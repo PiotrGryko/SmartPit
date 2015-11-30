@@ -56,6 +56,7 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
 
     private boolean barcodeScanned = false;
     private boolean previewing = true;
+    private boolean initialized=false;
 
     public abstract void parseData(String data);
 
@@ -80,12 +81,13 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
         scanner.setConfig(0, Config.X_DENSITY, 3);
         scanner.setConfig(0, Config.Y_DENSITY, 3);
         mPreview = new SmartPitCameraPreview(this.getActivity(), mCamera, previewCb, autoFocusCB);
+        initialized=true;
 
     }
 
     /**
      * returns SmartPitCameraPreview instance
-     * @return SmartPitCameraPreview instance
+     * @return  SmartPitCameraPreview instance
      */
     public SmartPitCameraPreview getPreviewInstance()
     {
@@ -97,7 +99,9 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
      */
     public void startCamera()
     {
+
         if (barcodeScanned) {
+
             barcodeScanned = false;
             mCamera.setPreviewCallback(previewCb);
             mCamera.startPreview();
@@ -108,8 +112,9 @@ public abstract class SmartPitQrFragment extends SmartPitFragment{
 
 
 
-    public void onPause() {
-        super.onPause();
+
+    public void onDestroyView() {
+        super.onDestroyView();
         releaseCamera();
     }
 

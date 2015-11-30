@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout.LayoutParams;
 
+import pl.gryko.smartpitlib.bitmaps.SmartPitImageLoader;
 import pl.gryko.smartpitlib.widget.SmartImageView;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 
@@ -62,7 +63,7 @@ public class SmartPitImagesFlipperAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((SmartImageView) object);
 
-        SmartPitAppHelper.getInstance(context).stripViewGroup((SmartImageView) object, false);
+        SmartPitAppHelper.stripViewGroup((SmartImageView) object, false);
     }
 
     @Override
@@ -91,7 +92,7 @@ public class SmartPitImagesFlipperAdapter extends PagerAdapter {
         imageView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
                 LayoutParams.FILL_PARENT));
 
-        SmartPitAppHelper.getInstance(context).setImage(imageView, list.get(position),
+        SmartPitImageLoader.setImage(context,imageView, list.get(position),
                 width, height);
 
         row = imageView;

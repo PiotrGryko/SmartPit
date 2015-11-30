@@ -9,6 +9,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,9 +24,16 @@ import java.util.zip.ZipInputStream;
 
 /**
  * Created by piotr on 12.01.15.
+ *
+ * Collection of static methods conntected with files handling.
+ * Some of methods are quite old and might be not best solution.
+ *
  */
 public class SmartPitFilesHandler {
 
+    /**
+     * Download listener
+     */
     public interface DownloadListener {
         public void onSuccess(File file, AsyncTask task);
 
@@ -36,6 +44,13 @@ public class SmartPitFilesHandler {
 
     private static String TAG = SmartPitFilesHandler.class.getName();
 
+    /**
+     * Download file from url and save it cache dir
+     * @param url File url
+     * @param context Context
+     * @param listener Download callback
+     * @return AsyncTask to be executed
+     */
     public static AsyncTask downloadFile(final String url, final Context context, final DownloadListener listener) {
         AsyncTask task = new AsyncTask() {
             @Override
@@ -142,6 +157,11 @@ public class SmartPitFilesHandler {
     }
 
 
+    /**
+     * Unpack zip file
+     * @param zipFile File zip to unpack
+     * @return
+     */
     public static boolean unpackZip(File zipFile) {
         InputStream is;
         ZipInputStream zis;
@@ -190,6 +210,13 @@ public class SmartPitFilesHandler {
         return true;
     }
 
+    /**
+     * read simple String from assets text file
+     * @param context Context
+     * @param filename Sttring filename
+     * @return returns readed String
+     */
+
     public static String readTextFileFromAssets(Context context, String filename) {
 
         StringBuilder b = new StringBuilder("");
@@ -209,6 +236,13 @@ public class SmartPitFilesHandler {
         return b.toString();
     }
 
+    /**
+     * Reads text file from given directory
+     * @param context Context
+     * @param dir directory that holds file
+     * @param filename String filename to read
+     * @return readed String
+     */
     public static String readTextFile(Context context, String dir, String filename) {
 
         StringBuilder b = new StringBuilder("");
@@ -228,6 +262,78 @@ public class SmartPitFilesHandler {
         }
 
         return b.toString();
+    }
+
+    /**
+     * Saves given String as a textfile to cache dir
+     * @param context Context
+     * @param data String data to save
+     * @param filename String name of a file
+     */
+    public static void saveTextDataToCache(final Context context, final String data, final String filename) {
+
+        new Thread() {
+            public void run() {
+
+                File f = new File(
+                        context.getApplicationContext().getCacheDir(), filename);
+                FileOutputStream fos;
+                try {
+                    fos = new FileOutputStream(f);
+                    fos.write(data.getBytes());
+                    fos.flush();
+                    fos.close();
+
+                } catch (Throwable t) {
+                    // TODO Auto-generated catch block
+                    Log.d(TAG,
+                            "error while saving data to cache " + t.toString());
+
+                }
+
+                Log.d(TAG, "data saved to cache!");
+
+            }
+        }.start();
+
+    }
+
+    /**
+     * Reads text data from cache directory
+     * @param context Context
+     * @param filename File name
+     * @return String
+     */
+    public static String loadTextDataFromCache(Context context, String filename) {
+        File f = new File(context.getApplicationContext().getCacheDir(),
+                filename);
+        if (!f.exists()) {
+            Log.d(TAG, "can`t load data from cache, file doesn`t exits");
+
+            return "";
+        }
+
+        StringBuffer data = new StringBuffer();
+        String line;
+        try {
+            FileInputStream fis = new FileInputStream(f);
+            DataInputStream dis = new DataInputStream(fis);
+
+            while ((line = dis.readLine()) != null) {
+                data.append(line);
+            }
+            dis.close();
+            fis.close();
+
+        } catch (Throwable t) {
+            // TODO Auto-generated catch block
+            Log.d(TAG, "can`t load data from cache, error while reading data");
+            return "";
+        }
+        Log.d(TAG, "data loaded from cache");
+
+        return data.toString();
+
     }
 
 }

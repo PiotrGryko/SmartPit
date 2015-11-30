@@ -33,7 +33,7 @@ public class SmartMapRouteManager {
 
 
     /**
-     * Google direction api returns json with structure routes->legs->steps. Each step response contains encoded polyline data, html instructions, dirsance and ruration.
+     * Google direction api returns json with structure routes-legs-steps. Each step response contains encoded polyline data, html instructions, dirsance and ruration.
      * These implementation allows easly interact with each step line drawed on map. In example show different instructions for different step.
      *
      */

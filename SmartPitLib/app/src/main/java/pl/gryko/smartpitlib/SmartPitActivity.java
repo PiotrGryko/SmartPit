@@ -164,7 +164,7 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      *
-     * @returns fragmentManager used to basic navigation
+     * @return fragmentManager used to basic navigation
      */
     public FragmentManager getManager() {
         return fm;
@@ -217,9 +217,9 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * THIS METHOD WILL BE REWRITTEN!
-     * @param background
-     * @param customView
-     * @param label
+     * @param background Drawable backgroun
+     * @param customView View view
+     * @param label TextView label
      */
     public void initActionbar(Drawable background, View customView, TextView label) {
         this.customActionbarView = customView;
@@ -233,10 +233,10 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * THIS METHOD WILL BE REWRITEEN
-     * @param background
-     * @param icon
-     * @param backIcon
-     * @param arrow
+     * @param background Drawable drawable
+     * @param icon Drawable icon
+     * @param backIcon Drawable backicon
+     * @param arrow boolean show arrow
      */
     public void initBackstackActionbar(Drawable background, final Drawable icon, final Drawable backIcon, boolean arrow) {
         ab = this.getSupportActionBar();
@@ -285,8 +285,8 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * Activity keeps track of currently added fragment. This method is invoked after each fragment transition.
-     * @param fragment
-     * @param removePrevious
+     * @param fragment SmartPitFragment
+     * @param removePrevious flag
      */
     @Override
     public void setCurrentFragment(SmartPitFragment fragment,
@@ -334,7 +334,7 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * return currently added fragment
-     * @return
+     * @return currently added SmartPitFragment
      */
 
     @Override
@@ -353,8 +353,8 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * Switch fragments inside activity. Each fragmentTransaction will be added to backstack.
-     * @param fragment
-     * @param removePrevious
+     * @param fragment SmartPitFragment to switch
+     * @param removePrevious flag
      */
     @Override
     public void switchFragment(SmartPitFragment fragment, boolean removePrevious) {
@@ -376,8 +376,8 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * Switch fragments, fragments won`t be added to backstack
-     * @param fragment
-     * @param removePrevious
+     * @param fragment SmartPitFragment to swtich
+     * @param removePrevious booelan flag
      */
     @Override
     public void switchTitleFragment(SmartPitFragment fragment,
@@ -427,7 +427,7 @@ public class SmartPitActivity extends ActionBarActivity implements
      * @param l registration task listener
      */
     public void initGcmService(String senderId, SmartPitGcmIntentService.OnMessageListener listener, SmartPitRegistrationTask.OnRegistrationListener l) {
-        if (SmartPitAppHelper.getInstance(this).checkPlayServices(this)) {
+        if (SmartPitAppHelper.checkPlayServices(this)) {
 
 
             SmartPitGcmIntentService.setOnMessageListener(listener);
@@ -460,53 +460,73 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * Inoked after picking image from gallery
-     * @param uri
+     * @param uri Uri uri
      */
     public void onGalleryImagePicked(Uri uri) {
 
     }
     /**
      * Inoked after picking image from gallery
-     * @param file
+     * @param file File file
      */
     public void onGalleryImagePicked(File file) {
 
     }
     /**
      * Inoked after picking image from gallery
-     * @param bitmap
+     * @param bitmap Bitmap bitmap
      */
     public void onGalleryImagePicked(Bitmap bitmap) {
 
     }
 
     /**
+     * Invoked after picking image from gallery
+     * @param uri Uri uri
+     * @param file File file
+     * @param bitmap Bitmap bitmap
+     */
+    public void onGalleryImagePicked(Uri uri, File file, Bitmap bitmap) {
+
+    }
+
+    /**
      * Inoked after picking image from camera
-     * @param uri
+     * @param uri Uri uri
      */
     public void onCameraImagePicked(Uri uri) {
 
     }
     /**
      * Inoked after picking image from camera
-     * @param file
+     * @param file File file
      */
     public void onCameraImagePicked(File file) {
 
     }
     /**
      * Inoked after picking image from camera
-     * @param bitmap
+     * @param bitmap Bitmap bitmap
      */
     public void onCameraImagePicked(Bitmap bitmap) {
 
     }
 
     /**
+     * Invoked after picking image from camera
+     * @param uri Uri uri
+     * @param file File file
+     * @param bitmap Bitmap bitmap
+     */
+    public void onCameraImagePicked(Uri uri, File file, Bitmap bitmap) {
+
+    }
+
+    /**
      * Helper method. Retunrs scalled - orientated photo from gallery URI.
-     * @param photoUri
-     * @param MAX_IMAGE_DIMENSION
-     * @return
+     * @param photoUri Uri photoUri
+     * @param MAX_IMAGE_DIMENSION int max dimenstion
+     * @return scaled Bitmap
      * @throws IOException
      */
     public Bitmap scaleImage(Uri photoUri, int MAX_IMAGE_DIMENSION) throws IOException {
@@ -569,8 +589,8 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * returns orientation of image in photoUri
-     * @param photoUri
-     * @return
+     * @param photoUri Uri photoUri
+     * @return photo orientation
      */
     public int getOrientation(Uri photoUri) {
         /* it's on the external media. */
@@ -587,9 +607,9 @@ public class SmartPitActivity extends ActionBarActivity implements
 
     /**
      * invoked after picking image from gallery/camera
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     * @param requestCode int requestCode
+     * @param resultCode int resultCpde
+     * @param data Intent data
      */
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent data) {
@@ -624,6 +644,7 @@ public class SmartPitActivity extends ActionBarActivity implements
                         onGalleryImagePicked(b);
 
                         onGalleryImagePicked(selectedImage);
+                        onGalleryImagePicked(selectedImage,file,b);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -652,6 +673,7 @@ public class SmartPitActivity extends ActionBarActivity implements
                         fo.close();
 
                         onCameraImagePicked(destination);
+                        onCameraImagePicked(data.getData(),destination,thumbnail);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     } catch (IOException e) {

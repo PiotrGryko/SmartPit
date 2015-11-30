@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +49,7 @@ public abstract class SmartPitFragment extends Fragment implements
 
     /**
      * custom onCreate for basic initialization. Inits SmartPitFragmentsInterface and invokes setActionbarLabel.
-     * @param savedInstanceState
+     * @param savedInstanceState Fragment savedInstanceState
      */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +62,6 @@ public abstract class SmartPitFragment extends Fragment implements
         else if (this.getActivity() instanceof SmartPitFragmentsInterface)
             listener = (SmartPitFragmentsInterface) this.getActivity();
 
-        setActionbarLabel();
 
         //   listener.setActionBarLabel(getLabel());
 
@@ -70,7 +70,7 @@ public abstract class SmartPitFragment extends Fragment implements
 
     /**
      * Custom onBackPressed. Can be overriden to implement some custom logic. Return true if you want to consume back press event.
-     * @return
+     * @return true if event is consumed, false otherwise
      */
     public boolean onBackPressed() {
 
@@ -91,20 +91,26 @@ public abstract class SmartPitFragment extends Fragment implements
         resumeFocus();
     }
 
+    public void onStart()
+    {
+        super.onStart();
+        setActionbarLabel();
+
+    }
+
     /**
      * method that resumes focus on current fragment after screen dimm. Is incoked on fragments onResume() method.
      * It prevents nested fragments from losing focus and stop being interactive after turning of the screen.
      */
     public void resumeFocus() {
-        Log.d(TAG, "resume focus fragment");
 
-        SmartPitAppHelper.getInstance(this.getActivity()).resumeFocus(this.getView(),
+        resumeFocus(this.getView(),
                 this.getFragmentsListener());
     }
 
     /**
      * returns current SmartPitFragmentsInterface (SmartPitActivity or SmartPitBaseFragment)
-     * @return
+     * @return SmartPitFragmentsInterface listener used for managing fragments
      */
     public SmartPitFragmentsInterface getFragmentsListener() {
         return listener;
@@ -116,9 +122,8 @@ public abstract class SmartPitFragment extends Fragment implements
      */
     @Override
     public void stripView() {
-        Log.d(TAG, "striping view ...");
         if (this.getView() != null) {
-            SmartPitAppHelper.getInstance(this.getActivity()).stripViewGroup(this.getView(), false);
+            SmartPitAppHelper.stripViewGroup(this.getView(), false);
 
             System.gc();
 
@@ -140,6 +145,62 @@ public abstract class SmartPitFragment extends Fragment implements
 
     public void onConfigurationChanged(Configuration newConfig) {
         Log.d(TAG, "configuration changed!");
+    }
+
+    public void resumeFocus(final View view,
+                                   final SmartPitFragmentsInterface listener) {
+
+        if (view == null)
+            return;
+
+
+        Log.d(TAG, "resume focus " + view.toString());
+
+        view.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Log.d(TAG, "focus changed! " + Boolean.toString(hasFocus));
+//                if(!hasFocus)
+                //                  view.requestFocus();
+                // view.re
+            }
+        });
+
+
+        view.setFocusableInTouchMode(true);
+
+        view.requestFocus();
+        view.requestFocusFromTouch();
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+
+                return true;
+            }
+        });
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent event) {
+                if (keyCode != KeyEvent.KEYCODE_BACK)
+                    return false;
+
+                if (event.getAction() == KeyEvent.ACTION_UP) {
+                    Log.d(TAG, "back pressed " + listener.toString());
+                    if (listener == null)
+                        return true;
+
+                    if (!(listener.getCurrentFragment() instanceof SmartPitBaseFragment))
+                        if (listener.getCurrentFragment().onBackPressed())
+                            return true;
+
+                    listener.getManager().popBackStack();
+                    if (listener.getManager().getBackStackEntryCount() == 0)
+                        listener.getSmartActivity().onBackPressed();
+                }
+                return true;
+            }
+        });
     }
 /*
     @Override

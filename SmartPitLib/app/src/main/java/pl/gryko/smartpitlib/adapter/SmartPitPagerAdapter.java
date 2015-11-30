@@ -60,7 +60,7 @@ public class SmartPitPagerAdapter extends FragmentStatePagerAdapter {
 
 	/**
 	 * custom save state method
-	 * @return
+	 * @return Parselable
 	 */
 	public Parcelable saveState() {
 		// super.saveState();
@@ -71,7 +71,6 @@ public class SmartPitPagerAdapter extends FragmentStatePagerAdapter {
 
 	/**
 	 * custom restore state method
-	 * @return
 	 */
 	public void restoreState(Parcelable a, ClassLoader b) {
 		// super.restoreState(a, b);

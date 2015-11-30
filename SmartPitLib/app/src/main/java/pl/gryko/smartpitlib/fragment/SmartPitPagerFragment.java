@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TabHost;
 
 import pl.gryko.smartpitlib.adapter.SmartPitPagerAdapter;
 import pl.gryko.smartpitlib.adapter.SmartPitViewPagerAdapter;
-import pl.gryko.smartpitlib.widget.Log;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 import pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator;
 
@@ -30,7 +31,7 @@ import pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator;
  *     {
  *         View v = inflater.inflate(R.layout.smart_pager_fragment, parent, false)
  *
- *         ArrayList<SmartPitFragment> fragments_list = new ArrayList<SmartPitFragment>();
+ *         ArrayList SmartPitFragment  fragments_list = new ArrayList SmartPitFragment ();
  *         fragments_list.add(new SmartPitFragment);
  *         fragments_list.add(new SmartPitFragment);
  *
@@ -39,7 +40,7 @@ import pl.gryko.smartpitlib.widget.SmartPitTabHostIndicator;
  *         this.setFragmentsPager(v, R.id.pager,fragments_list)
  *
  *         //instead of setting FragmentsAdapter you can set ViewsAdapter that holds only views and works much faster
- *         ArrayList<View> views_list = new ArrayList<View>();
+ *         ArrayList  View   views_list = new ArrayList  View  ();
  *         viewsList.addView(new LinearLayout(this.getActivity());
  *         viewsList.addView(new LinearLayout(this.getActivity());
  *         this.setViewsPager(v,R.id.pager,views_list);
@@ -126,16 +127,16 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     /**
      * Sets OnSwipeListener for ViewPager.
-     * @param listener
+     * @param listener OnSwipeListener for tracking left - right swiping
      */
     public void setOnSwipeListener(OnSwipeListener listener)
     {
         this.onSwipeListener = listener;
     }
 
-    private SmartPitPagerAdapter pagerAdapter;
+    private FragmentStatePagerAdapter pagerAdapter;
 
-    private SmartPitViewPagerAdapter viewsAdapter;
+    private PagerAdapter viewsAdapter;
 
     private TabHost host;
     private ViewPager viewPager;
@@ -153,8 +154,8 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
 
     /**
-     * returns given ArrayList<SmartPitFragment> list given in setFragmentsPager() method. But wrapped inside SmartPitBaseFragment
-     * @return ArrayList<SmartPitBaseFragment> list of pager SmartPitFragments wrapped inside SmartPitBaseFragment
+     * returns given ArrayList SmartPitFragment  list given in setFragmentsPager() method. But wrapped inside SmartPitBaseFragment
+     * @return ArrayList SmartPitBaseFragment   list of pager SmartPitFragments wrapped inside SmartPitBaseFragment
      */
     public ArrayList<SmartPitBaseFragment> getBaseFragmentsList() {
         return fragmentsList;
@@ -165,7 +166,7 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
      * Each fragment will be wrapped inside SmartPitBaseFragment and have own backstack
      * @param v View return in onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState)
      * @param pagerId ViewPager id from layout. R.id.pager in default layout implementation
-     * @param list ArrayList<SmartPitFragment> of fragments that will be display on ViewPager pages.
+     * @param list ArrayList SmartPitFragment  of fragments that will be display on ViewPager pages.
      */
     public void setFragmentsPager(View v, int pagerId, ArrayList<SmartPitFragment> list) {
 
@@ -202,7 +203,7 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
      * Each fragment will be wrapped inside SmartPitBaseFragment and have own backstack
      * @param v View return in onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState)
      * @param pagerId ViewPager id from layout. R.id.pager in default layout implementation
-     * @param list ArrayList<View> of views that will be displayed on ViewPager pages.
+     * @param list ArrayList View  of views that will be displayed on ViewPager pages.
      */
     public void setViewsPager(View v, int pagerId, ArrayList<View> list) {
 
@@ -246,8 +247,18 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
         return viewPager;
     }
 
+    public void setCustomViewsAdapter(PagerAdapter adapter)
+    {
+        viewsAdapter=adapter;
+    }
+    public void setCustomFragmentAdapter(FragmentStatePagerAdapter adapter)
+    {
+        pagerAdapter=adapter;
+    }
 
     private void setViewsAdapter() {
+
+        //if(viewsAdapter==null)
         viewsAdapter = new SmartPitViewPagerAdapter(this.getActivity(), viewsList);
         viewPager.setAdapter(viewsAdapter);
 
@@ -261,6 +272,7 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
 
     private void setFragmentsAdapter() {
 
+        if(pagerAdapter==null)
         pagerAdapter = new SmartPitPagerAdapter(this.getActivity()
                 .getSupportFragmentManager(), fragmentsList);
 
@@ -303,7 +315,7 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
     public void resumeFocus() {
         if (getHost() != null) {
             if (this.getFragmentsListener().getTab() == getHost().getCurrentTab()) {
-                SmartPitAppHelper.getInstance(this.getActivity()).resumeFocus(this.getView(),
+                resumeFocus(this.getView(),
                         this.getFragmentsListener());
 
             }
@@ -319,7 +331,6 @@ public abstract class SmartPitPagerFragment extends SmartPitFragment implements 
      */
     @Override
     public void onPageScrolled(int position, float movement, int positionOffsetPixels) {
-        Log.d(TAG, "on page scrolled position " + position + "  " + movement + "  " + positionOffsetPixels);
         // customOnPageScrolled(position, positionOffset, positionOffsetPixels);
 
         if (movingIndicator != null) {

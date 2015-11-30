@@ -20,7 +20,7 @@
         <LinearLayout
             android:id="@+id/layout_content"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </android.support.v4.widget.DrawerLayout>
     <!-- The navigation drawer -->
@@ -28,7 +28,7 @@
 
         android:id="@+id/layout_master_content"
         android:orientation="vertical"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </android.support.v4.widget.DrawerLayout>
 

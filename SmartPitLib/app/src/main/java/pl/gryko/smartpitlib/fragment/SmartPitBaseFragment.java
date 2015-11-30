@@ -47,9 +47,14 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
         this.initialFragment = initialFragment;
     }
 
+    public SmartPitFragment getInitialFragment()
+    {
+        return initialFragment;
+    }
+
     /**
      * sets backstack listener for childFragmentManager
-     * @param listener
+     * @param listener BackstackListener for tracking childFragmentManager
      */
     public void setBackstackListener(FragmentManager.OnBackStackChangedListener listener) {
         this.backstackListener = listener;
@@ -57,7 +62,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     /**
      * Fragment onCreate method. Initializing fragments list and childfragmentmaneger.
-     * @param savedInstanceState
+     * @param savedInstanceState Fragment savedInstanceState
      */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +82,6 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "on activity result base fragment");
 
         for (int i = 0; i < fragmentsList.size(); i++) {
             fragmentsList.get(i).onActivityResult(requestCode, resultCode, data);
@@ -88,10 +92,10 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     /**
      * onCreateView method that sets initial fragment. Have to be invoked by .super(inflater,parent,savedInstanceState) inside overriden method.
-     * @param inflater
-     * @param parent
-     * @param savedInstanceState
-     * @return
+     * @param inflater Inflater from context
+     * @param parent ViewGroup parent
+     * @param savedInstanceState Framgnet savedInsstanceState
+     * @return View used for fragment
      */
     public View onCreateView(LayoutInflater inflater, ViewGroup parent,
                              Bundle savedInstanceState) {
@@ -105,7 +109,6 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     public void resumeFocus() {
         super.resumeFocus();
-        Log.d(TAG, "resume focus base fragment");
 
         if (fragmentsList != null && this.getCurrentFragment() != null)
             this.getCurrentFragment().resumeFocus();
@@ -204,7 +207,6 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
             }
         }
-        Log.d(TAG, "new Fragment added to list");
         fragmentsList.add(fragment);
     }
 
@@ -335,7 +337,7 @@ public class SmartPitBaseFragment extends SmartPitFragment implements
 
     /**
      * return fragent label
-     * @return
+     * @return String label passed to SmartPitActivity setActionBarLabel(String label)
      */
     public String getLabel() {
 

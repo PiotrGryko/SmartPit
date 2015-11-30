@@ -38,8 +38,8 @@ import pl.gryko.smartpitlib.fragment.SmartPitFragment;
 
 public class SmartPitNavigationDrawerActivity extends SmartPitActivity {
 
-    private DrawerLayout drawerLayout;
-    private LinearLayout drawerContent;
+    public DrawerLayout drawerLayout;
+    public LinearLayout drawerContent;
     private int drawerGravity;
 
     public void onCreate(Bundle savedInstanceState) {

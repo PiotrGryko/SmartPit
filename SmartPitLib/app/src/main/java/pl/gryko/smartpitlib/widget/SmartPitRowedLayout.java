@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 
 /**
  * Created by piotr on 12.05.14.
+ *
+ * View group that measure its childrens and position them in horizontal lines.
+ * If child width is bigger than available space in row, child is added in another row.
  */
 
 public class SmartPitRowedLayout extends ViewGroup {
@@ -27,7 +30,7 @@ public class SmartPitRowedLayout extends ViewGroup {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         assert (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED);
 
-        final int width = MeasureSpec.getSize(widthMeasureSpec);
+        int width = MeasureSpec.getSize(widthMeasureSpec);
         // ..heightMeasureSpec = MeasureSpec.makeMeasureSpec(heightMeasured, MeasureSpec.AT_MOST);
 
         // The next line is WRONG!!! Doesn't take into account requested MeasureSpec mode!
@@ -36,8 +39,8 @@ public class SmartPitRowedLayout extends ViewGroup {
         final int count = getChildCount();
         int line_height = 0;
 
-        int xpos = getPaddingLeft();
-        int ypos = getPaddingTop();
+        int xpos = 0;
+        int ypos = 0;
 
         for (int i = 0; i < count; i++) {
             final View child = getChildAt(i);
@@ -59,7 +62,7 @@ public class SmartPitRowedLayout extends ViewGroup {
                 line_height = Math.max(line_height, child.getMeasuredHeight() + lp.height);
 
                 if (xpos + childw > width) {
-                    xpos = getPaddingLeft();
+                    xpos = 0;
                     ypos += line_height;
                 }
 

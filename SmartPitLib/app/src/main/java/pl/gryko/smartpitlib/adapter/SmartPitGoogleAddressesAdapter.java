@@ -92,7 +92,7 @@ public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> impleme
 
     /**
      * returns item name at given position
-     * @param index
+     * @param index index of item
      * @return String returns google formatted_address
      */
     public String getItem(int index) {
@@ -102,7 +102,7 @@ public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> impleme
     /**
      * return SmartPitGoogleAddress model object at given position
      * @param index int index of element to return
-     * @return
+     * @return SmartPitGoogleAddress ad position
      */
     public SmartPitGoogleAddress getPoint(int index) {
         return list.get(index);
@@ -210,7 +210,12 @@ public class SmartPitGoogleAddressesAdapter extends ArrayAdapter<String> impleme
     }
 
 
-    private void populateResult(SmartPitGoogleAddress element, ArrayList<SmartPitGoogleAddress> list) {
+    /**
+     * populates result to list. Can be owerriden by custom implementation
+     * @param element Element to add
+     * @param list list to populate
+     */
+    public void populateResult(SmartPitGoogleAddress element, ArrayList<SmartPitGoogleAddress> list) {
         list.add(element);
 
     }

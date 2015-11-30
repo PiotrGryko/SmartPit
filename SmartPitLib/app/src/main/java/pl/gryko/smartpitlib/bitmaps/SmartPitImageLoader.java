@@ -1,9 +1,11 @@
 package pl.gryko.smartpitlib.bitmaps;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,15 +17,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import pl.gryko.smartpitlib.SmartPitActivity;
 import pl.gryko.smartpitlib.widget.Log;
+import pl.gryko.smartpitlib.widget.SmartImageView;
+import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
+
 
 /**
  * Created by piotr on 19.05.14.
  *
  * Main images loading class. It feches images from http and saves them in memory. Serves them from local or disk memory if available.
- *
- *
- *
  */
 public class SmartPitImageLoader {
 
@@ -56,7 +59,8 @@ public class SmartPitImageLoader {
 
     /**
      * Constructor, takes RequestQueue to manage http images feching, and SmartPitBitmapCache for memory managing
-     * @param queue RequestQueue for http feching
+     *
+     * @param queue      RequestQueue for http feching
      * @param imageCache SmartPitBitmapCache for memory managing
      */
     public SmartPitImageLoader(RequestQueue queue, SmartPitBitmapCache imageCache) {
@@ -79,10 +83,11 @@ public class SmartPitImageLoader {
 
         /**
          * Construktor
-         * @param bitmap Loaded Bitmap
+         *
+         * @param bitmap     Loaded Bitmap
          * @param requestUrl String url
-         * @param cacheKey String cache key
-         * @param listener SmartImagesListener
+         * @param cacheKey   String cache key
+         * @param listener   SmartImagesListener
          */
         public SmartImageContainer(Bitmap bitmap, String requestUrl,
                                    String cacheKey, SmartImagesListener listener) {
@@ -131,7 +136,7 @@ public class SmartPitImageLoader {
 
 
     /**
-     *  Cache feching async task
+     * Cache feching async task
      */
     private class CacheTask extends AsyncTask {
 
@@ -183,17 +188,17 @@ public class SmartPitImageLoader {
      * Disk cache feching result is returned in SmartImagesListener. If bitmap is nota available in cache, it is feched from
      * http using volley ImageRequest. The same like async cache loading, method first check if ImageRequest with current
      * url is already running, if yes it populates request with fresh container, if not new request is started.
-     * @param requestUrl String url to image
+     *
+     * @param requestUrl    String url to image
      * @param imageListener ImageListener that will receive loading result
-     * @param maxWidth max image width for image scailing
-     * @param maxHeight max image height for image scaling
+     * @param maxWidth      max image width for image scailing
+     * @param maxHeight     max image height for image scaling
      * @return
      */
     public SmartImageContainer get(String requestUrl, SmartImagesListener imageListener,
                                    int maxWidth, int maxHeight) {
 
 
-        Log.d(TAG, "get method for " + requestUrl);
         throwIfNotOnMainThread();
         // final String cacheKey = getCacheKey(requestUrl, maxWidth, maxHeight);
         final String cacheKey = requestUrl;
@@ -201,15 +206,12 @@ public class SmartPitImageLoader {
 
         Bitmap tmp = mCache.isLocalCached(cacheKey);
         if (tmp != null) {
-            Log.d(TAG,"bitmap is cached in local Memory");
             SmartImageContainer imageContainer =
                     new SmartImageContainer(tmp, requestUrl, cacheKey, imageListener);
             imageContainer.mListener.onResponse(imageContainer, true);
             return imageContainer;
 
-        } else
-
-        if (mCache.isDiskCached(cacheKey)) {
+        } else if (mCache.isDiskCached(cacheKey)) {
 
             CacheTask request = null;
             SmartImageContainer container = new SmartImageContainer(null, requestUrl, cacheKey, imageListener);
@@ -217,7 +219,6 @@ public class SmartPitImageLoader {
 
             request = mInFlightCacheRequests.get(cacheKey);
             if (request != null) {
-                Log.d(SmartPitImageLoader.class.getName(), "cache reguest inflight!");
                 request.containers.add(container);
                 return container;
 
@@ -233,7 +234,6 @@ public class SmartPitImageLoader {
 
         }
 
-        Log.d(TAG, "bitmap not cached!");
 
         // The bitmap did not exist in the cache, fetch it!
         SmartImageContainer imageContainer =
@@ -408,6 +408,49 @@ public class SmartPitImageLoader {
         }
     }
 
+    public static void setImage(Context context, SmartImageView imageView,
+                                final String url, final int width, final int height) {
+
+
+        final SmartPitImagesListener li = new SmartPitImagesListener(context, url,
+                imageView);
+
+        SmartPitActivity.getImageLoader()
+                .get(url, li, width, height);
+
+    }
+
+    public static void setImageForListView(final Context context, final SmartImageView image_view, String url, int width, int height, final Object position) {
+
+        image_view.getImageView().setTag(position);
+
+
+        final SmartPitImageLoader.SmartImagesListener li = new SmartPitImagesListener(context, url, image_view) {
+            @Override
+            public void onErrorResponse(VolleyError arg0) {
+                // super.onErrorResponse(arg0);
+                image_view.setVisibility(View.GONE);
+                image_view.showErrorImage();
+                SmartPitAppHelper.showViewWithAnimation(image_view,300);
+            }
+
+            @Override
+            public void onResponse(SmartPitImageLoader.SmartImageContainer arg0, boolean arg1) {
+                // super.onResponse(arg0, arg1);
+
+                if (arg0.getBitmap() != null) {
+                    if (image_view.getImageView().getTag() == position) {
+                        image_view.setImageBitmap(arg0.getBitmap());
+                        image_view.setVisibility(View.GONE);
+                        SmartPitAppHelper.showViewWithAnimation(image_view,300);
+                    }
+                }
+            }
+        };
+
+        SmartPitActivity.getImageLoader()
+                .get(url, li, width, height);
+    }
 /*
     private static String getCacheKey(String url, int maxWidth, int maxHeight) {
         return new StringBuilder(url.length() + 12).append("#W").append(maxWidth)

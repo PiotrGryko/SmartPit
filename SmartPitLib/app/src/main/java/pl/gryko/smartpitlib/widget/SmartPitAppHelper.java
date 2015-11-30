@@ -1,53 +1,40 @@
 package pl.gryko.smartpitlib.widget;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.math.BigDecimal;
-import java.net.URL;
-import java.net.URLConnection;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
-import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.binary.StringUtils;
-import org.apache.commons.codec.digest.DigestUtils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
-import android.graphics.BitmapFactory;
+
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.os.AsyncTask;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.text.Html;
-import android.view.KeyEvent;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
@@ -57,63 +44,38 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
-import pl.gryko.smartpitlib.SmartPitActivity;
-import pl.gryko.smartpitlib.bitmaps.SmartPitImageLoader;
-import pl.gryko.smartpitlib.bitmaps.SmartPitImagesListener;
-import pl.gryko.smartpitlib.fragment.SmartPitBaseFragment;
-import pl.gryko.smartpitlib.interfaces.SmartPitFragmentsInterface;
-import pl.gryko.smartpitlib.schedule.SmartPitScheduleDataReceiver;
-import pl.gryko.smartpitlib.schedule.SmartPitScheduledIntentService;
+/**
+ * Collection of usefull static methods.
+ */
 
 public class SmartPitAppHelper {
 
     private static String TAG = SmartPitAppHelper.class.getName();
 
-    private static Context context;
-    private static ConnectivityManager cm;
-    private static DecimalFormat df;
-    private static SharedPreferences pref;
-    private static SmartPitAppHelper instance;
 
-    public SmartPitAppHelper(Context con) {
-        context = con;
-        cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        df.setMinimumFractionDigits(2);
-
-        DecimalFormatSymbols custom = new DecimalFormatSymbols();
-        custom.setDecimalSeparator('.');
-        df.setDecimalFormatSymbols(custom);
-
-        pref = PreferenceManager.getDefaultSharedPreferences(context);
-
-    }
-
-
-    public static SmartPitAppHelper getInstance(Context c) {
-        if (instance == null)
-            instance = new SmartPitAppHelper(c);
-        return instance;
-    }
-
-    public boolean validateEmail(String email) {
+    /**
+     * Checks if given String maches Email pattern
+     * @param email String to check
+     * @return true if argument is email String
+     */
+    public static boolean validateEmail(String email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
 
     }
 
-    public boolean showViewWithAnimation(View v) {
+    /**
+     * Shows view with fade animation
+     * @param v View to show
+     * @param duration Duration of fade animation
+     * @return false if view was already visible, true otherwise
+     */
+    public static boolean showViewWithAnimation(View v, long duration) {
         if (v.getVisibility() == View.VISIBLE) {
             Log.d(TAG, "view is already visible");
             return false;
@@ -122,28 +84,19 @@ public class SmartPitAppHelper {
         Log.d(TAG, "show view with animation");
         v.setVisibility(View.VISIBLE);
         Animation animation = new AlphaAnimation(0.0f, 1.0f);
-        animation.setDuration(300 * 1);
+        animation.setDuration(duration);
         //animation.setFillAfter(true);
         v.startAnimation(animation);
         return true;
     }
 
-    public Typeface loadTypeFaceFromAssets(String filename) {
-        Typeface face = Typeface.createFromAsset(context.getAssets(), filename);
-        return face;
-    }
-
-    public boolean toogleViewWithAnimation(View v) {
-        if (v.getVisibility() == View.VISIBLE) {
-            hideViewWithAnimation(v);
-            return false;
-        } else {
-            showViewWithAnimation(v);
-            return true;
-        }
-    }
-
-    public boolean hideViewWithAnimation(final View v) {
+    /**
+     * Hides view with fade animation
+     * @param v View to show
+     * @param duration Duration of fade animation
+     * @return false if view was already gone, true otherwise
+     */
+    public static boolean hideViewWithAnimation(final View v, long duration) {
 
 
         if (v.getVisibility() == View.GONE) {
@@ -168,7 +121,7 @@ public class SmartPitAppHelper {
 
             }
         });
-        animation.setDuration(300 * 1);
+        animation.setDuration(duration);
         animation.setFillAfter(true);
         v.startAnimation(animation);
 
@@ -176,11 +129,56 @@ public class SmartPitAppHelper {
 
     }
 
-    public NumberFormat getDecimalFormat() {
+    /**
+     * Toggle view with fade animation
+     * @param v View to show
+     * @param duration Duration of fade animation
+     * @return false if view has been hidden, true otherwise
+     */
+    public static boolean toogleViewWithAnimation(View v, long duration) {
+        if (v.getVisibility() == View.VISIBLE) {
+            hideViewWithAnimation(v, duration);
+            return false;
+        } else {
+            showViewWithAnimation(v, duration);
+            return true;
+        }
+    }
+
+    /**
+     * Loads font from assets.
+     * @param context Context
+     * @param filename String name of font file ie. 'font.otf'
+     * @return Typeface loaded from assets
+     */
+    public static Typeface loadTypeFaceFromAssets(Context context, String filename) {
+        Typeface face = Typeface.createFromAsset(context.getAssets(), filename);
+        return face;
+    }
+
+
+    /**
+     * Makes DecimalFormat with given separator and decimal places
+     * @param separator char separator for decimal places
+     * @param digits number of decimal places
+     * @return NumberFormat
+     */
+    public static NumberFormat getDecimalFormat(char separator, int digits) {
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(digits);
+        df.setMinimumFractionDigits(digits);
+
+        DecimalFormatSymbols custom = new DecimalFormatSymbols();
+        custom.setDecimalSeparator(separator);
+        df.setDecimalFormatSymbols(custom);
         return df;
     }
 
-    public void setListViewHeightBasedOnChildren(ListView listView) {
+    /**
+     * Methods sets ListView height base on its childrens. Can be usefull in nested scrolling cases
+     * @param listView ListView
+     */
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
             // pre-condition
@@ -201,21 +199,16 @@ public class SmartPitAppHelper {
     }
 
 
-    public void setImage(SmartImageView imageView,
-                         final String url, final int width, final int height) {
-
-
-        final SmartPitImagesListener li = new SmartPitImagesListener(context, url,
-                imageView);
-
-        Log.d(SmartPitImageLoader.class.getName(), "app helper get");
-        SmartPitActivity.getImageLoader()
-                .get(url, li, width, height);
-
-    }
-
-    public boolean isConnected() {
+    /**
+     * Checks internet connection
+     * @param context Context
+     * @return true if internet is available, false otherwise
+     */
+    public static boolean isConnected(Context context) {
         boolean isConnected = false;
+
+        ConnectivityManager cm = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
@@ -229,11 +222,23 @@ public class SmartPitAppHelper {
         return isConnected;
     }
 
-    public SharedPreferences getPreferences() {
+    /**
+     * shourtcut for shared preferecnce
+     * @param context Context
+     * @return SharedPreferences from context
+     */
+    public static SharedPreferences getPreferences(Context context) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         return pref;
     }
 
-    public String convertDecimalToDMS(double coordinate) {
+    /**
+     * Connverts double latitude or longitude to degree-minute-second
+     * @param coordinate Coordinate to convert
+     * @param df DecimalFormat for output formatting
+     * @return String that respresents coordinate as DMS
+     */
+    public static String convertCoordinateToDMS(double coordinate, DecimalFormat df) {
         String result;
 
         BigDecimal bd = new BigDecimal(coordinate);
@@ -254,138 +259,86 @@ public class SmartPitAppHelper {
 
     }
 
-    public void saveDataToCache(final String data, final String filename) {
 
-        new Thread() {
-            public void run() {
-
-                File f = new File(
-                        context.getApplicationContext().getCacheDir(), filename);
-                FileOutputStream fos;
-                try {
-                    fos = new FileOutputStream(f);
-                    fos.write(data.getBytes());
-                    fos.flush();
-                    fos.close();
-
-                } catch (Throwable t) {
-                    // TODO Auto-generated catch block
-                    Log.d(TAG,
-                            "error while saving data to cache " + t.toString());
-
-                }
-
-                Log.d(TAG, "data saved to cache!");
-
-            }
-        }.start();
-
-    }
-
-    public String loadDataFromCache(String filename) {
-        File f = new File(context.getApplicationContext().getCacheDir(),
-                filename);
-        if (!f.exists()) {
-            Log.d(TAG, "can`t load data from cache, file doesn`t exits");
-
-            return "";
-        }
-
-        StringBuffer data = new StringBuffer();
-        String line;
-        try {
-            FileInputStream fis = new FileInputStream(f);
-            DataInputStream dis = new DataInputStream(fis);
-
-            while ((line = dis.readLine()) != null) {
-                data.append(line);
-            }
-            dis.close();
-            fis.close();
-
-        } catch (Throwable t) {
-            // TODO Auto-generated catch block
-            Log.d(TAG, "can`t load data from cache, error while reading data");
-            return "";
-        }
-        Log.d(TAG, "data loaded from cache");
-
-        return data.toString();
-
-    }
-
-    public boolean isTablet() {
+    /**
+     * method chechs if current device is tablet
+     * @param context Context
+     * @return true if tablet device, false otherwise
+     */
+    public static boolean isTablet(Context context) {
         boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == 4);
         boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
         return (xlarge || large);
     }
 
-    public void resumeFocus(final View view,
-                            final SmartPitFragmentsInterface listener) {
 
-        if (view == null)
-            return;
-
-
-        Log.d(TAG, "resume focus " + view.toString());
-
-        view.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                Log.d(TAG, "focus changed! " + Boolean.toString(hasFocus));
-//                if(!hasFocus)
-                //                  view.requestFocus();
-                // view.re
+    /**
+     * Returns screen width
+     * @param context Activity
+     * @return int screen width
+     */
+    public static int getScreenWidth(Activity context) {
+        WindowManager w = context.getWindowManager();
+        Display d = w.getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        d.getMetrics(metrics);
+// since SDK_INT = 1;
+        int widthPixels = metrics.widthPixels;
+// includes window decorations (statusbar bar/menu bar)
+        if (Build.VERSION.SDK_INT >= 14 && Build.VERSION.SDK_INT < 17)
+            try {
+                widthPixels = (Integer) Display.class.getMethod("getRawWidth").invoke(d);
+            } catch (Exception ignored) {
             }
-        });
-
-
-        view.setFocusableInTouchMode(true);
-
-        view.requestFocus();
-        view.requestFocusFromTouch();
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-
-            @Override
-            public boolean onLongClick(View v) {
-
-                return true;
+// includes window decorations (statusbar bar/menu bar)
+        if (Build.VERSION.SDK_INT >= 17)
+            try {
+                Point realSize = new Point();
+                Display.class.getMethod("getRealSize", Point.class).invoke(d, realSize);
+                widthPixels = realSize.x;
+            } catch (Exception ignored) {
             }
-        });
-        view.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int keyCode, KeyEvent event) {
-                if (keyCode != KeyEvent.KEYCODE_BACK)
-                    return false;
-
-                if (event.getAction() == KeyEvent.ACTION_UP) {
-                    Log.d(TAG, "back pressed " + listener.toString());
-                    if (listener == null)
-                        return true;
-
-                    if (!(listener.getCurrentFragment() instanceof SmartPitBaseFragment))
-                        if (listener.getCurrentFragment().onBackPressed())
-                            return true;
-
-                    listener.getManager().popBackStack();
-                    if (listener.getManager().getBackStackEntryCount() == 0)
-                        listener.getSmartActivity().onBackPressed();
-                }
-                return true;
-            }
-        });
+        return widthPixels;
     }
 
-    public int getScreenWidth() {
-        return context.getResources().getDisplayMetrics().widthPixels;
-    }
+    /**
+     * Returns screen height
+     * @param context ACtivity
+     * @return int screen height
+     */
+    public static int getScreenHeight(Activity context) {
+        WindowManager w = context.getWindowManager();
+        Display d = w.getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        d.getMetrics(metrics);
+// since SDK_INT = 1;
+        int heightPixels = metrics.heightPixels;
+// includes window decorations (statusbar bar/menu bar)
+        if (Build.VERSION.SDK_INT >= 14 && Build.VERSION.SDK_INT < 17)
+            try {
+                heightPixels = (Integer) Display.class.getMethod("getRawHeight").invoke(d);
+            } catch (Exception ignored) {
+            }
+// includes window decorations (statusbar bar/menu bar)
+        if (Build.VERSION.SDK_INT >= 17)
+            try {
+                Point realSize = new Point();
+                Display.class.getMethod("getRealSize", Point.class).invoke(d, realSize);
+                heightPixels = realSize.y;
+            } catch (Exception ignored) {
+            }
 
-    public int getScreenHeight() {
-        return context.getResources().getDisplayMetrics().heightPixels;
+
+        return heightPixels;
     }
 
 
-    public void stripView(View view, boolean recycle) {
+    /**
+     * strips view group from drawables to recover memory
+     * @param view View to strip
+     * @param recycle true if bitmaps should be recycled, false otherwise
+     */
+    public static void stripView(View view, boolean recycle) {
 
         if (view != null) {
 
@@ -410,7 +363,12 @@ public class SmartPitAppHelper {
         }
     }
 
-    public void stripViewGroup(View v, boolean recycle) {
+    /**
+     * Strips whole ViewGroup from drawables
+     * @param v ViewGroup to strip
+     * @param recycle true if bitmaps should be recycles, false otherwise
+     */
+    public static void stripViewGroup(View v, boolean recycle) {
 
         if (v != null) {
             if (v instanceof ViewGroup) {
@@ -424,26 +382,19 @@ public class SmartPitAppHelper {
     }
 
 
-    public void initScheduledService(int delay, SmartPitScheduledIntentService.ScheduleTaskListener listener) {
-
-        SmartPitScheduledIntentService.setTaskListener(listener);
-        SmartPitScheduleDataReceiver.setDelay(delay);
-        context.sendBroadcast(new Intent(context, SmartPitScheduleDataReceiver.class));
-
-    }
-
-    public void stopScheduledService() {
-        SmartPitScheduleDataReceiver.stopService();
-    }
-
-    public boolean checkPlayServices(Activity activity) {
+    /**
+     * Check if current device has google play service available
+     * @param activity Activity
+     * @return true if google play services are available, false otherwise
+     */
+    public static boolean checkPlayServices(Activity activity) {
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(activity);
         if (resultCode != ConnectionResult.SUCCESS) {
             if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
                 GooglePlayServicesUtil.getErrorDialog(resultCode, activity,
                         9000).show();
             } else {
-                Log.i(TAG, "This device is not supported.");
+                pl.gryko.smartpitlib.widget.Log.i(TAG, "This device is not supported.");
 
             }
             return false;
@@ -452,7 +403,12 @@ public class SmartPitAppHelper {
     }
 
 
-    public String deserialize(String tokenString) {
+    /**
+     * Methods deserializes json web token
+     * @param tokenString String token to decode
+     * @return Json  String builded from token
+     */
+    public static String deserializeJsonWebToken(String tokenString) {
         String[] pieces = splitTokenString(tokenString);
         String jwtPayloadSegment = pieces[1];
         JsonParser parser = new JsonParser();
@@ -460,7 +416,7 @@ public class SmartPitAppHelper {
         return payload.toString();
     }
 
-    private String[] splitTokenString(String tokenString) {
+    private static String[] splitTokenString(String tokenString) {
         String[] pieces = tokenString.split(Pattern.quote("."));
         if (pieces.length != 3) {
             throw new IllegalStateException("Expected JWT to have 3 segments separated by '"
@@ -469,7 +425,12 @@ public class SmartPitAppHelper {
         return pieces;
     }
 
-    public String getCurrentIpAddress() {
+    /**
+     * Returns device current ip address
+     * @param context Context
+     * @return String ip address
+     */
+    public static String getCurrentIpAddress(Context context) {
         WifiManager wifiMan = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInf = wifiMan.getConnectionInfo();
         int ipAddress = wifiInf.getIpAddress();
@@ -478,6 +439,10 @@ public class SmartPitAppHelper {
         return ip;
     }
 
+    /**
+     * Method prints facebook hash
+     * @param context Context
+     */
     public static void printFacebookHashKey(Context context) {
         try {
             PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);

@@ -295,7 +295,6 @@ public class SmartBitmapsHelper {
                     fos.flush();
                     fos.close();
 
-                    Log.d(TAG, filename + " bitmap saved to cache");
 
                 } catch (Throwable e) {
                     // TODO Auto-generated catch block
@@ -343,7 +342,6 @@ public class SmartBitmapsHelper {
                             height);
 
 
-                    Log.d(TAG, filename + " bitmap loaded from cache");
                     return b;
                 } catch (Throwable e) {
                     Log.d(TAG,

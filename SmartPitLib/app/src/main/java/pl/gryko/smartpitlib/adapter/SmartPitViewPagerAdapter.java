@@ -9,17 +9,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 
-
 import java.util.ArrayList;
 
 import pl.gryko.smartpitlib.widget.Log;
 
 /**
  * Created by piotr on 14.04.15.
- * 
+ *
  * Adapter for ViewPager. Can be used in SmartPitPagerFragment instead of SmartPitPagerAdapter.
  * I prefer to hold views instead of fragments in view pager because it works much faster.
- *
  */
 public class SmartPitViewPagerAdapter extends PagerAdapter {
 
@@ -35,9 +33,9 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
 
     /**
      * Constructor takes Context and ArrayList of views to be display in ViewPager
-     * @param context Context
-     * @param list ArrayList<View> on views
      *
+     * @param context Context
+     * @param list    ArrayList View  on views
      */
     public SmartPitViewPagerAdapter(Context context,
                                     ArrayList<View> list) {
@@ -49,7 +47,6 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
     }
 
 
-
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == ((View) object);
@@ -57,13 +54,22 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
 
     /**
      * removes view from ViewPager container.
+     *
      * @param container ViewGroup container
-     * @param position position of element in ViewPager
-     * @param object Object from position
+     * @param position  position of element in ViewPager
+     * @param object    Object from position
      */
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView(list.get(position));
+        ((ViewPager) container).removeView((View) object);
+
+    }
+
+    public int getItemPosition(Object object) {
+        if (list.contains(object))
+            return PagerAdapter.POSITION_UNCHANGED;
+        else
+            return PagerAdapter.POSITION_NONE;
 
     }
 
@@ -74,6 +80,7 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
 
     /**
      * Method that can be overriden by custom implementation. In example it allaws to init widgets and logic of given layout
+     *
      * @param v View from position
      */
     public void initView(View v) {
@@ -81,8 +88,9 @@ public class SmartPitViewPagerAdapter extends PagerAdapter {
 
     /**
      * method to init view. Adds initialized element to container ViewPager
+     *
      * @param container ViewGroup container
-     * @param position position of current element
+     * @param position  position of current element
      * @return View to be displayed
      */
     @Override

@@ -13,6 +13,9 @@ import pl.gryko.smartpitlib.fragment.SmartPitPagerFragment;
 
 /**
  * Created by piotr on 05.11.14.
+ *
+ * TabHost indicator that by default swipes indicator view along with view pager swipes.
+ *
  */
 public class SmartPitTabHostIndicator extends LinearLayout {
 
@@ -37,11 +40,20 @@ public class SmartPitTabHostIndicator extends LinearLayout {
     private SmartPitPagerFragment.OnSwipeListener listener;
 
 
+    /**
+     * Set current tab
+     * @param tab
+     */
     public void setCurrentTab(int tab) {
         offset = getTabsOffset(tab);
         updateChildren(tab, 0);
     }
 
+    /**
+     * return x offset of tab based on siblings width.
+     * @param current
+     * @return
+     */
     private int getTabsOffset(int current) {
         int sum = 0;
         if (tabs == null)
@@ -54,6 +66,10 @@ public class SmartPitTabHostIndicator extends LinearLayout {
         return sum;
     }
 
+    /**
+     * Set swipes listener to track swipe
+     * @param listener
+     */
     public void setSwipeListener(SmartPitPagerFragment.OnSwipeListener listener) {
         this.listener = listener;
     }
@@ -68,8 +84,13 @@ public class SmartPitTabHostIndicator extends LinearLayout {
         this.context = context;
     }
 
+    /**
+     * Inits view.
+     * @param tabHost TabHost
+     * @param indicatorView View to use as swipe indicator
+     * @param wrapChildrens true if tabwidget childrens should be WRAP_CONTENT
+     */
     public void initView(final TabHost tabHost, final View indicatorView, final boolean wrapChildrens) {
-        Log.d(TAG,"init tabhost view");
         //    ((LayoutParams) tabWidget.getLayoutParams()).weight = 0;
         this.tabHost = tabHost;
         this.tabWidget = tabHost.getTabWidget();
@@ -87,20 +108,17 @@ public class SmartPitTabHostIndicator extends LinearLayout {
 
         }
 
-        Log.d(TAG,"start adding layout observer");
 
 
         tabWidget.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                Log.d(TAG, "on global layout");
 
                 tabs = new int[tabWidget.getChildCount()];
                 int sum = 0;
 
                 for (int i = 0; i < tabWidget.getChildCount(); i++) {
                     tabs[i] = tabWidget.getChildTabViewAt(i).getWidth();
-                    Log.d(TAG, "width of child element " + tabs[i]);
                     sum += tabs[i];
                 }
                 LinearLayout.LayoutParams widgetParams = new LayoutParams(sum, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -128,6 +146,11 @@ public class SmartPitTabHostIndicator extends LinearLayout {
 
     }
 
+    /**
+     * update indicator position
+     * @param position tab position
+     * @param movement double movement from 0.0 to 1.0
+     */
     public void updateChildren(int position, double movement) {
 
 
@@ -167,7 +190,6 @@ public class SmartPitTabHostIndicator extends LinearLayout {
 
         invalidate();
 
-        Log.d(TAG, "offset " + offset + " current margis movement " + currentMargins * movement);
         indicatorView.layout(offset, 0, tabs[position] + (int) (offset + currentMargins * movement), indicatorView.getHeight());
         indicatorView.invalidate();
 

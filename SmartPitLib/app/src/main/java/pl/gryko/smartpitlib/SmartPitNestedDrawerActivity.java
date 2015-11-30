@@ -11,7 +11,7 @@ import pl.gryko.smartpitlib.fragment.SmartPitFragment;
 /**
  * Created by piotr on 08.04.15.
  *
- * SmartPitActivity with nested left & right NavigationDrawer
+ * SmartPitActivity with nested left and right NavigationDrawer
  *
  * minimal sample:
  *

@@ -33,14 +33,16 @@ public class SmartPitImagesListener implements SmartPitImageLoader.SmartImagesLi
 
         this.imageView = image;
 
+        this.imageView.setTag(this.filename);
+
     }
 
     @Override
     public void onErrorResponse(VolleyError arg0) {
         // TODO Auto-generated method stub
 
-        if(imageView!=null)
-        imageView.showErrorImage();
+        if (imageView != null)
+            imageView.showErrorImage();
 
 
     }
@@ -49,15 +51,16 @@ public class SmartPitImagesListener implements SmartPitImageLoader.SmartImagesLi
     public void onResponse(SmartPitImageLoader.SmartImageContainer arg0, boolean arg1) {
         // TODO Auto-generated method stub
 
-        Log.d(TAG, "onResponse "+Boolean.toString(arg1));
+        Log.d(TAG, "onResponse " + Boolean.toString(arg1));
 
         final Bitmap b = arg0.getBitmap();
 
         if (imageView != null) {
-            imageView.setVisibility(View.GONE);
-            imageView.setImageBitmap(b);
-            SmartPitAppHelper.getInstance(context).showViewWithAnimation(imageView);
-
+            if (imageView.getTag() == filename) {
+                imageView.setVisibility(View.GONE);
+                imageView.setImageBitmap(b);
+                SmartPitAppHelper.showViewWithAnimation(imageView,300);
+            }
         }
 
 

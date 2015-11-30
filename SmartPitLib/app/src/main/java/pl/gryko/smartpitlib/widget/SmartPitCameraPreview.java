@@ -9,6 +9,8 @@ import java.io.IOException;
 
 /**
  * Created by piotr on 06.05.14.
+ * Class extends SurfaceView and holds camera camera instance and its callbacks.
+ * SmartPitCameraPreview is used in SmartPitQRFragment as camera preview for scanning qr codes
  */
 public class SmartPitCameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceHolder mHolder;
@@ -16,6 +18,13 @@ public class SmartPitCameraPreview extends SurfaceView implements SurfaceHolder.
     private Camera.PreviewCallback previewCallback;
     private Camera.AutoFocusCallback autoFocusCallback;
 
+    /**
+     * Constructor
+     * @param context Context
+     * @param camera Camera instance
+     * @param previewCb Camera.PreviewCallback callback
+     * @param autoFocusCb Camera.AutoFocusCallback callback
+     */
     public SmartPitCameraPreview(Context context, Camera camera,
                          Camera.PreviewCallback previewCb,
                          Camera.AutoFocusCallback autoFocusCb) {
@@ -31,6 +40,10 @@ public class SmartPitCameraPreview extends SurfaceView implements SurfaceHolder.
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
+    /**
+     * invoked when surface is created
+     * @param holder SurfaceHolder
+     */
     public void surfaceCreated(SurfaceHolder holder) {
         try {
             mCamera.setPreviewDisplay(holder);
@@ -39,8 +52,14 @@ public class SmartPitCameraPreview extends SurfaceView implements SurfaceHolder.
         }
     }
 
+    /**
+     * invokes when surfaceView is destroyed
+     * @param holder SurfaceHolder
+     */
     public void surfaceDestroyed(SurfaceHolder holder) {
     }
+
+
 
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 

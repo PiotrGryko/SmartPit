@@ -12,6 +12,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+/**
+ * Deprecated use NavigtaionDrawer instead
+ */
+
 import pl.gryko.smartpitlib.SmartPitMenuActivity;
 
 

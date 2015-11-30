@@ -13,6 +13,7 @@ import org.apache.http.impl.client.RequestWrapper;
 
 import java.util.ArrayList;
 
+import pl.gryko.smartpitlib.bitmaps.SmartPitImageLoader;
 import pl.gryko.smartpitlib.widget.SmartImageView;
 import pl.gryko.smartpitlib.widget.SmartPitAppHelper;
 import pl.gryko.smartpitlib.widget.SmartPitCoverFlow;
@@ -45,7 +46,7 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
      * Constructor
      * @param context Context
      * @param listener SmartPitCoverFlow.OnCoverFlowItemClickListener listener that will be invoked on cover flow element click
-     * @param urls ArrayList<String> list of urls to load in gallery
+     * @param urls ArrayList String list of urls to load in gallery
      * @param width int max width to scale loaded image, 0 if image shouldn`t be scaled
      * @param height int max height to scale loaded image, 0 if image shouldn`t be scaled
      */
@@ -123,7 +124,7 @@ public class SmartPitCoverFlowAdapter extends BaseAdapter {
             holder = (ViewHolder) image.getTag();
 
         }
-        SmartPitAppHelper.getInstance(context).setImage(holder.image, list.get(position), width,
+        SmartPitImageLoader.setImage(context, holder.image, list.get(position), width,
                 height);
 
         final int p = position;
